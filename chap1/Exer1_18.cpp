@@ -1,23 +1,27 @@
 #include <iostream>
+
 int main()
 {
-	int lower,upper;
-	int v1, v2;
-	std::cout << "Input two numbers:" << std::endl;
-	std::cin >> v1 >> v2;
-	if(v1 <= v2)
+	// currVal is the number we're counting; we'll read new values into val
+	int currVal = 0, val = 0;
+	// read first number and ensure that we have data to process
+	if(std::cin >> currVal)
 	{
-		lower = v1;
-		upper = v2;
-	}
-	else
-	{
-		lower = v2; 
-		upper = v1;
-	}
-	for(int i = lower; i <= upper; i++)
-	{
-		std::cout << i << " ";
+		int cnt = 1;
+		while(std::cin >> val)
+		{
+			if(val == currVal)
+				++cnt;
+			else
+			{
+				std::cout << currVal << " occurs "
+				          << cnt << " times" << std::endl;
+				currVal = val;
+				cnt = 1;
+			}
+		}
+		std::cout << currVal << " occurs "
+		          << cnt << " times" << std::endl;
 	}
 	return 0;
 }

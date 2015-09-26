@@ -1,3 +1,4 @@
+// Expired: this is an exercise from 4th edition.
 #include <iostream>
 int main()
 {
