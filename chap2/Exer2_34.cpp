@@ -1,7 +1,6 @@
 // Warning: This is for verifying. It cannot be compiled successfully by every compiler.
 // The problem lies in line 29, 30, 31.
 #include<iostream>
-
 int main()
 {
 	int i = 0, &r = i;

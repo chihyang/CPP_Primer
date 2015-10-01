@@ -1,10 +1,6 @@
 // Rewrite of Exer1.20
 #include <iostream>
-struct Sales_data {
-	std::string bookNo;
-	unsigned units_sold = 0;
-	double revenue = 0.0;
-};
+#include "Sales_data.h"
 int main()
 {
 	Sales_data book;
@@ -13,8 +9,9 @@ int main()
 	{
 		book.revenue = price * book.units_sold;
 		std::cout << book.bookNo << " "
-		          << book.units_sold << " "
+		          << book.units_sold << " " 
 				  << book.revenue << std::endl;
 	}
+	
 	return 0;
 }

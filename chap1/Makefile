@@ -19,6 +19,7 @@ CHAP1OBJS = $(OBJDIR)\Exer1_1.obj \
             $(OBJDIR)\Exer1_22.obj \
             $(OBJDIR)\Exer1_23.obj \
             $(OBJDIR)\Exer1_24.obj \
+			$(OBJDIR)\Exer1_25.obj \
             $(OBJDIR)\avg_price.obj
 
 CHAP1EXES = $(OBJDIR)\Exer1_1.exe \

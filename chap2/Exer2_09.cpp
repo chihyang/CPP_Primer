@@ -1,6 +1,5 @@
 // Warning: This is for verifying. It cannot be compiled successfully.
 #include<iostream>
-
 int main()
 {
 	// (a), it's illegal. 'Cause input_value isn't defined when the program tries to wite to it.

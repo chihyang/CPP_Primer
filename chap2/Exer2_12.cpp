@@ -1,5 +1,4 @@
 #include<iostream>
-
 int main()
 {
 	// (b), strange but legal, see underlinetest.cpp for more examples.

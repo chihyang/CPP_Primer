@@ -1,7 +1,6 @@
 // Warning: This is for verifying. It cannot be compiled successfully by every compiler.
 // The problem lies in line 12, 13.
 #include<iostream>
-
 int main()
 {
 	int i = 3;
