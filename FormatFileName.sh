@@ -1,6 +1,13 @@
+#!/bin/sh
 # Add prefix 0 before exercises' chapter number.
-for file in `ls`  
+for folder in `ls -F | grep '/'`  
 do
-    newfile =`echo $i | sed 's/\(^Exer\)\([1-9]\)/\10\2/'`
-    mv $file $newfile  
+	for file in `ls $folder | grep '.cpp'`
+	do
+		newfile=`echo $file | sed 's/\(^Exer\)\([1-9]\)/\10\2/'`
+		if [ "$folder$file"x != "$folder$newfile"x ]
+		then
+			mv $folder$file $folder$newfile
+		fi
+	done
 done
