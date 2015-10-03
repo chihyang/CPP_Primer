@@ -8,9 +8,12 @@ int main()
 {
 	string s;
 	cin >> s;
-	// If type of c is changed from 'auto &' to 'char', characters in s won't be changed.
-	for(char c : s)
-		c = 'X';
-	cout << s << endl;
+	if(!s.empty())
+	{
+		// If type of c is changed from 'auto &' to 'char', characters in s won't be changed.
+		for(char c : s)
+			c = 'X';
+		cout << s << endl;
+	}
 	return 0;
 }

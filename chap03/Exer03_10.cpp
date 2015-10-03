@@ -8,9 +8,12 @@ int main()
 {
 	string text;
 	getline(cin, text);
-	for(auto c : text)
-		if(!ispunct(c))
-			cout << c;
-	cout << endl;
+	if(!text.empty())
+	{
+		for(auto c : text)
+			if(!ispunct(c))
+				cout << c;
+		cout << endl;
+	}
 	return 0;
 }

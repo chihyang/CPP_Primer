@@ -18,7 +18,7 @@ int main()
 		upper = i1;
 		lower = i2;
 	}
-	//if you don't compare v1 and v2, result may be wrong.
+	// if you don't compare v1 and v2, result may be wrong.
 	// while loop
 	int iwhile = lower;
 	while(iwhile <= upper)

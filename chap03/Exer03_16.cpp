@@ -12,8 +12,9 @@ int main()
 	string s;
 	while(cin >> s)
 		v.push_back(s);
-	for(auto s : v) // auto can decuce string also
-		cout << s << " ";
+	for(auto s : v) // auto can also decuce string
+		if(!s.empty())
+			cout << s << " ";
 	cout << endl;
 	return 0;
 }

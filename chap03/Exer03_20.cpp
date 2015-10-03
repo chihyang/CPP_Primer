@@ -1,3 +1,5 @@
+// Tips: some situations must be considered carefully.
+// For example: What if vector is null? What if vector has only one element?
 #include <iostream>
 #include <vector>
 using std::cout;
@@ -12,21 +14,34 @@ int main()
 	{
 		v.push_back(i);
 	}
-	while(j < v.size() - 1)
+	if(v.size() > 0)
 	{
-		cout << v[j] + v[j + 1] << " ";
-		++j;
-	}
-	cout << endl;
-	j = 0;
-	while(j <= v.size() - 1 - j)
-	{
-		if(j < v.size() -1 - j)
-			cout << v[j] + v[v.size() - 1 - j] << " ";
+		if(v.size() > 1)
+		{
+			while(j < v.size() - 1)
+			{
+				cout << v[j] + v[j + 1] << " ";
+				++j;
+			}
+			cout << endl;
+			j = 0;
+			while(j <= v.size() - 1 - j)
+			{
+				if(j < v.size() -1 - j)
+					cout << v[j] + v[v.size() - 1 - j] << " ";
+				else
+					cout << v[j];
+				++j;
+			}
+			cout << endl;
+		}
 		else
-			cout << v[j];
-		++j;
+		{
+			cout << v[j] << endl;
+			cout << v[j] << endl;
+		}
 	}
-	cout << endl;
+	else
+		cout << "No elements!" << endl;
 	return 0;
 }

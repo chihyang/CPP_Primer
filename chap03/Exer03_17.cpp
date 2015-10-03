@@ -14,10 +14,13 @@ int main()
 		text.push_back(word);
 	for(string &s : text)
 	{
-		for(char &c : s)
+		if(!s.empty())
 		{
-			if(isalpha(c) && !isupper(c))
-				c = toupper(c); // !attention: toupper() doesn't change it's parameter
+			for(char &c : s)
+			{
+				if(isalpha(c) && !isupper(c))
+					c = toupper(c); // !attention: toupper() doesn't change it's parameter
+			}
 		}	
 	}
 	for(auto s : text)

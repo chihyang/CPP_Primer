@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It cannot be compiled successfully by every compiler.
+// Warning: This is for verifying. It CANNOT be compiled successfully by every compiler.
 // The problem lies in line 17.
 #include <iostream>
 #include <string>

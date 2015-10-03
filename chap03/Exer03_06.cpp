@@ -1,3 +1,4 @@
+// Make sure the string is not empty. That it doesn't matter here doesn't mean it's unnecessary.
 #include <iostream>
 #include <string>
 using std::cout;
@@ -8,8 +9,11 @@ int main()
 {
 	string s;
 	cin >> s;
-	for(auto &c : s)
-		c = 'X';
-	cout << s << endl;
+	if(!s.empty())
+	{
+		for(auto &c : s)
+			c = 'X';
+		cout << s << endl;
+	}
 	return 0;
 }
