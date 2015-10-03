@@ -1,7 +1,15 @@
 // Page 105, exercise 20
 // Tips: Some situations must be considered carefully.
-// For example: What if the vector is null? What if the vector has only one element?
+// For example: What if the vector is null? What if the vector has only one 
+// element?
 // Here using iterator is easier to prevent buffer overflow than subscript.
+// *********************************Key Points*********************************
+// Type of an iterator isn't the type of element in vector. If I try to 
+// substitute int* for auto below, like this:
+// int *j = v.begin();
+// compiler will throw an error. And from error info we can see clearly what the 
+// type of an iterator is.
+// ****************************************************************************
 #include <iostream>
 #include <vector>
 using std::cout;
