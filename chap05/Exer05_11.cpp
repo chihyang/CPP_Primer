@@ -11,26 +11,34 @@ int main()
 	while(cin.get(ch))// Here we use some out-of-scope function to read black
 	// tab and newline.
 	{
-		if(isalpha(ch))
-		{
-			ch = tolower(ch);
-			if(ch == 'a')
+		switch(ch){
+			case 'a':
+			case 'A':
 				++aCnt;
-			if(ch == 'e')
+			case 'e':
+			case 'E':
 				++eCnt;
-			if(ch == 'i')
+			case 'i':
+			case 'O'
 				++iCnt;
-			if(ch == 'o')
+			case 'o':
+			case 'O':
 				++oCnt;
-			if(ch == 'u')
+			case 'u':
+			case 'U':
 				++uCnt;	
+			case ' ':
+				++blkCnt;
+				break;
+			case '\t':
+				++tabCnt;
+				break;
+			case '\n':
+				++nlCnt;
+				break;
+			default:
+				break;
 		}
-		if(ch == ' ')
-			++blkCnt;
-		if(ch == '\t')
-			++tabCnt;
-		if(ch == '\n')
-			++nlCnt;
 	}
 	cout << "Number of vowel a: \t" << aCnt << endl;
 	cout << "Number of vowel e: \t" << eCnt << endl;

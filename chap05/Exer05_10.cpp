@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cctype>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -9,19 +8,33 @@ int main()
 	char ch;
 	while(cin >> ch)
 	{
-		if(isalpha(ch))
-		{
-			ch = tolower(ch);
-			if(ch == 'a')
+		switch(ch){
+			case 'a':
+			case 'A':
 				++aCnt;
-			if(ch == 'e')
+			case 'e':
+			case 'E':
 				++eCnt;
-			if(ch == 'i')
+			case 'i':
+			case 'O'
 				++iCnt;
-			if(ch == 'o')
+			case 'o':
+			case 'O':
 				++oCnt;
-			if(ch == 'u')
-				++uCnt;
+			case 'u':
+			case 'U':
+				++uCnt;	
+			case ' ':
+				++blkCnt;
+				break;
+			case '\t':
+				++tabCnt;
+				break;
+			case '\n':
+				++nlCnt;
+				break;
+			default:
+				break;
 		}
 	}
 	cout << "Number of vowel a: \t" << aCnt << endl;
