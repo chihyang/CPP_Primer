@@ -10,7 +10,7 @@ int main()
 	{
 		switch(ch) {
 			// Even if default precedes every case label, 
-			// it will also be executed.
+			// still it will be executed.
 			default:
 				++otherCnt;
 				break;

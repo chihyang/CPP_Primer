@@ -11,7 +11,7 @@ Every chapter is a bipartite collection: one part is solutions of exercises that
 
 Most files contain appropriate comments to help myself understand some key points.
 
-Not every file could be compiled successfully. Some programs are intended for repeating an error so that I can know definitely what is correct and what is not. Every program that cannot be compiled successfully begin with a WARNING comment like the following one:
+Not every file could be compiled successfully. Some programs are intended for repeating an error so that I can know definitely what is correct and what is not. Every program that cannot be compiled successfully begins with a WARNING comment like the following one:
 
 ```cpp
 // Warning: This is for verifying. It CANNOT be compiled successfully by every compiler.
