@@ -12,26 +12,22 @@ int main()
 			case 'a':
 			case 'A':
 				++aCnt;
+				break;
 			case 'e':
 			case 'E':
 				++eCnt;
+				break;
 			case 'i':
-			case 'O'
+			case 'I':
 				++iCnt;
+				break;
 			case 'o':
 			case 'O':
 				++oCnt;
+				break;
 			case 'u':
 			case 'U':
-				++uCnt;	
-			case ' ':
-				++blkCnt;
-				break;
-			case '\t':
-				++tabCnt;
-				break;
-			case '\n':
-				++nlCnt;
+				++uCnt;
 				break;
 			default:
 				break;
