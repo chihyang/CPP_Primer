@@ -1,5 +1,5 @@
 #!/bin/sh
-# Add object folder under every chapter folder.
+# Create chapter folder.
 for i in {1..9} 
 do
 	o="chap0$i" # No space between expressions and '=' 

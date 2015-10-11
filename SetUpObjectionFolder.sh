@@ -1,5 +1,5 @@
 #!/bin/sh
-# Add object folder under every chapter folder.
+# Add object folder under each chapter folder.
 for folder in `ls -F | grep "chap[0-9]"`  
 do
 	o="$folder/obj" # No space between expressions and '=' 

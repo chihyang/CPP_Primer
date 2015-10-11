@@ -18,6 +18,8 @@ Not every file could be compiled successfully. Some programs are intended for re
 // The problem lies in line XX.
 ```
 
+Here "every" means all the compilers I test(i.e. ```g++``` and ```cl```).
+
 Sometimes it depends on complier whether an error is an error. So the WARNING info might be a little different(but still lucid enough). If necessary, compiler info is appended to the end of such files to show details.
 
 Before or after line XX, there are comments for concrete explanation of the error. 
