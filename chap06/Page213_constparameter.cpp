@@ -40,4 +40,5 @@ int main()
 // ctr = 2147483648;
 // int j = ctr; // it's okay
 // But we cannot bind a reference to int to a variable of size_type, There is no
-// type conversion(in most cases) when we initialize a reference.
+// type conversion(except some exceptions about const) when we initialize a 
+// reference.
