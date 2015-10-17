@@ -6,19 +6,25 @@
 using std::string;
 using std::istream;
 using std::ostream;
-struct Person;
-istream& read(istream&, Person&);
 struct Person {
+	// friend declaration required by exercise 7.22
+	friend istream& read(istream& is, Person& psn);
+	friend ostream& print(ostream& os, const Person &psn);
+private:	
 	string name;
 	string addr;
+public:
 	// functions required by exercise 7.5
 	string getName() const { return name; }
 	string getAddr() const { return addr; }
 	// constructors required by exercise 7.15
 	Person() = default;
-	Person(const string& n, const string& a) : name(s), a(n) {}
-	Person(istream &is) { read(is, *this) }
+	Person(const string& nm, const string& ad) : name(nm), addr(ad) {}
+	Person(istream &is) { read(is, *this); }
 };
+// friend declaration
+istream& read(istream& is, Person& psn);
+ostream& print(ostream& os, Person& psn);
 // functions required by exercise 7.6
 istream& read(istream& is, Person &psn)
 {
