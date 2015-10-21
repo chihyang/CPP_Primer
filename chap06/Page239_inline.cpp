@@ -5,7 +5,7 @@
 #include "Page239_inline.h"
 using std::cout;
 using std::endl;
-constexpr int new_sz();
+constexpr int new_sz()
 {
 	return 42;
 }
@@ -43,8 +43,10 @@ int main()
 //  constexpr int new_sz()
 //                ^
 
-// Note: if line 9 to line 11 are commented, and line 8 is modified as 
+// Note: if line 9 to line 11 are commented, and a semicolon is appended to 
+// line 8:
 // constexpr int new_sz();
 // The program can be compiled successfully by g++, because it's just a 
 // redeclaration of the constexpr function new_sz(). But cl doesn't compile it 
-// and produce confusing error message.
+// and produce confusing error message as long as constexpr exists. Seems Visual
+// Studio 2013 doesn't support constant expression function perfectly.
