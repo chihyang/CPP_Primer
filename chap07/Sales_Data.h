@@ -22,7 +22,7 @@ public:
 	Sales_data(const string &s) : bookNo(s) {}
 	Sales_data(const string &s, unsigned n, double p) : 
 	    bookNo(s), units_sold(n), revenue(p*n) {}
-	Sales_data(istream &is) { read(is, *this); }
+	explicit Sales_data(istream &is) { read(is, *this); }
 	Sales_data& combine(const Sales_data& rhs);
 	string isbn() const { return bookNo; }
 	// member
@@ -67,6 +67,7 @@ ostream& print(ostream& os, const Sales_data& item)
 	   << item.units_sold << " "
 	   << item.revenue << " "
 	   << item.avg_price();
+	return os;
 }
 Sales_data add(const Sales_data& item1, const Sales_data& item2)
 {

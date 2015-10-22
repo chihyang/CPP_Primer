@@ -36,6 +36,7 @@ ostream& print(ostream& os, const Sales_data& item)
 	   << item.units_sold << " "
 	   << item.revenue << " "
 	   << item.avg_price();
+	return os;
 }
 istream& read(istream &is, Sales_data& item)
 {

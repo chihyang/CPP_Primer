@@ -76,6 +76,7 @@ ostream& print(ostream& os, const Sales_data& item)
 	   << item.units_sold << " "
 	   << item.revenue << " "
 	   << item.avg_price();
+	return os;
 }
 Sales_data add(const Sales_data& item1, const Sales_data& item2)
 {
