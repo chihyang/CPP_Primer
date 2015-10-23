@@ -1,11 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include "Sales_Data.h"
+using std::cerr;
 using std::endl;
 using std::ifstream;
 using std::ofstream;
 int main(int argc, char *argv[])
 {
+	if(argc != 3)
+	{
+		cerr << "Wrong input!" << endl;
+		return -1;
+	}
 	ifstream input(argv[1]); // open the file of sales transactions
 	ofstream output(argv[2]); // open the output file
 	Sales_data total; // variable to hold the running sum
