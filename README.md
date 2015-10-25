@@ -14,12 +14,10 @@ Most files contain appropriate comments to help myself understand some key point
 Not every file could be compiled successfully. Some programs are intended for repeating an error so that I can know definitely what is correct and what is not. Every program that cannot be compiled successfully begins with a WARNING comment like the following one:
 
 ```cpp
-// Warning: This is for verifying. It CANNOT be compiled successfully by every compiler.
+// Warning: This is for verifying. It CANNOT be compiled successfully by both compiler.
 // The problem lies in line XX.
 ```
 
-Here "every" means all the compilers I test(i.e. ```g++``` and ```cl```).
-
 Sometimes it depends on complier whether an error is an error. So the WARNING info might be a little different(but still lucid enough). If necessary, compiler info is appended to the end of such files to show details.
 
-Before or after line XX, there are comments for concrete explanation of the error. 
+Before or after ```line XX```, there are comments for concrete explanation of the error. 
