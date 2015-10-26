@@ -29,7 +29,7 @@ int main()
 {
 	forward_list<string> flst = { "The", "wrinkled", "sea", "beneath", "him", "crawls;\n", 
 	                              "He", "from", "his", "mountain", "walls,\n",
-								  "And", "like", "a", "thunderbolt", "he", "falls.\n" };
+	                              "And", "like", "a", "thunderbolt", "he", "falls.\n" };
 	string word1 = "He", word2 = "watches";
 	insert_word(flst, word1, word2);
 	for(const auto &s : flst)
