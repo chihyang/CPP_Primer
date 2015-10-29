@@ -9,7 +9,7 @@ using std::endl;
 using std::string;
 using std::vector;
 using std::invalid_argument;
-vector<string> MONALL{ "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+static const vector<string> MONALL{ "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
                        "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
 class Date{
 public:
@@ -135,3 +135,8 @@ inline bool Date::isleap(unsigned y)
 // represents a date is valid. If these exception handlers were not in a 
 // constructor, we have to put them where a date input is required. That means
 // we have to either write another function or do repeated work.
+
+// Note 3: should this constructor be declared as explicit?
+// Consider a situation where we want to get the difference between two dates. 
+// We might want to use a valid date string as a operand. Thus an implicit type
+// conversion is required. So we shouldn't declare this constructor as explicit.
