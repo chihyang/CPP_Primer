@@ -134,7 +134,13 @@ inline bool Date::isleap(unsigned y)
 // After all, to get a valid result, we have to judge whether an input that 
 // represents a date is valid. If these exception handlers were not in a 
 // constructor, we have to put them where a date input is required. That means
-// we have to either write another function or do repeated work.
+// we have to either write another function or do repeated work. 
+//
+// On the other hand, throwing exceptions in a constructor won't call destructor,
+// which might lead to other problems. See the link below.
+// https://www.byvoid.com/zhs/blog/cpp-constructor-exception
+// The code above throws too many exceptions, think about other ways to improve 
+// it.
 
 // Note 3: should this constructor be declared as explicit?
 // Consider a situation where we want to get the difference between two dates. 
