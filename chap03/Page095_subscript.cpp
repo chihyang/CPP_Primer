@@ -18,6 +18,5 @@ int main()
 	cout << "Your hex number is: " << result << endl;
 	return 0;
 }
-
 // In fact, just hit ENTER won't stop input. 
 // You have to hit ENTER and press CTRL+Z to complete input.
