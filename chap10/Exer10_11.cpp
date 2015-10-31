@@ -10,13 +10,17 @@ using std::endl;
 using std::ifstream;
 using std::string;
 using std::vector;
+inline bool isShorter(const string &s1, const string &s2)
+{
+	return s1.size() < s2.size();
+}
 void elimDups(vector<string> &words)
 {
 	sort(words.begin(), words.end());
 	auto end_unique = unique(words.begin(), words.end());
 	for(const auto &s : words)
 		cout << s << " ";
-	cout << "\n" << endl;
+	cout << endl;
 	words.erase(end_unique, words.end());
 }
 vector<string>::iterator elimDups(vector<string>::iterator beg, vector<string>::iterator end)
@@ -40,14 +44,16 @@ int main(int argc, char* argv[])
 		text.push_back(word);
 	}
 	vector<string>::size_type part= text.size() > 50 ? 50 : text.size();
-	// original texts
 	for(auto iter = text.begin(); iter != text.begin() + part; ++iter)
 		cout << *iter << " ";
 	cout << "\n" << endl;
-	// new texts
 	auto end_unique = elimDups(text.begin(), text.begin() + part);
 	text.erase(end_unique, text.end());
-	for(auto iter = text.begin(); iter != text.end(); ++iter)
+	for(auto iter = text.begin(); iter != end_unique; ++iter)
+		cout << *iter << " ";
+	cout << "\n" << endl;
+	stable_sort(text.begin(), text.end(), isShorter);
+	for(auto iter = text.begin(); iter != end_unique; ++iter)
 		cout << *iter << " ";
 	cout << "\n" << endl;
 	return 0;

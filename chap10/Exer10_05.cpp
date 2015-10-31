@@ -65,7 +65,7 @@ int main()
 // since an array must have a fixed size, we may have to write int [2] or 
 // something like this. Thus the type is vector<int[2]>. Then it turns on 
 // initialization and assignment. In fact, we cannot assign or copy an array. So
-// we cannot assign an array element. As for initialization, I've tied several
+// we cannot assign an array element. As for initialization, I've tried several
 // ways which all lead to compilation error. So it seems we cannot initialize an
 // array in common way either. As a result, the program above uses char pointer 
 // as roster's element. If you really want to use array as vector's element, use
