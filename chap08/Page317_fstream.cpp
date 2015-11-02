@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Sales_Data.h"
+#include "Sales_data.h"
 using std::cerr;
 using std::endl;
 using std::ifstream;

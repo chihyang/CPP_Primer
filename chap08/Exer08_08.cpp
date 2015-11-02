@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Sales_Data.h"
+#include "Sales_data.h"
 using std::ifstream;
 using std::ofstream;
 int main(int argc, char *argv[])
