@@ -27,6 +27,5 @@ int main()
 // data.push_back(new_pair);
 //
 // # way 3
-// pair<string, int> new_pair = {str, i};
-// data.push_back(new_pair);
+// data.push_back({str, i});
 // # way 1 is the easiest, because we needn't define a temporary local object
