@@ -29,12 +29,13 @@ int main(int argc, char *argv[])
 	while(beg != authors.end())
 	{
 		// to sort works by alphabetically, we have to find out a way to sort works
+		// either use ordered map or sequential container and generic algorithm
 		auto author_works = authors.equal_range(beg->first);
 		vector<pair<string, string>> vec(author_works.first, author_works.second);
 		sort(vec.begin(), vec.end(), 
 		[](const pair<string, string> &a1, const pair<string, string> &a2) { return a1.second < a2.second; });
 		for(const auto &p : vec)
-			cout << p.first << " " << p.second << "\n";
+			cout << p.first << ": " << p.second << "\n";
 		beg = author_works.second;
 	}
 	cout << endl;
