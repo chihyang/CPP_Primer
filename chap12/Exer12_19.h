@@ -11,6 +11,7 @@ using std::initializer_list;
 using std::shared_ptr;
 using std::make_shared;
 using std::weak_ptr;
+using std::runtime_error;
 using std::out_of_range;
 class StrBlobPtr;
 class StrBlob {
@@ -77,7 +78,7 @@ const string& StrBlob::back() const
 class StrBlobPtr{
 public:
 	StrBlobPtr() : curr(0) {}
-	StrBlobPtr(StrBlob &a, size_t sz = 0) : curr(sz) {}
+	StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
 	string& deref() const;
 	StrBlobPtr& incr();
 private:
@@ -85,6 +86,26 @@ private:
 	weak_ptr<vector<string>> wptr;
 	size_t curr;
 };
+shared_ptr<vector<string>> StrBlobPtr::check(size_t i, const string& msg) const
+{
+	auto ret = wptr.lock();
+	if(!ret)
+		throw runtime_error("unbound StrBlobPtr");
+	if(i >= ret->size())
+		throw out_of_range(msg);
+	return ret;
+}
+string& StrBlobPtr::deref() const
+{
+	auto p = check(curr, "dereference past end");
+	return (*p)[curr];
+}
+StrBlobPtr& StrBlobPtr::incr()
+{
+	check(curr, "increment past end of StrBlobPtr");
+	++curr;
+	return *this;
+}
 // we have to define these member functions here, after the definition of StrBlobPtr
 StrBlobPtr StrBlob::begin()
 {
