@@ -34,9 +34,9 @@ public:
 				shared_ptr<vector<string>> f) :
 		sought(s), lines(p), file(f) { }
 	// members required by exercise 12.33
-	set<TextQuery::line_no>::iterator begin(const string& sought) { return lines->begin();}
-	set<TextQuery::line_no>::iterator end(const string& sought) { return lines->end();}
-	shared_ptr<vector<string>> get_file() { return file; }
+	set<TextQuery::line_no>::iterator begin() const { return lines->begin();}
+	set<TextQuery::line_no>::iterator end() const { return lines->end();}
+	shared_ptr<vector<string>> get_file() const { return file; }
 private:
 	string sought;
 	shared_ptr<set<TextQuery::line_no>> lines;
