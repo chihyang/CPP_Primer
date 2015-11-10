@@ -18,10 +18,10 @@ using std::map;
 using std::set;
 using std::shared_ptr;
 class QueryResult;
-ostream& print(ostream&, QueryResult&);
+ostream& print(ostream&, const QueryResult&);
 class TextQuery{
-	friend class QueryResult;
-	friend ostream& print(ostream&, QueryResult&);
+friend class QueryResult;
+friend ostream& print(ostream&, const QueryResult&);
 public:
 	using line_num = vector<string>::size_type;
 	explicit TextQuery(ifstream &infile);
@@ -31,9 +31,8 @@ private:
 	map<string, set<line_num>> word_line;
 };
 class QueryResult{
-	friend ostream& print(ostream&, QueryResult&);
+	friend ostream& print(ostream&, const QueryResult&);
 public:
-	QueryResult() = default;
 	QueryResult(const string& s, TextQuery::line_num cnt, TextQuery *text) : query_word(s), occurences(cnt), query_result(text) {}
 private:
 	const string query_word;
@@ -75,7 +74,7 @@ QueryResult TextQuery::query(const string& str)
 	}
 	return QueryResult(str, cnt, this);
 }
-ostream& print(ostream& os, QueryResult& q_rst)
+ostream& print(ostream& os, const QueryResult& q_rst)
 {
 	os << "element occurs " << q_rst.occurences << " times" << endl;
 	if(q_rst.query_result.use_count() > 0)

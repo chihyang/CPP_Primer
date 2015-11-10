@@ -1,4 +1,4 @@
-// Warning: this program has run time error. See notes below.
+// Warning: this program has runtime error. See notes below.
 // The problem is inherent in class.
 #include <iostream>
 #include <string>
@@ -37,4 +37,11 @@ int main(int argc, char* argv[])
 // of query. However, the member of QueryResult points to tq, an object that is
 // not dynamically allocated. Because shared_ptr uses delete as default deleter,
 // the program cannot destroy qr as normal. As a result, THE LOOP CAN ONLY RUN
-// ONCE. See following sections for right way to implement these classes.
+// ONCE. See subsequent sections for the correct way to implement these classes.
+//
+// Moreover, a more trivial problem is that we have to declare print as a friend 
+// function of both TextQuery and QueryResult in order to access elements stored
+// in TextQuery.
+//
+// Thirdly, because we return this as an argument in query, we cannot declare 
+// query as const, or the member of QueryResult must be a const.
