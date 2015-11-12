@@ -60,9 +60,8 @@ void StrBlob::check(size_type i, const string &msg) const
 // copy-assignment operator
 StrBlob& StrBlob::operator=(const StrBlob &rhs)
 {
-	auto newp = make_shared<vector<string>>(*rhs.data); // allocate new memory
-	data = newp; // reset date to point to new allocated object, original 
-	// object will be destroyed automatically if necessary
+	// we can use make_shared directly to make data point to new object
+	data = make_shared<vector<string>>(*rhs.data);
 	return *this;
 }
 // add and remove elements
