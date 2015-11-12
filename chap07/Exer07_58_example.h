@@ -1,3 +1,4 @@
+// Exercise 7.58
 #include <vector>
 using std::vector;
 class Example {
