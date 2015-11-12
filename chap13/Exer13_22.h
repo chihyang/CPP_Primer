@@ -23,9 +23,8 @@ HasPtr& HasPtr::operator=(const HasPtr& hp)
 {
 	// WARNING: ensure self assignment gets the correct result!!!
 	// Remember to free resources before deleting!!!
-	auto newp = new string(*hp.ps);
-	delete ps;
-	ps = newp;
+	// WRONG way to write an assignment operator!
+	ps = new string(*hp.ps);
 	i = hp.i;
 	return *this; // return this object
 }
