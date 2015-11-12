@@ -39,5 +39,5 @@ int main()
 // will be transformed into something like this:
 // void fun(int = this -> data)
 // However, till then this is not initialized, so that it doesn't point to any 
-// legal object. How can we use a member of a non existed data? This is an 
+// legal object. How can we use a member of a non-existed data? This is an 
 // error.

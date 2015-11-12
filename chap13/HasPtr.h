@@ -6,7 +6,9 @@ using std::string;
 class HasPtr{
 public:
 	HasPtr(const string &s = string()) : ps(new string(s)), i(0) { i = ps->size(); }
-	// here, we can use private members directly!
+	// here, we can use private members directly! Because this is a member 
+	// function of class HasPtr. They can access any member of the class. Review
+	// member functions, access control and class scope for more details.
 	HasPtr(const HasPtr& hp) : ps(new string(*(hp.ps))), i(hp.i) { }
 	// copy-assignment operator required by exercise 13.8
 	HasPtr& operator=(const HasPtr&);
