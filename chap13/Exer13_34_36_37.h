@@ -171,3 +171,12 @@ void swap(Folder &lhs, Folder &rhs)
 		m->save(rhs);
 }
 #endif
+// Note: should we add a pointer in folders of Message class in the member 
+// function addMsg of Folder? Practically, this will induce loop call: addMsg
+// calls save, save calls addMsg. Conceptually, this contrasts to the feature of
+// each class. Every class just takes response of its own. It shouldn't 
+// interfere with other class' operation. In fact, Folder shouldn't know how
+// Message processes its data. On the other hand, we cannot only use addMsg 
+// outside both classes. This way a folder has pointed to a message, but a 
+// message doesn't know this. Because we didn't add a record in folder of that 
+// message.
