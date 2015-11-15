@@ -109,5 +109,9 @@ void String::free()
 	alloc.deallocate(elements, cap - elements);
 }
 #endif
-// Note: don't know why, but uninitialized_copy and for_each don't work if std:: 
-// isn't prefixed.
+// Note1: don't know why, but uninitialized_copy and for_each don't work if std:: 
+// isn't prefixed. This remains to be solved.
+
+// Note2: here we can see the advantage of allocator compared to new/delete. If
+// we use new/delete, we might have to use char array instead of raw and uninitialized
+// memory.
