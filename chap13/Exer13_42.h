@@ -7,7 +7,7 @@
 #include <map>
 #include <set>
 #include <memory>
-#include "StrVec.h"
+#include "Page524_StrVec.h"
 using std::endl;
 using std::ostream;
 using std::ifstream;

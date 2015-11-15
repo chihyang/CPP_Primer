@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include "HasPtr.h"
+#include "Page511_HasPtr.h"
 using std::string;
 using std::vector;
 int main()

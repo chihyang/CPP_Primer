@@ -1,4 +1,4 @@
-#include "HasPtr.h"
+#include "Page511_HasPtr.h"
 int main()
 {
 	HasPtr h1("This is h1");
