@@ -5,6 +5,7 @@
 #include <utility>
 #include <memory>
 #include <initializer_list>
+#include <algorithm>
 using std::size_t;
 using std::string;
 using std::pair;
@@ -54,8 +55,8 @@ pair<string*, string*> StrVec::alloc_n_copy(const string *b, const string *e)
 void StrVec::free()
 {
 	if (elements) {
-		for(auto p = first_free; p != elements; /*empty*/ )
-			alloc.destroy(--p);
+		// if we use lambda and algorithm, we must use reference rather than pointer directly
+		for_each(begin(), end(), [](const string &s) {alloc.destroy(&s);} );
 		alloc.deallocate(elements, cap - elements);
 	}
 }
