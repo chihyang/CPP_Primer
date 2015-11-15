@@ -22,6 +22,7 @@ public:
 	char* begin() const { return elements; }
 	char* end() const { return first_free; }
 	bool empty() const { return elements == first_free; }
+	void clear();
 private:
 	void chk_n_alloc() { if(size() == capacity()) reallocate(); }
 	pair<char*, char*> alloc_n_copy(const char*, const char*);
@@ -76,6 +77,12 @@ void String::push_back(const char &c)
 {
 	chk_n_alloc();
 	alloc.construct(first_free++, c);
+}
+void String::clear()
+{
+	for(auto p = first_free; p != elements; /* empty */)
+		alloc.destroy(--p);
+	first_free = elements;
 }
 pair<char*, char*> String::alloc_n_copy(const char *b, const char *e)
 {

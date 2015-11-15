@@ -35,6 +35,9 @@ int main()
 	vector<String> v;
 	for(int i = 0; i != 10; ++i)
 		v.push_back("string");
+	v.clear();
+	if(v.empty())
+		cout << "v is empty" << endl;
 	return 0;
 }
 // ******results******
