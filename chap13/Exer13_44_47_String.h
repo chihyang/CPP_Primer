@@ -105,7 +105,9 @@ void String::reallocate()
 }
 void String::free()
 {
-	std::for_each(elements, first_free, [](const char &c) {alloc.destroy(&c);});
+	// std::for_each(elements, first_free, [](const char &c) {alloc.destroy(&c);});
+	for(auto p = first_free; p != elements; /* empty */)
+		alloc.destroy(--p);
 	alloc.deallocate(elements, cap - elements);
 }
 #endif

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Exer13_43.h"
+#include "Exer13_40_43_StrVec.h"
 using std::cout;
 using std::endl;
 using std::string;
