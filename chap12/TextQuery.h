@@ -1,3 +1,5 @@
+#ifndef TEXT_QUERY_H
+#define TEXT_QUERY_H
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -88,3 +90,4 @@ string make_plural(size_t ctr, const string &word, const string &ending)
 {
 	return (ctr > 1) ? word + ending : word;
 }
+#endif
