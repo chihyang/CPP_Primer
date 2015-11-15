@@ -13,6 +13,7 @@ int main()
 	s1.push_back('S');
 	cout << s1.size() << " " << s1.capacity() << endl;
 	String s2 = "1";
+	s2 = s2;
 	cout << s2.size() << " " << s2.capacity() << endl;
 	return 0;
 }

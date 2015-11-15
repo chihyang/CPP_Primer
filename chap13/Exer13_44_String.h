@@ -90,5 +90,5 @@ void String::free()
 	alloc.deallocate(elements, cap - elements);
 }
 #endif
-// Note: don't know why, but uninitialized_copy and for_each doesn't word if 
-// std:: isn't prefixed.
+// Note: don't know why, but uninitialized_copy and for_each don't work if std:: 
+// isn't prefixed.
