@@ -1,5 +1,6 @@
 #ifndef STRING_SIMPLE_H
 #define STRING_SIMPLE_H
+#include <iostream>
 #include <cstddef>
 #include <cstring>
 #include <utility>
@@ -47,6 +48,15 @@ String::String(const char *s)
 	first_free = newdata.second;
 	cap = (strlen(s) > ini_size) ? first_free : (elements + ini_size);
 }
+String::String(const String &s)
+{
+	auto newdata = alloc_n_copy(s.begin(), s.end());
+	elements = newdata.first;
+	first_free = newdata.second;
+	cap = (s.size() > ini_size) ? first_free : (elements + ini_size);
+	// call identity required by exercise 13.47
+	std::cout << "String(const String&) is called" << std::endl;
+}
 String& String::operator=(const String& s)
 {
 	auto newdata = alloc_n_copy(s.begin(), s.end());
@@ -54,6 +64,8 @@ String& String::operator=(const String& s)
 	elements = newdata.first;
 	first_free = newdata.second;
 	cap = (s.size() > ini_size) ? first_free : (elements + ini_size);
+	// call identity required by exercise 13.47
+	std::cout << "String& operator=(const String&) is called" << std::endl;
 	return *this;
 }
 String::~String()
