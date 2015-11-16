@@ -14,7 +14,9 @@ public:
 	String();
 	String(const char*);
 	String(const String&);
+	String(String&&) noexcept; // move constructor
 	String& operator=(const String&);
+	String& operator=(String&&) noexcept; // move assignment
 	~String();
 	void push_back(const char&);
 	size_t size() const { return first_free - elements;}
@@ -61,15 +63,35 @@ String::String(const String &s)
 	// call identity required by exercise 13.47
 	std::cout << "String(const String&) is called" << std::endl;
 }
-String& String::operator=(const String& s)
+// copy constructor required by exercise 13.49
+String::String(String &&s) noexcept : elements(s.elements), first_free(s.first_free), cap(s.cap)
 {
-	auto newdata = alloc_n_copy(s.begin(), s.end());
+	s.elements = s.first_free = s.cap = nullptr;
+	std::cout << "String(String&&) is called" << std::endl;
+}
+String& String::operator=(const String& rhs)
+{
+	auto newdata = alloc_n_copy(rhs.begin(), rhs.end());
 	free();
 	elements = newdata.first;
 	first_free = newdata.second;
-	cap = (s.size() > ini_size) ? first_free : (elements + ini_size);
+	cap = (rhs.size() > ini_size) ? first_free : (elements + ini_size);
 	// call identity required by exercise 13.47
 	std::cout << "String& operator=(const String&) is called" << std::endl;
+	return *this;
+}
+// move assigment required by exercise 13.49
+String& String::operator=(String &&rhs) noexcept
+{
+	if(this != &rhs)
+	{
+		free();
+		elements = rhs.elements;
+		first_free = rhs.first_free;
+		cap = rhs.cap;
+		rhs.elements = rhs.first_free = rhs.cap = nullptr;
+	}
+	std::cout << "String& operator=(String&&) is called" << std::endl;
 	return *this;
 }
 String::~String()
