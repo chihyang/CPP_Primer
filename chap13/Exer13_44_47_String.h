@@ -30,12 +30,15 @@ private:
 	void reallocate();
 private:
 	static allocator<char> alloc;
+	static size_t ini_size;
 	char *elements;
 	char *first_free;
 	char *cap;
-	const size_t ini_size = 15;
 };
 allocator<char> String::alloc;
+// It seems both gcc and visual studio library allocates 15 space for a default 
+// initialized string.
+size_t String::ini_size = 15;
 String::String(): elements(nullptr), first_free(nullptr), cap(nullptr)
 {
 	elements = alloc.allocate(ini_size);
