@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Page511_HasPtr.h"
+#include "Page511_540_HasPtr.h"
 int main()
 {
 	HasPtr ps1("This is a string");

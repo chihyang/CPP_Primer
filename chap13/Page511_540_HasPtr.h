@@ -16,6 +16,8 @@ public:
 	// function of class HasPtr. They can access any member of the class. Review
 	// member functions, access control and class scope for more details.
 	HasPtr(const HasPtr &hp) : ps(new string(*(hp.ps))), i(hp.i) { } 
+	// move constructor from page 540
+	HasPtr(HasPtr &&p) noexcept : ps(p.ps), i(p.i) { p.ps=0; }
 	// . has higher precedence, so the parenthesize could be ignored here
 	// copy-assignment operator required by exercise 13.8
 	HasPtr& operator=(const HasPtr&);
