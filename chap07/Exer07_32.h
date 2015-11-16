@@ -82,8 +82,8 @@ void Window_mgr::clear(ScreenIndex i)
 	}
 }
 #endif
-// Note: let's see line 12:
-// 12    std::vector<Screen> screens; //{Screen(24, 80, ' ')};
+// Note: let's see line 15:
+// 15    std::vector<Screen> screens; //{Screen(24, 80, ' ')};
 // "{Screen(24, 80, ' ')}" is commented, or else this header won't compile. Why?
 // Because if we initialize screens with constructor of class Screen, definition 
 // of this constructor must appear before the point where we use it. Thus the 
