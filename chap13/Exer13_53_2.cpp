@@ -20,8 +20,5 @@ int main()
 // argument. In the former version, function matches before argument passing, 
 // while function matches after argument passing in the latter.
 
-// Note2 : const T& and T cannot be used to overload functions. Because 
-// everything we can use to initialize a variable, we can use them to initialize
-// a const reference. Thus they have no difference when we call a function. As a
-// result, copy-swap and copy-assignment version of operator = cannot exist at 
-// the same time.
+// Note2 : const T& and T cannot be used to overload functions. See
+// Exer13_53_overload.cpp for details.
