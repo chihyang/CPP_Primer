@@ -97,7 +97,7 @@ public:
 	StrBlobPtr& incr();
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
-	weak_ptr<vector<string>> wptr;
+	weak_ptr<vector<string>> wptr; // const pointer
 	size_t curr;
 };
 shared_ptr<vector<string>> StrBlobPtr::check(size_t i, const string& msg) const
@@ -132,7 +132,7 @@ public:
 	ConstStrBlobPtr& incr();
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
-	weak_ptr<vector<string>> wptr;
+	const weak_ptr<vector<string>> wptr;
 	size_t curr;
 };
 shared_ptr<vector<string>> ConstStrBlobPtr::check(size_t i, const string& msg) const
