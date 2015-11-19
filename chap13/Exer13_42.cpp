@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Exer13_42.h"
+#include "Exer13_42_TextQuery.h"
 using std::cout;
 using std::cin;
 using std::endl;

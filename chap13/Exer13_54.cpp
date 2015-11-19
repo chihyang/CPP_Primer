@@ -1,7 +1,7 @@
 // Warning: this is for verification. It cannot compile for ambiguous call.
 // The problem lies in class header.
 #include <iostream>
-#include "Exer13_54.h"
+#include "Exer13_54_HasPtr.h"
 using std::cout;
 using std::endl;
 int main()

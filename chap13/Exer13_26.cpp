@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "Exer13_26.h"
+#include "Exer13_26_StrBlob.h"
 using std::cout;
 using std::endl;
 using std::out_of_range;
