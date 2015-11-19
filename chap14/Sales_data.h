@@ -17,6 +17,9 @@ class Sales_data {
 	friend istream &operator>>(istream&, Sales_data&);
 	// overloaded addition operator required by exercise 14.13
 	friend Sales_data operator+(const Sales_data&, const Sales_data&);
+	// overloaded equality on page 561
+	friend bool operator==(const Sales_data&, const Sales_data&);
+	friend bool operator!=(const Sales_data&, const Sales_data&);
 	friend Sales_data add(const Sales_data& item1, const Sales_data& item2);
 public:
 	// constructor
@@ -35,8 +38,6 @@ private:
 	double avg_price() const;
 };
 // declare friend functions outside class
-ostream& operator<<(ostream&, const Sales_data&);
-istream& operator>>(istream&, Sales_data&);
 Sales_data operator+(const Sales_data&, const Sales_data&);
 Sales_data add(const Sales_data& item1, const Sales_data& item2);
 // member functions definition
@@ -73,6 +74,16 @@ istream& operator>>(istream &is, Sales_data& item)
 	else
 		item = Sales_data(); // input failed:given the object default state
 	return is;
+}
+bool operator==(const Sales_data &lhs, const Sales_data &rhs)
+{
+	return lhs.bookNo == rhs.bookNo &&
+	       lhs.units_sold == rhs.units_sold &&
+		   lhs.revenue == rhs.revenue;
+}
+bool operator!=(const Sales_data &lhs, const Sales_data &rhs)
+{
+	return !(lhs == rhs);
 }
 Sales_data add(const Sales_data& item1, const Sales_data& item2)
 {

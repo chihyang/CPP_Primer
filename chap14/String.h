@@ -13,6 +13,9 @@ using std::allocator;
 class String {
 	// overloaded output operator required by exercise 14.7
 	friend ostream &operator<<(ostream&, const String&);
+	// overloaded equality operator required by exercise 14.16
+	friend bool operator==(const String&, const String&);
+	friend bool operator!=(const String&, const String&);
 public:
 	String();
 	String(const char*);
@@ -45,8 +48,7 @@ allocator<char> String::alloc;
 // It seems both gcc and visual studio library allocates 15 space for a default 
 // initialized string.
 size_t String::ini_size = 15;
-// friend declaration outside class
-ostream &operator<<(ostream&, const String&);
+// friend definition
 ostream& operator<<(ostream &os, const String &s)
 {
 	if(s.elements != s.first_free)
@@ -55,6 +57,21 @@ ostream& operator<<(ostream &os, const String &s)
 			os << *p;
 	}
 	return os;
+}
+bool operator==(const String &lhs, const String &rhs)
+{
+	if(lhs.size() != rhs.size())
+		return false;
+	else {
+		for(auto p = lhs.elements, q = rhs.elements; p != lhs.first_free; ++p, ++q)
+			if(*p != *q)
+				return false;
+		return true;
+	}
+}
+bool operator!=(const String &lhs, const String &rhs)
+{
+	return !(lhs == rhs);
 }
 String::String(): elements(nullptr), first_free(nullptr), cap(nullptr)
 {

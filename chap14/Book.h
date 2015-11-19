@@ -11,6 +11,9 @@ class Book {
 	friend ostream &operator<<(ostream&, const Book&);
 	// overloaded input operator required by exercise 14.12
 	friend istream &operator>>(istream&, Book&);
+	// overloaded equality operator required by exercise 14.17
+	friend bool operator==(const Book&, const Book&);
+	friend bool operator!=(const Book&, const Book&);
 public:
 	Book() = default;
 	Book(string na, string au = "", string no = "") : 
@@ -29,9 +32,17 @@ private:
 	string book_author;
 	string book_no;
 };
-// friend declaration outside class
-ostream &operator<<(ostream&, const Book&);
-istream &operator>>(istream&, Book&);
+Book& Book::operator=(Book &&rhs) noexcept
+{
+	if(this != &rhs)
+	{
+		book_name = std::move(rhs.book_name);
+		book_author = std::move(rhs.book_author);
+		book_no = std::move(rhs.book_no);
+	}
+	return *this;
+}
+// friend definition
 ostream& operator<<(ostream& os, const Book &b)
 {
 	os << b.book_name << " " << b.book_author << " " << b.book_no;
@@ -43,15 +54,14 @@ istream& operator>>(istream& is, Book &b)
 	if(is)
 		b = Book();
 	return is;
-}
-Book& Book::operator=(Book &&rhs) noexcept
+}bool operator==(const Book &lhs, const Book &rhs)
 {
-	if(this != &rhs)
-	{
-		book_name = std::move(rhs.book_name);
-		book_author = std::move(rhs.book_author);
-		book_no = std::move(rhs.book_no);
-	}
-	return *this;
+	return lhs.book_name == rhs.book_name &&
+	       lhs.book_author == rhs.book_name &&
+		   lhs.book_no == rhs.book_no;
+}
+bool operator!=(const Book &lhs, const Book &rhs)
+{
+	return !(lhs == rhs);
 }
 #endif
