@@ -27,6 +27,8 @@ public:
 	StrVec& operator=(const StrVec&);
 	// move assignment from page 537
 	StrVec& operator=(StrVec&&) noexcept;
+	// assignment with an initializer_list parameter from page 563
+	StrVec& operator=(initializer_list<string>);
 	// constructor that takes a initializer_list as parameter, required by exercise 13.40
 	StrVec(const initializer_list<string>&);
 	~StrVec();
@@ -160,6 +162,14 @@ StrVec& StrVec::operator=(StrVec &&rhs) noexcept
 		cap = rhs.cap;
 		rhs.elements = rhs.first_free = rhs.cap = nullptr;
 	}
+	return *this;
+}
+StrVec& StrVec::operator=(initializer_list<string> il)
+{
+	auto data = alloc_n_copy(il.begin(), il.end());
+	free();
+	elements = data.first;
+	first_free = cap = data.second;
 	return *this;
 }
 void StrVec::reallocate()

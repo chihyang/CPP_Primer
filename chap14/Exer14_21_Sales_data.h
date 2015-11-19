@@ -33,8 +33,6 @@ public:
 	string isbn() const { return bookNo; }
 	// overloaded compound-assignment operator required by exercise 14.20
 	Sales_data& operator+=(const Sales_data&);
-	// takes an ISBN as parameter, required by exercise 14.22
-	Sales_data& operator=(const string&);
 private:
 	string bookNo;
 	unsigned units_sold = 0;
@@ -42,15 +40,11 @@ private:
 	double avg_price() const;
 };
 // member functions definition
+// assumes both objects refer to the same book
 Sales_data& Sales_data::operator+=(const Sales_data& rhs)
 {
-	units_sold += rhs.units_sold;
-	revenue += rhs.revenue;
-	return *this;
-}
-Sales_data& Sales_data::operator=(const string &isbn)
-{
-	bookNo = isbn;
+	// create temporary object, calls copy constructor, then calls copy-assignment operator.
+	*this = *this + rhs;
 	return *this;
 }
 // define avg_price as inline, required by exercise 7.26
@@ -91,10 +85,15 @@ bool operator!=(const Sales_data &lhs, const Sales_data &rhs)
 {
 	return !(lhs == rhs);
 }
+// assumes both objects refer to the same book
 Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs)
 {
 	Sales_data sum = lhs;
-	sum += rhs;
+	sum.units_sold = sum.units_sold + rhs.units_sold;
+	sum.revenue = sum.revenue + rhs.revenue;
 	return sum;
 }
 #endif
+// Note: compared this with Sales_data.h, we can find that we have to create 
+// temporary objects when adding. For built-in type, this might not be a problem.
+// But for members of class type, this might cause performance problem.
