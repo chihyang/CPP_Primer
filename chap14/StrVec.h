@@ -31,6 +31,12 @@ public:
 	StrVec& operator=(initializer_list<string>);
 	// constructor that takes a initializer_list as parameter, required by exercise 13.40
 	StrVec(const initializer_list<string>&);
+	// subscript operator from page 565
+	// class is not responsible for checking if the subscript is out of range
+	string& operator[](size_t n) // nonconst version of subscript operator
+	{ return elements[n]; }
+	string& operator[](size_t n) const // const version of subscript operator
+	{ return elements[n]; }
 	~StrVec();
 	void push_back(const string&);
 	void push_back(string&&);

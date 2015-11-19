@@ -28,6 +28,11 @@ public:
 	String(String&&) noexcept; // move constructor
 	String& operator=(const String&);
 	String& operator=(String&&) noexcept; // move assignment
+	// subscript operator(const and nonconst version) required by exercise 14.26
+	char& operator[](size_t n)
+	{ return elements[n]; }
+	char& operator[](size_t n) const
+	{ return elements[n]; }
 	~String();
 	void push_back(const char&);
 	void push_back(char&&);

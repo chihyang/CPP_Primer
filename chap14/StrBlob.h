@@ -1,10 +1,12 @@
 #ifndef STRBLOB_H
 #define STRBLOB_H
+#include <cstddef>
 #include <string>
 #include <vector>
 #include <initializer_list>
 #include <memory>
 #include <stdexcept>
+using std::size_t;
 using std::string;
 using std::vector;
 using std::initializer_list;
@@ -48,6 +50,13 @@ public:
 	ConstStrBlobPtr end() const;
 	// access elements
 	string& at(size_type) const;
+	// subscript operator required by exercise 14.26
+	// the difference between at and subscript is that subscript doesn't throw
+	// exception if the index is out of range.
+	string& operator[](size_t n)
+	{ return (*data)[n]; }
+	string& operator[](size_t n) const
+	{ return (*data)[n]; }
 private:
 	shared_ptr<vector<string>> data;
 	// throws msg if data[i] isn't valid
@@ -136,6 +145,13 @@ public:
 	StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
 	string& deref() const;
 	StrBlobPtr& incr();
+	// subscript operator required by exercise 14.26
+	// subscript operator is not responsible for checking data; user should ensure
+	// that StrBlobPtr points to a valid object and the index is not out of range
+	string& operator[](size_t n)
+	{ return (*wptr.lock())[n]; }
+	string& operator[](size_t n) const
+	{ return (*wptr.lock())[n]; }
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -204,6 +220,13 @@ public:
 	ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
 	string& deref() const;
 	ConstStrBlobPtr& incr();
+	// subscript operator required by exercise 14.26
+	// subscript operator is not responsible for checking data; user should ensure
+	// that StrBlobPtr points to a valid object and the index is not out of range
+	string& operator[](size_t n)
+	{ return (*wptr.lock())[n]; }
+	string& operator[](size_t n) const
+	{ return (*wptr.lock())[n]; }
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	const weak_ptr<vector<string>> wptr;
