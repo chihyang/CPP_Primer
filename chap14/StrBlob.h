@@ -133,7 +133,7 @@ class StrBlobPtr{
 	friend bool operator>=(const StrBlobPtr&, const StrBlobPtr&);
 public:
 	StrBlobPtr() : curr(0) {}
-	StrBlobPtr(StrBlob &a, size_t sz = 0) : curr(sz) {}
+	StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
 	string& deref() const;
 	StrBlobPtr& incr();
 private:
@@ -165,7 +165,7 @@ StrBlobPtr& StrBlobPtr::incr()
 // so we have to use lock() to compare
 bool operator==(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() == rhs.wptr.lock();
+	return lhs.wptr.lock() == rhs.wptr.lock() && lhs.curr == rhs.curr;
 }
 bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -173,7 +173,17 @@ bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 }
 bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() < rhs.wptr.lock();
+	if(lhs.wptr.lock() < rhs.wptr.lock())
+		return false;
+	else if(lhs.wptr.lock() == rhs.wptr.lock())
+	{
+		if(lhs.curr < lhs.curr)
+			return true;
+		else
+			return false;
+	}
+	else
+		return false;
 }
 bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -237,9 +247,12 @@ bool operator!=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
 	return !(lhs == rhs);
 }
+// If two pointers point to two unrelated objects, the result is undefined(See 
+// page 120). Here we assume that lhs and rhs point to the same object. Thus
+// StrBlobPtr has consistent behaviour with built-in pointer.
 bool operator<(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() < rhs.wptr.lock();
+	return lhs.curr < rhs.curr;
 }
 bool operator<=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
