@@ -147,7 +147,12 @@ public:
 	StrBlobPtr& incr();
 	// subscript operator required by exercise 14.26
 	string& operator[](size_t n);
-	string& operator[](size_t n) const;
+	string& operator[](size_t n) const;	
+	// increment and decrement operator required by exercise 14.27
+	StrBlobPtr& operator++(); // prefix increment, return reference
+	StrBlobPtr& operator--(); // prefix decrement
+	StrBlobPtr operator++(int); // postfix increment, return value
+	StrBlobPtr operator--(int); // postfix decrement
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -185,6 +190,30 @@ string& StrBlobPtr::operator[](size_t n) const
 {
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
+}
+StrBlobPtr& StrBlobPtr::operator++()
+{
+	check(curr, "increment past end of StrBlobStr");
+	++curr; // advance the current state
+	return *this;
+}
+StrBlobPtr& StrBlobPtr::operator--()
+{
+	--curr; // move the current state back one element
+	check(curr, "decrement past begin of StrBlobPtr");
+	return *this;
+}
+StrBlobPtr StrBlobPtr::operator++(int)
+{
+	auto ret = *this; // save the current value
+	++*this; // advance one element; prefix ++ checks the increment
+	return ret; // return the saved value
+}
+StrBlobPtr StrBlobPtr::operator--(int)
+{
+	auto ret = *this; // save the current value
+	--*this; // move backward one element; prefix -- checks the decrement
+	return ret; // return the saved value
 }
 // definitions of friend operators
 // shared_ptr has its overloaded version of equality and relational operators, but weak_ptr doesn't
@@ -309,8 +338,8 @@ ConstStrBlobPtr StrBlob::end() const
 }
 #endif
 // Note: If two pointers point to two unrelated objects, the result of comparison
-// is undefined (See page 120). Here we assume that lhs and rhs point to the same
-// object. Thus StrBlobPtr has consistent behaviour with built-in pointer. On the
+// is undefined(See page 120). Here we assume that lhs and rhs point to the same
+// object, thus StrBlobPtr has consistent behaviour with built-in pointer. On the
 // other hand, we can compare two pointers with == regardless whether they point
 // to the same object. Thus it seems that equality and relational operators are
 // not consistent with each other.
