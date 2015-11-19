@@ -173,29 +173,19 @@ bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 }
 bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	if(lhs.wptr.lock() < rhs.wptr.lock())
-		return false;
-	else if(lhs.wptr.lock() == rhs.wptr.lock())
-	{
-		if(lhs.curr < lhs.curr)
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
+	return lhs.curr < rhs.curr;
 }
 bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs < rhs || lhs == rhs;
+	return lhs.curr <= rhs.curr;
 }
 bool operator>(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return !(lhs < rhs || lhs == rhs);
+	return lhs.curr > rhs.curr;
 }
 bool operator>=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return !(lhs < rhs);
+	return lhs.curr >= rhs.curr;
 }
 // ***************************
 // const version of StrBlobPtr
@@ -241,30 +231,27 @@ ConstStrBlobPtr& ConstStrBlobPtr::incr()
 }
 bool operator==(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() == rhs.wptr.lock();
+	return lhs.wptr.lock() == rhs.wptr.lock() && lhs.curr == rhs.curr;
 }
 bool operator!=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
 	return !(lhs == rhs);
 }
-// If two pointers point to two unrelated objects, the result is undefined(See 
-// page 120). Here we assume that lhs and rhs point to the same object. Thus
-// StrBlobPtr has consistent behaviour with built-in pointer.
 bool operator<(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
 	return lhs.curr < rhs.curr;
 }
 bool operator<=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
-	return lhs < rhs || lhs == rhs;
+	return lhs.curr <= rhs.curr;
 }
 bool operator>(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
-	return !(lhs < rhs || lhs == rhs);
+	return lhs.curr > rhs.curr;
 }
 bool operator>=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
-	return !(lhs < rhs);
+	return lhs.curr >= rhs.curr;
 }
 // we have to define these member functions here, after the definition of StrBlobPtr
 StrBlobPtr StrBlob::begin()
@@ -286,3 +273,9 @@ ConstStrBlobPtr StrBlob::end() const
 	return ret;
 }
 #endif
+// Note: If two pointers point to two unrelated objects, the result of comparison
+// is undefined (See page 120). Here we assume that lhs and rhs point to the same
+// object. Thus StrBlobPtr has consistent behaviour with built-in pointer. On the
+// other hand, we can compare two pointers with == regardless whether they point
+// to the same object. Thus it seems that equality and relational operators are
+// not consistent with each other.
