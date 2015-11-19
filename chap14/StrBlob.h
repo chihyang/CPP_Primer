@@ -18,8 +18,14 @@ class ConstStrBlobPtr;
 class StrBlob {
 	friend class StrBlobPtr;
 	friend class ConstStrBlobPtr;
+	// overloaded equality operators required by exercise 14.16
 	friend bool operator==(const StrBlob&, const StrBlob&);
 	friend bool operator!=(const StrBlob&, const StrBlob&);
+	// overloaded relational operator required by exercise 14.18
+	friend bool operator<(const StrBlob&, const StrBlob&);
+	friend bool operator<=(const StrBlob&, const StrBlob&);
+	friend bool operator<(const StrBlob&, const StrBlob&);
+	friend bool operator>=(const StrBlob&, const StrBlob&);
 public:
 	typedef vector<string>::size_type size_type;
 	StrBlob();
@@ -97,12 +103,34 @@ bool operator!=(const StrBlob &lhs, const StrBlob &rhs)
 {
 	return !(lhs == rhs);
 }
+bool operator<(const StrBlob &lhs, const StrBlob &rhs)
+{
+	return *lhs.data < *rhs.data;
+}
+bool operator<=(const StrBlob &lhs, const StrBlob &rhs)
+{
+	return (lhs < rhs || lhs == rhs);
+}
+bool operator>(const StrBlob &lhs, const StrBlob &rhs)
+{
+	return !(lhs < rhs || lhs == rhs);
+}
+bool operator>=(const StrBlob &lhs, const StrBlob &rhs)
+{
+	return !(lhs < rhs);
+}
 // ******************************
 // nonconst version of StrBlobPtr
 // ******************************
 class StrBlobPtr{
+	// overloaded equality operators required by exercise 14.16
 	friend bool operator==(const StrBlobPtr&, const StrBlobPtr&);
 	friend bool operator!=(const StrBlobPtr&, const StrBlobPtr&);
+	// overloaded relational operators required by exercise 14.18
+	friend bool operator<(const StrBlobPtr&, const StrBlobPtr&);
+	friend bool operator<=(const StrBlobPtr&, const StrBlobPtr&);
+	friend bool operator>(const StrBlobPtr&, const StrBlobPtr&);
+	friend bool operator>=(const StrBlobPtr&, const StrBlobPtr&);
 public:
 	StrBlobPtr() : curr(0) {}
 	StrBlobPtr(StrBlob &a, size_t sz = 0) : curr(sz) {}
@@ -133,21 +161,44 @@ StrBlobPtr& StrBlobPtr::incr()
 	++curr;
 	return *this;
 }
+// shared_ptr has its overloaded version of equality and relational operators, but weak_ptr doesn't
+// so we have to use lock() to compare
 bool operator==(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	// shared_ptr has its overloaded version of equality, but weak_ptr doesn't
 	return lhs.wptr.lock() == rhs.wptr.lock();
 }
 bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
 	return !(lhs == rhs);
 }
+bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
+{
+	return lhs.wptr.lock() < rhs.wptr.lock();
+}
+bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
+{
+	return lhs < rhs || lhs == rhs;
+}
+bool operator>(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
+{
+	return !(lhs < rhs || lhs == rhs);
+}
+bool operator>=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
+{
+	return !(lhs < rhs);
+}
 // ***************************
 // const version of StrBlobPtr
 // ***************************
 class ConstStrBlobPtr{
+	// overloaded equality operators required by exercise 14.16
 	friend bool operator==(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
 	friend bool operator!=(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	// overloaded relational operators required by exercise 14.18
+	friend bool operator<(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	friend bool operator<=(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	friend bool operator>(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	friend bool operator>=(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
 public:
 	ConstStrBlobPtr() : curr(0) {}
 	ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
@@ -185,6 +236,22 @@ bool operator==(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 bool operator!=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
 {
 	return !(lhs == rhs);
+}
+bool operator<(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
+{
+	return lhs.wptr.lock() < rhs.wptr.lock();
+}
+bool operator<=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
+{
+	return lhs < rhs || lhs == rhs;
+}
+bool operator>(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
+{
+	return !(lhs < rhs || lhs == rhs);
+}
+bool operator>=(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
+{
+	return !(lhs < rhs);
 }
 // we have to define these member functions here, after the definition of StrBlobPtr
 StrBlobPtr StrBlob::begin()

@@ -14,6 +14,11 @@ class StrVec {
 	// equality operator required by exercise 14.16
 	friend bool operator==(const StrVec&, const StrVec&);
 	friend bool operator!=(const StrVec&, const StrVec&);
+	// relation operator required by exercise 14.18
+	friend bool operator<(const StrVec&, const StrVec&);
+	friend bool operator<=(const StrVec&, const StrVec&);
+	friend bool operator>(const StrVec&, const StrVec&);
+	friend bool operator>=(const StrVec&, const StrVec&);
 public:
 	StrVec(): elements(nullptr), first_free(nullptr), cap(nullptr) {}
 	StrVec(const StrVec&);
@@ -66,6 +71,33 @@ bool operator==(const StrVec &lhs, const StrVec &rhs)
 bool operator!=(const StrVec &lhs, const StrVec &rhs)
 {
 	return !(lhs == rhs);
+}
+bool operator<(const StrVec &lhs, const StrVec &rhs)
+{
+	auto shorter = lhs.size() < rhs.size() ? lhs.size() : rhs.size();
+	auto p = lhs.begin(), q = rhs.begin();
+	for(size_t i = 0; p + i != lhs.end(); ++i)
+	{
+		if(*(p + i) == *(q + i))
+			continue;
+		else if(*(p + i) < *(q + i))
+			return true;
+		else
+			return false;
+	}
+	return lhs.size() < rhs.size();
+}
+bool operator<=(const StrVec &lhs, const StrVec &rhs)
+{
+	return lhs < rhs || lhs == rhs;
+}
+bool operator>(const StrVec &lhs, const StrVec &rhs)
+{
+	return !(lhs < rhs || lhs == rhs);
+}
+bool operator>=(const StrVec &lhs, const StrVec &rhs)
+{
+	return !(lhs < rhs);
 }
 void StrVec::push_back(const string &s)
 {

@@ -16,6 +16,11 @@ class String {
 	// overloaded equality operator required by exercise 14.16
 	friend bool operator==(const String&, const String&);
 	friend bool operator!=(const String&, const String&);
+	// overloaded relational operator required by exercise 14.18
+	friend bool operator<(const String&, const String&);
+	friend bool operator<=(const String&, const String&);
+	friend bool operator>(const String&, const String&);
+	friend bool operator>=(const String&, const String&);
 public:
 	String();
 	String(const char*);
@@ -53,7 +58,7 @@ ostream& operator<<(ostream &os, const String &s)
 {
 	if(s.elements != s.first_free)
 	{
-		for(auto p = s.elements; p != s.first_free; ++p)
+		for(auto p = s.begin(); p != s.end(); ++p)
 			os << *p;
 	}
 	return os;
@@ -63,7 +68,7 @@ bool operator==(const String &lhs, const String &rhs)
 	if(lhs.size() != rhs.size())
 		return false;
 	else {
-		for(auto p = lhs.elements, q = rhs.elements; p != lhs.first_free; ++p, ++q)
+		for(auto p = lhs.begin(), q = rhs.begin(); p != lhs.end(); ++p, ++q)
 			if(*p != *q)
 				return false;
 		return true;
@@ -72,6 +77,33 @@ bool operator==(const String &lhs, const String &rhs)
 bool operator!=(const String &lhs, const String &rhs)
 {
 	return !(lhs == rhs);
+}
+bool operator<(const String &lhs, const String &rhs)
+{
+	auto shorter = lhs.size() < rhs.size() ? lhs.size() : rhs.size();
+	auto p = lhs.begin(), q = rhs.begin();
+	for(size_t i = 0; p + i != lhs.end(); ++i)
+	{
+		if(*(p + i) == *(q + i))
+			continue;
+		else if(*(p + i) < *(q + i))
+			return true;
+		else
+			return false;
+	}
+	return lhs.size() < rhs.size();
+}
+bool operator<=(const String &lhs, const String &rhs)
+{
+	return (lhs < rhs || lhs == rhs);
+}
+bool operator>(const String &lhs, const String &rhs)
+{
+	return !(lhs < rhs || lhs == rhs);
+}
+bool operator>=(const String &lhs, const String &rhs)
+{
+	return !(lhs < rhs);
 }
 String::String(): elements(nullptr), first_free(nullptr), cap(nullptr)
 {
