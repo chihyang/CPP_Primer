@@ -8,7 +8,7 @@ public:
 		return *p;
 	}
 	StrBlobPtr* operator->() const {
-		return & this->operator*(); // return a pointer
+		return &this->operator*(); // return a pointer
 	}
 private:
 	StrBlobPtr *p;
