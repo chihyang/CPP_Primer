@@ -1,3 +1,5 @@
+// Warning: this is for test. It cannot compile.
+// The problems lie in line 18 and 19.
 #include <cstddef>
 #include <iostream>
 #include "Exer14_28_StrBlob.h"
@@ -13,8 +15,8 @@ int main()
 	p2 += 2;
 	std::cout << p2.deref() << std::endl;
 	p3[4] = "falls.";
-	// pc[4] = "fall";
-	// p2 = 5 + p2; // throw exception
-	// std::cout << p2.deref() << std::endl;
+	pc[4] = "fall"; // wrong, const pointer
+	p2 = 5 + p2; // throw exception
+	std::cout << p2.deref() << std::endl;
 	return 0;
 }
