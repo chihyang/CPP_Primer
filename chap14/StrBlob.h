@@ -235,7 +235,7 @@ public:
 	string& operator[](size_t n) const;
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
-	const weak_ptr<vector<string>> wptr;
+	weak_ptr<vector<string>> wptr;
 	size_t curr;
 };
 shared_ptr<vector<string>> ConstStrBlobPtr::check(size_t i, const string& msg) const

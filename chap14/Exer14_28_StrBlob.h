@@ -292,6 +292,12 @@ class ConstStrBlobPtr{
 	friend bool operator<=(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
 	friend bool operator>(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
 	friend bool operator>=(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	// pointer arithmetic required by exercise 14.28
+	// subtraction of two StrBlobPtr
+	friend StrBlob::difference_type operator-(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
+	// advance pointer
+	friend StrBlobPtr operator+(const ConstStrBlobPtr&, StrBlob::difference_type);
+	friend StrBlobPtr operator+(StrBlob::difference_type, const ConstStrBlobPtr&);
 public:
 	ConstStrBlobPtr() : curr(0) {}
 	ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
@@ -302,7 +308,7 @@ public:
 	string& operator[](size_t n) const;
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
-	const weak_ptr<vector<string>> wptr;
+	weak_ptr<vector<string>> wptr;
 	size_t curr;
 };
 shared_ptr<vector<string>> ConstStrBlobPtr::check(size_t i, const string& msg) const
