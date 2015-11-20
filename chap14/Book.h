@@ -26,7 +26,7 @@ public:
 		book_no(std::move(book_no)) {}
 	Book& operator=(const Book&) = default; // copy-assignment operator
 	Book& operator=(Book&&) noexcept; // move assignment operator
-	Book& operator=(const string&); // take an ISBN as parameter
+	Book& operator=(const string&); // take an ISBN as parameter, required by exercise 14.25
 	~Book() = default;
 private:
 	string book_name;
