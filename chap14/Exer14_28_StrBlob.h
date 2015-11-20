@@ -296,16 +296,19 @@ class ConstStrBlobPtr{
 	// subtraction of two StrBlobPtr
 	friend StrBlob::difference_type operator-(const ConstStrBlobPtr&, const ConstStrBlobPtr&);
 	// advance pointer
-	friend StrBlobPtr operator+(const ConstStrBlobPtr&, StrBlob::difference_type);
-	friend StrBlobPtr operator+(StrBlob::difference_type, const ConstStrBlobPtr&);
+	friend ConstStrBlobPtr operator+(const ConstStrBlobPtr&, StrBlob::difference_type);
+	friend ConstStrBlobPtr operator+(StrBlob::difference_type, const ConstStrBlobPtr&);
 public:
 	ConstStrBlobPtr() : curr(0) {}
 	ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
-	string& deref() const;
+	const string& deref() const;
 	ConstStrBlobPtr& incr();
 	// subscript operator required by exercise 14.26
 	// ConstStrBlobPtr should only have const version of subscript operator
-	string& operator[](size_t n) const;
+	const string& operator[](size_t n) const;
+	// pointer arithmetic required by exercise 14.28
+	ConstStrBlobPtr& operator+=(size_t n); // addition
+	ConstStrBlobPtr& operator-=(size_t n); // subtraction
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -315,26 +318,38 @@ shared_ptr<vector<string>> ConstStrBlobPtr::check(size_t i, const string& msg) c
 {
 	auto ret = wptr.lock();
 	if(!ret)
-		throw runtime_error("unbound StrBlobPtr");
+		throw runtime_error("unbound ConstStrBlobPtr");
 	if(i >= ret->size())
 		throw out_of_range(msg);
 	return ret;
 }
-string& ConstStrBlobPtr::deref() const
+const string& ConstStrBlobPtr::deref() const
 {
 	auto p = check(curr, "dereference past end");
 	return (*p)[curr];
 }
 ConstStrBlobPtr& ConstStrBlobPtr::incr()
 {
-	check(curr, "increment past end of StrBlobPtr");
+	check(curr, "increment past end of ConstStrBlobPtr");
 	++curr;
 	return *this;
 }
-string& ConstStrBlobPtr::operator[](size_t n) const
+const string& ConstStrBlobPtr::operator[](size_t n) const
 {
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
+}
+ConstStrBlobPtr& ConstStrBlobPtr::operator+=(size_t n)
+{
+	curr += n;
+	check(curr, "pointer addition past end of ConstStrBlobPtr");
+	return *this;
+}
+ConstStrBlobPtr& ConstStrBlobPtr::operator-=(size_t n)
+{
+	curr -= n;
+	check(curr, "pointer subtraction past begin of ConstStrBlobPtr");
+	return *this;
 }
 // definitions of friend operators
 bool operator==(const ConstStrBlobPtr &lhs, const ConstStrBlobPtr &rhs)
@@ -379,6 +394,18 @@ ConstStrBlobPtr StrBlob::end() const
 {
 	auto ret = ConstStrBlobPtr(*this, data->size());
 	return ret;
+}
+ConstStrBlobPtr operator+(const ConstStrBlobPtr &sp, StrBlob::difference_type n)
+{
+	ConstStrBlobPtr sum = sp;
+	sum += n;
+	return sum;
+}
+ConstStrBlobPtr operator+(StrBlob::difference_type n, const ConstStrBlobPtr &sp)
+{
+	ConstStrBlobPtr sum = sp;
+	sum += n;
+	return sum;
 }
 #endif
 // Note: If two pointers point to two unrelated objects, the result of comparison

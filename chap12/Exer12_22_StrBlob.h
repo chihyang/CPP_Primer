@@ -120,7 +120,7 @@ class ConstStrBlobPtr{
 public:
 	ConstStrBlobPtr() : curr(0) {}
 	ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data),curr(sz) {}
-	string& deref() const;
+	const string& deref() const;
 	ConstStrBlobPtr& incr();
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
@@ -136,7 +136,7 @@ shared_ptr<vector<string>> ConstStrBlobPtr::check(size_t i, const string& msg) c
 		throw out_of_range(msg);
 	return ret;
 }
-string& ConstStrBlobPtr::deref() const
+const string& ConstStrBlobPtr::deref() const
 {
 	auto p = check(curr, "dereference past end");
 	return (*p)[curr];
