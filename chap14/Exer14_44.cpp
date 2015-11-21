@@ -31,7 +31,7 @@ map<string, function<int(int, int)>> binops = {
 	{"*", [](int i, int j){ return i * j;}}, // unnamed lambda
 	{"/", divide()},            // user-defined function object
 	{"%", mod} };               // named lambda object
-// operator priority map
+// operator priority(in stack) map
 map<char, int> priority = {
 	{'(', 0},
 	{'+', 1},
