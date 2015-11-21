@@ -105,7 +105,7 @@ string strip(const string &input)
 			output.push_back(c);
 	return output;
 }
-// calculate the 
+// calculate the suffix expression
 int calc(const string &suffix)
 {
 	string unit;
