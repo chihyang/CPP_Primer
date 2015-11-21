@@ -2,7 +2,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
 #include <stack>
 #include <map>
 #include <algorithm>
@@ -12,7 +11,6 @@ using std::cin;
 using std::endl;
 using std::istringstream;
 using std::string;
-using std::vector;
 using std::stack;
 using std::map;
 using std::minus;
@@ -41,10 +39,11 @@ map<char, int> priority = {
 	{'*', 2},
 	{'/', 2},
 	{'%', 2} };
-// c{"%", mod} };onvert infix expression to suffix expression
+// convert infix expression to suffix expression
 string to_suffix(const string&);
 // eliminate white spaces from expression
 string strip(const string&);
+// calculate suffix expression
 int calc(const string &expr);
 int main()
 {
