@@ -67,10 +67,10 @@ string to_suffix(const string &expr)
 		if(isdigit(c))
 			expression.push_back(c);
 		else {
-			expression.push_back(' '); // meets an operator, add an separator to the expression
-			if(stk.empty() || c == '(') // empty or meet ')', push into stack 
+			expression.push_back(' '); // meets an operator, adds an separator to the expression
+			if(stk.empty() || c == '(') // empty or meet ')', pushes into stack 
 				stk.push(c);
-			else if(c != ')') { // meet operator except ')', process according to stack operator priority
+			else if(c != ')') { // meets operator except ')', processes according to stack operator priority
 				while(!stk.empty() && priority[c] <= priority[stk.top()]) {
 					expression.push_back(stk.top());
 					stk.pop();
@@ -78,17 +78,17 @@ string to_suffix(const string &expr)
 				}
 				stk.push(c);
 			}
-			else { // meet ')', pop all of the operators except '('
+			else { // meets ')', pops up all of the operators except '('
 				while(stk.top() != '(') {
 					expression.push_back(stk.top());
 					stk.pop();
 					expression.push_back(' ');
 				}
-				stk.pop(); // pop '('
+				stk.pop(); // pops up '('
 			}
 		}
 	}
-	// pop all of the remaining operators in stack
+	// pops up all of the remaining operators in stack
 	while(!stk.empty()) {
 		expression.push_back(' '); // add separator space
 		expression.push_back(stk.top());
@@ -96,7 +96,7 @@ string to_suffix(const string &expr)
 	}
 	return expression;
 }
-// eliminate white spaces from input expressions 
+// eliminate white spaces from the input expression
 string strip(const string &input)
 {
 	string output;
