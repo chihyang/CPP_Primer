@@ -17,8 +17,8 @@ int main()
 	SmallInt s1;
 	double d = s1 + 3.14;
 	// error: ambiguous call. There are two viable functions:
-	// SmallInt operator+(const SmallInt&, const SmallInt&), 3.14 is converted to int and then SmallInt
-	// built-in operator+(int, double), s1 is converted to int
+	// SmallInt operator+(const SmallInt&, const SmallInt&); 3.14 is converted to int and then SmallInt
+	// built-in operator+(int, double); s1 is converted to int
 	// To make it legal, we can write as below
 	SmallInt s2;
 	double d2 = s2.operator int() + 3.14;
