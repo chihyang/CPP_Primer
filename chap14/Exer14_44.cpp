@@ -44,16 +44,25 @@ string to_suffix(const string&);
 // eliminate white spaces from expression
 string strip(const string&);
 // calculate suffix expression
-int calc(const string &expr);
+int calc(const string&);
+// check the validity of an expression
+bool check(const string&);
 int main()
 {
-	string exp;
-	cout << "input an expression, support +, -, *, /, and % only:" << endl;
-	while(getline(cin, exp)) 
+	cout << "input an expression, support +, -, *, /, and % only, or q to quit: " << endl;
+	while(true) 
 	{
-		exp = to_suffix(strip(exp));
-		cout << exp << endl;
-		cout << calc(exp) << endl;
+		string exp;
+		if(!(getline(cin, exp)) || strip(exp) == "q")
+			break;
+		else {
+			if(check(exp)) {
+				exp = to_suffix(strip(exp));
+				cout << calc(exp) << endl;
+			}
+			else
+				cout << "illegal or incomplete expression! continue or hit q to quit: " << endl;
+		}
 	}
 	return 0;
 }
@@ -130,5 +139,30 @@ int calc(const string &suffix)
 	stk.pop();
 	return ret;
 }
-// Note: this program doesn't check the validity of data, which should be added
-// later.
+// Note: data check is added, but might not cover all exceptions; calls for further test
+// eg: 1 () 2 * 3 is a wrong expression, but won't be found.
+bool check(const string &expr)
+{
+	// check if parentheses are paired
+	auto cnt_left = count(expr.cbegin(), expr.cend(), ')');
+	auto cnt_right = count(expr.cbegin(), expr.cend(), '(');
+	if(cnt_left != cnt_right)
+		return false;
+	if(expr.find("(") > expr.find(")"))
+		return false;
+	// find if any other illegal characters exist
+	auto illegal_pos = expr.find_first_not_of("+-*/%().0123456789 \t");
+	if(illegal_pos != string::npos) {
+		string s(illegal_pos + 1, ' ');
+		s[illegal_pos] = '^';
+		cout << s << endl;
+		return false;
+	}
+	// check if the last non white space character if a digit
+	// it is worth nothing that this also covers the case that no operators are
+	// input thus the last position of an operator is string::npos, which is -1
+	// and converted to the largest unsigned value)
+	if(expr.find_last_of("+-*/%") > expr.find_last_of("0123456789"))
+		return false;
+	return true;
+}
