@@ -158,9 +158,9 @@ bool check(const string &expr)
 		cout << s << endl;
 		return false;
 	}
-	// check if the last non white space character if a digit
+	// check if the last non white space character is a digit
 	// it is worth nothing that this also covers the case that no operators are
-	// input thus the last position of an operator is string::npos, which is -1
+	// input, thus the last position of an operator is string::npos, which is -1 
 	// and converted to the largest unsigned value)
 	if(expr.find_last_of("+-*/%") > expr.find_last_of("0123456789"))
 		return false;

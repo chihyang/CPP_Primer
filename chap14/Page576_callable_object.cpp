@@ -56,7 +56,8 @@ extern const int ic = 4;
 // Why? Because the function foo has only declaration but no definition. The
 // program has no grammar error, it compiles. But linker cannot find concrete
 // definition of foo. Thus it cannot generate a executable file for us. If we
-// uncomment line 15 to 19, everything will work fine.
+// uncomment line 15 to 19, everything will work fine.(see page 206, chapter 6 
+// for more details.)
 
 // Note #2: the declaration of foo is inside main function, why is it okay? 
 // Because this is a function declaration(page 206, chapter 6), and a declaration 
