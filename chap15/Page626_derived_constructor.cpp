@@ -38,8 +38,9 @@ int main()
 // Note: on page 626, it says:
 // Although in principle, Base could have a constructor that has a parameter of
 // type D, in practice, that is very unlikely.
-// As the code above shows, if we handle the sequence of declaration and definition
+// As the code above shows, if we handle the order of declaration and definition
 // carefully, Base could have a constructor that has a parameter of type D, but 
 // that will lead to a circle: we use the constructor of Base to initialize an
 // object of type D, but the constructor itself takes a D parameter. D should be
 // built on Base, thus we shouldn't use type D's object to initialize type Base's.
+// See page 619.
