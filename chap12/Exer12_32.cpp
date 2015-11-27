@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "TextQuery_StrBlob.h"
+#include "Exer12_32_TextQuery_StrBlob.h"
 using std::cout;
 using std::cin;
 using std::endl;
