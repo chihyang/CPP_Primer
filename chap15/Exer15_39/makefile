@@ -1,4 +1,4 @@
-# This is a bad makefile for its complexity. Modification will be made sooner.
+# This is a bad makefile for its complexity. Modification will be made soon.
 OBJDIR = obj
 OBJECTS = $(OBJDIR)/Exer15_39_TextQuery.o \
           $(OBJDIR)/Exer15_39_NotQuery.o \
