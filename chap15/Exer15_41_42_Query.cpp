@@ -3,7 +3,7 @@
 #include <iterator>
 #include <set>
 #include <memory>
-#include "Exer15_41_Query.h"
+#include "Exer15_41_42_Query.h"
 // returns the union of its operands' result sets
 QueryResult OrQuery::eval(const TextQuery &text) const
 {

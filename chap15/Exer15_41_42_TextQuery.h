@@ -20,7 +20,7 @@ private:
 	std::map<std::string, std::shared_ptr<std::set<line_no>>> wm;
 };
 class QueryResult{
-	friend std::ostream& print(std::ostream&, const QueryResult&);
+	friend std::ostream& print(std::ostream&, const QueryResult&, TextQuery::line_no, TextQuery::line_no);
 public:
 	QueryResult(std::string s,
 	            std::shared_ptr<std::set<TextQuery::line_no>> p,

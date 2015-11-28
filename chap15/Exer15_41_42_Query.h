@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <string>
 #include <utility>
-#include "Exer15_41_TextQuery.h"
+#include "Exer15_41_42_TextQuery.h"
 class Query_base {
 	friend class Query;
 protected:

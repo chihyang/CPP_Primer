@@ -1,4 +1,4 @@
-#include "Exer15_41_TextQuery.h"
+#include "Exer15_41_42_TextQuery.h"
 // read the input file and build the std::map of lines to line numbers
 TextQuery::TextQuery(std::ifstream& is) : file(new std::vector<std::string>)
 {
@@ -30,15 +30,19 @@ QueryResult TextQuery::query(const std::string& sought) const
 	else
 		return QueryResult(sought, loc->second, file);
 }
-std::ostream& print(std::ostream& os, const QueryResult& qr)
+std::ostream& print(std::ostream& os, const QueryResult &qr, TextQuery::line_no min, TextQuery::line_no max)
 {
 	// if the word was found, print the count and all occurrences
 	os << qr.sought << " occurs " << qr.lines->size() << " "
 	   << make_plural(qr.lines->size(), "time", "s") << std::endl;
 	// print each line in which the word appeared
-	for(auto num : *qr.lines)
-		os << "\t(line " << num + 1 << ") "
-	       <<*(qr.file->begin() + num) << std::endl;
+	for(auto num : *qr.lines){
+		if((num + 1)>= min && (num + 1) <= max)
+			os << "\t(line " << num + 1 << ") "
+			    <<*(qr.file->begin() + num) << std::endl;
+		else if((num + 1 > max))
+			break;
+	}
 	return os;
 }
 std::string make_plural(size_t ctr, const std::string &word, const std::string &ending)
