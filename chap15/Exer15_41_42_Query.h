@@ -140,4 +140,11 @@ inline Query operator~(const Query &operand)
 {
 	return (new NotQuery(operand));
 }
+// function table
+// we have to provide another lambda to create a function table
+// auto neg = [](const Query &operand, const Query &place_holder) { return ~(operand); };
+// extern std::map<std::string, std::function(Query(const Query&, const Query&))> query_ops = {
+	// {"&", operator&},
+	// {"|", operator|},
+	// {"~", neg} };
 #endif

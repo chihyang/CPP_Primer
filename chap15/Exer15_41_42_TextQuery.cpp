@@ -37,7 +37,7 @@ std::ostream& print(std::ostream& os, const QueryResult &qr, TextQuery::line_no 
 	   << make_plural(qr.lines->size(), "time", "s") << std::endl;
 	// print each line in which the word appeared
 	for(auto num : *qr.lines){
-		if((num + 1)>= min && (num + 1) <= max)
+		if((num + 1) >= min && (num + 1) <= max) // limit display range required by exercise 15.42(c)
 			os << "\t(line " << num + 1 << ") "
 			    <<*(qr.file->begin() + num) << std::endl;
 		else if((num + 1 > max))
