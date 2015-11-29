@@ -30,7 +30,7 @@ QueryResult TextQuery::query(const std::string& sought) const
 	else
 		return QueryResult(sought, loc->second, file);
 }
-std::ostream& print(std::ostream& os, const QueryResult &qr, TextQuery::line_no min, TextQuery::line_no max)
+std::ostream& print(std::ostream &os, const QueryResult &qr, TextQuery::line_no min, TextQuery::line_no max)
 {
 	// if the word was found, print the count and all occurrences
 	os << qr.sought << " occurs " << qr.lines->size() << " "
