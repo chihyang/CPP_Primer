@@ -5,6 +5,7 @@
 #include <vector>
 #include <initializer_list>
 #include <memory>
+#include <utility>
 #include <stdexcept>
 using std::size_t;
 using std::string;
@@ -35,6 +36,8 @@ public:
 	size_type size() const { return data->size(); }
 	// add and remove elements
 	void push_back(const string &t) { data->push_back(t); }
+	// move version required by exercise 13.55
+	void push_back(string &&t) { data->push_back(std::move(t)); }
 	void pop_back();
 	// elements access
 	string& front();
