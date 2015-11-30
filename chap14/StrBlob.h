@@ -27,7 +27,7 @@ class StrBlob {
 	// overloaded relational operator required by exercise 14.18
 	friend bool operator<(const StrBlob&, const StrBlob&);
 	friend bool operator<=(const StrBlob&, const StrBlob&);
-	friend bool operator<(const StrBlob&, const StrBlob&);
+	friend bool operator>(const StrBlob&, const StrBlob&);
 	friend bool operator>=(const StrBlob&, const StrBlob&);
 public:
 	typedef vector<string>::size_type size_type;
