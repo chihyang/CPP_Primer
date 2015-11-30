@@ -154,15 +154,15 @@ public:
 	StrBlobPtr& incr();
 	// subscript operator required by exercise 14.26
 	string& operator[](size_t n);
-	string& operator[](size_t n) const;	
+	const string& operator[](size_t n) const;	
 	// increment and decrement operator required by exercise 14.27
 	StrBlobPtr& operator++(); // prefix increment, return reference
 	StrBlobPtr& operator--(); // prefix decrement
 	StrBlobPtr operator++(int); // postfix increment, return value
 	StrBlobPtr operator--(int); // postfix decrement
 	// pointer arithmetic required by exercise 14.28
-	StrBlobPtr& operator+=(size_t n); // addition
-	StrBlobPtr& operator-=(size_t n); // subtraction
+	StrBlobPtr& operator+=(vector<string>::difference_type n); // addition
+	StrBlobPtr& operator-=(vector<string>::difference_type n); // subtraction
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -196,7 +196,7 @@ string& StrBlobPtr::operator[](size_t n)
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
 }
-string& StrBlobPtr::operator[](size_t n) const
+const string& StrBlobPtr::operator[](size_t n) const
 {
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
@@ -225,13 +225,13 @@ StrBlobPtr StrBlobPtr::operator--(int)
 	--*this; // move backward one element; prefix -- checks the decrement
 	return ret; // return the saved value
 }
-StrBlobPtr& StrBlobPtr::operator+=(size_t n)
+StrBlobPtr& StrBlobPtr::operator+=(vector<string>::difference_type n)
 {
 	curr += n;
 	check(curr, "pointer addition past end of StrBlobPtr");
 	return *this;
 }
-StrBlobPtr& StrBlobPtr::operator-=(size_t n)
+StrBlobPtr& StrBlobPtr::operator-=(vector<string>::difference_type n)
 {
 	curr -= n;
 	check(curr, "pointer subtraction past begin of StrBlobPtr");
@@ -242,7 +242,7 @@ StrBlobPtr& StrBlobPtr::operator-=(size_t n)
 // so we have to use lock() to compare
 bool operator==(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() == rhs.wptr.lock() && lhs.curr == rhs.curr;
+	return lhs.curr == rhs.curr;
 }
 bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -254,15 +254,15 @@ bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 }
 bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr <= rhs.curr;
+	return (lhs < rhs || lhs == rhs);
 }
 bool operator>(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr > rhs.curr;
+	return !(lhs < rhs || lhs == rhs);
 }
 bool operator>=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr >= rhs.curr;
+	return !(lhs < rhs);
 }
 StrBlob::difference_type operator-(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -307,8 +307,8 @@ public:
 	// ConstStrBlobPtr should only have const version of subscript operator
 	const string& operator[](size_t n) const;
 	// pointer arithmetic required by exercise 14.28
-	ConstStrBlobPtr& operator+=(size_t n); // addition
-	ConstStrBlobPtr& operator-=(size_t n); // subtraction
+	ConstStrBlobPtr& operator+=(vector<string>::difference_type n); // addition
+	ConstStrBlobPtr& operator-=(vector<string>::difference_type n); // subtraction
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -339,13 +339,13 @@ const string& ConstStrBlobPtr::operator[](size_t n) const
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
 }
-ConstStrBlobPtr& ConstStrBlobPtr::operator+=(size_t n)
+ConstStrBlobPtr& ConstStrBlobPtr::operator+=(vector<string>::difference_type n)
 {
 	curr += n;
 	check(curr, "pointer addition past end of ConstStrBlobPtr");
 	return *this;
 }
-ConstStrBlobPtr& ConstStrBlobPtr::operator-=(size_t n)
+ConstStrBlobPtr& ConstStrBlobPtr::operator-=(vector<string>::difference_type n)
 {
 	curr -= n;
 	check(curr, "pointer subtraction past begin of ConstStrBlobPtr");

@@ -156,7 +156,7 @@ public:
 	StrBlobPtr& incr();
 	// subscript operator required by exercise 14.26
 	string& operator[](size_t n);
-	string& operator[](size_t n) const;
+	const string& operator[](size_t n) const;
 private:
 	shared_ptr<vector<string>> check(size_t, const string&) const;
 	weak_ptr<vector<string>> wptr;
@@ -190,7 +190,7 @@ string& StrBlobPtr::operator[](size_t n)
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
 }
-string& StrBlobPtr::operator[](size_t n) const
+const string& StrBlobPtr::operator[](size_t n) const
 {
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
@@ -200,7 +200,7 @@ string& StrBlobPtr::operator[](size_t n) const
 // so we have to use lock() to compare
 bool operator==(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() == rhs.wptr.lock() && lhs.curr == rhs.curr;
+	return lhs.curr == rhs.curr;
 }
 bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -212,15 +212,15 @@ bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 }
 bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr <= rhs.curr;
+	return (lhs < rhs || lhs == rhs);
 }
 bool operator>(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr > rhs.curr;
+	return !(lhs < rhs || lhs == rhs);
 }
 bool operator>=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr >= rhs.curr;
+	return !(lhs < rhs);
 }
 // ***************************
 // const version of StrBlobPtr

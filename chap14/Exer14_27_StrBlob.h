@@ -147,7 +147,7 @@ public:
 	StrBlobPtr& incr();
 	// subscript operator required by exercise 14.26
 	string& operator[](size_t n);
-	string& operator[](size_t n) const;	
+	const string& operator[](size_t n) const;	
 	// increment and decrement operator required by exercise 14.27
 	StrBlobPtr& operator++(); // prefix increment, return reference
 	StrBlobPtr& operator--(); // prefix decrement
@@ -186,7 +186,7 @@ string& StrBlobPtr::operator[](size_t n)
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
 }
-string& StrBlobPtr::operator[](size_t n) const
+const string& StrBlobPtr::operator[](size_t n) const
 {
 	auto p = check(curr + n, "deference past end");
 	return (*p)[curr + n];
@@ -220,7 +220,7 @@ StrBlobPtr StrBlobPtr::operator--(int)
 // so we have to use lock() to compare
 bool operator==(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.wptr.lock() == rhs.wptr.lock() && lhs.curr == rhs.curr;
+	return lhs.curr == rhs.curr;
 }
 bool operator!=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
@@ -232,15 +232,15 @@ bool operator<(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 }
 bool operator<=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr <= rhs.curr;
+	return (lhs < rhs || lhs == rhs);
 }
 bool operator>(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr > rhs.curr;
+	return !(lhs < rhs || lhs == rhs);
 }
 bool operator>=(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-	return lhs.curr >= rhs.curr;
+	return !(lhs < rhs);
 }
 // ***************************
 // const version of StrBlobPtr
