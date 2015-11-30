@@ -46,19 +46,20 @@ public:
 	const string& front() const;
 	const string& back() const;
 	// return reference count
-	const size_type use_count() const { return data.use_count(); }
+	size_type use_count() const { return data->use_count(); }
 	StrBlobPtr begin();
 	StrBlobPtr end();
 	ConstStrBlobPtr begin() const;
 	ConstStrBlobPtr end() const;
 	// access elements
-	string& at(size_type) const;
+	string& at(size_type);
+	const string& at(size_type) const;
 	// subscript operator required by exercise 14.26
 	// the difference between at and subscript is that subscript doesn't throw
 	// exception if the index is out of range.
 	string& operator[](size_t n)
 	{ return (*data)[n]; }
-	string& operator[](size_t n) const
+	const string& operator[](size_t n) const
 	{ return (*data)[n]; }
 private:
 	shared_ptr<vector<string>> data;
@@ -101,7 +102,12 @@ const string& StrBlob::back() const
 	check(0, "back on empty StrBlob");
 	data->back();
 }
-string& StrBlob::at(size_type n) const
+string& StrBlob::at(size_type n)
+{
+	check(n, "index out of range");
+	return data->at(n);
+}
+const string& StrBlob::at(size_type n) const
 {
 	check(n, "index out of range");
 	return data->at(n);

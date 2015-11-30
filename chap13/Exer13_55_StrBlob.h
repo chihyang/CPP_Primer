@@ -39,7 +39,7 @@ public:
 	const string& front() const;
 	const string& back() const;
 	// return reference count
-	const size_type use_count() const { return data.use_count(); }
+	const size_type use_count() const { return data->use_count(); }
 	StrBlobPtr begin();
 	StrBlobPtr end();
 	ConstStrBlobPtr begin() const;

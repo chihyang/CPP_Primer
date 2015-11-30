@@ -56,7 +56,7 @@ public:
 	// exception if the index is out of range.
 	string& operator[](size_t n)
 	{ return (*data)[n]; }
-	string& operator[](size_t n) const
+	const string& operator[](size_t n) const
 	{ return (*data)[n]; }
 private:
 	shared_ptr<vector<string>> data;

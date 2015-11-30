@@ -44,7 +44,7 @@ public:
 	const string& front() const;
 	const string& back() const;
 	// return reference count
-	const size_type use_count() const { return data.use_count(); }
+	size_type use_count() const { return data.use_count(); }
 	StrBlobPtr begin();
 	StrBlobPtr end();
 	ConstStrBlobPtr begin() const;
@@ -56,7 +56,7 @@ public:
 	// exception if the index is out of range.
 	string& operator[](size_t n)
 	{ return (*data)[n]; }
-	string& operator[](size_t n) const
+	const string& operator[](size_t n) const
 	{ return (*data)[n]; }
 private:
 	shared_ptr<vector<string>> data;
