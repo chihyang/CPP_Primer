@@ -1,3 +1,5 @@
+// Note: this header uses contents beyond the section, see section 16.1.3, page 669
+// using class members that are types
 #ifndef EXER16_12_BLOB_H
 #define EXER16_12_BLOB_H
 #include <string>
@@ -161,9 +163,10 @@ template <typename T> bool operator<=(const BlobPtr<T>&, const BlobPtr<T>&);
 template <typename T> bool operator>(const BlobPtr<T>&, const BlobPtr<T>&);
 template <typename T> bool operator>=(const BlobPtr<T>&, const BlobPtr<T>&);
 template <typename T> bool operator+(const BlobPtr<T>&, const BlobPtr<T>&);
-template <typename T> BlobPtr<T> operator+(const BlobPtr<T>&, int);
-template <typename T> BlobPtr<T> operator-(const BlobPtr<T>&, int);
-template <typename T> int operator-(const BlobPtr<T>&, const BlobPtr<T>&);
+// using class member that are types, see section 16.1.3, page 669
+template <typename T> BlobPtr<T> operator+(const BlobPtr<T>&, typename Blob<T>::difference_type);
+template <typename T> BlobPtr<T> operator-(const BlobPtr<T>&, typename Blob<T>::difference_type);
+template <typename T> typename Blob<T>::difference_type operator-(const BlobPtr<T>&, const BlobPtr<T>&);
 template <typename T>
 class BlobPtr {
 	friend bool operator==<T>(const BlobPtr<T>&, const BlobPtr<T>&);
@@ -172,12 +175,11 @@ class BlobPtr {
 	friend bool operator<=<T>(const BlobPtr<T>&, const BlobPtr<T>&);
 	friend bool operator><T>(const BlobPtr<T>&, const BlobPtr<T>&);
 	friend bool operator>=<T>(const BlobPtr<T>&, const BlobPtr<T>&);
-	friend BlobPtr<T> operator+<T>(const BlobPtr<T>&, int);
-	friend BlobPtr<T> operator-<T>(const BlobPtr<T>&, int);
-	friend int operator-<T>(const BlobPtr<T>&, const BlobPtr<T>&);
+	friend BlobPtr<T> operator+<T>(const BlobPtr<T>&, typename Blob<T>::difference_type);
+	friend BlobPtr<T> operator-<T>(const BlobPtr<T>&, typename Blob<T>::difference_type);
+	friend typename Blob<T>::difference_type operator-<T>(const BlobPtr<T>&, const BlobPtr<T>&);
 public:
 	typedef typename std::vector<T>::size_type size_type;
-	typedef typename std::vector<T>::difference_type difference_type;
 	BlobPtr();
 	BlobPtr(Blob<T> &a, size_type sz = 0): wptr(a.data), curr(sz) {}
 	// deference
@@ -191,8 +193,8 @@ public:
 	BlobPtr& operator++(int);
 	BlobPtr& operator--(int);
 	// compound assignment
-	BlobPtr& operator+=(difference_type); // addition
-	BlobPtr& operator-=(difference_type); // subtraction
+	BlobPtr& operator+=(typename Blob<T>::difference_type); // addition
+	BlobPtr& operator-=(typename Blob<T>::difference_type); // subtraction
 private:
 	std::shared_ptr<std::vector<T>> check(size_type, const std::string&) const;
 	std::weak_ptr<std::vector<T>> wptr;
@@ -293,14 +295,14 @@ BlobPtr<T>& BlobPtr<T>::operator--(int)
 	return ret;
 }
 template <typename T> 
-BlobPtr<T>& BlobPtr<T>::operator+=(difference_type n)
+BlobPtr<T>& BlobPtr<T>::operator+=(typename Blob<T>::difference_type n)
 {
 	curr += n;
 	check(curr, "pointer addition past end of BlobPtr");
 	return *this;
 }
 template <typename T> 
-BlobPtr<T>& BlobPtr<T>::operator-=(difference_type n)
+BlobPtr<T>& BlobPtr<T>::operator-=(typename Blob<T>::difference_type n)
 {
 	curr -= n;
 	check(curr, "pointer subtraction past begin of BlobPtr");
@@ -308,21 +310,21 @@ BlobPtr<T>& BlobPtr<T>::operator-=(difference_type n)
 }
 // addition and subtraction
 template <typename T>
-BlobPtr<T> operator+(const BlobPtr<T> &sp, int n)
+BlobPtr<T> operator+(const BlobPtr<T> &sp, typename Blob<T>::difference_type n)
 {
 	auto sum = sp;
 	sum += n;
 	return sum;
 }
 template <typename T>
-BlobPtr<T> operator-(const BlobPtr<T> &sp, int n)
+BlobPtr<T> operator-(const BlobPtr<T> &sp, typename Blob<T>::difference_type n)
 {
 	auto sum = sp;
 	sum -= n;
 	return sum;
 }
 template <typename T>
-int operator-(const BlobPtr<T> &lhs, const BlobPtr<T> &rhs)
+typename Blob<T>::difference_type operator-(const BlobPtr<T> &lhs, const BlobPtr<T> &rhs)
 {
 	return lhs.curr - rhs.curr;
 }

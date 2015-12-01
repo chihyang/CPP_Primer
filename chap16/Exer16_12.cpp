@@ -9,7 +9,7 @@ int main()
 {
 	Blob<int> blob1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	Blob<int> blob2 = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-	BlobPtr<int> ps(blob1);
+	BlobPtr<int> ps(blob1), ps2(blob1, blob1.size());
 	cout << "blob1.size(): " << blob1.size() << endl;
 	blob1.push_back(12);
 	cout << "blob1.size(): " << blob1.size() << endl;
@@ -48,5 +48,6 @@ int main()
 	cout << "(ps = ps - 22) = " << *ps << endl;
 	ps = ps - 1;
 	cout << "(ps = ps + 1) = " << *ps << endl;
+	cout << "ps2 - ps = " << ps2 - ps << endl;
 	return 0;
 }
