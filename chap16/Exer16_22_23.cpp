@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "TextQuery.h"
+#include "Exer16_22_23_TextQuery.h"
 using std::cout;
 using std::cin;
 using std::endl;
