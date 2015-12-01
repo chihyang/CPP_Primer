@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Exer16_05.h"
-#include "Exer16_07.h"
+#include "Exer16_05_print.h"
+#include "Exer16_07_size.h"
 using std::cout;
 using std::endl;
 int main()

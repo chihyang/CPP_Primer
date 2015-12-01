@@ -1,5 +1,5 @@
-#ifndef EXER16_02_H
-#define EXER16_02_H
+#ifndef EXER16_02_COMPARE_H
+#define EXER16_02_COMPARE_H
 template <typename T>
 int compare(const T &v1, const T &v2)
 {

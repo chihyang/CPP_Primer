@@ -1,5 +1,5 @@
-#ifndef EXER16_04_H
-#define EXER16_04_H
+#ifndef EXER16_04_FIND_H
+#define EXER16_04_FIND_H
 template <typename TI, typename TV>
 TI find(TI begin, TI end, const TV &val)
 {

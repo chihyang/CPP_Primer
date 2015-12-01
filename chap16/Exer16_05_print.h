@@ -1,5 +1,5 @@
-#ifndef EXER16_05_H
-#define EXER16_05_H
+#ifndef EXER16_05_PRINT_H
+#define EXER16_05_PRINT_H
 #include <iostream>
 template <typename V, unsigned N>
 void print(const V (&arr)[N])

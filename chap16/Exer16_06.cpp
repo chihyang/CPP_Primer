@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iterator>
-#include "Exer16_06.h"
+#include "Exer16_06_begin_end.h"
 using std::cout;
 using std::endl;
 int main()

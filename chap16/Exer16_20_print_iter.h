@@ -1,5 +1,5 @@
-#ifndef EXER16_20_H
-#define EXER16_20_H
+#ifndef EXER16_20_PRINT_ITER_H
+#define EXER16_20_PRINT_ITER_H
 #include <iostream>
 template <typename C>
 void print(const C &c)

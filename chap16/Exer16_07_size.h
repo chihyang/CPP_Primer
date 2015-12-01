@@ -1,5 +1,5 @@
-#ifndef EXER16_07_1H
-#define EXER16_07_1H
+#ifndef EXER16_07_SIZE_H
+#define EXER16_07_SIZE_H
 template <typename T, unsigned N>
 inline constexpr unsigned size(const T(&arr)[N])
 {

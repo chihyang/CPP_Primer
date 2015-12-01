@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Exer16_02.h"
+#include "Exer16_02_compare.h"
 using std::cout;
 using std::endl;
 using std::vector;
