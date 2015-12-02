@@ -20,7 +20,8 @@ class unique_ptr {
 public:
 	// constructor
 	unique_ptr() : p(nullptr), del(D()) {}
-	unique_ptr(T *t) : p(t), del(D()) {}
+	// forbid implicit conversion
+	explicit unique_ptr(T *t) : p(t), del(D()) {}
 	unique_ptr(const D &d) : p(nullptr), del(d) {}
 	// copy-control operations(copy version is deleted)
 	unique_ptr(const unique_ptr&) = delete;
@@ -35,7 +36,7 @@ public:
 	T* operator->() const;
 	explicit operator bool() const { return p; }
 	// other operations
-	T* get() { return p; }
+	T* get() const { return p; }
 	void swap(unique_ptr&);
 	T* release();
 	void reset();

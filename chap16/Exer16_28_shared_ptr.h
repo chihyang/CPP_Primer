@@ -16,7 +16,8 @@ public:
 	typedef typename std::function<void(T*)> Deleter;
 	// constructors
 	shared_ptr() : p(nullptr), ref(new std::size_t(0)), del(nullptr) {}
-	shared_ptr(T *q) : p(q), ref(new std::size_t(1)), del(nullptr) {}
+	// forbid implicit conversion
+	explicit shared_ptr(T *q) : p(q), ref(new std::size_t(1)), del(nullptr) {}
 	shared_ptr(T *q, Deleter d) : p(q), ref(new std::size_t(1)), del(d) {}
 	shared_ptr(const shared_ptr &sp, Deleter d) : p(sp.p), ref(sp.ref), del(d) { ++*ref; }
 	shared_ptr(unique_ptr<T>&);
