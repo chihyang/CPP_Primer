@@ -47,7 +47,6 @@ template <unsigned H, unsigned W>
 Screen<H, W>& Screen<H, W>::set(char c)
 {
 	contents[cursor] = c;
-	// contents.push_back(c);
 	return *this;
 }
 template <unsigned H, unsigned W>
