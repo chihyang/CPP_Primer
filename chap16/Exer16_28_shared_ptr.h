@@ -96,15 +96,15 @@ inline T* shared_ptr<T>::operator->() const
 template <typename T>
 inline void swap(shared_ptr<T> &lhs, shared_ptr<T> &rhs)
 {
-	using std::swap;
-	swap(lhs.p, rhs.p);
-	swap(lhs.ref, rhs.ref);
-	swap(lhs.del, rhs.del);
+	lhs.swap(rhs);
 }
 template <typename T>
 inline void shared_ptr<T>::swap(shared_ptr &rhs)
 {
-	swap(*this, rhs);
+	using std::swap;
+	swap(this->p, rhs.p);
+	swap(this->ref, rhs.ref);
+	swap(this->del, rhs.del);
 }
 template <typename T>
 void shared_ptr<T>::reset()

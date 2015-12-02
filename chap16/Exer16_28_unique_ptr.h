@@ -90,14 +90,16 @@ inline T* unique_ptr<T, D>::operator->() const
 template <typename T>
 void swap(unique_ptr<T> &lhs, unique_ptr<T> &rhs)
 {
-	using std::swap;
-	swap(lhs.p, rhs.p);
-	swap(lhs.del, rhs.del);
+	lhs.swap(rhs);
 }
+// non-member version calls member version, if we use member version call 
+// non-member version, we have to use ::swap for a hidden name
 template <typename T, typename D>
-void unique_ptr<T, D>::swap(unique_ptr &rhs)
+inline void unique_ptr<T, D>::swap(unique_ptr &rhs)
 {
-	swap(&this, rhs);
+	using std::swap;
+	swap(this->p, rhs.p);
+	swap(this->del, rhs.del);
 }
 template <typename T, typename D>
 T* unique_ptr<T, D>::release()

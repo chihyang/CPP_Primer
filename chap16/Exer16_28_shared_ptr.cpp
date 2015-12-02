@@ -64,6 +64,7 @@ int main()
 	shared_ptr<vector<string>> sp12(new vector<string>(), [](vector<string> *q) { cout << "delete vector"<< endl; delete q;});
 	// swap
 	swap(sp, sp11);
+	sp.swap(sp11);
 	cout << "sp.use_count(): " << sp.use_count() << endl;
 	cout << "sp11.use_count(): " << sp11.use_count() << endl;
 	try {
@@ -77,6 +78,7 @@ int main()
 	auto sp13 = make_shared<vector<int>>(il);
 	cout << "sp13.use_count(): " << sp13.use_count() << endl;
 	// get
+	swap(sp, sp11);
 	auto pi = sp11.get();
 	cout << *pi << endl;
 	return 0;

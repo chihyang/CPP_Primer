@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include <utility>
 #include "Exer16_28_unique_ptr.h"
-// #include <memory>
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -12,10 +11,9 @@ using std::string;
 using std::vector;
 using std::function;
 using std::runtime_error;
-struct DebugDelete {
+struct DebugDelete { // test deleter
 public:
 	DebugDelete(std::ostream &s = std::cerr) : os(s) {}
-	// as with any function template, the type of T is deduced by the compiler
 	template <typename T>
 	void operator()(T *p) const
 	{ os << "deleting unique_ptr" << std::endl; delete p; }
@@ -46,8 +44,10 @@ int main()
 	}
 	unique_ptr<string, DebugDelete> q4;
 	unique_ptr<string> q5;
+	unique_ptr<string> q6;
 	q4.reset(new string("q4"));
 	// swap(q4, q5); // error: cannot swap two unique_ptr of different types
+	q5.swap(q6); // ok
 	auto sp = q4.release();
 	if(!q4)
 		cout << "q4 is null!" << endl;
