@@ -81,5 +81,7 @@ int main()
 	swap(sp, sp11);
 	auto pi = sp11.get();
 	cout << *pi << endl;
+	// reference count of null pointer could be freed too
+	shared_ptr<int> sp14;
 	return 0;
 }
