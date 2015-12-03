@@ -241,4 +241,4 @@ void unique_ptr<T[], D>::reset(std::nullptr_t)
 #endif
 // Note: because release and reset might change the value of one object, they can't
 // be applied to const unique_ptr. Because all of this functions call a private
-// function free() to free resource, thus we can not write p = nullptr in free.
+// function free() to free resource, we can not write p = nullptr in free.

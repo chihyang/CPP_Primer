@@ -1,3 +1,4 @@
+// Note: this header has an unsolved problem. See notes below.
 #ifndef EXER16_29_BLOB_H
 #define EXER16_29_BLOB_H
 #include <string>
@@ -159,12 +160,12 @@ inline bool operator>=(const Blob<T> &lhs, const Blob<T> &rhs)
 }
 #endif
 // Note: the header <memory> must be excluded, or even if we don't use std:: before
-// make_shared, the program still uses standard library version of it. Because 
-// make_shared is a function rather than a class, we can use the library version
-// without adding std::; thus the standard library version would be used first
-// (even if <memory> is after "Exer16_28_shared_ptr.h"). But shared_ptr must 
+// make_shared, the program still uses standard library version of it. THE REASON
+// IS NOT KNOWN FOR NOW.
+// The result is that even if <memory> is after "Exer16_28_shared_ptr.h", still 
+// the standard library version of make_shared is used. But shared_ptr must 
 // follow std:: if we want to use the standard library version. Here we don't want
-// to use standard library version so we don't use std::; now the problem emerges:
-// (std::)make_shared can only work with std::shared_ptr, but we provide a custom
-// version of shared_ptr. As a result, the program won't compile. So we had better
-// not include memory here.
+// to use the standard library version so we don't use std::; now the problem 
+// emerges: (std::)make_shared can only work with std::shared_ptr, but we provide 
+// a custom version of shared_ptr. As a result, the program won't compile. So we
+// had better not include memory here.
