@@ -146,3 +146,8 @@ inline shared_ptr<T> make_shared(const T &t)
 // Note2: another thing to note: although the type of deleter is function<void(T*)>,
 // we can initialize or assign deleter with a callable object whose return type 
 // is not void.
+
+// Note3: this version doesn't consider about dynamic array, because library 
+// version of shared_ptr provides no direct support for managing dynamic array. 
+// If we want to use shared_ptr to manage a dynamic array, we must provide our 
+// own deleter(section 12.2.1, page 480).

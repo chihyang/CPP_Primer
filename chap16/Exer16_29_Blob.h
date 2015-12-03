@@ -161,10 +161,10 @@ inline bool operator>=(const Blob<T> &lhs, const Blob<T> &rhs)
 // Note: the header <memory> must be excluded, or even if we don't use std:: before
 // make_shared, the program still uses standard library version of it. Because 
 // make_shared is a function rather than a class, we can use the library version
-// without adding std::; thus the version of standard library would be used first
+// without adding std::; thus the standard library version would be used first
 // (even if <memory> is after "Exer16_28_shared_ptr.h"). But shared_ptr must 
-// follow std:: if we want to use the standard library version; here we don't want
+// follow std:: if we want to use the standard library version. Here we don't want
 // to use standard library version so we don't use std::; now the problem emerges:
 // (std::)make_shared can only work with std::shared_ptr, but we provide a custom
-// version of shared_ptr. As a result, the problem won't compile. So we had better
+// version of shared_ptr. As a result, the program won't compile. So we had better
 // not include memory here.
