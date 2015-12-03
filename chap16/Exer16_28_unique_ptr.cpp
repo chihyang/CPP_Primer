@@ -60,5 +60,6 @@ int main()
 		cout << up[i] << " ";
 	cout << endl;
 	up.release();
+	const unique_ptr<int> up2(new int(1)); // cannot use release and reset
 	return 0;
 }
