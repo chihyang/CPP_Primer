@@ -1,9 +1,11 @@
+#include <cstddef>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <stdexcept>
 #include <utility>
 #include "Exer16_28_unique_ptr.h"
+using std::size_t;
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -52,5 +54,11 @@ int main()
 	if(!q4)
 		cout << "q4 is null!" << endl;
 	delete sp;
+	// dynamic array
+	unique_ptr<int[]> up(new int[10]());
+	for(size_t i = 0; i != 10; ++i)
+		cout << up[i] << " ";
+	cout << endl;
+	up.release();
 	return 0;
 }
