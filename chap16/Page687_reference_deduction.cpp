@@ -1,12 +1,13 @@
 // Warning: this is for illustration. Template declarations and definitions should be put into header files.
 // Warning: this program cannot compile. The problem lies in line 13.
-template <typename T> void f1(T&); // argument must be an lvalue
-template <typename T> void f2(const T&); // can take an rvalue
-template <typename T> void f3(T&&);
+template <typename T> void f1(T&) {} // argument must be an lvalue
+template <typename T> void f2(const T&) {} // can take an rvalue
+template <typename T> void f3(T&&) {}
 int main()
 {
 	int i = 0;
 	const int ci = 42;
+	int &&ri = 1;
 	// calls to f1 use the referred-to type of the argument as the template parameter type
 	f1(i);  // i is an int; template parameter T is int
 	f1(ci); // ci is a const int; template T is const int
