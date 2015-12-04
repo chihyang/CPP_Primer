@@ -32,5 +32,5 @@ int main()
 // differentiate them. Maybe that's the reason why const reference and plain 
 // type cannot be used to overload a function. Furthermore, whether an int has 
 // (top-level) const qualifier or not can not be used to differentiate overload 
-// function. But foo(int) is actually using top-level const to differentiate 
+// function, but foo(int) is actually using top-level const to differentiate 
 // itself from foo(const int&). This might be a better explanation for ambiguity.

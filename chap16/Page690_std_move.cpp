@@ -23,6 +23,7 @@ int main()
 	cout << ::move(i) << endl;
 	string s1("hi!"), s2, s3;
 	cout << "s1 before move: " << s1 << endl;
+	// here we use ::move to avoid possible name collision with std::move
 	s2 = ::move(string("hi")); // #1 - T: string, t: string&&, return: string&& 
 	s3 = ::move(s1);           // #2 - T: string&, t: string&, return: string&&
 	cout << "s1 after move: " << s1 << endl;
