@@ -87,29 +87,52 @@ int main()
 //
 // Below is the summary of contents above taking string as an example:
 // column is function parameter, row is argument passing to ::move
-// (Assume all of the arguments passed to ::move are lvalues, or T& is not available.)
+// (TABLE1-1 and TABLE1-2 Assume all of the arguments passed to ::move are lvalues,
+// or T& is not available.)
 //
-// TABLE1: template argument from deduction
+// TABLE1-1: template argument from deduction
 // --------------------------------------------------------------------------------------
 // |__________|string  |const string  |string& |const string& |string&& |const string&& |
 // |T         |string  |string        |string  |string        |string   |string         |
 // |const T   |string  |string        |string  |string        |string   |string         |
 // |T&        |string  |const string  |string  |const string  |string   |const string   |
 // |const T&  |string  |string        |string  |string        |string   |string         |
-// |T&&       |string& |const string& |string& |const string& |string&  |const string&& |
-// |const T&& |string& |string&       |string& |string&       |string&  |string&&       |
+// |T&&       |string& |const string& |string& |const string& |string&  |const string&  |
+// |const T&& |string& |string&       |string& |string&       |string&  |string&        |
 // --------------------------------------------------------------------------------------
 // (Keep in mind that rvalue reference is lvalue itself(page 533).)
-// TABLE2: instantiated function parameter
+// TABLE1-2: instantiated function parameter type
 // ------------------------------------------------------------------------------------------------------
 // |__________|string        |const string  |string&       |const string& |string&&      |const string&&|
 // |T         |string        |string        |string        |string        |string        |string        |
 // |const T   |const string  |const string  |const string  |const string  |const string  |const string  |
 // |T&        |string&       |const string& |string        |const string& |string&       |const string& |
 // |const T&  |const string& |const string& |const string& |const string& |const string& |const string& |
-// |T&&       |string&       |const string& |string&       |const string& |string&       |const string&&|
-// |const T&& |const string& |const string& |const string& |const string& |const string& |const string&&|
+// |T&&       |string&       |const string& |string&       |const string& |string&       |const string& |
+// |const T&& |const string& |const string& |const string& |const string& |const string& |const string& |
 // ------------------------------------------------------------------------------------------------------
+//
+// (TABLE2-1 and TABLE2-2 Assume all of the arguments passed to ::move are rvalues)
+// TABLE2-1: template argument from deduction
+// ---------------------------
+// |__________|string rvalue |
+// |T         |string        |
+// |const T   |string        |
+// |T&        |-             |
+// |const T&  |string        |
+// |T&&       |string        |
+// |const T&& |string        |
+// ---------------------------
+// TABLE2-2: instantiated function parameter type
+// ---------------------------
+// |__________|string rvalue |
+// |T         |string        |
+// |const T   |string        |
+// |T&        |-             |
+// |const T&  |const string& |
+// |T&&       |string&&      |
+// |const T&& |const string&&|
+// ---------------------------
 
 // Note4: move constructor or assignment rather than move makes an object invalid
 // as we can see, move itself doesn't change the function arguments, but move 
