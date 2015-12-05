@@ -4,6 +4,7 @@
 #include <iostream>
 #include <utility>
 #include <functional>
+#include <utility>
 #include <stdexcept>
 #include "Exer16_28_unique_ptr.h"
 template <typename T> class shared_ptr;
@@ -129,11 +130,12 @@ void shared_ptr<T>::reset(T* tp, const Deleter &d)
 	ref = new std::size_t(1); // reset reference count
 	del = d;
 }
-// use variadic function template to substitute const T&, see section 16.4, page 699
+// use variadic function template and forward to substitute const T&, see section 16.4, page 699
 template <typename T, typename... Args>
-inline shared_ptr<T> make_shared(const Args&... rest)
+inline shared_ptr<T> make_shared(Args&&... args)
 {
-	return shared_ptr<T>(new T(rest...));
+	// use forward to preserve constness and lvalue/rvalue property
+	return shared_ptr<T>(new T(std::forward<Args>(args)...));
 }
 #endif
 // Note1: boundary case is when a shared_ptr doesn't point to any object. We must
