@@ -1,4 +1,4 @@
-// Warning: this is for illustration only. Don't put template function into source file.
+// Warning: this is for illustration. Template declarations and definitions should be put into header files.
 // a trailing return lets us declare the return type after the parameter list is seen
 #include <iostream>
 #include <string>

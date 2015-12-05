@@ -1,4 +1,4 @@
-// Warning: this is for illustration. Template declarations and definitions should be put into header files.
+// Warning: this is for verification. Template declarations and definitions should be put into header files.
 #include <iostream>
 using std::cout;
 using std::endl;

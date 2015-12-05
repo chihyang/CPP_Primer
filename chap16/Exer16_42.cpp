@@ -1,4 +1,4 @@
-// Warning: this is for illustration. Template declarations and definitions should be put into header files.
+// Warning: this is for verification. Template declarations and definitions should be put into header files.
 // Warning: this program cannot compile. The problem lies in line 14.
 #include <iostream>
 using std::cout;
