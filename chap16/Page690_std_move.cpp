@@ -85,52 +85,77 @@ int main()
 // (6). for move(const T&& t), the problem is the same as (4); we have to cast
 //      t to a nonconst at first, which is not intended.
 //
-// Below is the summary of contents above taking string as an example:
+// Below is the summary of contents above taking string as an example,
+// for passing pointer, see Page697_passing_pointer.cpp
 // column is function parameter, row is argument passing to ::move
 // (TABLE1-1 and TABLE1-2 Assume all of the arguments passed to ::move are lvalues,
 // or T& is not available.)
 //
 // TABLE1-1: template argument from deduction
 // --------------------------------------------------------------------------------------
-// |__________|string  |const string  |string& |const string& |string&& |const string&& |
+// |          |string  |const string  |string& |const string& |string&& |const string&& |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |T         |string  |string        |string  |string        |string   |string         |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |const T   |string  |string        |string  |string        |string   |string         |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |T&        |string  |const string  |string  |const string  |string   |const string   |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |const T&  |string  |string        |string  |string        |string   |string         |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |T&&       |string& |const string& |string& |const string& |string&  |const string&  |
+// |----------|--------|--------------|--------|--------------|---------|---------------|
 // |const T&& |string& |string&       |string& |string&       |string&  |string&        |
 // --------------------------------------------------------------------------------------
 // (Keep in mind that rvalue reference is lvalue itself(page 533).)
 // TABLE1-2: instantiated function parameter type
 // ------------------------------------------------------------------------------------------------------
-// |__________|string        |const string  |string&       |const string& |string&&      |const string&&|
+// |          |string        |const string  |string&       |const string& |string&&      |const string&&|
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |T         |string        |string        |string        |string        |string        |string        |
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |const T   |const string  |const string  |const string  |const string  |const string  |const string  |
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |T&        |string&       |const string& |string        |const string& |string&       |const string& |
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |const T&  |const string& |const string& |const string& |const string& |const string& |const string& |
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |T&&       |string&       |const string& |string&       |const string& |string&       |const string& |
+// |----------|--------------|--------------|--------------|--------------|--------------|--------------|
 // |const T&& |const string& |const string& |const string& |const string& |const string& |const string& |
 // ------------------------------------------------------------------------------------------------------
 //
 // (TABLE2-1 and TABLE2-2 Assume all of the arguments passed to ::move are rvalues)
 // TABLE2-1: template argument from deduction
 // ---------------------------
-// |__________|string rvalue |
+// |          |string rvalue |
+// |----------|--------------|
 // |T         |string        |
+// |----------|--------------|
 // |const T   |string        |
+// |----------|--------------|
 // |T&        |-             |
+// |----------|--------------|
 // |const T&  |string        |
+// |----------|--------------|
 // |T&&       |string        |
+// |----------|--------------|
 // |const T&& |string        |
 // ---------------------------
 // TABLE2-2: instantiated function parameter type
 // ---------------------------
-// |__________|string rvalue |
+// |          |string rvalue |
+// |----------|--------------|
 // |T         |string        |
+// |----------|--------------|
 // |const T   |string        |
+// |----------|--------------|
 // |T&        |-             |
+// |----------|--------------|
 // |const T&  |const string& |
+// |----------|--------------|
 // |T&&       |string&&      |
+// |----------|--------------|
 // |const T&& |const string&&|
 // ---------------------------
 
