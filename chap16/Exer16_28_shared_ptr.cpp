@@ -42,7 +42,8 @@ int main()
 		sp5.reset(new string("this"), del_str);
 		cout << "sp5.use_count(): " << sp5.use_count() << endl;
 	}
-	auto sp6 = make_shared<vector<int>>({1, 2, 3, 4, 5});
+	cout << "sp6: ";
+	auto sp6 = make_shared<vector<int>>(vector<int>{1, 2, 3, 4, 5});
 	for(auto p = sp6->begin(); p != sp6->end(); ++p)
 		cout << *p << " ";
 	cout << endl;

@@ -129,10 +129,11 @@ void shared_ptr<T>::reset(T* tp, const Deleter &d)
 	ref = new std::size_t(1); // reset reference count
 	del = d;
 }
-template <typename T>
-inline shared_ptr<T> make_shared(const T &t)
+// use variadic function template to substitute const T&, see section 16.4, page 699
+template <typename T, typename... Args>
+inline shared_ptr<T> make_shared(const Args&... rest)
 {
-	return shared_ptr<T>(new T(t));
+	return shared_ptr<T>(new T(rest...));
 }
 #endif
 // Note1: boundary case is when a shared_ptr doesn't point to any object. We must
