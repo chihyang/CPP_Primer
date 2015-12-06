@@ -11,7 +11,8 @@ int main()
 	char a[] = "How are you?";
 	char *p = a;
 	cout << debug_rep(s) << "\n" << endl;  // call debug_rep(const string&)
-	cout << debug_rep(sp) << "\n" << endl; // call debug_rep(T*), instantiated to debug_rep(const string*)
+	// call debug_rep(T*), instantiated to debug_rep(const string*)
+	cout << debug_rep(sp) << "\n" << endl; 
 	cout << debug_rep("hi world!") << "\n" << endl; // call debug_rep(const char*)
 	cout << debug_rep(p) << endl; // call debug_rep(char*)
 	return 0;
