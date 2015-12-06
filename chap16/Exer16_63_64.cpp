@@ -17,7 +17,8 @@ int main()
 	cout << count(vi, 0) << endl;      // T1: int, T2: int
 	cout << count(vd, 2) << endl;      // T1: double, T2: int
 	cout << count(vs, "is") << endl;   // T1: string, T2: const char[3]&
-	cout << count(vc, string("this")) << endl; // T1: const char*, T2: string, use the overloaded operator== of string to compare
+	// T1: const char*, T2: string, use the overloaded operator== of string to compare
+	cout << count(vc, string("this")) << endl; 
 	cout << count(vc, "this") << endl; // T1: const char*, T2: string
 	cout << count(vc2, "this") << endl; // T1: const char*, T2: char[5]&
 	cout << count(vc2, cp) << endl;     // T1: const char*, T2: const char*
