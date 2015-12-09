@@ -13,8 +13,7 @@ bool valid(const string& s)
 	string zipcode = "(\\d{5})(-)?(\\d{4})?";
 	regex r(zipcode);
 	smatch m;
-	if(regex_match(s, m, r))
-	{
+	if(regex_match(s, m, r)) {
 		if(m[2].matched)
 			// if there is a dash, then there must be 4 remaining digits
 			return m[3].matched;
@@ -27,8 +26,7 @@ bool valid(const string& s)
 int main()
 {
 	string s;
-	while(getline(cin, s))
-	{
+	while (cin >> s) {
 		if(valid(s))
 			cout << "valid: " << s << endl;
 		else
