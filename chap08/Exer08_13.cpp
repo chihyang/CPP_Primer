@@ -1,3 +1,4 @@
+// Note: this program uses ./data/person_info.
 #include <iostream>
 #include <fstream>
 #include <sstream>
