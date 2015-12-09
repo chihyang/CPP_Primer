@@ -18,15 +18,15 @@ using std::regex_search;
 using std::sregex_iterator;
 int main(int argc, char* argv[])
 {
+	vector<string> dict; // dictionary vector
 	if(argc != 2) {
-		cerr << "no dictionary is offered!" << endl;
-		return -1;
+		cerr << "no dictionary is offered! Won't use any dictionary!" << endl;
+	} else {
+		ifstream is(argv[1]);
+		string word;
+		while(is >> word)
+			dict.push_back(word);
 	}
-	ifstream is(argv[1]);
-	vector<string> dict;
-	string word;
-	while(is >> word)
-		dict.push_back(word);
 	string file("receipt freind theif receive neighbor albeit");
 	// find the characters ei that follow a character other than c
 	string pattern("[^c]ei");
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	// it will repeatedly call regex_search to find all matches in filebuf
 	for (sregex_iterator it(file.begin(), file.end(), r), end_it;
 	    it != end_it; ++it) {
-		if (!binary_search(dict.begin(), dict.end(), it->str())) {
+		if (dict.empty() || !binary_search(dict.begin(), dict.end(), it->str())) {
 			auto pos = it->prefix().length(); // size of prefix
 			pos = (pos > 40) ? (pos - 40) : 0; // we want up to 40 characters
 			cout << it->prefix().str().substr(pos) // last part of the prefix
