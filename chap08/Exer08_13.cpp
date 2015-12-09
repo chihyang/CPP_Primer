@@ -27,7 +27,7 @@ bool valid(const string& s)
 		if(isdigit(c))
 			++size;
 	}
-	if(size == 11 || size == 12 || size == 8)
+	if(size == 10)
 		return true;
 	else
 		return false;
