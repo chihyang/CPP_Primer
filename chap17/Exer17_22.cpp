@@ -7,7 +7,6 @@ using std::endl;
 using std::string;
 using std::regex;
 using std::smatch;
-using std::regex_match;
 bool valid(const string& s)
 {
 	string phone = "(\\()?(\\d{3})(\\))?(-|.| +)?(\\d{3})(-|.| +)?(\\d{4})";
