@@ -11,7 +11,7 @@ int main()
 	// equivalent actions using the bitset library
 	bitset<30> quizB;    // allocate one bit per student; all bits initialized to 0
 	quizB.set(27);       // indicate student number 27 passed
-	status = quizB[27]; // check how student number 27 did
-    quizB.reset(27);    // student number 27 failed
+	status = quizB[27];  // check how student number 27 did
+    quizB.reset(27);     // student number 27 failed
 	return 0;
 }
