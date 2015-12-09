@@ -14,7 +14,6 @@ using std::string;
 using std::vector;
 using std::regex;
 using std::smatch;
-using std::regex_search;
 using std::sregex_iterator;
 int main(int argc, char* argv[])
 {

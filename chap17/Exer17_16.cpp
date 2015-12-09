@@ -7,7 +7,6 @@ using std::endl;
 using std::string;
 using std::regex;
 using std::smatch;
-using std::regex_search;
 int main()
 {
 	regex r("[^c]ei"); // construct an object to find pattern, only match 3-character words

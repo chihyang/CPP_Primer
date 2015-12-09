@@ -6,7 +6,6 @@ using std::endl;
 using std::string;
 using std::regex;
 using std::smatch;
-using std::regex_search;
 using std::regex_error;
 int main()
 {

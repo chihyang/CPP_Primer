@@ -7,7 +7,6 @@ using std::endl;
 using std::string;
 using std::regex;
 using std::smatch;
-using std::regex_search;
 int main()
 {
 	// one or more alphanumeric characters followed by a '.' followed by "cpp" or "cxx" or "cc"

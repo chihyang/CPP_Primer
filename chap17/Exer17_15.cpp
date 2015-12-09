@@ -7,7 +7,6 @@ using std::endl;
 using std::string;
 using std::regex;
 using std::smatch;
-using std::regex_search;
 int main()
 {
 	// find the characters ei that follow a character other than c
