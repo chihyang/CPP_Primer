@@ -1,35 +1,51 @@
 // Note: this file uses data file ./data/map and ./data/input
+#include <cstddef>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 #include <map>
+#include <random>
 #include <stdexcept>
+using std::size_t;
 using std::cout;
 using std::endl;
 using std::ifstream;
 using std::istringstream;
 using std::string;
+using std::vector;
 using std::map;
+using std::default_random_engine;
+using std::uniform_real_distribution;
 using std::runtime_error;
-map<string, string> buildMap(ifstream &map_file)
+map<string, vector<string>> buildMap(ifstream &map_file)
 {
-	map<string, string> trans_map;
+	map<string, vector<string>> trans_map;
 	string key, value;
 	while(map_file >> key && getline(map_file, value))
 	{
-		if(value.size() > 1)
-			trans_map[key] = value.substr(1);
+		if(value.size() > 1) {
+			string word;
+			istringstream is(value);
+			while(is >> word)
+			trans_map[key].push_back(word); // using white space as separator
+		}
 		else
 			throw runtime_error("no rule for " + key + " at " + __func__);
 	}
 	return trans_map;
 }
-const string& transform(const string &s, const map<string, string> &m)
+const string& transform(const string &s, const map<string, vector<string>> &m)
 {
+	// static object to generate random numbers
+	static default_random_engine e;
+	static uniform_real_distribution<double> u(0, 1);
 	auto map_it = m.find(s);
-	if(map_it != m.cend())
-		return map_it->second;
+	if(map_it != m.cend()) {
+		size_t select = map_it->second.size() * u(e); // truncated, won't be out of range
+		return map_it->second[select];
+	}
 	else
 		return s;
 }
@@ -59,14 +75,16 @@ int main(int argc, char *argv[])
 {
 	if(argc != 3)
 		return -1;
-	ifstream map_file(argv[1]), input_file(argv[2]);
-	try
-	{
-		word_transform(map_file, input_file);
-	}
-	catch(runtime_error err)
-	{
-		cout << "Error: " << err.what() << endl;
+	for (size_t i = 0; i < 100; ++i) {
+		ifstream map_file(argv[1]), input_file(argv[2]);
+		try
+		{
+			word_transform(map_file, input_file);
+		}
+		catch(runtime_error err)
+		{
+			cout << "Error: " << err.what() << endl;
+		}
 	}
 	return 0;
 }
