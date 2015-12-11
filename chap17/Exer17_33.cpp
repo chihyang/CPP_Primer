@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include <random>
+#include <ctime>
 #include <stdexcept>
 using std::size_t;
 using std::cout;
@@ -39,7 +40,7 @@ map<string, vector<string>> buildMap(ifstream &map_file)
 const string& transform(const string &s, const map<string, vector<string>> &m)
 {
 	// static object to generate random numbers
-	static default_random_engine e;
+	static default_random_engine e(time(0));
 	static uniform_real_distribution<double> u(0, 1);
 	auto map_it = m.find(s);
 	if(map_it != m.cend()) {
@@ -75,7 +76,7 @@ int main(int argc, char *argv[])
 {
 	if(argc != 3)
 		return -1;
-	for (size_t i = 0; i < 100; ++i) {
+	for (size_t i = 0; i < 10; ++i) {
 		ifstream map_file(argv[1]), input_file(argv[2]);
 		try
 		{
