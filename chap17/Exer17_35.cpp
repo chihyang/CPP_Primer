@@ -16,7 +16,6 @@ int main()
 	     << "scientific: " << scientific << 100 * sqrt(2.0) << '\n'
 	     << "fixed decimal: " << fixed << 100 * sqrt(2.0) << '\n'
 	     << "hexadecimal: " << uppercase << hexfloat << 100 * sqrt(2.0) << nouppercase << '\n' 
-		 // result has problem, see below
 	     << "use defaults: " << defaultfloat << 100 * sqrt(2.0)
 	     << "\n\n";
 	return 0;

@@ -127,4 +127,4 @@ int main()
 // ******result of cout << "hexadecimal: " << hexfloat << 100 * sqrt(2.0) << '\n'******
 // hexadecimal: 0x8.d6bde009b35cp+4(gcc/clang)
 // hexadecimal: 0x1.1ad7bcp+7(cl)
-// don't know why it is this.
+// reason is unknown for now.

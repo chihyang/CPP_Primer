@@ -1,0 +1,9 @@
+char ch; // using a char here invites disaster!
+// the return from cin.get is converted to char and then compared to an int
+while ((ch = cin.get()) != EOF)
+cout.put(ch);
+
+The problem is that when get returns EOF, that value will be converted to
+an unsigned char value. That converted value is no longer equal to the
+int value of EOF, and the loop will continue forever. Such errors are likely to be
+caught in testing.
