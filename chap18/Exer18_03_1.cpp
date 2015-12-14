@@ -1,3 +1,5 @@
+// Note: see the link below for further discussion:
+// https://stackoverflow.com/questions/34258836/ways-to-avoid-memory-leak-when-exception-thrown
 #include <fstream>
 #include <vector>
 using std::ifstream;
