@@ -17,26 +17,29 @@ inline Screen& Screen::home()
 	return *this; 
 }
 inline Screen& Screen::forward()
-{ 
+{
 	if(cursor < height * width - 1)
 		++cursor;
 	return *this;
 }
-inline Screen& Screen::back() {
+inline Screen& Screen::back()
+{
 	if(cursor > 0)
 		--cursor;
 	else
 		cursor = 0;
 	return *this;
 }
-inline Screen& Screen::up(){
+inline Screen& Screen::up()
+{
 	if(cursor - width > 0)
 		cursor -= width;
 	else
 		cursor = 0;
 	return *this;
 }
-inline Screen& Screen::down() {
+inline Screen& Screen::down()
+{
 	if(cursor + width < height * width)
 		cursor += width;
 	else
