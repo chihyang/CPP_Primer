@@ -46,7 +46,7 @@ inline Screen& Screen::down()
 		cursor = height * width - 1;
 	return *this;
 }
-// Note: in this file, only home, forward, back, up and down is inline. We can't
+// Note: in this file, only home, forward, back, up and down are inline. We can't
 // declare a function as inline if it's in a source file and it will be called
 // by functions in other source files. Or the compiler would complain that it 
 // cannot find the definition of the function. See this link:
