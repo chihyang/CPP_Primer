@@ -18,7 +18,7 @@ inline Screen& Screen::home()
 }
 inline Screen& Screen::forward()
 { 
-    if(cursor < height * width - 1)
+	if(cursor < height * width - 1)
 		++cursor;
 	return *this;
 }
