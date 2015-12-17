@@ -2,19 +2,12 @@
 #define SALES_DATA_H
 #include <iostream>
 #include <string>
-using std::cout;
-using std::cin;
-using std::cerr;
-using std::endl;
-using std::string;
-using std::istream;
-using std::ostream;
 class Sales_data {
 	// friend 
 	// overloaded output operator required by exercise 14.6
-	friend ostream &operator<<(ostream&, const Sales_data&);
+	friend std::ostream &operator<<(std::ostream&, const Sales_data&);
 	// overloaded input operator required by exercise 14.9
-	friend istream &operator>>(istream&, Sales_data&);
+	friend std::istream &operator>>(std::istream&, Sales_data&);
 	// overloaded addition operator required by exercise 14.13
 	friend Sales_data operator+(const Sales_data&, const Sales_data&);
 	// overloaded equality on page 561
@@ -25,18 +18,18 @@ class Sales_data {
 public:
 	// constructor
 	Sales_data() = default;
-	Sales_data(const string &s) : bookNo(s) {}
-	Sales_data(const string &s, unsigned n, double p) : 
+	Sales_data(const std::string &s) : bookNo(s) {}
+	Sales_data(const std::string &s, unsigned n, double p) : 
 	    bookNo(s), units_sold(n), revenue(p*n) {}
-	explicit Sales_data(istream &is) { is >> *this; }
+	explicit Sales_data(std::istream &is) { is >> *this; }
 	// member
-	string isbn() const { return bookNo; }
+	std::string isbn() const { return bookNo; }
 	// overloaded compound-assignment operator required by exercise 14.20
 	Sales_data& operator+=(const Sales_data&);
 	// takes an ISBN as parameter, required by exercise 14.22
-	Sales_data& operator=(const string&);
+	Sales_data& operator=(const std::string&);
 private:
-	string bookNo;
+	std::string bookNo;
 	unsigned units_sold = 0;
 	double revenue = 0.0;
 	double avg_price() const;
@@ -48,7 +41,7 @@ Sales_data& Sales_data::operator+=(const Sales_data& rhs)
 	revenue += rhs.revenue;
 	return *this;
 }
-Sales_data& Sales_data::operator=(const string &isbn)
+Sales_data& Sales_data::operator=(const std::string &isbn)
 {
 	bookNo = isbn;
 	return *this;
@@ -62,7 +55,7 @@ inline double Sales_data::avg_price() const
 		return revenue;
 }
 // overloaded output operator
-ostream& operator<<(ostream& os, const Sales_data& item)
+std::ostream& operator<<(std::ostream& os, const Sales_data& item)
 {
 	os << item.bookNo << " "
 	   << item.units_sold << " "
@@ -71,7 +64,7 @@ ostream& operator<<(ostream& os, const Sales_data& item)
 	return os;
 }
 // overloaded input operator
-istream& operator>>(istream &is, Sales_data& item)
+std::istream& operator>>(std::istream &is, Sales_data& item)
 {
 	double price = 0;
 	is >> item.bookNo >> item.units_sold >> price;

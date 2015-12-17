@@ -3,38 +3,31 @@
 #define SALES_DATA_H
 #include <iostream>
 #include <string>
-using std::cout;
-using std::cin;
-using std::cerr;
-using std::endl;
-using std::string;
-using std::istream;
-using std::ostream;
 // substitute class for struct
 class Sales_data {
 	// friend 
-	friend istream& read(istream&, Sales_data&);
-	friend ostream& print(ostream& os, const Sales_data& item);
+	friend std::istream& read(std::istream&, Sales_data&);
+	friend std::ostream& print(std::ostream& os, const Sales_data& item);
 	friend Sales_data add(const Sales_data& item1, const Sales_data& item2);
 public:
 	// constructor
 	Sales_data() = default;
-	Sales_data(const string &s) : bookNo(s) {}
-	Sales_data(const string &s, unsigned n, double p) : 
+	Sales_data(const std::string &s) : bookNo(s) {}
+	Sales_data(const std::string &s, unsigned n, double p) : 
 	    bookNo(s), units_sold(n), revenue(p*n) {}
-	explicit Sales_data(istream &is) { read(is, *this); }
+	explicit Sales_data(std::istream &is) { read(is, *this); }
 	Sales_data& combine(const Sales_data& rhs);
-	string isbn() const { return bookNo; }
+	std::string isbn() const { return bookNo; }
 	// member
 private:
-	string bookNo;
+	std::string bookNo;
 	unsigned units_sold = 0;
 	double revenue = 0.0;
 	double avg_price() const;
 };
 // declare friend functions outside class
-istream& read(istream&, Sales_data&);
-ostream& print(ostream& os, const Sales_data& item);
+std::istream& read(std::istream&, Sales_data&);
+std::ostream& print(std::ostream& os, const Sales_data& item);
 Sales_data add(const Sales_data& item1, const Sales_data& item2);
 // member functions definition
 Sales_data& Sales_data::combine(const Sales_data& rhs)
@@ -52,16 +45,16 @@ inline double Sales_data::avg_price() const
 		return revenue;
 }
 // friend functions definition
-istream& read(istream &is, Sales_data& item)
+std::istream& read(std::istream &is, Sales_data& item)
 {
 	double price = 0;
 	is >> item.bookNo >> item.units_sold >> price;
 	item.revenue = item.units_sold * price;
 	return is;
 }
-// Why does the book use an ostream reference as return value rather than void?
+// Why does the book use an std::ostream reference as return value rather than void?
 // 'Cause only in this way can user have a better manipulation of the format.
-ostream& print(ostream& os, const Sales_data& item)
+std::ostream& print(std::ostream& os, const Sales_data& item)
 {
 	os << item.bookNo << " " 
 	   << item.units_sold << " "
