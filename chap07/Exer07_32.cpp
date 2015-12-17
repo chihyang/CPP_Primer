@@ -1,7 +1,7 @@
 // Note: this exercise requires careful structuring. See notes in header file 
 // for details.
 #include <iostream>
-#include "Exer07_32.h"
+#include "Exer07_32_Screen.h"
 int main()
 {
 	Screen s(24, 80, 'x');

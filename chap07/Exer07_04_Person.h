@@ -22,9 +22,6 @@ public:
 	Person(const string& nm, const string& ad) : name(nm), addr(ad) {}
 	Person(istream &is) { read(is, *this); }
 };
-// friend declaration
-istream& read(istream& is, Person& psn);
-ostream& print(ostream& os, Person& psn);
 // functions required by exercise 7.6
 istream& read(istream& is, Person &psn)
 {

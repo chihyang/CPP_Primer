@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Exer07_41.h"
+#include "Exer07_41_Sales_data.h"
 using std::cout;
 using std::cin;
 using std::endl;

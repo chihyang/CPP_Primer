@@ -1,4 +1,4 @@
-#include "Exer07_49.h"
+#include "Exer07_49_Sales_data.h"
 struct Data {
 	Sales_data sdata;
 };
