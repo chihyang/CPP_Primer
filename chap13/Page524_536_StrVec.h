@@ -5,11 +5,6 @@
 #include <utility>
 #include <memory>
 #include <initializer_list>
-using std::size_t;
-using std::string;
-using std::pair;
-using std::allocator;
-using std::initializer_list;
 class StrVec {
 public:
 	StrVec(): elements(nullptr), first_free(nullptr), cap(nullptr) {}
@@ -19,38 +14,38 @@ public:
 	StrVec& operator=(const StrVec&);
 	// move assignment from page 537
 	StrVec& operator=(StrVec&&) noexcept;
-	// constructor that takes a initializer_list as parameter, required by exercise 13.40
-	StrVec(const initializer_list<string>&);
+	// constructor that takes a std::initializer_list as parameter, required by exercise 13.40
+	StrVec(const std::initializer_list<std::string>&);
 	~StrVec();
-	void push_back(const string&);
-	size_t size() const { return first_free - elements; }
-	size_t capacity() const { return cap - elements; }
-	string *begin() const { return elements; }
-	string *end() const { return first_free; } // both begin() and end() are const
+	void push_back(const std::string&);
+	std::size_t size() const { return first_free - elements; }
+	std::size_t capacity() const { return cap - elements; }
+	std::string *begin() const { return elements; }
+	std::string *end() const { return first_free; } // both begin() and end() are const
 	// reserve and resize required by exercise 13.39
-	void reserve(size_t);
-	void resize(size_t);
-	void resize(size_t, const string&);
+	void reserve(std::size_t);
+	void resize(std::size_t);
+	void resize(std::size_t, const std::string&);
 private:
-	static allocator<string> alloc;
+	static std::allocator<std::string> alloc;
 	void chk_n_alloc() { if(size() == capacity()) reallocate(); }
-	pair<string*, string*> alloc_n_copy(const string*, const string*);
+	std::pair<std::string*, std::string*> alloc_n_copy(const std::string*, const std::string*);
 	void free();
 	void reallocate();
-	void add_rem(size_t n, const string &s = "");
-	string *elements;
-	string *first_free;
-	string *cap;
+	void add_rem(std::size_t n, const std::string &s = "");
+	std::string *elements;
+	std::string *first_free;
+	std::string *cap;
 };
 // Warning: define static member outside the class, without this the program
 // using the class won't compile
-allocator<string> StrVec::alloc;
-void StrVec::push_back(const string &s)
+std::allocator<std::string> StrVec::alloc;
+void StrVec::push_back(const std::string &s)
 {
 	chk_n_alloc();
 	alloc.construct(first_free++, s);
 }
-pair<string*, string*> StrVec::alloc_n_copy(const string *b, const string *e)
+std::pair<std::string*, std::string*> StrVec::alloc_n_copy(const std::string *b, const std::string *e)
 {
 	auto data = alloc.allocate(e - b);
 	return {data, uninitialized_copy(b, e, data)};
@@ -73,7 +68,7 @@ StrVec::StrVec(StrVec &&s) noexcept : elements(s.elements), first_free(s.first_f
 {
 	s.elements = s.first_free = s.cap = nullptr;
 }
-StrVec::StrVec(const initializer_list<string> &il)
+StrVec::StrVec(const std::initializer_list<std::string> &il)
 {
 	auto newdata = alloc_n_copy(il.begin(), il.end());
 	elements = newdata.first;
@@ -112,7 +107,7 @@ void StrVec::reallocate()
 	// move the data from the old memory to the new
 	auto dest = newdata; // points to the next free position in the new memory
 	auto elem = elements; // points to the next element in the old memory
-	for(size_t i = 0; i != size(); ++i)
+	for(std::size_t i = 0; i != size(); ++i)
 		alloc.construct(dest++,  std::move(*elem++));
 	free(); // free the old space once we've moved the elements
 	// update our data structure to point to the new elements
@@ -120,14 +115,14 @@ void StrVec::reallocate()
 	first_free = dest;
 	cap = elements + newcapacity;
 }
-void StrVec::reserve(size_t n)
+void StrVec::reserve(std::size_t n)
 {
 	if(n > capacity())
 	{
 		auto newdata = alloc.allocate(n);
 		auto dest = newdata;
 		auto elem = elements;
-		for(size_t i = 0; i != size(); ++i)
+		for(std::size_t i = 0; i != size(); ++i)
 			alloc.construct(dest++, std::move(*elem++));
 		free();
 		elements = newdata;
@@ -135,15 +130,15 @@ void StrVec::reserve(size_t n)
 		cap = elements + n;
 	}
 }
-void StrVec::resize(size_t n)
+void StrVec::resize(std::size_t n)
 {
 	add_rem(n);
 }
-void StrVec::resize(size_t n, const string &s)
+void StrVec::resize(std::size_t n, const std::string &s)
 {
 	add_rem(n, s);
 }
-void StrVec::add_rem(size_t n, const string &s)
+void StrVec::add_rem(std::size_t n, const std::string &s)
 {
 	if(n <= size()) {
 		auto p = first_free;
@@ -153,12 +148,12 @@ void StrVec::add_rem(size_t n, const string &s)
 	}
 	else{
 		auto new_elem_count = n - size();
-		for(size_t i = 0; i != new_elem_count; ++i)
+		for(std::size_t i = 0; i != new_elem_count; ++i)
 			push_back(s);
 	}
 }
 #endif
 // Note: in this program we use a static member, never forget to define this 
 // member outside the class(Page 302). We do not need to repeat the static 
-// keyword. We can use default initialization of allocator, so we do not need to
+// keyword. We can use default initialization of std::allocator, so we do not need to
 // provide an initializer.

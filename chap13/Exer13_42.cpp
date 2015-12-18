@@ -1,9 +1,11 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "Exer13_42_TextQuery.h"
 using std::cout;
 using std::cin;
 using std::endl;
+using std::ifstream;
 using std::string;
 void runQueries(ifstream &infile)
 {

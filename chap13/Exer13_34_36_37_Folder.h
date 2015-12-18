@@ -3,28 +3,26 @@
 #include <iostream>
 #include <string>
 #include <set>
-using std::set;
-using std::string;
 class Folder; // incomplete class declaration
 class Message {
 	friend class Folder;
 	friend void swap(Message&, Message&);
 public:
-	// folders is implicitly initialized to the empty set
-	explicit Message(const string &str = "") : contents(str) {}
+	// folders is implicitly initialized to the empty std::set
+	explicit Message(const std::string &str = "") : contents(str) {}
 	// copy control to manage pointers to this Message
 	Message(const Message&); // copy constructor
 	Message& operator=(const Message&); // copy assignment 
 	~Message(); // destructor
-	// add/remove this Message from the specified Folder's set of messages
+	// add/remove this Message from the specified Folder's std::set of messages
 	void save(Folder&);
 	void remove(Folder&);
 	// insert or remove a given Folder* into folders, required by exercise 13.37
 	void addFolder(Folder*);
 	void remFolder(Folder*);
 private:
-	string contents; // actual message text
-	set<Folder*> folders; // Folders that have this Message
+	std::string contents; // actual message text
+	std::set<Folder*> folders; // Folders that have this Message
 	// utility functions used by copy constructor, copy-assignment operator and destructor
 	// add this Message to the Folders that point to the parameter
 	void add_to_Folders(const Message&);
@@ -34,7 +32,7 @@ private:
 class Folder {
 	friend void swap(Folder&, Folder&);
 public:
-	explicit Folder(const string &s = "") : name(s) {}
+	explicit Folder(const std::string &s = "") : name(s) {}
 	Folder(const Folder&);
 	Folder& operator=(const Folder&);
 	~Folder();
@@ -42,8 +40,8 @@ public:
 	void remMsg(Message*);
 	void show();
 private:
-	string name;
-	set<Message*> messages;
+	std::string name;
+	std::set<Message*> messages;
 	void add_messages(const Folder&);
 	void remove_messages();
 };
@@ -65,12 +63,12 @@ void Folder::show()
 void Message::save(Folder &f)
 {
 	folders.insert(&f); // add the given Folder to our list of Folders
-	f.addMsg(this); // add this Message to f's set of Messages
+	f.addMsg(this); // add this Message to f's std::set of Messages
 }
 void Message::remove(Folder &f)
 {
 	folders.erase(&f); // take the give Folder out of our list of Folders
-	f.remMsg(this); // remove this Message to f's set of Messages
+	f.remMsg(this); // remove this Message to f's std::set of Messages
 }
 // add this Message to Folders that point to m
 void Message::add_to_Folders(const Message &m)
@@ -113,8 +111,8 @@ void swap(Message &lhs, Message &rhs)
 	for(auto f : rhs.folders)
 		f->remMsg(&rhs);
 	// swap the contents and Folder pointer sets
-	swap(lhs.folders, rhs.folders); // use swap(set&, set&)
-	swap(lhs.contents, rhs.contents); // swap(string&, string&)
+	swap(lhs.folders, rhs.folders); // use swap(std::set&, std::set&)
+	swap(lhs.contents, rhs.contents); // swap(std::string&, std::string&)
 	// add pointer to each Message to their (new) respective Folders
 	for(auto f : lhs.folders)
 		f->addMsg(&lhs);

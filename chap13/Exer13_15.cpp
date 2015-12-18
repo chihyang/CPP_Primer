@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Exer13_15.h"
+using std::cout;
+using std::endl;
 int main()
 {
 	numbered a, b = a, c = b;

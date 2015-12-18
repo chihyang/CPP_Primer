@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "Exer12_19.h"
+#include "Exer12_19_StrBlob.h"
 using std::cout;
 using std::endl;
 using std::ifstream;

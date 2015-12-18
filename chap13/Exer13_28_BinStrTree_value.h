@@ -2,7 +2,6 @@
 #define EXER13_28_2_VALUE_H
 #include <cstddef>
 #include "Exer13_28_TreeNode_value.h"
-using std::size_t;
 class BinStrTree {
 public:
 	BinStrTree() : root(new TreeNode()) {}

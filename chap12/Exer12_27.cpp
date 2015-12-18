@@ -1,11 +1,13 @@
 // Warning: this program has runtime error. See notes below.
 // The problem is inherent in class.
 #include <iostream>
+#include <fstream>
 #include <string>
-#include "Exer12_27.h"
+#include "Exer12_27_TextQuery.h"
 using std::cout;
 using std::cin;
 using std::endl;
+using std::ifstream;
 using std::string;
 void runQueries(ifstream &infile)
 {

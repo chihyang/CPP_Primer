@@ -1,21 +1,19 @@
 #ifndef HASPTR_POINTER_H
 #define HASPTR_POINTER_H
-#include <string>
 #include <cstddef>
-using std::string;
-using std::size_t;
+#include <string>
 class HasPtr {
 public:
-	// constructor allocates a new string and a new counter, which it sets to 1
-	HasPtr(const string&s = string()) : ps(new string(s)), i(0), use(new size_t(1)) {}
+	// constructor allocates a new std::string and a new counter, which it sets to 1
+	HasPtr(const std::string&s = std::string()) : ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
 	// copy constructor copies all three data members and increments the counter
 	HasPtr(const HasPtr &p) : ps(p.ps), i(p.i), use(p.use) { ++*use; }
 	HasPtr& operator=(const HasPtr& p);
 	~HasPtr();
 private:
-	string *ps;
+	std::string *ps;
 	int i;
-	size_t *use; // member to keep track of how many objects share *ps
+	std::size_t *use; // member to keep track of how many objects share *ps
 };
 HasPtr& HasPtr::operator=(const HasPtr& rhs)
 {
@@ -34,7 +32,7 @@ HasPtr::~HasPtr()
 {
 	if(--*use == 0) // if the reference count goes to 0
 	{
-		delete ps; // delete the string
+		delete ps; // delete the std::string
 		delete use; // and the counter
 	}
 }

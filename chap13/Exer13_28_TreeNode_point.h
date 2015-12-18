@@ -3,25 +3,22 @@
 #include <iostream>
 #include <string>
 #include <cstddef>
-using std::ostream;
-using std::string;
-using std::size_t;
 class TreeNode {
 public:
-	TreeNode() : count(0), left(nullptr), right(nullptr), use(new size_t(1)) {} // an empty node
-	TreeNode(const string &s) : value(s), count(1), left(nullptr), right(nullptr), use(new size_t(1)) {}
+	TreeNode() : count(0), left(nullptr), right(nullptr), use(new std::size_t(1)) {} // an empty node
+	TreeNode(const std::string &s) : value(s), count(1), left(nullptr), right(nullptr), use(new std::size_t(1)) {}
 	TreeNode(const TreeNode &tp):
 	    value(tp.value), count(tp.count), left(tp.left), right(tp.right), use(tp.use) { ++*use; }
 	TreeNode& operator=(const TreeNode&);
-	ostream& read(ostream& os) const { os << value << "\t" << count; return os; }
-	void write(const string &str) { value = str; }
+	std::ostream& read(std::ostream& os) const { os << value << "\t" << count; return os; }
+	void write(const std::string &str) { value = str; }
 	~TreeNode();
 private:
-	string value;
+	std::string value;
 	int count;
 	TreeNode *left;
 	TreeNode *right;
-	size_t *use;
+	std::size_t *use;
 };
 TreeNode& TreeNode::operator=(const TreeNode& tp)
 {

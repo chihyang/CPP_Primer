@@ -7,9 +7,6 @@
 #include <utility>
 #include <memory>
 #include <algorithm>
-using std::size_t;
-using std::pair;
-using std::allocator;
 class String {
 public:
 	String();
@@ -21,28 +18,28 @@ public:
 	~String();
 	void push_back(const char&);
 	void push_back(char&&);
-	size_t size() const { return first_free - elements;}
-	size_t capacity() const { return cap - elements; }
+	std::size_t size() const { return first_free - elements;}
+	std::size_t capacity() const { return cap - elements; }
 	char* begin() const { return elements; }
 	char* end() const { return first_free; }
 	bool empty() const { return elements == first_free; }
 	void clear();
 private:
 	void chk_n_alloc() { if(size() == capacity()) reallocate(); }
-	pair<char*, char*> alloc_n_copy(const char*, const char*);
+	std::pair<char*, char*> alloc_n_copy(const char*, const char*);
 	void free();
 	void reallocate();
 private:
-	static allocator<char> alloc;
-	static size_t ini_size;
+	static std::allocator<char> alloc;
+	static std::size_t ini_size;
 	char *elements;
 	char *first_free;
 	char *cap;
 };
-allocator<char> String::alloc;
+std::allocator<char> String::alloc;
 // It seems both gcc and visual studio library allocates 15 space for a default 
 // initialized string.
-size_t String::ini_size = 15;
+std::size_t String::ini_size = 15;
 String::String(): elements(nullptr), first_free(nullptr), cap(nullptr)
 {
 	elements = alloc.allocate(ini_size);
@@ -116,7 +113,7 @@ void String::clear()
 		alloc.destroy(--p);
 	first_free = elements;
 }
-pair<char*, char*> String::alloc_n_copy(const char *b, const char *e)
+std::pair<char*, char*> String::alloc_n_copy(const char *b, const char *e)
 {
 	auto newcapacity = (e - b > ini_size) ? (e - b) : ini_size;
 	auto newdata = alloc.allocate(newcapacity);
@@ -128,7 +125,7 @@ void String::reallocate()
 	auto newdata = alloc.allocate(newcapacity);
 	auto dest = newdata;
 	auto elem = elements;
-	for(size_t i = 0; i != size(); ++i)
+	for(std::size_t i = 0; i != size(); ++i)
 		alloc.construct(dest++, std::move(*elem++));
 	free();
 	elements = newdata;
@@ -148,6 +145,6 @@ void String::free()
 // ADDITION: see Exer19_18.cpp for explanation, or see section 18.2.3, page 798 
 // for the reason.
 
-// Note2: here we can see the advantage of allocator compared to new/delete. If
+// Note2: here we can see the advantage of std::allocator compared to new/delete. If
 // we use new/delete, we might have to use char array instead of raw and uninitialized
 // memory.
