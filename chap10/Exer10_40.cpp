@@ -24,5 +24,5 @@ int main()
 // ******Result compiled by cl******
 // 0 1 2 7 5 6 2 7 9 9
 
-// ******Result compiled by G++******
+// ******Result compiled by g++******
 // 0 1 2 7 5 6 2 7 9 9

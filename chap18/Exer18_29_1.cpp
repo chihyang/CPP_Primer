@@ -66,7 +66,7 @@ int main()
 // Exer18_29_1.cpp:37:6: error: cannot convert from pointer to base class 'Base' to
 //  pointer to derived class 'MI' because the base is virtual
 
-// Note1: Final only has two Class parts. Why? Consider why Final would have more
+// Note1: Final only has two Class parts. Why? Consider why Final could have more
 // than one Class subparts. Because Base inherits from Class, and Final has more
 // than one indirect base classes that inherit from Base. If Base is not a virtual
 // class, of course Final would have as many subparts of Class as the derivation
