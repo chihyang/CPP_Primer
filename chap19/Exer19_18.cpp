@@ -53,3 +53,7 @@ int main()
 // Thus the compiler won't search std for the definition of uninitialized_copy. As
 // a result, we must use std::uninitialized_copy or using std::uninitialized_copy
 // in this example.
+//
+// There is one exception, subtle but important: for functions that uses explicit
+// template arguments. We almost always need to use using declarations. 
+// See Exer19_18_ADL.cpp for detailed explanations.
