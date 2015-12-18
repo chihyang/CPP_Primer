@@ -93,7 +93,7 @@ Token& Token::operator=(const Token &t)
 	return *this;
 }
 // move assignment operator
-Token& Token::operator=(Token &&t)
+Token& Token::operator=(Token &&t) noexcept
 {
 	if(this != &t) {
 		freeUnion();

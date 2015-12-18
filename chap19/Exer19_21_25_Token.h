@@ -14,10 +14,10 @@ public:
 	Token() : tok(INT), ival{0} {}
 	Token(const Token &t) : tok(t.tok) { copyUnion(t); }
 	// move constructor, required by exercise 19.23
-	Token(Token &&t) : tok(std::move(t.tok)) { moveUnion(std::move(t)); }
+	Token(Token &&t) noexcept : tok(std::move(t.tok)) { moveUnion(std::move(t)); }
 	Token& operator=(const Token&);
 	// move assignment operator, required by exercise 19.23
-	Token& operator=(Token&&);
+	Token& operator=(Token&&) noexcept;
 	// if the union holds a string, we must destroy it
 	~Token() { freeUnion(); }
 	// assignment operators to set the differing members of the union
