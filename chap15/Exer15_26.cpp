@@ -56,7 +56,7 @@ int main()
 	return 0;
 }
 // Note: one thing to say: every time we use move operation we must use std::move,
-// because variable is rvalue; we cannot directly bind an rvalue reference to a 
+// because variable is lvalue; we cannot directly bind an rvalue reference to a 
 // variable even if this variable is an rvalue reference. If we forgot to use
 // std::move, the variable would be regarded as a lvalue and the corresponding 
 // copy operation would substitute move operation.(review page 533 for more details)
