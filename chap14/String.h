@@ -1,3 +1,5 @@
+// Inheritance: exercise 13.55.
+// Note: see Exer19_18.cpp for the explanation of the problem issued in note.
 #ifndef STRING_SIMPLE_H
 #define STRING_SIMPLE_H
 #include <iostream>
@@ -210,9 +212,11 @@ void String::free()
 	alloc.deallocate(elements, cap - elements);
 }
 #endif
-// Note1: don't know why, but uninitialized_copy and for_each don't work if std:: 
+// Note #1: don't know why, but uninitialized_copy and for_each don't work if std:: 
 // isn't prefixed. This remains to be solved.
+// ADDITION: see Exer19_18.cpp for explanation, or see section 18.2.3, page 798 
+// for the reason.
 
-// Note2: here we can see the advantage of allocator compared to new/delete. If
+// Note #2: here we can see the advantage of allocator compared to new/delete. If
 // we use new/delete, we might have to use char array instead of raw and uninitialized
 // memory.

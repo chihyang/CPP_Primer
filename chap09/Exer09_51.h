@@ -120,11 +120,11 @@ inline bool Date::isleap(unsigned y)
 	return ((y % 400 == 0) || (y % 100 != 0 && y % 4 == 0));
 }
 #endif
-// Note 1: basic thought is to split the argument into different substrings that
+// Note #1: basic thought is to split the argument into different substrings that
 // contains no white spaces and then process each substring and verify if a date
 // is legal.
 
-// Note 2: the constructor above tries its best to handle exceptions, thus leading
+// Note #2: the constructor above tries its best to handle exceptions, thus leading
 // to throwing many exceptions at different places. This makes the constructor 
 // ugly. So is it appropriate to throw exceptions in a constructor? The answer
 // seems yes from 
@@ -142,7 +142,7 @@ inline bool Date::isleap(unsigned y)
 // The code above throws too many exceptions, think about other ways to improve 
 // it.
 
-// Note 3: should this constructor be declared as explicit?
+// Note #3: should this constructor be declared as explicit?
 // Consider a situation where we want to get the difference between two dates. 
 // We might want to use a valid date string as a operand. Thus an implicit type
 // conversion is required. So we shouldn't declare this constructor as explicit.

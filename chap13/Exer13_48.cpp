@@ -59,10 +59,10 @@ int main()
 // String(const String&) is called
 // ...(25 times in total)
 
-// Note1: part of the tests come from
+// Note #1: part of the tests come from
 // https://github.com/Mooophy/Cpp-Primer/blob/master/ch13/ex13_48.cpp
 // which is quoted from 
 // http://coolshell.cn/articles/10478.html
 
-// Note2: the result shows that copy constructor is called more times than 
+// Note #2: the result shows that copy constructor is called more times than 
 // push_back is called.

@@ -34,10 +34,10 @@ int main()
 // count(const std::vector<const char*> &v, const char* const &t)
 // 2
 
-// Note1: only the last one call specialization version because only the last one
+// Note #1: only the last one call specialization version because only the last one
 // matches specialized version exactly. Note that template specialization is not
 // overloading, so match rules for overloading don't apply here.
 
-// Note2: it seems that when we compare two const char pointers, we are comparing 
+// Note #2: it seems that when we compare two const char pointers, we are comparing 
 // contents rather than address. Maybe library also overloads operator== for
 // const char*, so that we can use == to compare const char pointers directly.

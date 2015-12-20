@@ -40,7 +40,7 @@ int main()
 	cout << "s5: " << s5 << endl;
 	return 0;
 }
-// Note1: explanation on #3
+// Note #1: explanation on #3
 // #1 and #2 comes from page 690, now let's see #3:
 // sr is a const reference to s4, thus sr is an lvalue. When we pass sr to ::move,
 // T is deduced as const string& &, the reference to the lvalue type, which collapses
@@ -49,7 +49,7 @@ int main()
 // const string, and the member type of remove_reference<const string&> is 
 // const string, thus the return type is const string&&.
 
-// Note2: moving const arguments is ok.
+// Note #2: moving const arguments is ok.
 // As what we can see, move can take arguments of essentially any type(page 690),
 // whether the arguments are const or nonconst.
 // When the argument is nonconst, the return type of move is:
@@ -61,7 +61,7 @@ int main()
 // the key is that move might do NOTHING but change the type of its parameter. So
 // move also applies for const.
 
-// Note3: why the parameter of move must be T&&?
+// Note #3: why the parameter of move must be T&&?
 // There are some kinds of parameters that move could choose:
 // (1). T; (2). const T; (3). T&; (4). const T&; (5). T&&; (6). const T&&.
 // let's check them one by one.
@@ -159,7 +159,7 @@ int main()
 // |const T&& |const string&&|
 // ---------------------------
 
-// Note4: move constructor or assignment rather than move makes an object invalid
+// Note #4: move constructor or assignment rather than move makes an object invalid
 // as we can see, move itself doesn't change the function arguments, but move 
 // constructor and assignment do. In the example above, moved objects might not  
 // be destroyed immediately after they are moved, but it's quite possible that 

@@ -61,10 +61,10 @@ int main()
 // String(String&&) is called
 // ...(25 times in total)
 
-// Note1: part of the tests come from
+// Note #1: part of the tests come from
 // https://github.com/Mooophy/Cpp-Primer/blob/master/ch13/ex13_48.cpp
 // which is quoted from 
 // http://coolshell.cn/articles/10478.html
 
-// Note2: As the result shows, everywhere we use rvalue(literal), move constructor
+// Note #2: As the result shows, everywhere we use rvalue(literal), move constructor
 // or move assignment is called.

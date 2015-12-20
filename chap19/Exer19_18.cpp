@@ -1,5 +1,5 @@
 // Note: this file contains explanation to a long-standing problem issued in 
-// Exer13_55_String.h. See below.
+// Exer13_49_String.h, Exer13_55_String.h and chap14/String.h. See below.
 #include <cstddef>
 #include <iostream>
 #include <string>

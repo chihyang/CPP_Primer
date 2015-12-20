@@ -26,14 +26,14 @@ int main()
 	cout << a << " " << b << " " << c << " " <<  d << " " << endl;
 	return 0;
 }
-// Note1: on page 711, the comments of this statement:
+// Note #1: on page 711, the comments of this statement:
 // remove_reference<decltype(i)>::type b;
 // says:
 // decltype(i) is int&, uses first (T&) partial specialization
 // seems this is wrong. The result of decltype for a variable should be the type
 // of the it rather than its reference.
 
-// Note2: in this program, we can either add typename when accessing type member
+// Note #2: in this program, we can either add typename when accessing type member
 // of remove_reference or not. This won't cause ambiguity because the template
 // has already been instantiated. However, if we access inside remove_reference,
 // such as accesing remove_reference<T>::type, we have to add typename before

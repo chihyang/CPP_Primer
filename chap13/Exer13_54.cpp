@@ -61,7 +61,7 @@ int main()
 //                 ^
 // 1 error generated.
 
-// Note1: why is this an ambiguous call? Let's see the declaration of both functions:
+// Note #1: why is this an ambiguous call? Let's see the declaration of both functions:
 // 	HasPtr& operator=(HasPtr); //#1
 //	HasPtr& operator=(HasPtr&&) noexcept; //#2
 // #1 takes a HasPtr object as parameter, while #2 takes a rvalue reference to
@@ -69,4 +69,4 @@ int main()
 // There's no type conversion when we call "=" with a HasPtr variable. Thus both
 // functions are exact match. As a result, this is an ambiguous call.
 
-// Note2: overloaded functions should guarantee all of the calls DIFFERENTIATED. 
+// Note #2: overloaded functions should guarantee all of the calls DIFFERENTIATED. 

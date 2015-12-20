@@ -47,7 +47,7 @@ int main()
 // 1 1
 // flst_inter2 != flst_iter
 
-// Note1: first take a look at #1, line 13 defines two istream_iterators. in_iter
+// Note #1: first take a look at #1, line 13 defines two istream_iterators. in_iter
 // is initialized with cin, while in_iter2 is off-the-end iterator. Then we
 // initialize int i with *in_iter, which means getting an int from standard 
 // input and initializing i with it. Then we set flag fail of cin, thus we can't
@@ -64,11 +64,11 @@ int main()
 // use the in_iter2 assigned with in_iter, we are not guaranteed the state of 
 // in_iter2 keeps unchanged. This is why line 17 outputs two identical values.
 
-// Note2: Here things seem much clearer. When we assign a forward iterator with
+// Note #2: Here things seem much clearer. When we assign a forward iterator with
 // another, state of the former is certain. We know what it refers to. So the
 // output result is easy to predict.
 
-// Note3: "pass" in "single-pass" and "multi-pass" on page 410 means "go or move 
+// Note #3: "pass" in "single-pass" and "multi-pass" on page 410 means "go or move 
 // past something", it doesn't mean "give". So the "multi-pass" means one 
 // iterator can "pass by" one element or position multiple times, "single-pass" 
 // means one can only "pass by" one element once.

@@ -32,21 +32,21 @@ int main()
 // Address of roster1: 0x4ab07e 0x4ab082 0x4ab089
 // Address of roster2: 0x4ab07e 0x4ab082 0x4ab089
 
-// Note1: type of string literals is const char*, but we can assign one string
+// Note #1: type of string literals is const char*, but we can assign one string
 // literal to a nonconst char pointer. This is an exception allowed by compiler.
 // If we compile the program with G++, it will warn us about it:
 // warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
 // It is well enough that further standards will completely forbid it so that
 // newer compilers will no longer support such operations.
 
-// Note2: as you can see, if both rosters held C-style strings, rather than 
+// Note #2: as you can see, if both rosters held C-style strings, rather than 
 // library strings, the result depends. Even on the same machine, if we compile
 // with different compilers, the results are different. Because for C-style strings,
 // we are in fact comparing addresses. Whether addresses of two vectors with the
 // same contents are identical denpends on compilers. So using C-style strings
 // here is never recommended.
 
-// Note3: in line 19 and 23, we output the result with a named casts. Because if
+// Note #3: in line 19 and 23, we output the result with a named casts. Because if
 // we didn't convert the cs into a void pointer, the output would be the whole 
 // string! Another exception about C-style strings. On page 124 of C++ Primer, 
 // it says:
@@ -56,7 +56,7 @@ int main()
 // pointer. So we cannot output the real value of a pointer to a null-terminated
 // character array directly. Use static_cast<void*> instead.
 
-// Note4: last but not least, can we use array rather than pointer as elements 
+// Note #4: last but not least, can we use array rather than pointer as elements 
 // of a vector? If so, how do we initialize such a vector? This is a weird and 
 // stupid question. After all, C++ library provides vector and other containers 
 // in order to substitute for clumsy built-in arrays. Who would use a vector to
