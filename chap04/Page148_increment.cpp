@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It CANNOT be compiled successfully by every compiler.
+// Warning: This is for verification. It CANNOT be compiled successfully by every compiler.
 // The problem lies in line 10.
 #include <iostream>
 using std::cout;

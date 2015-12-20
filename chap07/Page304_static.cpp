@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It CANNOT be compiled successfully by both compilers.
+// Warning: This is for verification. It CANNOT be compiled successfully by both compilers.
 // The problems lie in line 7.
 class Screen {
 public:

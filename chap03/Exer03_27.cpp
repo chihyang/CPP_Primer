@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It CANNOT be compiled successfully by all compilers.
+// Warning: This is for verification. It CANNOT be compiled successfully by all compilers.
 // The problem lies in line 10(cl only), 14 and 17(for both cl and gcc).
 #include <iostream>
 using std::cout;

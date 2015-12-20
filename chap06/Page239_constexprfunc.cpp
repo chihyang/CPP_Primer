@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It CANNOT be compiled successfully by both compilers.
+// Warning: This is for verification. It CANNOT be compiled successfully by both compilers.
 // Warning: Visual Studio 2013 compiler doesn't support constexpr function perfectly.
 // The problem lies in line 18.
 #include <iostream>

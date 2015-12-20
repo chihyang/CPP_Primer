@@ -1,4 +1,4 @@
-// Warning: This is for verifying. It cannot be compiled successfully.
+// Warning: This is for verification. It cannot be compiled successfully.
 #include<iostream>
 int main()
 {
