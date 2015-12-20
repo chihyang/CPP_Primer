@@ -1,12 +1,10 @@
 #include <iostream>
 #include "Sales_item.h"
-
 int main()
 {
 	Sales_item bookSum;
 	//detects: if two books with identical isbn aren't input continuously,
 	//this program cannot find it.
-	
 	if(std::cin >> bookSum)
 	{
 		Sales_item book;
@@ -27,6 +25,5 @@ int main()
 		std::cerr << "No data?!" << std::endl;
 		return -1;
 	}
-
 	return 0;
 }

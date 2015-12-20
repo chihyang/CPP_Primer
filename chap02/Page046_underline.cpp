@@ -1,5 +1,4 @@
 #include<iostream>
-
 int main()
 {
 	// a variable named as an underline is legal

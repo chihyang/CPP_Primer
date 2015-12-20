@@ -6,7 +6,6 @@ int main()
 {
 	return 0;
 }
-
 // ******compile info under cl******
 // Exer2_39.cpp
 // Exer2_39.cpp(4) : error C2628: “Foo”后面接“int”是非法的(是否忘记了“;”?)

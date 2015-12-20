@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main()
 {
 	int i1, i2, upper, lower;

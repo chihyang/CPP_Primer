@@ -1,5 +1,4 @@
 #include<iostream>
-
 int main()
 {
 	int iobj = 0, *pi = &iobj;
