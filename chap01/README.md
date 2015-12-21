@@ -124,5 +124,5 @@ together.
 
 ##Exercise 1.25
 
-> Using the _Sales_item.h header from the Web site,
+> Using the _Sales_item.h_ header from the Web site,
 compile and execute the bookstore program presented in this section.
