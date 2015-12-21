@@ -2,19 +2,29 @@
 
 > Review the documentation for your compiler and determine what file naming convention it uses. Compile and run the _main_ program from page 2.
 
+[Exer01_01.cpp](Exer01_01.cpp)
+
 ##Exercise 1.2
 
 > Exercise 1.2: Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
 
+[Exer01_02.cpp](Exer01_02.cpp)
+
 ##Exercise 1.3
 > Write a program to print _Hello_, _World_ on the standard output.
+
+[Exer01_03.cpp](Exer01_03.cpp)
 
 ##Exercise 1.4
 > Our program used the addition operator, +, to add two numbers. Write a program that uses the multiplication operator, *, to print the product instead.
 
+[Exer01_04.cpp](Exer01_04.cpp)
+
 ##Exercise 1.5
 
 > We wrote the output in one large statement. Rewrite the program to use a separate statement to print each operand.
+
+[Exer01_05.cpp](Exer01_05.cpp)
 
 ##Exercise 1.6
 > Explain whether the following program fragment is legal.
@@ -24,6 +34,15 @@ std::cout << "The sum of " << v1;
 		  << " is " << v1 + v2 << std::endl;
 ```
 If the program is legal, what does it do? If the program is not legal, why not? How would you fix it?
+
+The program is illegal. It attempts to output the sum of _v1_ and _v2_, but appends surplus semicolons.
+The correct way:
+
+```cpp
+std::cout << "The sum of " << v1
+          << " and " << v2
+		  << " is " << v1 + v2 << std::endl;
+```
 
 ##Exercise 1.7
 
