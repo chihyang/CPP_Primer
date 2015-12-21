@@ -33,7 +33,7 @@ public:
 	// subscript operator(const and nonconst version) required by exercise 14.26
 	char& operator[](size_t n)
 	{ return elements[n]; }
-	char& operator[](size_t n) const
+	const char& operator[](size_t n) const
 	{ return elements[n]; }
 	~String();
 	void push_back(const char&);
