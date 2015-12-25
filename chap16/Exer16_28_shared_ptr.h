@@ -20,7 +20,7 @@ public:
 	explicit shared_ptr(T *q) : p(q), ref(new std::size_t(1)), del(nullptr) {}
 	shared_ptr(T *q, Deleter d) : p(q), ref(new std::size_t(1)), del(d) {}
 	shared_ptr(const shared_ptr &sp, Deleter d) : p(sp.p), ref(sp.ref), del(d) { ++*ref; }
-	shared_ptr(unique_ptr<T>&);
+	explicit shared_ptr(unique_ptr<T>&);
 	// copy control operations
 	shared_ptr(const shared_ptr &sp) : p(sp.p), ref(sp.ref), del(sp.del) { ++*ref; }
 	shared_ptr(shared_ptr &&sp) noexcept : p(std::move(sp.p)), ref(std::move(sp.ref)), del(std::move(sp.del)) { sp.p = nullptr; }
