@@ -48,6 +48,8 @@ std::cout << "The sum of " << v1
 
 > Compile a program that has incorrectly nested comments.
 
+[Exer01_07.cpp](Exer01_07.cpp)
+
 ##Exercise 1.8
 
 > Indicate which, if any, of the following output statements are legal:
@@ -60,10 +62,28 @@ std::cout << /* "*/" /* "/*" */;
 After you’ve predicted what will happen, test your answers by compiling a
 program with each of these statements. Correct any errors you encounter.
 
+Legal statements:
+```cpp
+(a) std::cout << "/*";
+(b) std::cout << "*/";
+(d) std::cout << /* "*/" /* "/*" */;
+```
+Illegel statements:
+```cpp
+(c) std::cout << /* "*/" */;
+```
+We can correct it as below:
+```cpp
+(c) std::cout << /* "*/" */";
+```
+see [Exer01_08.cpp](Exer01_08.cpp)
+
 ##Exercise 1.9
 
 > Write a program that uses a _while_ to sum the numbers from
 50 to 100.
+
+[Exer01_09.cpp](Exer01_09.cpp)
 
 ##Exercise 1.10
 
@@ -71,10 +91,14 @@ program with each of these statements. Correct any errors you encounter.
 there is a decrement operator (--) that subtracts 1. Use the decrement
 operator to write a _while_ that prints the numbers from ten down to zero.
 
+[Exer01_10.cpp](Exer01_10.cpp)
+
 ##Exercise 1.11
 
 > Write a program that prompts the user for two integers.
 Print each number in the range specified by those two integers.
+
+[Exer01_11.cpp](Exer01_11.cpp)
 
 ##Exercise 1.12
 
@@ -86,9 +110,16 @@ for (int i = -100; i <= 100; ++i)
     sum += i;
 ```
 
+The _for_ loop evaluates the sum from -100 to 100. The final value of _sum_ is 
+0.
+
+See [Exer01_12.cpp](Exer01_12.cpp)
+
 ##Exercise 1.13
 
 > Rewrite the exercises from § 1.4.1 (p. 13) using _for_ loops.
+
+[Exer01_13_1.cpp](Exer01_13_1.cpp) | [Exer01_13_2.cpp](Exer01_13_2.cpp) | [Exer01_13_3.cpp](Exer01_13_3.cpp)
 
 ##Exercise 1.14
 
@@ -106,6 +137,8 @@ generates.
 > Write your own version of a program that prints the sum of
 a set of integers read from _cin_.
 
+[Exer01_16.cpp](Exer01_16.cpp)
+
 ##Exercise 1.17
 
 > What happens in the program presented in this section if the input values are all equal? What if there are no duplicated values?
@@ -114,26 +147,38 @@ a set of integers read from _cin_.
 
 > Compile and run the program from this section giving it only equal values as input. Run it again giving it values in which no number is repeated.
 
+[Exer01_18.cpp](Exer01_18.cpp)
+
 ##Exercise 1.19
 
 > Revise the program you wrote for the exercises in § 1.4.1 (p. 13) that printed a range of numbers so that it handles input in which the first number is smaller than the second.
+
+[Exer01_19.cpp](Exer01_19.cpp)
 
 ##Exercise 1.20
 
 > http://www.informit.com/title/032174113 contains a copy of _Sales_item.h_ in the Chapter 1 code directory. Copy that file to your working directory. Use it to write a program that reads a set of book sales transactions, writing each transaction to the standard output.
 
+[Exer01_20.cpp](Exer01_20.cpp)
+
 ##Exercise 1.21
 
 > Write a program that reads two _Sales_item_ objects that have the same ISBN and produces their sum.
+
+[Exer01_21.cpp](Exer01_21.cpp)
 
 ##Exercise 1.22
 
 > Write a program that reads several transactions for the same ISBN. Write the sum of all the transactions that were read.
 
+[Exer01_22.cpp](Exer01_22.cpp)
+
 ##Exercise 1.23
 
 > Write a program that reads several transactions and counts
 how many transactions occur for each ISBN.
+
+[Exer01_24.cpp](Exer01_24.cpp)
 
 ##Exercise 1.24
 
@@ -141,7 +186,11 @@ how many transactions occur for each ISBN.
 representing multiple ISBNs. The records for each ISBN should be grouped
 together.
 
+[Exer01_24.cpp](Exer01_24.cpp)
+
 ##Exercise 1.25
 
 > Using the _Sales_item.h_ header from the Web site,
 compile and execute the bookstore program presented in this section.
+
+[Exer01_25.cpp](Exer01_25.cpp)

@@ -3,7 +3,7 @@
 int main()
 {
 	Sales_item bookSum;
-	//detects: if two books with identical isbn aren't input continuously,
+	//defects: if two books with identical isbn aren't input continuously,
 	//this program cannot find it.
 	if(std::cin >> bookSum)
 	{
