@@ -126,11 +126,21 @@ See [Exer01_12.cpp](Exer01_12.cpp)
 > Compare and contrast the loops that used a _for_ with those
 using a _while_. Are there advantages or disadvantages to using either form?
 
+- _for_ loop
+
+_for_ is more fit for loops that will execute known times. 
+
+- _while_ loop
+
+_while_ is more fit for loops that will execute unknown times.
+
 ##Exercise 1.15
 
 > Write programs that contain the common errors discussed in
 the box on page 16. Familiarize yourself with the messages the compiler
 generates.
+
+(nothing)
 
 ##Exercise 1.16
 
@@ -142,6 +152,12 @@ a set of integers read from _cin_.
 ##Exercise 1.17
 
 > What happens in the program presented in this section if the input values are all equal? What if there are no duplicated values?
+
+If the input values are all equal, there will be only one line of output.
+
+If there are no duplicated values, there will be as many lines of outputs as the number of input values.
+
+See next exercise.
 
 ##Exercise 1.18
 
