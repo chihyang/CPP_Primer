@@ -11,8 +11,8 @@ int main()
 	book2.revenue = price2 * book2.units_sold;
 	if(book1.bookNo == book2.bookNo)
 		std::cout << book1.bookNo << " "
-	              <<book1.units_sold + book2.units_sold << " "
-	              << book1.revenue + book2.revenue << std::endl;
+		          <<book1.units_sold + book2.units_sold << " "
+		          << book1.revenue + book2.revenue << std::endl;
 	else
 	{
 		std::cerr << "Two items have different isbn!" << std::endl;

@@ -26,7 +26,7 @@ int main()
 		}
 	}
 	std::cout << total.bookNo << " "
-              << total.units_sold << " "
+	          << total.units_sold << " "
 	          << total.revenue << std::endl;
 	return 0;
 }

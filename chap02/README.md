@@ -1,8 +1,8 @@
 ##Exercise 2.1
 
-> What are the differences between int, long, long long,
-and short? Between an unsigned and a signed type? Between a float and
-a double?
+> What are the differences between _int_, _long_, _long_ _long_,
+and _short_? Between an unsigned and a signed type? Between a _float_ and
+a _double_?
 
 ##Exercise 2.2
 
@@ -63,8 +63,8 @@ have?
 
 ##Exercise 2.8
 
-> Using escape sequences, write a program to print 2M followed
-by a newline. Modify the program to print 2, then a tab, then an M, followed
+> Using escape sequences, write a program to print _2M_ followed
+by a newline. Modify the program to print _2_, then a tab, then an _M_, followed
 by a newline.
 
 [Exer02_08.cpp](Exer02_08.cpp)
@@ -120,7 +120,7 @@ definition:
 
 ##Exercise 2.13
 
-> What is the value of j in the following program?
+> What is the value of _j_ in the following program?
 ```cpp
 int i = 42;
 int main()
@@ -203,7 +203,7 @@ int i = 0;
 
 ##Exercise 2.22
 
-> Assuming p is a pointer to int, explain the following code:
+> Assuming _p_ is a pointer to _int_, explain the following code:
 ```cpp
 if (p) // ...
 if (*p) // ...
@@ -211,11 +211,11 @@ if (*p) // ...
 
 ##Exercise 2.23
 
-> Given a pointer p, can you determine whether p points to a valid object? If so, how? If not, why not?
+> Given a pointer _p_, can you determine whether _p_ points to a valid object? If so, how? If not, why not?
 
 ##Exercise 2.24
 
-> Why is the initialization of p legal but that of lp illegal?
+> Why is the initialization of _p_ legal but that of _lp_ illegal?
 ```cpp
 int i = 42;
 void *p = &i;
@@ -285,7 +285,7 @@ following assignments are legal? Explain why.
 ##Exercise 2.30
 
 > For each of the following declarations indicate whether the
-object being declared has top-level or low-level const.
+object being declared has top-level or low-level _const_.
 ```cpp
 const int v2 = 0; int v1 = v2;
 int *p1 = &v1, &r1 = v1;
@@ -296,7 +296,7 @@ const int *p2 = &v2, *const p3 = &i, &r2 = v2;
 
 > Given the declarations in the previous exercise determine
 whether the following assignments are legal. Explain how the top-level or
-low-level const applies in each case.
+low-level _const_ applies in each case.
 ```cpp
 r1 = v2;
 p1 = p2;
@@ -359,7 +359,7 @@ decltype((b)) d = a;
 
 ##Exercise 2.37
 
-> Assignment is an example of an expression that yields a reference type. The type is a reference to the type of the left-hand operand. That is, if i is an int, then the type of the expression i = x is int&. Using that knowledge, determine the type and value of each variable in this code:
+> Assignment is an example of an expression that yields a reference type. The type is a reference to the type of the left-hand operand. That is, if _i_ is an _int_, then the type of the expression _i_ = _x_ is _int&_. Using that knowledge, determine the type and value of each variable in this code:
 ```cpp
 int a = 3, b = 4;
 decltype(a) c = a;
@@ -368,7 +368,7 @@ decltype(a = b) d = a;
 
 ##Exercise 2.38
 
-> Describe the differences in type deduction between decltype and auto. Give an example of an expression where auto and decltype will deduce the same type and an example where they will deduce differing types.
+> Describe the differences in type deduction between _decltype_ and _auto_. Give an example of an expression where _auto_ and _decltype_ will deduce the same type and an example where they will deduce differing types.
 
 ##Exercise 2.39
 
@@ -387,18 +387,18 @@ int main()
 
 ##Exercise 2.40
 
-> Write your own version of the Sales_data class.
+> Write your own version of the _Sales_data_ class.
 
 ##Exercise 2.41
 
-> Use your Sales_data class to rewrite the exercises in §
+> Use your _Sales_data_ class to rewrite the exercises in §
 1.5.1(p. 22), § 1.5.2(p. 24), and § 1.6(p. 25). For now, you should define
-your Sales_data class in the same file as your main function.
+your _Sales_data_ class in the same file as your _main_ function.
 
 [Exer02_41_1.cpp](Exer02_41_1.cpp) | [Exer02_41_2.cpp](Exer02_41_2.cpp) | [Exer02_41_3.cpp](Exer02_41_3.cpp)
 
 ##Exercise 2.42
 
-> Write your own version of the Sales_data.h header and use it to rewrite the exercise from § 2.6.2(p. 76)
+> Write your own version of the _Sales_data.h_ header and use it to rewrite the exercise from § 2.6.2(p. 76)
 
 [Exer02_42_1.cpp](Exer02_42_1.cpp) | [Exer02_42_2.cpp](Exer02_42_2.cpp) | [Exer02_42_3.cpp](Exer02_42_3.cpp)

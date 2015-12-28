@@ -15,10 +15,10 @@ int main()
 	const auto &j = 42;
 	std::cout << a << " " << 
 	             b << " " <<
-				 c << " " <<
-				 d << " " <<
-				 e << " " <<
-				 g << " " << std::endl;
+	             c << " " <<
+	             d << " " <<
+	             e << " " <<
+	             g << " " << std::endl;
 	// Try to assign
 	// legal
 	a = 42;
