@@ -14,7 +14,7 @@ int main()
 		book.revenue = price * book.units_sold;
 		std::cout << book.bookNo << " "
 		          << book.units_sold << " "
-				  << book.revenue << std::endl;
+		          << book.revenue << std::endl;
 	}
 	return 0;
 }

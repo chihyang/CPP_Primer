@@ -28,6 +28,8 @@ std::cout << u - i << std::endl;
 > Write a program to check whether your predictions were
 correct. If not, study this section until you understand what the problem is.
 
+[Exer02_04.cpp](Exer02_04.cpp)
+
 ##Exercise 2.5
 
 > Determine the type of each of the following literals. Explain
@@ -65,6 +67,8 @@ have?
 by a newline. Modify the program to print 2, then a tab, then an M, followed
 by a newline.
 
+[Exer02_08.cpp](Exer02_08.cpp)
+
 ##Exercise 2.9
 
 > Explain the following definitions. For those that are illegal,
@@ -75,6 +79,8 @@ explain what’s wrong and how to correct it.
 (c) double salary = wage = 9999.99;
 (d) int i = 3.14;
 ```
+
+[Exer02_09.cpp](Exer02_09.cpp)
 
 ##Exercise 2.10
 
@@ -109,6 +115,8 @@ definition:
 (d) int 1_or_2 = 1;
 (e) double Double = 3.14;
 ```
+
+[Exer02_12.cpp](Exer02_12.cpp)
 
 ##Exercise 2.13
 
@@ -154,6 +162,8 @@ int i = 0, &r1 = i; double d = 0, &r2 = d;
 (c) i = r2;
 (d) r1 = d;
 ```
+
+[Exer02_16.cpp](Exer02_16.cpp)
 
 ##Exercise 2.17
 
@@ -246,6 +256,8 @@ explain why.
 (g) const int i2 = i, &r = i;
 ```
 
+[Exer02_27.cpp](Exer02_27.cpp)
+
 ##Exercise 2.28
 
 > Explain the following definitions. Identify any that are illegal.
@@ -317,7 +329,9 @@ previous exercise.
 Print the variables before and after the assignments to check
 whether your predictions in the previous exercise were correct.
 If not, study the examples until you can convince yourself you know
-￼￼what led you to the wrong conclusion.
+what led you to the wrong conclusion.
+
+[Exer02_34.cpp](Exer02_34.cpp)
 
 ##Exercise 2.35
 
@@ -328,6 +342,8 @@ write a program to see whether you were correct.
 const int i = 42;
 auto j = i; const auto &k = i; auto *p = &i; const auto j2 = i, &k2 = i;
 ```
+
+[Exer02_35.cpp](Exer02_35.cpp)
 
 ##Exercise 2.36
 
@@ -367,6 +383,8 @@ int main()
 }
 ```
 
+[Exer02_39.cpp](Exer02_39.cpp)
+
 ##Exercise 2.40
 
 > Write your own version of the Sales_data class.
@@ -377,6 +395,10 @@ int main()
 1.5.1(p. 22), § 1.5.2(p. 24), and § 1.6(p. 25). For now, you should define
 your Sales_data class in the same file as your main function.
 
+[Exer02_41_1.cpp](Exer02_41_1.cpp) | [Exer02_41_2.cpp](Exer02_41_2.cpp) | [Exer02_41_3.cpp](Exer02_41_3.cpp)
+
 ##Exercise 2.42
 
 > Write your own version of the Sales_data.h header and use it to rewrite the exercise from § 2.6.2(p. 76)
+
+[Exer02_42_1.cpp](Exer02_42_1.cpp) | [Exer02_42_2.cpp](Exer02_42_2.cpp) | [Exer02_42_3.cpp](Exer02_42_3.cpp)
