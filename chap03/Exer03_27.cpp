@@ -25,6 +25,6 @@ int main()
 // Exer03_27.cpp(10) : error C2466: 不能分配常量大小为 0 的数组
 // Exer03_27.cpp(10) : error C2133: “ia1”: 未知的大小
 
-// ******compile info under gcc when commenting line 12, 14 and 17******
+// ******compile info under g++ when commenting line 12, 14 and 17******
 // GCC ignores this error without any warning, but as the textbook shows(page 
 // 113), it should be an error.

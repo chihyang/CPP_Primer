@@ -33,7 +33,7 @@ int main()
 // &HasPtr::operator =(HasPtr)”
 //         尝试匹配参数列表“(HasPtr, HasPtr)”时
 
-// ******compile info of gcc******
+// ******compile info of g++******
 // Exer13_54.cpp: In function 'int main()':
 // Exer13_54.cpp:13:6: error: ambiguous overload for 'operator=' (operand types are
 //  'HasPtr' and 'std::remove_reference<HasPtr&>::type {aka HasPtr}')

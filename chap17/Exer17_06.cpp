@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 // if we use vector<Sales_data>::size_type rather than difference_type
-// ******compile info of gcc******
+// ******compile info of g++******
 // Exer17_06.cpp: In function 'std::vector<matches> findBook(const std::vector<std:
 // :vector<Sales_data> >&, const string&)':
 // Exer17_06.cpp:47:22: warning: narrowing conversion of '__gnu_cxx::operator-<cons

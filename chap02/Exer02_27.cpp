@@ -11,7 +11,7 @@ int main()
 	const int &const r3 = i;
 	return 0;
 }
-// ******compile info under gcc******
+// ******compile info under g++******
 // Exer2_27.cpp: In function 'int main()':
 // Exer2_27.cpp:6:19: error: 'const' qualifiers cannot be applied to 'const int&'
 // const int &const r2 = i;

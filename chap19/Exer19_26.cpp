@@ -25,7 +25,7 @@ int main()
 // has a subdirectory called obj.)
 // 1. comment line 7;
 // 2. compile the C source file:
-// F:\cpp_primer\chap19> gcc Exer19_26.c -c -o ./obj/Exer19_26_c.o
+// F:\cpp_primer\chap19> g++ Exer19_26.c -c -o ./obj/Exer19_26_c.o
 // 3. compile the C++ source file:
 // F:\cpp_primer\chap19> g++ -std=c++11 Exer19_26.cpp -c -o ./obj/Exer19_26_cpp.o
 // 4. link two object files:

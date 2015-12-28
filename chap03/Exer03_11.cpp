@@ -23,7 +23,7 @@ int main()
 // Exer03_11.cpp
 // Exer03_11.cpp(17) : error C3892: “c”: 不能给常量赋值
 
-// ******compile info under gcc******
+// ******compile info under g++******
 // Exer03_11.cpp: In function 'int main()':
 // Exer03_11.cpp:17:5: error: assignment of read-only reference 'c'
 //    c = 'X'; // error, cannot compile successfully

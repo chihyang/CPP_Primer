@@ -6,7 +6,7 @@ int main()
 {
 	return 0;
 }
-// ******compile info under gcc******
+// ******compile info under g++******
 // Exer2_39.cpp:3:13: error: expected ';' after struct definition
 // struct Foo {} //no semicolon
 //              ^
