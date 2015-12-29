@@ -128,11 +128,11 @@ using a _while_. Are there advantages or disadvantages to using either form?
 
 - _for_ loop
 
-_for_ is more fit for loops that will execute known times. 
+    _for_ is more fit for loops that will execute known times. 
 
 - _while_ loop
 
-_while_ is more fit for loops that will execute unknown times.
+    _while_ is more fit for loops that will execute unknown times.
 
 ##Exercise 1.15
 

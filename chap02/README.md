@@ -4,10 +4,46 @@
 and _short_? Between an unsigned and a signed type? Between a _float_ and
 a _double_?
 
+* (a)
+
+    _short_, _int_, _long_, _long_ _long_ have differenct sizes:
+
+    _short_: at least 16bits;
+
+    _int_: at least as large as _short_;
+
+    _long_: at least 32bits, and at least as large as _int_;
+
+    _long_ _long_: at least 64bits, and at least as large as _long_, introduced by new standard.
+
+* (b)
+
+    A signed type represents negative or positive numbers(including zero);
+
+    An unsigned type represents only values greater than or equal to zero.
+
+* (c) 
+
+    _float_: single-precision floating-point value, at least yields 6 significant digits;
+
+    _double_: double-precision floating-point value, at least yields 10 significant digits.
+
 ##Exercise 2.2
 
 > To calculate a mortgage payment, what types would you use
 for the rate, principal, and payment? Explain why you selected each type.
+
+rate: _double_
+
+principal: _double_
+
+payment: _double_
+
+Reason: 
+* none of the above can be represented only by integer in real world, so we should use 
+floating point types.
+* _double_ provides higher precision than _float_.
+
 
 ##Exercise 2.3
 
@@ -21,6 +57,16 @@ std::cout << i2 - i << std::endl;
 std::cout << i - i2 << std::endl;
 std::cout << i - u << std::endl;
 std::cout << u - i << std::endl;
+```
+
+The output(compiled by g++):
+```cpp
+32
+4294967264 // 2^32 - (42 - 10)
+32
+-32
+0
+0
 ```
 
 ##Exercise 2.4
@@ -41,6 +87,36 @@ the differences among the literals in each of the four examples:
 (d) 10, 10u, 10., 10e-2
 ```
 
+(a)
+```cpp
+'a'  - char
+L'a' - wchar_t
+"a"  - const char[2]
+L"a" - const wchar_t[2]
+```
+(b)
+```cpp
+10   - int
+10u  - unsigned int
+10L  - long
+10uL - unsigned long
+012  - octal int
+0xC  - hexadecimal int
+```
+(c)
+```cpp
+3.14  - double
+3.14f - float
+3.14L - long double
+```
+(d)
+```cpp
+10    - int
+10u   - unsigned int
+10.   - double
+10e-2 - double
+```
+   
 ##Exercise 2.6
 
 > What, if any, are the differences between the following
@@ -49,6 +125,9 @@ definitions:
 int month = 9, day = 7;
 int month = 09, day = 07;
 ```
+
+The first line uses decimal numbers as initializers, while the second line uses octal numbers as
+initializers. But 9 is not a octal number, so it's an error.
 
 ##Exercise 2.7
 
@@ -60,6 +139,14 @@ have?
 (c) 1024f
 (d) 3.14L
 ```
+
+(a) "Who goes with Fergus?", string literal
+
+(b) 31.4, double
+
+(c) error, 1024 is not a floating-point number, thus cannot be appended with f
+
+(d) 3.14, long double
 
 ##Exercise 2.8
 
@@ -80,7 +167,7 @@ explain what’s wrong and how to correct it.
 (d) int i = 3.14;
 ```
 
-[Exer02_09.cpp](Exer02_09.cpp)
+See [Exer02_09.cpp](Exer02_09.cpp).
 
 ##Exercise 2.10
 
@@ -94,6 +181,14 @@ int main()
     std::string local_str;
 }
 ```
+
+global_str: empty string
+
+global_int: 0
+
+local_int: undefined value
+
+local_str: empty string
 
 ##Exercise 2.11
 
