@@ -200,6 +200,12 @@ definition:
 (c) extern int iz;
 ```
 
+(a) definition
+
+(b) definition
+
+(c) declaration
+
 ##Exercise 2.12
 
 > Which, if any, of the following names are invalid?
@@ -210,6 +216,16 @@ definition:
 (d) int 1_or_2 = 1;
 (e) double Double = 3.14;
 ```
+
+(a) invalid, C++ keywords cannot be used as identifiers.
+
+(b) valid, see [Page046_underline.cpp](Page046_underline.cpp) for more details.
+
+(c) invalid, only underscore, digits and letters are permitted.
+
+(d) invalid, identifiers cannot begin with a digit.
+
+(e) valid, upper case and lower case letters are dinstinct.
 
 [Exer02_12.cpp](Exer02_12.cpp)
 
@@ -225,6 +241,8 @@ int main()
 }
 ```
 
+_j_ = 100, local variable _i_ hides global variable with the same name.
+
 ##Exercise 2.14
 
 > Is the following program legal? If so, what values are printed?
@@ -233,6 +251,11 @@ int i = 100, sum = 0;
 for (int i = 0; i != 10; ++i)
     sum += i;
 std::cout << i << " " << sum << std::endl;
+```
+
+legal, output is 
+```cpp
+45 100
 ```
 
 ##Exercise 2.15
@@ -244,6 +267,14 @@ std::cout << i << " " << sum << std::endl;
 (c) int &rval2 = ival;
 (d) int &rval3;
 ```
+
+(a) valid.
+
+(b) invalid, non-const reference cannot be initialized with a literal.
+
+(c) valid.
+
+(d) invalid, reference must be initialized.
 
 ##Exercise 2.16
 
@@ -258,6 +289,17 @@ int i = 0, &r1 = i; double d = 0, &r2 = d;
 (d) r1 = d;
 ```
 
+(a) valid.
+
+(b) valid.
+
+(c) valid.
+
+(d) valid.
+
+All of the assignments above are not initializations. Plain references cannot be bound 
+to another type, but could be assigned with another compatible type.
+
 [Exer02_16.cpp](Exer02_16.cpp)
 
 ##Exercise 2.17
@@ -269,14 +311,30 @@ i = 5; ri = 10;
 std::cout << i << " " << ri << std::endl;
 ```
 
+```cpp
+10 10
+```
+
 ##Exercise 2.18
 
 > Write code to change the value of a pointer. Write code to
 change the value to which the pointer points.
 
+```cpp
+int *p = 0;
+int val1 = 0, val2 = 2;
+p = &val1;
+*p = val2;
+```
+
 ##Exercise 2.19
 
 > Explain the key differences between pointers and references.
+
+Key differences:
+- references are not objects; pointers are objects.
+- references must be initialized and can only be bound to one object, but pointers can be
+bound to different objects and don't have to be initialized.
 
 ##Exercise 2.20
 
@@ -285,6 +343,9 @@ change the value to which the pointer points.
 int i = 42;
 int *p1 = &i; *p1 = *p1 * *p1;
 ```
+
+The program initializes pointer _p1_ with _i_ and changes the value of _i_ to its 
+square by dereferencing the pointer _p1_.
 
 ##Exercise 2.21
 
@@ -296,6 +357,12 @@ int i = 0;
 (c) int *p = &i;
 ```
 
+(a) illegal, plain pointers and the object they point to must have the same type.
+
+(b) illegal, cannot initialize a pointer with an _int_, even the value the the _int_ is 0.
+
+(c) legal.
+
 ##Exercise 2.22
 
 > Assuming _p_ is a pointer to _int_, explain the following code:
@@ -304,9 +371,16 @@ if (p) // ...
 if (*p) // ...
 ```
 
+```if (p)``` judges if the value of pointer _p_ is 0.
+
+```if (*p)``` judges if the value of the object that _p_ points to is 0.
+
 ##Exercise 2.23
 
 > Given a pointer _p_, can you determine whether _p_ points to a valid object? If so, how? If not, why not?
+
+No, we cannot determine if _p_ points to a valid object. Because we cannot distinguish 
+a valid address from an invalid one. 
 
 ##Exercise 2.24
 
@@ -316,6 +390,9 @@ int i = 42;
 void *p = &i;
 long *lp = &i;
 ```
+
+Because we can use a _void_ pointer to point to object of any type, otherwise the type of the pointer
+and the object it points to must match.
 
 ##Exercise 2.25
 
@@ -327,6 +404,26 @@ variables.
 (c) int* ip, ip2;
 ```
 
+(a)
+
+_ip_: _int_ pointer, uninitialized
+
+_i_: _int_, uninitialized
+
+_r_: _int_ reference, bound to _i_
+
+(b)
+
+_i_: _int_, uninitialized
+
+_ip_: _int_ pointer, initialized to 0
+
+(c)
+
+_ip_: _int_ pointer, uninitialized
+
+_ip2_: _int_, uninitialized
+
 ##Exercise 2.26
 
 > Which of the following are legal? For those that are illegal,
@@ -337,6 +434,14 @@ explain why.
 (c) const int sz = cnt;
 (d) ++cnt; ++sz;
 ```
+
+(a) illegal, const object must be initialized.
+
+(b) legal.
+
+(c) legal.
+
+(d) illegal, _sz_ is a const and thus its value cannot be changed.
 
 ##Exercise 2.27
 
