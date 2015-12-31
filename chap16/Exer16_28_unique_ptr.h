@@ -29,15 +29,21 @@ public:
 	// constructor
 	unique_ptr() : p(nullptr), del(D()) {}
 	// forbid implicit conversion
-	explicit unique_ptr(T *t) : p(t), del(D()) {}
+	template <typename U>
+	explicit unique_ptr(U *t) : p(t), del(D()) {}
 	unique_ptr(const D &d) : p(nullptr), del(d) {}
 	// copy-control operations(copy version is deleted)
 	unique_ptr(const unique_ptr&) = delete;
-	unique_ptr(unique_ptr &&up) noexcept : p(std::move(up.p)), del(std::move(del)) {}
+	unique_ptr(unique_ptr &&up) noexcept : p(std::move(up.p)), del(std::move(up.del)) {}
 	unique_ptr& operator=(const unique_ptr&) = delete;
 	unique_ptr& operator=(unique_ptr&&) noexcept;
+	// generic copy control members, see effective C++, 3rd edition, item 45
+	template <typename U, typename DU>
+	unique_ptr(unique_ptr<U, DU> &&up) noexcept : p(std::move(up.p)), del(std::move(up.del)) {}
+	template <typename U, typename DU>
+	unique_ptr& operator=(unique_ptr<U, DU> &&up) noexcept;
 	// std::nullptr_t is not covered in textbook, see http://en.cppreference.com/w/cpp/types/nullptr_t
-	unique_ptr& operator=(std::nullptr_t); 
+	unique_ptr& operator=(std::nullptr_t);
 	~unique_ptr();
 	// overloaded operators
 	T& operator*() const;
@@ -62,13 +68,23 @@ inline void unique_ptr<T, D>::free() const
 		del(p);
 	}
 }
-// constructor
+// move assignment
 template <typename T, typename D>
 unique_ptr<T, D>& unique_ptr<T, D>::operator=(unique_ptr &&rhs) noexcept
 {
 	p = rhs.p;
 	del = rhs.del;
 	rhs.p = nullptr;
+	return *this;
+}
+template <typename T, typename D>
+template <typename U, typename DU>
+unique_ptr<T, D>& unique_ptr<T, D>::operator=(unique_ptr<U, DU> &&rhs) noexcept
+{
+	p = rhs.p;
+	del = rhs.del;
+	rhs.p = nullptr;
+	return *this;
 }
 template <typename T, typename D>
 unique_ptr<T, D>& unique_ptr<T, D>::operator=(std::nullptr_t)

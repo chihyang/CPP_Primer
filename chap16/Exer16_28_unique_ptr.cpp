@@ -13,6 +13,17 @@ using std::string;
 using std::vector;
 using std::function;
 using std::runtime_error;
+// sample class
+class Base {
+public:
+	virtual void print() const { std::cout << "This is the base class." << std::endl; }
+	virtual ~Base() = default;
+};
+class Derived : public Base {
+public:
+	void print() const { std::cout << "This is a derived class." << std::endl; }
+	~Derived() = default;
+};
 struct DebugDelete { // test deleter
 public:
 	DebugDelete(std::ostream &s = std::cerr) : os(s) {}
@@ -61,5 +72,8 @@ int main()
 	cout << endl;
 	up.release();
 	const unique_ptr<int> up2(new int(1)); // cannot use release and reset
+	// derived-to-base conversion
+	unique_ptr<Base> upb(new Derived());
+	upb->print();
 	return 0;
 }

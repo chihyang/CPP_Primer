@@ -17,15 +17,32 @@ public:
 	// constructors
 	shared_ptr() : p(nullptr), ref(new std::size_t(0)), del(nullptr) {}
 	// forbid implicit conversion
-	explicit shared_ptr(T *q) : p(q), ref(new std::size_t(1)), del(nullptr) {}
-	shared_ptr(T *q, Deleter d) : p(q), ref(new std::size_t(1)), del(d) {}
-	shared_ptr(const shared_ptr &sp, Deleter d) : p(sp.p), ref(sp.ref), del(d) { ++*ref; }
-	explicit shared_ptr(unique_ptr<T>&);
+	template <typename U>
+	explicit shared_ptr(U *q) : p(q), ref(new std::size_t(1)), del(nullptr) {}
+	template <typename U>
+	shared_ptr(U *q, Deleter d) : p(q), ref(new std::size_t(1)), del(d) {}
+	template <typename U>
+	shared_ptr(const shared_ptr<U> &sp, Deleter d) : p(sp.p), ref(sp.ref), del(d) { ++*ref; }
+	template <typename U>
+	explicit shared_ptr(unique_ptr<U>&);
 	// copy control operations
+	// Warning: normal copy control members must be declared, or the compiler 
+	// would synthesize a wrong version of them
 	shared_ptr(const shared_ptr &sp) : p(sp.p), ref(sp.ref), del(sp.del) { ++*ref; }
 	shared_ptr(shared_ptr &&sp) noexcept : p(std::move(sp.p)), ref(std::move(sp.ref)), del(std::move(sp.del)) { sp.p = nullptr; }
 	shared_ptr& operator=(const shared_ptr&);
 	shared_ptr& operator=(shared_ptr&&) noexcept;
+	// generic copy control members, thus supporting derived-to-base conversion,
+	// see Page630.
+	// reference: effective C++, 3rd edition, item 45
+	template <typename U>
+	shared_ptr(const shared_ptr<U> &sp) : p(sp.p), ref(sp.ref), del(sp.del) { ++*ref; }
+	template <typename U>
+	shared_ptr(shared_ptr<U> &&sp) noexcept : p(std::move(sp.p)), ref(std::move(sp.ref)), del(std::move(sp.del)) { sp.p = nullptr; }
+	template <typename U>
+	shared_ptr& operator=(const shared_ptr<U>&);
+	template <typename U>
+	shared_ptr& operator=(shared_ptr<U>&&) noexcept;
 	~shared_ptr();
 	// overloaded operators
 	T& operator*() const;
@@ -54,6 +71,7 @@ inline void shared_ptr<T>::free() const
 	}
 }
 // copy-control members
+// copy assignment
 template <typename T>
 shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr &rhs)
 {
@@ -65,7 +83,31 @@ shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr &rhs)
 	return *this;
 }
 template <typename T>
+template <typename U>
+shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr<U> &rhs)
+{
+	++*rhs.ref;
+	free();
+	p = rhs.p;
+	ref = rhs.ref;
+	del = rhs.del;
+	return *this;
+}
+// move assignment
+template <typename T>
 shared_ptr<T>& shared_ptr<T>::operator=(shared_ptr &&rhs) noexcept
+{
+	if(this != &rhs) {
+		p = rhs.p;
+		ref = rhs.ref;
+		del = rhs.del;
+		rhs.p = nullptr;
+	}
+	return *this;
+}
+template <typename T>
+template <typename U>
+shared_ptr<T>& shared_ptr<T>::operator=(shared_ptr<U> &&rhs) noexcept
 {
 	if(this != &rhs) {
 		p = rhs.p;
