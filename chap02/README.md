@@ -456,6 +456,20 @@ explain why.
 (g) const int i2 = i, &r = i;
 ```
 
+(a) illegal; we can not initialize a plain reference with a literal.
+
+(b) legal.
+
+(c) legal; we can initialize a const reference with a literal.
+
+(d) legal; define a const pointer to a const _int_ and initialize it with _&i2_.
+
+(e) legal.
+
+(f) illegal; reference must be initialized.
+
+(g) legal; const reference can be bound to a plain variable.
+
 [Exer02_27.cpp](Exer02_27.cpp)
 
 ##Exercise 2.28
@@ -468,6 +482,17 @@ explain why.
 (d) const int *const p3;
 (e) const int *p;
 ```
+
+(a) illegal; define a _int_ variable and a const pointer of _int_, const pointers must be initialized.
+
+(b) illegal; define a plain pointer to _int_ and a const pointer to _int_, const pointers must be 
+ initialized.
+
+(c) illegal; const variable must be initialized.
+
+(d) illegal; pointer to const must be initialized.
+
+(e) legal; define a pointer to const _int_.
 
 ##Exercise 2.29
 
@@ -482,6 +507,18 @@ following assignments are legal? Explain why.
 (f) ic = *p3;
 ```
 
+(a) legal; we can assign to a plain variable with a const or non-const variable; top-level const are ignored.
+
+(b) illegal; we cannot assign to a plain pointer with a  pointer to const; low-level const won't be ignored.
+
+(c) illegal; plain pointer cannot point to const variable.
+
+(d) illegal; const pointers cannot be assigned.
+
+(e) illegal; const pointers cannot be assigned.
+
+(f) illegal; const variables cannot be assigned.
+
 ##Exercise 2.30
 
 > For each of the following declarations indicate whether the
@@ -491,6 +528,20 @@ const int v2 = 0; int v1 = v2;
 int *p1 = &v1, &r1 = v1;
 const int *p2 = &v2, *const p3 = &i, &r2 = v2;
 ```
+
+_v2_: top-level const.
+
+_v1_: non-const.
+
+_p1_: non-const.
+
+_r1_: non-const.
+
+_p2_: low-level const.
+
+_p3_: top-level and low-level const.
+
+_r2_: low-level const.
 
 ##Exercise 2.31
 
@@ -505,6 +556,16 @@ p1 = p3;
 p2 = p3;
 ```
 
+(a) legal; top-level const are ignored.
+
+(b) illegal; low-level const won't be ignored, thus a non-const pointer cannot be assigned with a low-level const pointer.
+
+(c) legal; a pointer to const can be assigned with another variable.
+
+(d) illegal; the reason is the same as in (b).
+
+(e) legal; top-level const are ignored, both _p2_ and _p3_ are low-level const.
+
 ##Exercise 2.32
 
 > Is the following code legal or not? If not, how might you
@@ -513,6 +574,8 @@ make it legal?
 int null = 0, *p = null;
 ```
 
+Illegal. It's illegal to assign a _int_ variable to a pointer, even if the variable's value is 0.(page 54)
+
 ##Exercise 2.33
 
 > Using the variable definitions from this section, determine
@@ -520,6 +583,15 @@ what happens in each of these assignments:
 ```cpp
 a=42;    b=42;    c=42;
 d=42;    e=42;    g=42;
+```
+
+```cpp
+a=42; // legal; a is a plain int
+b=42; // legal; b is a plain int
+c=42; // legal; c is a plain int
+d=42; // illegal; d is a plain pointer
+e=42; // illegal; e is a pointer to const
+g=42; // illegal; g is a const int
 ```
 
 ##Exercise 2.34
@@ -543,6 +615,16 @@ const int i = 42;
 auto j = i; const auto &k = i; auto *p = &i; const auto j2 = i, &k2 = i;
 ```
 
+_j_: _int_; top-level const is ignored.
+
+_k_: const reference to _int_.
+
+_p_: pointer to const _int_.
+
+_j2_: const _int_.
+
+_k2_: const reference to _int_.
+
 [Exer02_35.cpp](Exer02_35.cpp)
 
 ##Exercise 2.36
@@ -557,6 +639,18 @@ decltype((b)) d = a;
 ++d;
 ```
 
+_c_: _int_;
+
+_d_: reference to _int_.
+
+When the code finishes:
+```cpp
+a = 4;
+b = 4;
+c = 4;
+b = 4;
+```
+
 ##Exercise 2.37
 
 > Assignment is an example of an expression that yields a reference type. The type is a reference to the type of the left-hand operand. That is, if _i_ is an _int_, then the type of the expression _i_ = _x_ is _int&_. Using that knowledge, determine the type and value of each variable in this code:
@@ -566,9 +660,36 @@ decltype(a) c = a;
 decltype(a = b) d = a;
 ```
 
+_c_: _int_;
+
+_d_: reference to _int_.
+
 ##Exercise 2.38
 
 > Describe the differences in type deduction between _decltype_ and _auto_. Give an example of an expression where _auto_ and _decltype_ will deduce the same type and an example where they will deduce differing types.
+
+Difference:
+
+- _auto_ would ignore top-level const, _decltype_ won't:
+```cpp
+const int a = 42;
+auto b = a;        // b is int
+decltype(a) c = a; // c is const int
+```
+
+- _auto_ regards references as the types they refer to, _decltype_ regards reference as reference:
+```cpp
+const int a = 42, &ri = a;
+auto b = ri;        // b is const int
+decltype(ri) c = a; // c is const reference to int
+```
+
+- _auto_ doesn't differentiate rvalue from lvalue, _decltype_ does: 
+```cpp
+int a = 42;
+auto b = (a);        // b is int
+decltype((a)) c = a; // c is reference to int
+```
 
 ##Exercise 2.39
 
@@ -588,6 +709,8 @@ int main()
 ##Exercise 2.40
 
 > Write your own version of the _Sales_data_ class.
+
+[Sales_data.h](Sales_data.h)
 
 ##Exercise 2.41
 
