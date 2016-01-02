@@ -1,48 +1,62 @@
 ##Exercise 3.1
 
 > Rewrite the exercises from § 1.4.1 (p. 13) and § 2.6.2 (p. 76)
-with appropriate using declarations.
+with appropriate _using_ declarations.
+
+[Exer03_01_1.cpp](Exer03_01_1.cpp) | [Exer03_01_2.cpp](Exer03_01_2.cpp) | [Exer03_01_3.cpp](Exer03_01_3.cpp)
 
 ##Exercise 3.2
 
 > Write a program to read the standard input a line at a time.
 Modify your program to read a word at a time.
 
+[Exer03_02_1.cpp](Exer03_02_1.cpp) | [Exer03_02_2.cpp](Exer03_02_2.cpp)
+
 ##Exercise 3.3
 
-> Explain how whitespace characters are handled in the string
-input operator and in the `getline` function.
+> Explain how whitespace characters are handled in the _string_
+input operator and in the _getline_ function.
 
 ##Exercise 3.4
 
-> Write a program to read two strings and report whether the
-strings are equal. If not, report which of the two is larger. Now, change
-the program to report whether the strings have the same length, and if
+> Write a program to read two _strings_ and report whether the
+_strings_ are equal. If not, report which of the two is larger. Now, change
+the program to report whether the _strings_ have the same length, and if
 not, report which is longer.
+
+[Exer03_04.cpp](Exer03_04.cpp)
 
 ##Exercise 3.5
 
-> Write a program to read strings from the standard input,
-concatenating what is read into one large string. Print the concatenated
-string. Next, change the program to separate adjacent input strings by a
+> Write a program to read _strings_ from the standard input,
+concatenating what is read into one large _string_. Print the concatenated
+_string_. Next, change the program to separate adjacent input _strings_ by a
 space.
+
+[Exer03_05.cpp](Exer03_05.cpp)
 
 ##Exercise 3.6
 
-> Use a range for to change all the characters in a string to
-X.
+> Use a range _for_ to change all the characters in a _string_ to
+_X_.
+
+[Exer03_06.cpp](Exer03_06.cpp)
 
 ##Exercise 3.7
 
 > What would happen if you define the loop control variable in the previous
-exercise as type char? Predict the results and then change your program
+exercise as type _char_? Predict the results and then change your program
 to use a char to see if you were right.
+
+[Exer03_07.cpp](Exer03_07.cpp)
 
 ##Exercise 3.8
 
-> Rewrite the program in the first exercise, first using a while
-and again using a traditional for loop. Which of the three approaches do
+> Rewrite the program in the first exercise, first using a _while_
+and again using a traditional _for_ loop. Which of the three approaches do
 you prefer and why?
+
+[Exer03_08.cpp](Exer03_08.cpp)
 
 ##Exercise 3.9
 
@@ -54,20 +68,24 @@ cout << s[0] << endl;
 
 ##Exercise 3.10
 
-> Write a program that reads a string of characters including
+> Write a program that reads a _string_ of characters including
 punctuation and writes what was read but with the punctuation removed.
+
+[Exer03_10.cpp](Exer03_10.cpp)
 
 ##Exercise 3.11
 
-> Is the following range for legal? If so, what is the type of c?
+> Is the following range _for_ legal? If so, what is the type of _c_?
 ```cpp
 const string s = "Keep out!";
 for (auto &c : s){ /*... */ }
 ```
 
+[Exer03_11.cpp](Exer03_11.cpp)
+
 ##Exercise 3.12
 
-> Which, if any, of the following vector definitions are in error?
+> Which, if any, of the following _vector_ definitions are in error?
 For those that are legal, explain what the definition does.
 For those that are not legal, explain why they are illegal.
 ```cpp
@@ -76,10 +94,12 @@ For those that are not legal, explain why they are illegal.
 (c) vector<string> svec(10, "null");
 ```
 
+[Exer03_12.cpp](Exer03_12.cpp)
+
 ##Exercise 3.13
 
 > How many elements are there in each of the following
-vectors? What are the values of the elements?
+_vectors_? What are the values of the elements?
 ```cpp
 (a) vector<int> v1;        
 (b) vector<int> v2(10);    
@@ -90,14 +110,16 @@ vectors? What are the values of the elements?
 (g) vector<string> v7{ 10, "hi" };
 ```
 
+[Exer03_13.cpp](Exer03_13.cpp)
+
 ##Exercise 3.14
 
-> Write a program to read a sequence of ints from cin and
-store those values in a vector.
+> Write a program to read a sequence of _ints_ from _cin_ and
+store those values in a _vector_.
 
 ##Exercise 3.15
 
-> Repeat the previous program but read strings this time.
+> Repeat the previous program but read _strings_ this time.
 
 ##Exercise 3.16
 
@@ -106,12 +128,16 @@ vectors from exercise 3.13. Check whether your answers to that exercise
 were correct. If not, restudy § 3.3.1 (p. 97) until you understand why you
 were wrong.
 
+[Exer03_16.cpp](Exer03_16.cpp)
+
 ##Exercise 3.17
 
 > Read a sequence of words from cin and store the values a
-vector. After you’ve read all the words, process the vector and change
+_vector_. After you’ve read all the words, process the _vector_ and change
 each word to uppercase. Print the transformed elements, eight words to a
 line.
+
+[Exer03_17.cpp](Exer03_17.cpp)
 
 ##Exercise 3.18
 
@@ -123,41 +149,53 @@ ivec[0] = 42;
 
 ##Exercise 3.19
 
-> List three ways to define a vector and give it ten elements,
+> List three ways to define a _vector_ and give it ten elements,
 each with the value 42. Indicate whether there is a preferred way to do so
 and why.
 
 ##Exercise 3.20
 
-> Read a set of integers into a vector. Print the sum of each
+> Read a set of integers into a _vector_. Print the sum of each
 pair of adjacent elements. Change your program so that it prints the sum of
 the first and last elements, followed by the sum of the second and second-tolast,
 and so on.
+
+[Exer03_20.cpp](Exer03_20.cpp)
 
 ##Exercise 3.21
 
 > Redo the first exercise from § 3.3.3 (p. 105) using iterators.
 
+[Exer03_21_1.cpp](Exer03_21_1.cpp) | [Exer03_21_2.cpp](Exer03_21_2.cpp)
+
 ##Exercise 3.22
 
-> Revise the loop that printed the first paragraph in text to
-instead change the elements in text that correspond to the first paragraph
-to all uppercase. After you’ve updated text, print its contents.
+> Revise the loop that printed the first paragraph in _text_ to
+instead change the elements in _text_ that correspond to the first paragraph
+to all uppercase. After you’ve updated _text_, print its contents.
+
+[Exer03_22.cpp](Exer03_22.cpp)
 
 ##Exercise 3.23
 
-> Write a program to create a vector with ten int elements.
+> Write a program to create a _vector_ with ten _int_ elements.
 Using an iterator, assign each element a value that is twice its current value.
-Test your program by printing the vector.
+Test your program by printing the _vector_.
+
+[Exer03_23.cpp](Exer03_23.cpp)
 
 ##Exercise 3.24
 
 > Redo the last exercise from § 3.3.3 (p. 105) using iterators.
 
+[Exer03_24.cpp](Exer03_24.cpp)
+
 ##Exercise 3.25
 
 > Rewrite the grade clustering program from § 3.3.3 (p. 104)
 using iterators instead of subscripts.
+
+[Exer03_25.cpp](Exer03_25.cpp)
 
 ##Exercise 3.26
 
@@ -166,7 +204,7 @@ why did we write `mid=beg+(end-beg)/2;` instead of `mid=(beg+end) /2;`?
 
 ##Exercise 3.27
 
-> Assuming txt_size is a function that takes no arguments
+> Assuming _txt_size_ is a function that takes no arguments
 and returns an int value, which of the following definitions are illegal?
 Explain why.
 ```cpp
@@ -176,6 +214,8 @@ unsigned buf_size = 1024;
 (c) int ia[txt_size()];
 (d) char st[11] = "fundamental";
 ```
+
+[Exer03_27.cpp](Exer03_27.cpp)
 
 ##Exercise 3.28
 
@@ -192,7 +232,7 @@ int main()
 
 ##Exercise 3.29:
 
-> List some of the drawbacks of using an array instead of a vector.
+> List some of the drawbacks of using an array instead of a _vector_.
 
 ##Exercise 3.30
 
@@ -206,23 +246,27 @@ for (size_t ix = 1; ix <= array_size; ++ix)
 
 ##Exercise 3.31
 
-> Write a program to define an array of ten ints. Give each
+> Write a program to define an array of ten _ints_. Give each
 element the same value as its position in the array.
+
+[Exer03_31.cpp](Exer03_31.cpp)
 
 ##Exercise 3.32
 
 > Copy the array you defined in the previous exercise into
 another array. Rewrite your program to use vectors.
 
+[Exer03_32_1.cpp](Exer03_32_1.cpp) | [Exer03_32_2.cpp](Exer03_32_2.cpp)
+
 ##Exercise 3.33
 
-> What would happen if we did not initialize the scores array in the program
+> What would happen if we did not initialize the _scores_ array in the program
 on page 116?
 
 ##Exercise 3.34
 
-> Given that p1 and p2 point to elements in the same array, what does the following code do?
-Are there values of p1 or p2 that make this code illegal?
+> Given that _p1_ and _p2_ point to elements in the same array, what does the following code do?
+Are there values of _p1_ or _p2_ that make this code illegal?
 ```cpp
 p1 += p2 - p1;
 ```
@@ -232,10 +276,14 @@ p1 += p2 - p1;
 > Using pointers, write a program to set the elements in an
 array to zero.
 
+[Exer03_35.cpp](Exer03_35.cpp)
+
 ##Exercise 3.36
 
-> Write a program to compare two arrays for equality. Write a
-similar program to compare two vectors.
+> Write a program to compare two arrays _for_ equality. Write a
+similar program to compare two _vectors_.
+
+[Exer03_36_1.cpp](Exer03_36_1.cpp) | [Exer03_36_2.cpp](Exer03_36_2.cpp)
 
 ##Exercise 3.37
 
@@ -257,39 +305,53 @@ Why would adding two pointers be meaningless?
 
 ##Exercise 3.39
 
-> Write a program to compare two strings. Now write a
-program to compare the values of two C-style character strings.
+> Write a program to compare two _strings_. Now write a
+program to compare the values of two C-style character _strings_.
+
+[Exer03_39.cpp](Exer03_39.cpp)
 
 ##Exercise 3.40
 
 > Write a program to define two character arrays initialized
-from string literals. Now define a third character array to hold the
-concatenation of the two arrays. Use strcpy and strcat to copy the two
+from _string_ literals. Now define a third character array to hold the
+concatenation of the two arrays. Use _strcpy_ and _strcat_ to copy the two
 arrays into the third.
+
+[Exer03_40.cpp](Exer03_40.cpp)
 
 ##Exercise 3.41
 
-> Write a program to initialize a vector from an array of
-ints.
+> Write a program to initialize a _vector_ from an array of
+_ints_.
+
+[Exer03_41.cpp](Exer03_41.cpp)
 
 ##Exercise 3.42
 
-> Write a program to copy a vector of ints into an array of
-ints.
+> Write a program to copy a _vector_ of _ints_ into an array of
+_ints_.
+
+[Exer03_42.cpp](Exer03_42.cpp)
 
 ##Exercise 3.43
 
 > Write three different versions of a program to print the
-elements of ia. One version should use a range for to manage the
-iteration, the other two should use an ordinary for loop in one case using
+elements of ia. One version should use a range _for_ to manage the
+iteration, the other two should use an ordinary _for_ loop in one case using
 subscripts and in the other using pointers. In all three programs write all the
-types directly. That is, do not use a type alias, auto, or decltype to
+types directly. That is, do not use a type alias, _auto_, or _decltype_ to
 simplify the code.
+
+[Exer03_43.cpp](Exer03_43.cpp)
 
 ##Exercise 3.44
 
-> Rewrite the programs from the previous exercises using a type alias for the type of the loop control variables.
+> Rewrite the programs from the previous exercises using a type alias _for_ the type of the loop control variables.
+
+[Exer03_44.cpp](Exer03_44.cpp)
 
 ##Exercise 3.45
 
-> Rewrite the programs again, this time using auto.
+> Rewrite the programs again, this time using _auto_.
+
+[Exer03_45.cpp](Exer03_45.cpp)
