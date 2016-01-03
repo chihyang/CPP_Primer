@@ -17,6 +17,13 @@ Modify your program to read a word at a time.
 > Explain how whitespace characters are handled in the _string_
 input operator and in the _getline_ function.
 
+- The _string_ input operator reads and discards any leading whitespace(e.g., spaces, newlinew, tabs).
+It then read characters until the next whitespace character is encountered.
+- The _getline_ function reads the given stream up to and including the first newline and stores what is
+read--not including the newline--in its _string_ argument. After _getline_ sees a newline, even if it is 
+the first character in the input, it stops reading and returns. If the first character in the input is a 
+newline, then the resulting _string_ is the empty _string_.
+
 ##Exercise 3.4
 
 > Write a program to read two _strings_ and report whether the
@@ -50,6 +57,9 @@ to use a char to see if you were right.
 
 [Exer03_07.cpp](Exer03_07.cpp)
 
+If we use _char_ rather than _char&_, we just get a copy of every character in the _string_, when we 
+assign to the loop variable, we are changing the copy rather than the original character.
+
 ##Exercise 3.8
 
 > Rewrite the program in the first exercise, first using a _while_
@@ -58,6 +68,8 @@ you prefer and why?
 
 [Exer03_08.cpp](Exer03_08.cpp)
 
+Apparently, range for is simpler to use here.
+
 ##Exercise 3.9
 
 > What does the following program do? Is it valid? If not, why not?
@@ -65,6 +77,9 @@ you prefer and why?
 string s;
 cout << s[0] << endl;
 ```
+
+No, it's not valid. Because _string_ is default initialized as empty. Subscripting an empty _string_ 
+is undefined.
 
 ##Exercise 3.10
 
@@ -81,6 +96,9 @@ const string s = "Keep out!";
 for (auto &c : s){ /*... */ }
 ```
 
+The type of _c_ is const _char&_. If there is no operation that tries to change the value of _c_, it's 
+legal, otherwise illegal.
+
 [Exer03_11.cpp](Exer03_11.cpp)
 
 ##Exercise 3.12
@@ -93,6 +111,14 @@ For those that are not legal, explain why they are illegal.
 (b) vector<string> svec = ivec;
 (c) vector<string> svec(10, "null");
 ```
+
+(a) legal: define and value initialize a _vector_ whose elements are _vector_ of _int_.
+
+(b) illegal: types of _svec_ and _ivec_ are different, we can't initialize a _vector_ with another of 
+different types.
+
+(c) legal: define and initialize a _vector_ of _string_ which has 10 elements with the same initial value
+"null".
 
 [Exer03_12.cpp](Exer03_12.cpp)
 
@@ -110,6 +136,20 @@ _vectors_? What are the values of the elements?
 (g) vector<string> v7{ 10, "hi" };
 ```
 
+(a) 0 element.
+
+(b) 10 elements, each has value 0.
+
+(c) 10 elements, each has value 42.
+
+(d) 1 element, the value is 10.
+
+(e) 2 elements, the values of them are 10 and 42 respectively.
+
+(f) 10 elements, each is an empty _string_.
+
+(g) 10 elements, eahc has value "hi".
+
 [Exer03_13.cpp](Exer03_13.cpp)
 
 ##Exercise 3.14
@@ -117,9 +157,13 @@ _vectors_? What are the values of the elements?
 > Write a program to read a sequence of _ints_ from _cin_ and
 store those values in a _vector_.
 
+[Exer03_14.cpp](Exer03_14.cpp)
+
 ##Exercise 3.15
 
 > Repeat the previous program but read _strings_ this time.
+
+[Exer03_15.cpp](Exer03_15.cpp)
 
 ##Exercise 3.16
 
@@ -147,11 +191,35 @@ vector<int> ivec;
 ivec[0] = 42;
 ```
 
+Illegal, subscripting an empty vector is undefined, we should use _push_back_:
+```cpp
+vector<int> ivec;
+ivec.push_back(42);
+```
+
+
 ##Exercise 3.19
 
 > List three ways to define a _vector_ and give it ten elements,
 each with the value 42. Indicate whether there is a preferred way to do so
 and why.
+
+way 1:
+```cpp
+vector<int> ivec(10, 42);
+```
+way 2:
+```cpp
+vector<int> ivec{42, 42, 42, 42, 42, 42, 42, 42, 42, 42,};
+```
+way 3:
+```cpp
+vector<int> ivec(10);
+for (auto &i : ivec) {
+    i = 42;
+}
+```
+Apparently, the first way is the best.
 
 ##Exercise 3.20
 
@@ -202,10 +270,13 @@ using iterators instead of subscripts.
 > In the binary search program on page 112,
 why did we write `mid=beg+(end-beg)/2;` instead of `mid=(beg+end) /2;`?
 
+We use `mid=beg+(end-beg)/2;` instead of `mid=(beg+end) /2;` because there is no definition of adding 
+two iterators.
+
 ##Exercise 3.27
 
 > Assuming _txt_size_ is a function that takes no arguments
-and returns an int value, which of the following definitions are illegal?
+and returns an _int_ value, which of the following definitions are illegal?
 Explain why.
 ```cpp
 unsigned buf_size = 1024;
@@ -214,6 +285,15 @@ unsigned buf_size = 1024;
 (c) int ia[txt_size()];
 (d) char st[11] = "fundamental";
 ```
+
+(a) illegal, we cannot use non-const value as the size of an array. 
+
+(b) legal, 4 * 7 - 14 is a const expression and can be evaluated at compile time.
+
+(c) illegal, the return value of _txt_size_ is not a const expression.
+
+(d) illegal, there is a null terminator at the end of the string literal, thus its size is 12 rather 
+than 11.
 
 [Exer03_27.cpp](Exer03_27.cpp)
 
@@ -230,9 +310,20 @@ int main()
 }
 ```
 
+_sa_: ten empty _strings_.
+
+_ia_: ten _ints_ whose values are all 0.
+
+_sa2_: ten empty _strings_.
+
+_ia2_: ten uninitialized _ints_.
+
 ##Exercise 3.29:
 
 > List some of the drawbacks of using an array instead of a _vector_.
+
+- Size of an array is fixed at the time of declaration, while the length of a _vector_ is changeable.
+- An array defined in a block is not initialized, while a _vector_ is value initialized.
 
 ##Exercise 3.30
 
@@ -243,6 +334,8 @@ int ia[array_size];
 for (size_t ix = 1; ix <= array_size; ++ix)
     ia[ix] = ix;
 ```
+
+The maximum index of _ia_ is 9 rather than 10. When _ix_ grows to 10, it will be out of range.
 
 ##Exercise 3.31
 
@@ -263,6 +356,9 @@ another array. Rewrite your program to use vectors.
 > What would happen if we did not initialize the _scores_ array in the program
 on page 116?
 
+If we don't initialize _scores_, the value of every element in it is undefined. When we access them, 
+there might be unexpected results.
+
 ##Exercise 3.34
 
 > Given that _p1_ and _p2_ point to elements in the same array, what does the following code do?
@@ -270,6 +366,9 @@ Are there values of _p1_ or _p2_ that make this code illegal?
 ```cpp
 p1 += p2 - p1;
 ```
+
+This code makes _p1_ points to the position of _p2_. If _p1_ or _p2_ per se is illegal, the result might
+be illegal.
 
 ##Exercise 3.35
 
@@ -297,11 +396,16 @@ while (*cp) {
 }
 ```
 
+This code tries to output the const _char_ array _ca_. The problem is that _ca_ doesn't have null 
+terminator. The loop might not end as expected.
+
 ##Exercise 3.38
 
 > In this section, we noted that it was not only illegal but meaningless to try to add two pointers.
 Why would adding two pointers be meaningless?
 
+Because the value of a pointer in actually an address. There is no meaning to add two addresses: we 
+can't know whether the result is a valid address or an address that stores a value of the same type. 
 
 ##Exercise 3.39
 
