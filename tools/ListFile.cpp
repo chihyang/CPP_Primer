@@ -10,7 +10,7 @@
 #include "InsertAnswer.h"
 #pragma comment(lib, "User32.lib")
 // Store the name of source file into the set src
-int GetSrcFile(const TCHAR *path, std::vector<String> &src)
+int get_source(const TCHAR *path, ExerSet &src)
 {
 	WIN32_FIND_DATA ffd;
 	TCHAR szDir[MAX_PATH];
@@ -36,12 +36,14 @@ int GetSrcFile(const TCHAR *path, std::vector<String> &src)
 		DisplayErrorBox(TEXT("FindFirstFile"));
 		return dwError;
 	} 
-	// List all the files in the directory with some info about them.
+	// get all of the CPP source file names and analysis them
 	do {
 		if (!(ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
-			if (isCPPSrc(ffd.cFileName)) {
-				src.push_back(ffd.cFileName);
-				_tprintf(TEXT("%s\n"), ffd.cFileName);
+			if (iscpp(ffd.cFileName)) {
+				auto exercise_no = analysis_filename(ffd.cFileName);
+				for (auto n : exercise_no) {
+					src[n].push_back(ffd.cFileName);
+				}
 			}
 		}
 	} while (FindNextFile(hFind, &ffd) != 0);
@@ -87,7 +89,7 @@ void DisplayErrorBox(LPTSTR lpszFunction)
 	LocalFree(lpDisplayBuf);
 }
 // judge if a file is C++ source file
-bool isCPPSrc(const String &filename)
+bool iscpp(const String &filename)
 {
 	auto dot_pos = filename.find_last_of(TEXT("."));
 	String ext;
@@ -106,7 +108,7 @@ bool isCPPSrc(const String &filename)
 	}
 }
 // analysis file name
-std::vector<std::size_t> analysis(const String &filename)
+std::vector<std::size_t> analysis_filename(const String &filename)
 {
 	std::vector<std::size_t> exercise;
 	auto end = filename.find_last_of(TEXT("_."));

@@ -4,13 +4,15 @@
 #include <cstddef>
 #include <string>
 #include <vector>
+#include <map>
 #ifndef UNICODE
 	typedef std::string String;
 #else 
 	typedef std::wstring String;
 #endif
+typedef std::map<std::size_t, std::vector<String>> ExerSet;
 void DisplayErrorBox(LPTSTR lpszFunction);
-bool isCPPSrc(const String&);
-int GetSrcFile(const TCHAR *path, std::vector<String> &src);
-std::vector<std::size_t> analysis(const String&);
+bool iscpp(const String&);
+int get_source(const TCHAR *path, ExerSet&);
+std::vector<std::size_t> analysis_filename(const String&);
 #endif
