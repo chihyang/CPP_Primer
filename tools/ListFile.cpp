@@ -2,15 +2,15 @@
 #include <tchar.h>
 #include <strsafe.h>
 #include <cstdio>
+#include <cstddef>
+#include <cctype>
 #include <cwctype>
-#include <string>
-#include <set>
+#include <vector>
 #include <algorithm>
-#include <locale>
 #include "InsertAnswer.h"
 #pragma comment(lib, "User32.lib")
 // Store the name of source file into the set src
-int GetSrcFile(const TCHAR *path, std::set<String> &src)
+int GetSrcFile(const TCHAR *path, std::vector<String> &src)
 {
 	WIN32_FIND_DATA ffd;
 	TCHAR szDir[MAX_PATH];
@@ -40,7 +40,7 @@ int GetSrcFile(const TCHAR *path, std::set<String> &src)
 	do {
 		if (!(ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
 			if (isCPPSrc(ffd.cFileName)) {
-				src.emplace(ffd.cFileName);
+				src.push_back(ffd.cFileName);
 				_tprintf(TEXT("%s\n"), ffd.cFileName);
 			}
 		}
@@ -104,4 +104,27 @@ bool isCPPSrc(const String &filename)
 	} else {
 		return false;
 	}
+}
+// analysis file name
+std::vector<std::size_t> analysis(const String &filename)
+{
+	std::vector<std::size_t> exercise;
+	auto end = filename.find_last_of(TEXT("_"));
+	for (auto beg = filename.find_first_of(TEXT("_")), next = beg;
+	    beg != end && beg != filename.size() - 1;
+	    beg = next) {
+		next = filename.find_first_of(TEXT("_"), beg + 1);
+		if (next == String::npos)
+			next = filename.find_last_of(TEXT("."));
+		if(next - beg == 3) {
+		#ifndef UNICODE
+			if (std::isdigit(filename[beg + 1]) && std::isdigit(filename[beg + 2])) {
+		#else
+			if (std::iswdigit(filename[beg + 1]) && std::iswdigit(filename[beg + 2])) {
+		#endif
+				exercise.push_back(stoi(filename.substr(beg + 1, beg + 2)));
+			}
+		}
+	}
+	return exercise;
 }
