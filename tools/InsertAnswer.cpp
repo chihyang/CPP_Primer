@@ -15,11 +15,13 @@ int _tmain(int argc, TCHAR* argv[])
 		cerr << "\nUsage: " << argv[0] << " <directory name>\n" << endl;
 		return -1;
 	}
-	vector<String> sources;
-	GetSrcFile(argv[1], sources);
-	auto rst = analysis("Exer19_03_04.cpp");
-	for(const auto &r: rst)
-		std::cout << r << " ";
-	std::cout << std::endl;
+	ExerSet sources;
+	get_source(argv[1], sources);
+	for(const auto &s : sources) {
+		std::cout << "Exercise " << s.first << ":\t";
+		for(const auto &r: s.second)
+			std::cout << r << " ";
+		std::cout << std::endl;
+	}
 	return 0;
 }
