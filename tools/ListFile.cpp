@@ -93,11 +93,11 @@ bool isCPPSrc(const String &filename)
 	String ext;
 	if (dot_pos != String::npos) {
 		ext = filename.substr(dot_pos, filename.size() - 1);
-		#ifndef UNICODE
-			std::transform(ext.begin(), ext.end(), ext.begin(), std::towlower);
-		#else 
-			std::transform(ext.begin(), ext.end(), ext.begin(), std::tolower);
-		#endif
+	#ifndef UNICODE
+		std::transform(ext.begin(), ext.end(), ext.begin(), std::towlower);
+	#else 
+		std::transform(ext.begin(), ext.end(), ext.begin(), std::tolower);
+	#endif
 	}
 	if (ext == TEXT(".c") || ext == TEXT(".cc") || ext == TEXT(".cpp") || ext == TEXT(".h")) {
 		return true;
@@ -109,13 +109,13 @@ bool isCPPSrc(const String &filename)
 std::vector<std::size_t> analysis(const String &filename)
 {
 	std::vector<std::size_t> exercise;
-	auto end = filename.find_last_of(TEXT("_"));
-	for (auto beg = filename.find_first_of(TEXT("_")), next = beg;
+	auto end = filename.find_last_of(TEXT("_."));
+	for (auto beg = filename.find_first_of(TEXT("_.")), next = beg;
 	    beg != end && beg != filename.size() - 1;
 	    beg = next) {
-		next = filename.find_first_of(TEXT("_"), beg + 1);
+		next = filename.find_first_of(TEXT("_."), beg + 1);
 		if (next == String::npos)
-			next = filename.find_last_of(TEXT("."));
+			break;
 		if(next - beg == 3) {
 		#ifndef UNICODE
 			if (std::isdigit(filename[beg + 1]) && std::isdigit(filename[beg + 2])) {
