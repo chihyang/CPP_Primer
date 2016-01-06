@@ -9,6 +9,8 @@
 #include <algorithm>
 #include "InsertAnswer.h"
 #pragma comment(lib, "User32.lib")
+enum WRAPPER { PARENTHESES, ANGLE, SQUARE };
+String wrap(const String&, WRAPPER = SQUARE);
 // Store the name of source file into the set src
 int get_source(const TCHAR *path, ExerSet &src)
 {
@@ -129,4 +131,30 @@ std::vector<std::size_t> analysis_filename(const String &filename)
 		}
 	}
 	return exercise;
+}
+// format the file name vector in terms of markdown format as below:
+// [file1.cpp](file1.cpp) | [file2.cpp](file2.cpp)
+String format(const std::vector<String> &files)
+{
+	String reval;
+	if (files.empty())
+		return reval;
+	for (auto beg = files.begin(); beg != files.end(); ++beg) {
+		reval += wrap(*beg, WRAPPER::SQUARE) + wrap(*beg, WRAPPER::PARENTHESES) + TEXT(" | ");
+	}
+	return reval.substr(0, reval.size() - 2);
+}
+inline
+String wrap(const String &filename, WRAPPER bracket)
+{
+	switch (bracket) {
+		case PARENTHESES:
+			return TEXT("(") + filename + TEXT(")");
+		case ANGLE:
+			return TEXT("<") + filename + TEXT(">");
+		case SQUARE:
+			return TEXT("[") + filename + TEXT("]");
+		default:
+			return filename;
+	}
 }
