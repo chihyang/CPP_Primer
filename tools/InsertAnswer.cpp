@@ -1,3 +1,4 @@
+#include "InsertAnswer.h"
 #include <windows.h>
 #include <tchar.h>
 #include <cstddef>
@@ -6,36 +7,42 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-#include "InsertAnswer.h"
+#include <codecvt>
+#include <locale>
 using std::size_t;
-using std::cerr;
-using std::cout;
 using std::endl;
-using std::fstream;
-using std::wfstream;
 using std::vector;
 #ifndef UNICODE
-typedef fstream Fstream;
+typedef std::fstream Fstream;
+auto &TCERR = std::cerr;
+auto &TCOUT = std::cout;
 #else
-typedef wfstream Fstream;
+typedef std::wfstream Fstream;
+auto &TCERR = std::wcerr;
+auto &TCOUT = std::wcout;
 #endif
 int _tmain(int argc, TCHAR* argv[])
 {
 	if (argc != 2) {
-		cerr << "\nUsage: " << argv[0] << " <directory name>\n" << endl;
+		TCERR << TEXT("\nUsage: ") << argv[0] << TEXT(" <directory name>\n") << endl;
 		return -1;
 	}
-	cout << "Analyse file names in the directory " << argv[1] << "... ";
+	TCOUT << TEXT("Analyse file names in the directory ") << argv[1] << "... ";
 	ExerSet sources;
 	get_source(argv[1], sources);
-	cout << "Done!" << endl;
-	String readme_file = argv[1] + String("\\README.md");
+	TCOUT << TEXT("Done!") << endl;
+	String readme_file = argv[1] + String(TEXT("\\README.md"));
 	Fstream inOut(readme_file, Fstream::in);
+	const std::locale empty_locale = std::locale::empty();
+	typedef std::codecvt_utf8<wchar_t> converter_type;
+	const converter_type* converter = new converter_type;
+	const std::locale utf8_locale = std::locale(empty_locale, converter);
+	inOut.imbue(utf8_locale);
 	if (!inOut) {
-		cerr << "Unable to open README.md file!" << endl;
+		TCERR << TEXT("Unable to open README.md file!") << endl;
 		return -1;
 	}
-	cout << "Process the README.md file... ";
+	TCOUT << TEXT("Process the README.md file... ");
 	size_t cnt = 0;                // counter for exercise number
 	vector<String> file;           // store the contents of the file
 	String line;                   // store the contents of current line
@@ -58,13 +65,14 @@ int _tmain(int argc, TCHAR* argv[])
 	inOut.clear();
 	inOut.close();
 	inOut.open(readme_file, Fstream::out);
-	if (!inOut) {
-		cerr << "Fail to write the original file!" << endl;
+	std::fstream inOut2(readme_file, std::fstream::out);
+	if (!inOut2) {
+		TCERR << TEXT("Fail to write the original file!") << endl;
 		return -1;
 	}
 	for (const auto &l : file) {
-		inOut << l << TEXT("\n");
+		inOut << l << "\n";
 	}
-	cout << "Done!" << endl;
+	TCOUT << TEXT("Done!") << endl;
 	return 0;
 }

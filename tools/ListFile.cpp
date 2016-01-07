@@ -1,3 +1,4 @@
+#include "InsertAnswer.h"
 #include <windows.h>
 #include <tchar.h>
 #include <strsafe.h>
@@ -7,8 +8,6 @@
 #include <cwctype>
 #include <vector>
 #include <algorithm>
-#include "InsertAnswer.h"
-#pragma comment(lib, "User32.lib")
 enum WRAPPER { PARENTHESES, ANGLE, SQUARE };
 String wrap(const String&, WRAPPER = SQUARE);
 // Store the name of source file into the set src

@@ -1,10 +1,17 @@
 #ifndef TOOL_INSERT_ANSWER_H
 #define TOOL_INSERT_ANSWER_H
+#ifndef UNICODE
+#define UNICODE
+#endif
+#ifndef _UNICODE
+#define _UNICODE
+#endif
 #include <windows.h>
 #include <cstddef>
 #include <string>
 #include <vector>
 #include <map>
+#pragma comment(lib, "User32.lib")
 #ifndef UNICODE
 	typedef std::string String;
 #else 
