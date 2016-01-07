@@ -1,6 +1,6 @@
 #Tools to improve efficiency
 
-Scripts under this directory are tools that helps save your energy. Some of them have completed
+Scripts under this directory are tools that help save your energy. Some of them have completed
 their tasks and shouldn't be used again.
 
 ##[Create chapter folders](CreateAllChapters.sh)
@@ -25,7 +25,7 @@ platforms.
 
 ##Insert source file names into README.md
 
-This is a tool for practising using C++. It includes 3 files:
+This is a tool for practising C++. It includes 3 files:
 
 - [InsertAnswer.h](InsertAnswer.h) 
 - [ListFile.cpp](ListFile.cpp) 
