@@ -55,7 +55,7 @@ If the source file of exercise 1.1 exists, the tool will insert the name of the 
 >\[Exer01_01.cpp\]\(Exer01_01.cpp\)
 
 >##Exercise 1.2
-> Exercise 1.2: Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
+> Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
 
 The string `[Exer01_01.cpp](Exer01_01.cpp)` will be converted to a hyper link by github.
 If there are more than one source files associated with one exercise, they will be separated by " | ":
