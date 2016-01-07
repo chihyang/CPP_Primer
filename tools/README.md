@@ -35,9 +35,9 @@ This tool is written with STL and windows API functions, it might not compile on
 platforms. The feature of the tool is to insert source file names in terms of Markdown style into
 appropriate locations of a README.md file.
 
-When we offer the path of a chapter , e.g. `../chap01`, as argument, the tool will find all
-of the C++ source file under the path and analyse the name of the source files, 
-then it will associate the source files with corresponding exercise and insert 
+When we offer the path of a chapter , e.g. `../chap01`, as an argument, the tool will find all
+of the C++ source files under the path and analyse the names of the source files, 
+then it will associate the source files with corresponding exercises and insert 
 the names of the source files into README.md under the path.
 
 For example, the README.md of chapter 1 has the following contents:
@@ -45,8 +45,7 @@ For example, the README.md of chapter 1 has the following contents:
 >##Exercise 1.1
 > Review the documentation for your compiler and determine what file naming convention it uses. Compile and run the _main_ program from page 2.
 >##Exercise 1.2
-> Exercise 1.2: Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
-
+> Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
 
 If the source file of exercise 1.1 exists, the tool will insert the name of the source file as below:
 
