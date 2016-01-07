@@ -1,4 +1,3 @@
-
 ##Exercise 16.1
 
 > Define instantiation.
@@ -7,10 +6,14 @@
 
 > Write and test your own versions of the compare functions.
 
+[Exer16_02.cpp](Exer16_02.cpp) | [Exer16_02_compare.h](Exer16_02_compare.h) 
+
 ##Exercise 16.3
 
 > Call your compare function on two Sales_data objects to
 see how your compiler handles errors during instantiation.
+
+[Exer16_03.cpp](Exer16_03.cpp) 
 
 ##Exercise 16.4
 
@@ -20,21 +23,29 @@ function’s iterator parameters and the other for the type of the value. Use
 your function to find a given value in a vector<int> and in a
 list<string>.
 
+[Exer16_04.cpp](Exer16_04.cpp) | [Exer16_04_find.h](Exer16_04_find.h) 
+
 ##Exercise 16.5
 
 > Write a template version of the print function from § 6.2.4
 (p. 217) that takes a reference to an array and can handle arrays of any size
 and any element type.
 
+[Exer16_05.cpp](Exer16_05.cpp) | [Exer16_05_print.h](Exer16_05_print.h) 
+
 ##Exercise 16.6
 
 > How do you think the library begin and end functions that
 take an array argument work? Define your own versions of these functions.
 
+[Exer16_06.cpp](Exer16_06.cpp) | [Exer16_06_begin_end.h](Exer16_06_begin_end.h) 
+
 ##Exercise 16.7
 
 > Write a constexpr template that returns the size of a given
 array.
+
+[Exer16_07.cpp](Exer16_07.cpp) | [Exer16_07_size.h](Exer16_07_size.h) 
 
 ##Exercise 16.8
 
@@ -68,11 +79,15 @@ private:
 };
 ```
 
+[Exer16_11.cpp](Exer16_11.cpp) 
+
 ##Exercise 16.12
 
 > Write your own version of the Blob and BlobPtr
 templates. including the various const members that were not shown in the
 text.
+
+[Exer16_12.cpp](Exer16_12.cpp) | [Exer16_12_Blob.h](Exer16_12_Blob.h) 
 
 ##Exercise 16.13
 
@@ -84,6 +99,8 @@ and relational operators for BlobPtr.
 > Write a Screen class template that uses nontype
 parameters to define the height and width of the Screen.
 
+[Exer16_14_15.cpp](Exer16_14_15.cpp) | [Exer16_14_15_Screen.h](Exer16_14_15_Screen.h) 
+
 ##Exercise 16.15
 
 > Implement input and output operators for your Screen
@@ -91,10 +108,14 @@ template. Which, if any, friends are necessary in class Screen to make the
 input and output operators work? Explain why each friend declaration, if any,
 was needed.
 
+[Exer16_14_15.cpp](Exer16_14_15.cpp) | [Exer16_14_15_Screen.h](Exer16_14_15_Screen.h) 
+
 ##Exercise 16.16
 
 > Rewrite the StrVec class (§ 13.5, p. 526) as a template
 named Vec.
+
+[Exer16_16.cpp](Exer16_16.cpp) | [Exer16_16_Vec.h](Exer16_16_Vec.h) 
 
 ##Exercise 16.17
 
@@ -115,20 +136,28 @@ and identify whether any are illegal. Correct each error that you find.
     template <typename Ctype> Ctype f5(Ctype a);
 ```
 
+[Exer16_18.h](Exer16_18.h) 
+
 ##Exercise 16.19
 
 > Write a function that takes a reference to a container and
 prints the elements in that container. Use the container’s size_type and
 size members to control the loop that prints the elements.
 
+[Exer16_19.cpp](Exer16_19.cpp) | [Exer16_19_print_container.h](Exer16_19_print_container.h) 
+
 ##Exercise 16.20
 
 > Rewrite the function from the previous exercise to use
 iterators returned from begin and end to control the loop.
 
+[Exer16_20.cpp](Exer16_20.cpp) | [Exer16_20_print_iter.h](Exer16_20_print_iter.h) 
+
 ##Exercise 16.21
 
 > Write your own version of DebugDelete.
+
+[Exer16_21_DebugDelete.h](Exer16_21_DebugDelete.h) 
 
 ##Exercise 16.22
 
@@ -136,16 +165,22 @@ iterators returned from begin and end to control the loop.
 that the shared_ptr members use a DebugDelete as their deleter (§
 12.1.4, p. 468).
 
+[Exer16_22_23.cpp](Exer16_22_23.cpp) | [Exer16_22_23_TextQuery.h](Exer16_22_23_TextQuery.h) 
+
 ##Exercise 16.23
 
 > Predict when the call operator will be executed in your
 main query program. If your expectations and what happens differ, be sure
 you understand why.
 
+[Exer16_22_23.cpp](Exer16_22_23.cpp) | [Exer16_22_23_TextQuery.h](Exer16_22_23_TextQuery.h) 
+
 ##Exercise 16.24
 
 > Add a constructor that takes two iterators to your Blob
 template.
+
+[Exer16_24.cpp](Exer16_24.cpp) | [Exer16_24_Blob.h](Exer16_24_Blob.h) 
 
 ##Exercise 16.25
 
@@ -160,6 +195,8 @@ template class vector<Sales_data>;
 > Assuming NoDefault is a class that does not have a
 default constructor, can we explicitly instantiate vector<NoDefault>? If
 not, why not?
+
+[Exer16_26.cpp](Exer16_26.cpp) 
 
 ##Exercise 16.27
 
@@ -180,15 +217,21 @@ int main() {
 }
 ```
 
+[Exer16_27.cpp](Exer16_27.cpp) 
+
 ##Exercise 16.28
 
 > Write your own versions of shared_ptr and
 unique_ptr.
 
+[Exer16_28_shared_ptr.cpp](Exer16_28_shared_ptr.cpp) | [Exer16_28_shared_ptr.h](Exer16_28_shared_ptr.h) | [Exer16_28_unique_ptr.cpp](Exer16_28_unique_ptr.cpp) | [Exer16_28_unique_ptr.h](Exer16_28_unique_ptr.h) 
+
 ##Exercise 16.29
 
 > Revise your Blob class to use your version of
 shared_ptr rather than the library version.
+
+[Exer16_29_Blob.h](Exer16_29_Blob.h) 
 
 ##Exercise 16.30
 
@@ -196,6 +239,8 @@ shared_ptr rather than the library version.
 and revised Blob classes. (Note: Implementing the weak_ptr type is
 beyond the scope of this Primer, so you will not be able to use the BlobPtr
 class with your revised Blob.)
+
+[Exer16_30.cpp](Exer16_30.cpp) 
 
 ##Exercise 16.31
 
@@ -251,6 +296,8 @@ const int *cp1 = &i, *cp2 = &j;
 (f) f2(p1, cp1);
 ```
 
+[Exer16_36.cpp](Exer16_36.cpp) 
+
 ##Exercise 16.37
 
 > The library max function has two function parameters and
@@ -270,6 +317,8 @@ and how it is used.
 pass two string literals to the original version of compare from § 16.1.1 (p.
 652).
 
+[Exer16_39.cpp](Exer16_39.cpp) 
+
 ##Exercise 16.40
 
 > Is the following function legal? If not, why not? If it is
@@ -284,10 +333,14 @@ auto fcn3(It beg, It end) -> decltype(*beg + 0)
 }
 ```
 
+[Exer16_40.cpp](Exer16_40.cpp) 
+
 ##Exercise 16.41
 
 > Write a version of sum with a return type that is
 guaranteed to be large enough to hold the result of the addition.
+
+[Exer16_41.cpp](Exer16_41.cpp) | [Exer16_41.h](Exer16_41.h) 
 
 ##Exercise 16.42
 
@@ -301,10 +354,14 @@ int i = 0; const int ci = i;
 (c) g(i * ci);
 ```
 
+[Exer16_42.cpp](Exer16_42.cpp) 
+
 ##Exercise 16.43
 
 > Using the function defined in the previous exercise, what
 would the template parameter of g be if we called g(i = ci)?
+
+[Exer16_43.cpp](Exer16_43.cpp) 
 
 ##Exercise 16.44
 
@@ -312,12 +369,16 @@ would the template parameter of g be if we called g(i = ci)?
 determine the types for T if g’s function parameter is declared as T (not
 T&&). What if g’s function parameter is const T&?
 
+[Exer16_44_1.cpp](Exer16_44_1.cpp) | [Exer16_44_2.cpp](Exer16_44_2.cpp) 
+
 ##Exercise 16.45
 
 > Given the following template, explain what happens if we
 call g on a literal value such as 42. What if we call g on a variable of type
 int?
 template <typename T> void g(T&& val) { vector<T> v; }
+
+[Exer16_45.cpp](Exer16_45.cpp) 
 
 ##Exercise 16.46
 
@@ -333,9 +394,13 @@ for (size_t i = 0; i != size(); ++i)
 > Write your own version of the flip function and test it by
 calling functions that have lvalue and rvalue reference parameters.
 
+[Exer16_47.cpp](Exer16_47.cpp) 
+
 ##Exercise 16.48
 
 > Write your own versions of the debug_rep functions.
+
+[Exer16_48.cpp](Exer16_48.cpp) | [Exer16_48_debug_rep.h](Exer16_48_debug_rep.h) 
 
 ##Exercise 16.49
 
@@ -357,6 +422,8 @@ f(42); f(p); f(ci); f(p2);
 print an identifying message. Run the code from that exercise. If the calls
 behave differently from what you expected, make sure you understand why.
 
+[Exer16_50.cpp](Exer16_50.cpp) 
+
 ##Exercise 16.51
 
 > Determine what sizeof...(Args) and
@@ -367,16 +434,22 @@ sizeof...(rest) return for each call to foo in this section.
 > Write a program to check your answer to the previous
 question.
 
+[Exer16_52.cpp](Exer16_52.cpp) 
+
 ##Exercise 16.53
 
 > Write your own version of the print functions and test
 them by printing one, two, and five arguments, each of which should have
 different types.
 
+[Exer16_53.cpp](Exer16_53.cpp) 
+
 ##Exercise 16.54
 
 > What happens if we call print on a type that doesn’t have
 an << operator?
+
+[Exer16_54.cpp](Exer16_54.cpp) 
 
 ##Exercise 16.55
 
@@ -384,9 +457,13 @@ an << operator?
 we declared the nonvariadic version of print after the definition of the
 variadic version.
 
+[Exer16_55.cpp](Exer16_55.cpp) 
+
 ##Exercise 16.56
 
 > Write and test a variadic version of errorMsg.
+
+[Exer16_56.cpp](Exer16_56.cpp) | [Exer16_56_errorMsg.h](Exer16_56_errorMsg.h) 
 
 ##Exercise 16.57
 
@@ -398,6 +475,8 @@ disadvantages of each approach?
 
 > Write the emplace_back function for your StrVec class
 and for the Vec class that you wrote for the exercises in § 16.1.2 (p. 668).
+
+[Exer16_58.cpp](Exer16_58.cpp) | [Exer16_58_StrVec.h](Exer16_58_StrVec.h) | [Exer16_58_Vec.h](Exer16_58_Vec.h) 
 
 ##Exercise 16.59
 
@@ -412,11 +491,15 @@ svec.emplace_back(s).
 
 > Define your own version of make_shared.
 
+[Exer16_61.cpp](Exer16_61.cpp) | [Exer16_61_shared_ptr.h](Exer16_61_shared_ptr.h) 
+
 ##Exercise 16.62
 
 > Define your own version of hash<Sales_data> and
 define an unordered_multiset of Sales_data objects. Put several
 transactions into the container and print its contents.
+
+[Exer16_62.cpp](Exer16_62.cpp) | [Exer16_62_Sales_data.h](Exer16_62_Sales_data.h) 
 
 ##Exercise 16.63
 
@@ -424,17 +507,23 @@ transactions into the container and print its contents.
 occurrences of a given value in a vector. Test your program by passing it a
 vector of doubles, a vector of ints, and a vector of strings.
 
+[Exer16_63_64.cpp](Exer16_63_64.cpp) | [Exer16_63_64_count.h](Exer16_63_64_count.h) 
+
 ##Exercise 16.64
 
 > Write a specialized version of the template from the
 previous exercise to handle vector<const char*> and a program that
 uses this specialization.
 
+[Exer16_63_64.cpp](Exer16_63_64.cpp) | [Exer16_63_64_count.h](Exer16_63_64_count.h) 
+
 ##Exercise 16.65
 
 > In § 16.3 (p. 698) we defined overloaded two versions of
 debug_rep one had a const char* and the other a char* parameter.
 Rewrite these functions as specializations.
+
+[Exer16_65.cpp](Exer16_65.cpp) | [Exer16_65_debug_rep.h](Exer16_65_debug_rep.h) 
 
 ##Exercise 16.66
 

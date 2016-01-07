@@ -28,6 +28,8 @@ and printing its result.
 12 / 3 * 4 + 5 * 15 + 24 % 4 / 2
 ```
 
+[Exer04_04.cpp](Exer04_04.cpp) 
+
 ##Exercise 4.5
 
 > Determine the result of the following expressions.
@@ -38,6 +40,8 @@ and printing its result.
 (d) -30 / 3 * 21 % 4
 ```
 
+[Exer04_05.cpp](Exer04_05.cpp) 
+
 ##Exercise 4.6
 
 > Write an expression to determine whether an int value is even or odd.
@@ -45,6 +49,8 @@ and printing its result.
 ##Exercise 4.7
 
 > What does overflow mean? Show three expressions that will overflow.
+
+[Exer04_07.cpp](Exer04_07.cpp) 
 
 ##Exercise 4.8
 
@@ -62,6 +68,8 @@ if (cp && *cp)
 
 > Write the condition for a while loop that would read ints from
 the standard input and stop when the value read is equal to 42.
+
+[Exer04_10.cpp](Exer04_10.cpp) 
 
 ##Exercise 4.11
 
@@ -149,6 +157,8 @@ why those that aren’t legal are in error.
 elements in a vector<int> that have odd value and double the value of
 each such element.
 
+[Exer04_21.cpp](Exer04_21.cpp) 
+
 ##Exercise 4.22
 
 > Extend the program that assigned high pass, pass, and fail
@@ -156,6 +166,8 @@ grades to also assign low pass for grades between 60 and 75 inclusive. Write
 two versions: One version that uses only conditional operators; the other
 should use one or more if statements. Which version do you think is easier
 to understand and why?
+
+[Exer04_22_1.cpp](Exer04_22_1.cpp) | [Exer04_22_2.cpp](Exer04_22_2.cpp) 
 
 ##Exercise 4.23
 
@@ -173,6 +185,8 @@ and fail depended on the fact that
 the conditional operator is right associative.
 Describe how that operator would be evaluated
 if the operator were left associative.
+
+[Exer04_24.cpp](Exer04_24.cpp) 
 
 ##Exercise 4.25
 
@@ -198,6 +212,8 @@ unsigned long ul1 = 3, ul2 = 7;
 > Write a program to print the size of each of the built-in
 types.
 
+[Exer04_28.cpp](Exer04_28.cpp) 
+
 ##Exercise 4.29
 
 > Predict the output of the following code and explain your reasoning. Now run the program. Is the output what you expected? If not, figure out why.
@@ -206,6 +222,8 @@ int x[10];   int *p = x;
 cout << sizeof(x)/sizeof(*x) << endl;
 cout << sizeof(p)/sizeof(*p) << endl;
 ```
+
+[Exer04_29.cpp](Exer04_29.cpp) 
 
 ##Exercise 4.30
 
@@ -220,6 +238,8 @@ cout << sizeof(p)/sizeof(*p) << endl;
 ##Exercise 4.31
 
 > The program in this section used the prefix increment and decrement operators. Explain why we used prefix and not postfix. What changes would have to be made to use the postfix versions? Rewrite the program using postfix operators.
+
+[Exer04_31.cpp](Exer04_31.cpp) 
 
 ##Exercise 4.32
 
@@ -238,6 +258,8 @@ for (int *ptr = ia, ix = 0;
 ```cpp
 someValue ? ++x, ++y : --x, --y
 ```
+
+[Exer04_33.cpp](Exer04_33.cpp) 
 
 ##Exercise 4.34
 
@@ -277,6 +299,8 @@ int i;    double d;    const string *ps;    char *pc; void *pv;
 (c) pv = &d;       
 (d) pc = (char*)pv;
 ```
+
+[Exer04_37.cpp](Exer04_37.cpp) 
 
 ##Exercise 4.38
 

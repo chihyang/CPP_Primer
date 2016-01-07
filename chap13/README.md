@@ -47,6 +47,8 @@ private:
 };
 ```
 
+[Exer13_05.cpp](Exer13_05.cpp) 
+
 ##Exercise 13.6
 
 > What is a copy-assignment operator? When is this operator
@@ -63,6 +65,8 @@ What about StrBlobPtrs?
 > Write the assignment operator for the HasPtr class from
 exercise 13.5 in § 13.1.1 (p. 499). As with the copy constructor, your
 assignment operator should copy the object to which ps points.
+
+[Exer13_08.cpp](Exer13_08.cpp) 
 
 ##Exercise 13.9
 
@@ -110,6 +114,8 @@ until you are certain you understand when and why each copy-control member is
 used. As you read the output, remember that the compiler can omit calls to the
 copy constructor.
 
+[Exer13_13.cpp](Exer13_13.cpp) | [Exer13_13.h](Exer13_13.h) 
+
 ##Exercise 13.14
 
 > Assume that numbered is a class with a default constructor
@@ -125,16 +131,22 @@ numbered a, b = a, c = b;
 f(a); f(b); f(c);
 ```
 
+[Exer13_14.cpp](Exer13_14.cpp) | [Exer13_14.h](Exer13_14.h) 
+
 ##Exercise 13.15
 
 > Assume numbered has a copy constructor that generates a
 new serial number. Does that change the output of the calls in the previous
 exercise? If so, why? What output gets generated?
 
+[Exer13_15.cpp](Exer13_15.cpp) | [Exer13_15.h](Exer13_15.h) 
+
 ##Exercise 13.16
 
 > What if the parameter in f were const numbered&?
 Does that change the output? If so, why? What output gets generated?
+
+[Exer13_16.cpp](Exer13_16.cpp) | [Exer13_16.h](Exer13_16.h) 
 
 ##Exercise 13.17
 
@@ -149,6 +161,8 @@ and a unique employee identifier. Give the class a default constructor and a
 constructor that takes a string representing the employee’s name. Each
 constructor should generate a unique ID by incrementing a static data
 member.
+
+[Exer13_18.h](Exer13_18.h) 
 
 ##Exercise 13.19
 
@@ -177,6 +191,8 @@ section. However, you already know everything you need to know to
 implement these members. Write the HasPtr copy constructor and copyassignment
 operator before reading on.
 
+[Exer13_22_HasPtr.h](Exer13_22_HasPtr.h) 
+
 ##Exercise 13.23
 
 > Compare the copy-control members that you wrote for the
@@ -204,9 +220,13 @@ destructor.
 > Write your own version of the StrBlob class described in
 the previous exercise.
 
+[Exer13_26.cpp](Exer13_26.cpp) | [Exer13_26_StrBlob.h](Exer13_26_StrBlob.h) 
+
 ##Exercise 13.27
 
 > Define your own reference-counted version of HasPtr.
+
+[Exer13_27_HasPtr.h](Exer13_27_HasPtr.h) 
 
 ##Exercise 13.28
 
@@ -228,6 +248,8 @@ private:
 };
 ```
 
+[Exer13_28_BinStrTree_point.h](Exer13_28_BinStrTree_point.h) | [Exer13_28_BinStrTree_value.h](Exer13_28_BinStrTree_value.h) | [Exer13_28_pointer.cpp](Exer13_28_pointer.cpp) | [Exer13_28_TreeNode_point.h](Exer13_28_TreeNode_point.h) | [Exer13_28_TreeNode_value.h](Exer13_28_TreeNode_value.h) | [Exer13_28_value.cpp](Exer13_28_value.cpp) 
+
 ##Exercise 13.29
 
 > Explain why the calls to swap inside swap(HasPtr&,
@@ -238,11 +260,15 @@ HasPtr&) do not cause a recursion loop.
 > Write and test a swap function for your valuelike version of
 HasPtr. Give your swap a print statement that notes when it is executed.
 
+[Exer13_30.cpp](Exer13_30.cpp) 
+
 ##Exercise 13.31
 
 > Give your class a < operator and define a vector of
 HasPtrs. Give that vector some elements and then sort the vector.
 Note when swap is called.
+
+[Exer13_31.cpp](Exer13_31.cpp) 
 
 ##Exercise 13.32
 
@@ -259,6 +285,8 @@ Or const Folder&?
 
 > Write the Message class as described in this section.
 
+[Exer13_34_36_37.cpp](Exer13_34_36_37.cpp) | [Exer13_34_36_37_Folder.h](Exer13_34_36_37_Folder.h) 
+
 ##Exercise 13.35
 
 > What would happen if Message used the synthesized
@@ -269,11 +297,15 @@ versions of the copy-control members?
 > Design and implement the corresponding Folder class.
 That class should hold a set that points to the Messages in that Folder.
 
+[Exer13_34_36_37.cpp](Exer13_34_36_37.cpp) | [Exer13_34_36_37_Folder.h](Exer13_34_36_37_Folder.h) 
+
 ##Exercise 13.37
 
 > Add members to the Message class to insert or remove a
 given Folder* into folders. These members are analogous to Folder’s
 addMsg and remMsg operations.
+
+[Exer13_34_36_37.cpp](Exer13_34_36_37.cpp) | [Exer13_34_36_37_Folder.h](Exer13_34_36_37_Folder.h) 
 
 ##Exercise 13.38
 
@@ -290,6 +322,8 @@ reserve, capacity (§ 9.4, p. 356), and resize (§ 9.3.5, p. 352).
 > Add a constructor that takes an
 initializer_list<string> to your StrVec class.
 
+[Exer13_40_43_StrVec.h](Exer13_40_43_StrVec.h) 
+
 ##Exercise 13.41
 
 > Why did we use postfix increment in the call to
@@ -302,11 +336,15 @@ increment?
 vector<string> in your TextQuery and QueryResult classes (§ 12.3,
 p. 484).
 
+[Exer13_42.cpp](Exer13_42.cpp) | [Exer13_42_TextQuery.h](Exer13_42_TextQuery.h) 
+
 ##Exercise 13.43
 
 > Rewrite the free member to use for_each and a lambda
 (§ 10.3.2, p. 388) in place of the for loop to destroy the elements. Which
 implementation do you prefer, and why?
+
+[Exer13_40_43_StrVec.h](Exer13_40_43_StrVec.h) | [Exer13_43.cpp](Exer13_43.cpp) 
 
 ##Exercise 13.44
 
@@ -314,6 +352,8 @@ implementation do you prefer, and why?
 the library string class. Your class should have at least a default
 constructor and a constructor that takes a pointer to a C-style string. Use an
 allocator to allocate memory that your String class uses.
+
+[Exer13_44.cpp](Exer13_44.cpp) | [Exer13_44_47_49_String.h](Exer13_44_47_49_String.h) 
 
 ##Exercise 13.45
 
@@ -339,22 +379,30 @@ int? r4 = vi[0] * f();
 your String class from exercise 13.44 in § 13.5 (p. 531) a statement that
 prints a message each time the function is executed.
 
+[Exer13_44_47_49_String.h](Exer13_44_47_49_String.h) 
+
 ##Exercise 13.48
 
 > Define a vector<String> and call push_back several
 times on that vector. Run your program and see how often Strings are
 copied.
 
+[Exer13_48.cpp](Exer13_48.cpp) 
+
 ##Exercise 13.49
 
 > Add a move constructor and move-assignment operator to
 your StrVec, String, and Message classes.
+
+[Exer13_44_47_49_String.h](Exer13_44_47_49_String.h) | [Exer13_49_String.h](Exer13_49_String.h) 
 
 ##Exercise 13.50
 
 > Put print statements in the move operations in your
 String class and rerun the program from exercise 13.48 in § 13.6.1 (p.
 534) that used a vector<String> to see when the copies are avoided.
+
+[Exer13_50.cpp](Exer13_50.cpp) 
 
 ##Exercise 13.51
 
@@ -376,16 +424,22 @@ operator is not ideal. Explain why. Implement a copy-assignment and moveassignme
 operator for HasPtr and compare the operations executed in
 your new move-assignment operator versus the copy-and-swap version.
 
+[Exer13_53_1.cpp](Exer13_53_1.cpp) | [Exer13_53_2.cpp](Exer13_53_2.cpp) | [Exer13_53_HasPtr.h](Exer13_53_HasPtr.h) | [Exer13_53_HasPtr_copy_swap.h](Exer13_53_HasPtr_copy_swap.h) | [Exer13_53_overload.cpp](Exer13_53_overload.cpp) 
+
 ##Exercise 13.54
 
 > What would happen if we defined a HasPtr moveassignment
 operator but did not change the copy-and-swap operator? Write
 code to test your answer.
 
+[Exer13_54.cpp](Exer13_54.cpp) | [Exer13_54_HasPtr.h](Exer13_54_HasPtr.h) 
+
 ##Exercise 13.49
 
 > Add a move constructor and move-assignment operator to
 your StrVec, String, and Message classes.
+
+[Exer13_55_StrBlob.h](Exer13_55_StrBlob.h) | [Exer13_55_String.h](Exer13_55_String.h) | [Exer13_55_StrVec.h](Exer13_55_StrVec.h) 
 
 ##Exercise 13.50
 
@@ -393,11 +447,15 @@ your StrVec, String, and Message classes.
 String class and rerun the program from exercise 13.48 in § 13.6.1 (p.
 534) that used a vector<String> to see when the copies are avoided.
 
+[Exer13_56.cpp](Exer13_56.cpp) 
+
 ##Exercise 13.51
 
 > Although unique_ptrs cannot be copied, in § 12.1.5 (p.
 471) we wrote a clone function that returned a unique_ptr by value.
 Explain why that function is legal and how it works.
+
+[Exer13_57.cpp](Exer13_57.cpp) 
 
 ##Exercise 13.52
 

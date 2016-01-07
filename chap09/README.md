@@ -27,11 +27,15 @@ ranges?
 vector<int> and an int value. Look for that value in the range and return
 a bool indicating whether it was found.
 
+[Exer09_04.cpp](Exer09_04.cpp) 
+
 ##Exercise 9.5
 
 > Rewrite the previous program to return an iterator to the
 requested element. Note that the program must handle the case where the
 element is not found.
+
+[Exer09_05.cpp](Exer09_05.cpp) 
 
 ##Exercise 9.6
 
@@ -74,6 +78,8 @@ auto it3 = v1.cbegin(), it4 = v2.cbegin();
 > Show an example of each of the six ways to create and
 initialize a vector. Explain what values each vector contains.
 
+[Exer09_11.cpp](Exer09_11.cpp) 
+
 ##Exercise 9.12
 
 > Explain the differences between the constructor that takes a
@@ -89,15 +95,21 @@ list<int>? From a vector<int>? Write code to check your answers.
 > Write a program to assign the elements from a list of
 char* pointers to C-style character strings to a vector of strings.
 
+[Exer09_14.cpp](Exer09_14.cpp) 
+
 ##Exercise 9.15
 
 > Write a program to determine whether two vector<int>s
 are equal.
 
+[Exer09_15.cpp](Exer09_15.cpp) 
+
 ##Exercise 9.16
 
 > Repeat the previous program, but compare elements in a
 list<int> to a vector<int>.
+
+[Exer09_16.cpp](Exer09_16.cpp) 
 
 ##Exercise 9.17
 
@@ -113,16 +125,22 @@ if (c1 < c2)
 standard input into a deque. Use iterators to write a loop to print the
 elements in the deque.
 
+[Exer09_18.cpp](Exer09_18.cpp) 
+
 ##Exercise 9.19
 
 > Rewrite the program from the previous exercise to use a
 list. List the changes you needed to make.
+
+[Exer09_19.cpp](Exer09_19.cpp) 
 
 ##Exercise 9.20
 
 > Write a program to copy elements from a list<int> into
 two deques. The even-valued elements should go into one deque and the
 odd ones into the other.
+
+[Exer09_20.cpp](Exer09_20.cpp) 
 
 ##Exercise 9.21
 
@@ -142,6 +160,8 @@ while (iter != mid)
         iv.insert(iter, 2 * some_val);
 ```
 
+[Exer09_22.cpp](Exer09_22.cpp) 
+
 ##Exercise 9.23
 
 > In the first program in this section on page 346, what would
@@ -152,6 +172,8 @@ the values of val, val2, val3, and val4 be if c.size() is 1?
 > Write a program that fetches the first element in a vector
 using at, the subscript operator, front, and begin. Test your program on
 an empty vector.
+
+[Exer09_24.cpp](Exer09_24.cpp) 
 
 ##Exercise 9.25
 
@@ -169,10 +191,14 @@ vector.
 int ia[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
 ```
 
+[Exer09_26.cpp](Exer09_26.cpp) 
+
 ##Exercise 9.27
 
 > Write a program to find and remove the odd-valued
 elements in a forward_list<int>.
+
+[Exer09_27.cpp](Exer09_27.cpp) 
 
 ##Exercise 9.28
 
@@ -180,6 +206,8 @@ elements in a forward_list<int>.
 two additional string arguments. The function should find the first string
 and insert the second immediately following the first. If the first string is
 not found, then insert the second string at the end of the list.
+
+[Exer09_28.cpp](Exer09_28.cpp) 
 
 ##Exercise 9.29
 
@@ -197,6 +225,8 @@ that takes a single argument place on the element type?
 and duplicate odd ones will not work on a list or forward_list. Why?
 Revise the program so that it works on these types as well.
 
+[Exer09_31.cpp](Exer09_31.cpp) 
+
 ##Exercise 9.32
 
 > In the program onpage 354 would it be legal to write the call
@@ -205,11 +235,15 @@ to insert as follows? If not, why not?
 iter = vi.insert(iter, *iter++);
 ```
 
+[Exer09_32.cpp](Exer09_32.cpp) 
+
 ##Exercise 9.33
 
 > In the final example in this section what would happen if we
 did not assign the result of insert to begin? Write a program that omits
 this assignment to see if your expectation was correct.
+
+[Exer09_33.cpp](Exer09_33.cpp) 
 
 ##Exercise 9.34
 
@@ -223,6 +257,8 @@ while (iter != vi.end())
         iter = vi.insert(iter, *iter);
     ++iter;
 ```
+
+[Exer09_34.cpp](Exer09_34.cpp) 
 
 ##Exercise 9.35
 
@@ -241,6 +277,8 @@ its size.
 
 > Write a program to explore how vectors grow in the library
 you use.
+
+[Exer09_38.cpp](Exer09_38.cpp) 
 
 ##Exercise 9.39
 
@@ -265,11 +303,15 @@ what is its likely capacity after it is resized? What if it reads 512? 1,000?
 > Write a program that initializes a string from a
 vector<char>.
 
+[Exer09_41.cpp](Exer09_41.cpp) 
+
 ##Exercise 9.42
 
 > Given that you want to read a character at a time into a
 string, and you know that you need to read at least 100 characters, how
 might you improve the performance of your program?
+
+[Exer09_42.cpp](Exer09_42.cpp) 
 
 ##Exercise 9.43
 
@@ -279,9 +321,13 @@ instances of oldVal that appear in s by newVal. Test your function by
 using it to replace common abbreviations, such as “tho” by “though” and
 “thru” by “through”.
 
+[Exer09_43.cpp](Exer09_43.cpp) 
+
 ##Exercise 9.44
 
 > Rewrite the previous function using an index and replace.
+
+[Exer09_44.cpp](Exer09_44.cpp) 
 
 ##Exercise 9.45
 
@@ -291,10 +337,14 @@ suffix, such as “Jr.” or “III”. Using iterators and the insert and appen
 functions, generate and return a new string with the suffix and prefix
 added to the given name.
 
+[Exer09_45.cpp](Exer09_45.cpp) 
+
 ##Exercise 9.46
 
 > Rewrite the previous exercise using a position and length to
 manage the strings. This time use only the insert function.
+
+[Exer09_46.cpp](Exer09_46.cpp) 
 
 ##Exercise 9.47
 
@@ -302,6 +352,8 @@ manage the strings. This time use only the insert function.
 each alphabetic character in the string "ab2c3d7R4E6". Write two
 versions of the program. The first should use find_first_of, and the
 second find_first_not_of.
+
+[Exer09_47.cpp](Exer09_47.cpp) 
 
 ##Exercise 9.48
 
@@ -316,12 +368,16 @@ g, part of the letter extends below the line. Write a program that reads a file
 containing words and reports the longest word that contains neither
 ascenders nor descenders.
 
+[Exer09_49.cpp](Exer09_49.cpp) 
+
 ##Exercise 9.50
 
 > Write a program to process a vector<string>s whose
 elements represent integral values. Produce the sum of all the elements in
 that vector. Change the program so that it sums of strings that represent
 floating-point values.
+
+[Exer09_50.cpp](Exer09_50.cpp) 
 
 ##Exercise 9.51
 
@@ -330,6 +386,8 @@ representing year, month, and day. Write a constructor that takes a string
 representing a date. Your constructor should handle a variety of date
 formats, such as January 1, 1900, 1/1/1900, Jan 1, 1900, and so on.
 
+[Exer09_51.cpp](Exer09_51.cpp) | [Exer09_51.h](Exer09_51.h) 
+
 ##Exercise 9.52
 
 > Use a stack to process parenthesized expressions. When
@@ -337,3 +395,6 @@ you see an open parenthesis, note that it was seen. When you see a close
 parenthesis after an open parenthesis, pop elements down to and including
 the open parenthesis off the stack. push a value onto the stack to
 indicate that a parenthesized expression was replaced.
+
+[Exer09_52.cpp](Exer09_52.cpp) 
+

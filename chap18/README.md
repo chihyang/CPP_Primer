@@ -29,6 +29,8 @@ void exercise(int *b, int *e)
 > There are two ways to make the previous code work
 correctly if an exception is thrown. Describe them and implement them.
 
+[Exer18_03_1.cpp](Exer18_03_1.cpp) | [Exer18_03_2.cpp](Exer18_03_2.cpp) | [Exer18_03_3.cpp](Exer18_03_3.cpp) 
+
 ##Exercise 18.4
 
 > Looking ahead to the inheritance hierarchy in Figure 18.1 (p.
@@ -55,6 +57,8 @@ int main() {
 The handlers should print the error message associated with the exception before
 calling abort (defined in the header cstdlib) to terminate main.
 
+[Exer18_05.cpp](Exer18_05.cpp) 
+
 ##Exercise 18.6
 
 > Given the following exception types and catch clauses,
@@ -73,6 +77,8 @@ by each catch clause:
 > Define your Blob and BlobPtr classes from Chapter 16 to
 use function try blocks for their constructors.
 
+[Exer18_07.cpp](Exer18_07.cpp) | [Exer18_07_Blob.h](Exer18_07_Blob.h) 
+
 ##Exercise 18.8
 
 > Review the classes you’ve written and add appropriate
@@ -85,6 +91,8 @@ of your destructors might throw, change the code so that it cannot throw.
 section and rewrite your Sales_data compound assigment operator to
 throw an exception.
 
+[Exer18_09_Sales_data.h](Exer18_09_Sales_data.h) 
+
 ##Exercise 18.10
 
 > Write a program that uses the Sales_data addition
@@ -92,6 +100,8 @@ operator on objects that have differing ISBNs. Write two versions of the
 program: one that handles the exception and one that does not. Compare the
 behavior of the programs so that you become familiar with what happens
 when an uncaught exception occurs.
+
+[Exer18_10_1.cpp](Exer18_10_1.cpp) | [Exer18_10_2.cpp](Exer18_10_2.cpp) 
 
 ##Exercise 18.11
 
@@ -159,6 +169,8 @@ void manip() {
 
 > Write code to test your answers to the previous question.
 
+[Exer18_17_1.cpp](Exer18_17_1.cpp) | [Exer18_17_2.cpp](Exer18_17_2.cpp) | [Exer18_17_3.cpp](Exer18_17_3.cpp) | [Exer18_17_4.cpp](Exer18_17_4.cpp) 
+
 ##Exercise 18.18
 
 > Given the following typical definition of swap § 13.3 (p.
@@ -200,6 +212,8 @@ void f()
 What would happen if the using declaration were located in main before the call
 to compute? Answer the same questions as before.
 
+[Exer18_20_1.cpp](Exer18_20_1.cpp) | [Exer18_20_2.cpp](Exer18_20_2.cpp) 
+
 ##Exercise 18.21
 
 > Explain the following declarations. Identify any that are in
@@ -228,6 +242,8 @@ what is the order of constructor execution for the following definition?
 MI mi;
 ```
 
+[Exer18_22.cpp](Exer18_22.cpp) 
+
 ##Exercise 18.23
 
 > Using the hierarchy in exercise 18.22 along with class D
@@ -243,6 +259,8 @@ D *pd = new D;
 (c) B *pb = pd;
 (d) C *pc = pd;
 ```
+
+[Exer18_23.cpp](Exer18_23.cpp) 
 
 ##Exercise 18.24
 
@@ -284,6 +302,8 @@ compile and execute correctly.
 MI mi;
 mi.print(42);
 ```
+
+[Exer18_26.cpp](Exer18_26.cpp) 
 
 ##Exercise 18.27
 
@@ -334,6 +354,8 @@ struct MI : public Derived, public Base2 {
 };
 ```
 
+[Exer18_27.cpp](Exer18_27.cpp) 
+
 ##Exercise 18.28
 
 > Given the following class hierarchy, which inherited
@@ -360,6 +382,8 @@ struct Derived2 : virtual public Base {
 class VMI : public Derived1, public Derived2 { };
 ```
 
+[Exer18_28.cpp](Exer18_28.cpp) 
+
 ##Exercise 18.29
 
 > Given the following class hierarchy:
@@ -382,9 +406,14 @@ Base *pb; Class *pc; MI *pmi; D2 *pd2;
 (d) pd2 = pmi;
 ```
 
+[Exer18_29_1.cpp](Exer18_29_1.cpp) | [Exer18_29_2.cpp](Exer18_29_2.cpp) 
+
 ##Exercise 18.30
 
 > Define a default constructor, a copy constructor, and a
 constructor that has an int parameter in Base. Define the same three
 constructors in each derived class. Each constructor should use its argument
 to initialize its Base part.
+
+[Exer18_30.cpp](Exer18_30.cpp) 
+

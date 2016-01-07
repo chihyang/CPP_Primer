@@ -2,6 +2,8 @@
 
 > What is a null statement? When might you use a null statement?
 
+[Exer05_01.cpp](Exer05_01.cpp) 
+
 ##Exercise 5.2
 
 > What is a block? When might you might use a block?
@@ -27,10 +29,14 @@ if (!status) { /* . . . */ }
 > Using an if–else statement, write your own version of the
 program to generate the letter grade from a numeric grade.
 
+[Exer05_05.cpp](Exer05_05.cpp) 
+
 ##Exercise 5.6
 
 > Rewrite your grading program to use the conditional operator
 (§ 4.7, p. 151) in place of the if–else statement.
+
+[Exer05_06.cpp](Exer05_06.cpp) 
 
 ##Exercise 5.7
 
@@ -57,6 +63,8 @@ program to generate the letter grade from a numeric grade.
 > Write a program using a series of if statements to count the
 number of vowels in text read from cin.
 
+[Exer05_09.cpp](Exer05_09.cpp) 
+
 ##Exercise 5.10
 
 > There is one problem with our vowel-counting program as
@@ -65,16 +73,22 @@ program that counts both lower- and uppercase letters as the appropriate
 vowel—that is, your program should count both 'a' and 'A' as part of
 aCnt, and so forth.
 
+[Exer05_10.cpp](Exer05_10.cpp) 
+
 ##Exercise 5.11
 
 > Modify our vowel-counting program so that it also counts the
 number of blank spaces, tabs, and newlines read.
+
+[Exer05_11.cpp](Exer05_11.cpp) 
 
 ##Exercise 5.12
 
 > Modify our vowel-counting program so that it counts the
 number of occurrences of the following two-character sequences: ff, fl,
 and fi.
+
+[Exer05_12.cpp](Exer05_12.cpp) 
 
 ##Exercise 5.13
 
@@ -131,6 +145,8 @@ how now now now brown cow cow
 ```
 the output should indicate that the word now occurred three times.
 
+[Exer05_14.cpp](Exer05_14.cpp) 
+
 ##Exercise 5.15
 
 > Explain each of the following loops. Correct any problems you detect.
@@ -143,6 +159,8 @@ the output should indicate that the word now occurred three times.
 (c) for (int ix = 0; ix != sz; ++ix, ++sz) { /*...*/ }
 ```
 
+[Exer05_15.cpp](Exer05_15.cpp) 
+
 ##Exercise 5.16
 
 > The while loop is particularly good at executing while some condition holds; for example, when we need to read values until end-of-file. The for loop is generally thought of as a **step loop**: An index steps through a range of values in a collection. Write an idiomatic use of each loop and then rewrite each using the other loop construct. If you could use only one loop, which would you choose? Why?
@@ -154,6 +172,8 @@ whether one vector is a prefix of the other. For vectors of unequal
 length, compare the number of elements of the smaller vector. For
 example, given the vectors containing 0, 1, 1, and 2 and 0, 1, 1, 2, 3, 5,
 8, respectively your program should return true.
+
+[Exer05_17.cpp](Exer05_17.cpp) 
 
 ##Exercise 5.18
 
@@ -174,11 +194,15 @@ example, given the vectors containing 0, 1, 1, and 2 and 0, 1, 1, 2, 3, 5,
     } while (ival);
 ```
 
+[Exer05_18.cpp](Exer05_18.cpp) 
+
 ##Exercise 5.19
 
 > Write a program that uses a do while loop to repetitively
 request two strings from the user and report which string is less than
 the other.
+
+[Exer05_19.cpp](Exer05_19.cpp) 
 
 ##Exercise 5.20
 
@@ -189,10 +213,14 @@ time. Use the break statement to terminate the loop if a word occurs twice
 in succession. Print the word if it occurs twice in succession, or else print a
 message saying that no word was repeated.
 
+[Exer05_20.cpp](Exer05_20.cpp) 
+
 ##Exercise 5.21
 
 > Revise the program from the exercise in § 5.5.1 (p. 191) so
 that it looks only for duplicated words that start with an uppercase letter.
+
+[Exer05_21.cpp](Exer05_21.cpp) 
 
 ##Exercise 5.22
 
@@ -203,11 +231,15 @@ that it looks only for duplicated words that start with an uppercase letter.
 > Write a program that reads two integers from the standard
 input and prints the result of dividing the first number by the second.
 
+[Exer05_23.cpp](Exer05_23.cpp) 
+
 ##Exercise 5.24
 
 > Revise your program to throw an exception if the second
 number is zero. Test your program with a zero input to see what happens on
 your system if you don’t catch an exception.
+
+[Exer05_24.cpp](Exer05_24.cpp) 
 
 ##Exercise 5.25
 
@@ -215,3 +247,6 @@ your system if you don’t catch an exception.
 try block to catch the exception. The catch clause should print a message
 to the user and ask them to supply a new number and repeat the code inside
 the try.
+
+[Exer05_25.cpp](Exer05_25.cpp) 
+

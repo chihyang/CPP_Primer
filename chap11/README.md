@@ -1,4 +1,3 @@
-
 ##Exercise 11.1
 
 > Describe the differences between a map and a vector.
@@ -12,11 +11,15 @@ map, and set might be most useful.
 
 > Write your own version of the word-counting program.
 
+[Exer11_03_04.cpp](Exer11_03_04.cpp) 
+
 ##Exercise 11.4
 
 > Extend your program to ignore case and punctuation. For
 example, “example.” “example,” and “Example” should all increment the same
 counter.
+
+[Exer11_03_04.cpp](Exer11_03_04.cpp) 
 
 ##Exercise 11.5
 
@@ -34,10 +37,14 @@ might you use one or the other?
 the value is a vector of the children’s names. Write code to add new
 families and to add new children to an existing family.
 
+[Exer11_07.cpp](Exer11_07.cpp) 
+
 ##Exercise 11.8
 
 > Write a program that stores the excluded words in a vector
 instead of in a set. What are the advantages to using a set?
+
+[Exer11_08.cpp](Exer11_08.cpp) 
 
 ##Exercise 11.9
 
@@ -59,6 +66,8 @@ not, why not?
 > Write a program to read a sequence of strings and ints,
 storing each into a pair. Store the pairs in a vector.
 
+[Exer11_12.cpp](Exer11_12.cpp) 
+
 ##Exercise 11.13
 
 > There are at least three ways to create the pairs in the
@@ -66,16 +75,22 @@ program for the previous exercise. Write three versions of that program,
 creating the pairs in each way. Explain which form you think is easiest to
 write and understand, and why.
 
+[Exer11_13.cpp](Exer11_13.cpp) 
+
 ##Exercise 11.14
 
 > Extend the map of children to their family name that you
 wrote for the exercises in § 11.2.1 (p. 424) by having the vector store a
 pair that holds a child’s name and birthday.
 
+[Exer11_14.cpp](Exer11_14.cpp) 
+
 ##Exercise 11.15
 
 > What are the mapped_type, key_type, and
 value_type of a map from int to vector<int>?
+
+[Exer11_15.cpp](Exer11_15.cpp) 
 
 ##Exercise 11.16
 
@@ -102,11 +117,15 @@ while (cin >> word)
     ++word_count.insert({word, 0}).first->second;
 ```
 
+[Exer11_19.cpp](Exer11_19.cpp) 
+
 ##Exercise 11.22
 
 > Given a map<string, vector<int>>, write the types
 used as an argument and as the return value for the version of insert that
 inserts one element.
+
+[Exer11_20.cpp](Exer11_20.cpp) 
 
 ##Exercise 11.23
 
@@ -131,6 +150,8 @@ vector<int> v;
 v[0] = 1;
 ```
 
+[Exer11_23.cpp](Exer11_23.cpp) 
+
 ##Exercise 11.26
 
 > What type can be used to subscript a map? What type does
@@ -147,6 +168,8 @@ When might you use find instead?
 
 > Define and initialize a variable to hold the result of calling
 find on a map from string to vector of int.
+
+[Exer11_26.cpp](Exer11_26.cpp) 
 
 ##Exercise 11.29
 
@@ -175,10 +198,14 @@ program to print the list of authors and their works alphabetically.
 > Implement your own version of the word-transformation
 program.
 
+[Exer11_31.cpp](Exer11_31.cpp) 
+
 ##Exercise 11.34
 
 > What would happen if we used the subscript operator
 instead of find in the transform function?
+
+[Exer11_32.cpp](Exer11_32.cpp) 
 
 ##Exercise 11.35
 
@@ -188,6 +215,8 @@ rewriting
 trans_map[key] = value.substr(1);
 as trans_map.insert({key, value.substr(1)})?
 ```
+
+[Exer11_33.cpp](Exer11_33.cpp) 
 
 ##Exercise 11.36
 

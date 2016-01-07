@@ -21,15 +21,21 @@ Suggest how you might correct the problems.
 
 > Write and test your own version of fact.
 
+[Exer06_03.cpp](Exer06_03.cpp) 
+
 ##Exercise 6.4
 
 > Write a function that interacts with the user, asking for a
 number and generating the factorial of that number. Call this function from
 main.
 
+[Exer06_04.cpp](Exer06_04.cpp) 
+
 ##Exercise 6.5
 
 > Write a function to return the absolute value of its argument.
+
+[Exer06_05.cpp](Exer06_05.cpp) 
 
 ##Exercise 6.6
 
@@ -41,6 +47,8 @@ might be useful.
 
 > Write a function that returns 0 when it is first called and then
 generates numbers in sequence each time it is called again.
+
+[Exer06_07.cpp](Exer06_07.cpp) 
 
 ##Exercise 6.8
 
@@ -54,21 +62,29 @@ files. These files should include your Chapter6.h from the exercises in the
 previous section. Use these files to understand how your compiler supports
 separate compilation.
 
+[Exer06_09.cpp](Exer06_09.cpp) 
+
 ##Exercise 6.10
 
 > Using pointers, write a function to swap the values of two
 ints. Test the function by calling it and printing the swapped values.
+
+[Exer06_10.cpp](Exer06_10.cpp) 
 
 ##Exercise 6.11
 
 > Write and test your own version of reset that takes a
 reference.
 
+[Exer06_11.cpp](Exer06_11.cpp) 
+
 ##Exercise 6.12
 
 > Rewrite the program from exercise 6.10 in § 6.2.1 (p. 210)
 to use references instead of pointers to swap the value of two ints. Which
 version do you think would be easier to use and why?
+
+[Exer06_12.cpp](Exer06_12.cpp) 
 
 ##Exercise 6.13
 
@@ -145,6 +161,8 @@ points. What type should you use for the pointer?
 
 > Write a function to swap two int pointers.
 
+[Exer06_22.cpp](Exer06_22.cpp) 
+
 ##Exercise 6.23
 
 > Write your own versions of each of the print functions
@@ -153,6 +171,8 @@ defined as follows:
 ```cpp
 int i = 0, j[2] = {0, 1};
 ```
+
+[Exer06_23.cpp](Exer06_23.cpp) 
 
 ##Exercise 6.24
 
@@ -171,15 +191,21 @@ void print(const int ia[10])
 > Write a main function that takes two arguments.
 Concatenate the supplied arguments and print the resulting string.
 
+[Exer06_25.cpp](Exer06_25.cpp) 
+
 ##Exercise 6.26
 
 > Write a program that accepts the options presented in this
 section. Print the values of the arguments passed to main.
 
+[Exer06_26.cpp](Exer06_26.cpp) 
+
 ##Exercise 6.27
 
 > Write a function that takes an initializer_list<int>
 and produces the sum of the elements in the list.
+
+[Exer06_27.cpp](Exer06_27.cpp) 
 
 ##Exercise 6.28
 
@@ -196,6 +222,8 @@ not, why not?
 
 > Compile the version of str_subrange as presented on
 page 223 to see what your compiler does with the indicated errors.
+
+[Exer06_30.cpp](Exer06_30.cpp) 
 
 ##Exercise 6.31
 
@@ -214,9 +242,13 @@ int main() {
     get(ia, i) = i;
 }
 ```
+[Exer06_32.cpp](Exer06_32.cpp) 
+
 ##Exercise 6.33
 
 > Write a recursive function to print the contents of a vector.
+
+[Exer06_33.cpp](Exer06_33.cpp) 
 
 ##Exercise 6.34
 
@@ -287,6 +319,8 @@ char *init(int ht, int wd = 80, char bckgrnd = ' ');
 224) a default argument of 's'. Test your program by printing singular and
 plural versions of the words success and failure.
 
+[Exer06_42.cpp](Exer06_42.cpp) 
+
 ##Exercise 6.43
 
 > Which one of the following declarations and definitions would
@@ -295,6 +329,8 @@ you put in a header? In a source file? Explain why.
 (a) inline bool eq(const BigInt&, const BigInt&) {...}
 (b) void putValues(int *arr, int size);
 ```
+
+[Exer06_43.cpp](Exer06_43.cpp) 
 
 ##Exercise 6.44
 
@@ -312,6 +348,8 @@ explain why they should not be inline.
 > Would it be possible to define isShorter as a constexpr?
 If so, do so. If not, explain why not.
 
+[Exer06_46.cpp](Exer06_46.cpp) 
+
 ##Exercise 6.47
 
 > Revise the program you wrote in the exercises in § 6.3.2 (p.
@@ -319,6 +357,8 @@ If so, do so. If not, explain why not.
 print information about its execution. For example, you might print the size of
 the vector on each call. Compile and run the program with debugging
 turned on and again with it turned off.
+
+[Exer06_47.cpp](Exer06_47.cpp) 
 
 ##Exercise 6.48
 
@@ -353,6 +393,8 @@ is ambiguous.
 distinguishing message. Check your answers for the previous exercise. If your
 answers were incorrect, study this section until you understand why your
 answers were wrong.
+
+[Exer06_51.cpp](Exer06_51.cpp) 
 
 ##Exercise 6.52
 
@@ -392,6 +434,11 @@ this function pointer type.
 two int values. Store pointers to these values in your vector from the
 previous exercise.
 
+[Exer06_55_56.cpp](Exer06_55_56.cpp) 
+
 ##Exercise 6.56
 
 > Call each element in the vector and print their result.
+
+[Exer06_55_56.cpp](Exer06_55_56.cpp) 
+

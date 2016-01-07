@@ -60,6 +60,8 @@ class should provide.
 > Define an output operator for you String class you wrote
 for the exercises in § 13.5 (p. 531).
 
+[Exer14_07.cpp](Exer14_07.cpp) 
+
 ##Exercise 14.8
 
 > Define an output operator for the class you chose in exercise
@@ -77,6 +79,8 @@ given the following input:
 (a) 0-201-99999-9 10 24.95
 (b) 10 24.95 0-210-99999-9
 ```
+
+[Exer14_10.cpp](Exer14_10.cpp) 
 
 ##Exercise 14.11
 
@@ -132,6 +136,8 @@ why not.
 > Define relational operators for your StrBlob,
 StrBlobPtr, StrVec, and String classes.
 
+[Exer14_18.cpp](Exer14_18.cpp) 
+
 ##Exercise 14.19
 
 > Should the class you chose for exercise 7.40 from § 7.5.1
@@ -149,6 +155,8 @@ for your Sales_data class.
 addition and += calls +. Discuss the disadvantages of this approach compared
 to the way these operators were defined in § 14.3 (p. 560) and § 14.4 (p.
 564).
+
+[Exer14_21_Sales_data.h](Exer14_21_Sales_data.h) 
 
 ##Exercise 14.22
 
@@ -181,10 +189,14 @@ StrBlob, and StrBlobPtr classes.
 > Add increment and decrement operators to your
 StrBlobPtr class.
 
+[Exer14_27.cpp](Exer14_27.cpp) | [Exer14_27_StrBlob.h](Exer14_27_StrBlob.h) 
+
 ##Exercise 14.28
 
 > Define addition and subtraction for StrBlobPtr so that
 these operators implement pointer arithmetic (§ 3.5.3, p. 119).
+
+[Exer14_28.cpp](Exer14_28.cpp) | [Exer14_28_StrBlob.h](Exer14_28_StrBlob.h) 
 
 ##Exercise 14.29
 
@@ -199,6 +211,8 @@ from § 12.1.6 (p. 476). Note that the operators in constStrBlobPtr must
 return const references because the data member in constStrBlobPtr
 points to a const vector.
 
+[Exer14_30.cpp](Exer14_30.cpp) | [Exer14_30_StrBlob.h](Exer14_30_StrBlob.h) 
+
 ##Exercise 14.31
 
 > Our StrBlobPtr class does not define the copy
@@ -208,6 +222,8 @@ constructor, assignment operator, or a destructor. Why is that okay?
 
 > Define a class that holds a pointer to a StrBlobPtr.
 Define the overloaded arrow operator for that class.
+
+[Exer14_32.cpp](Exer14_32.cpp) 
 
 ##Exercise 14.33
 
@@ -221,16 +237,22 @@ operation: The call operator for this class should take three parameters. It
 should test its first parameter and if that test succeeds, it should return its
 second parameter; otherwise, it should return its third parameter.
 
+[Exer14_34.cpp](Exer14_34.cpp) | [Exer14_34.h](Exer14_34.h) 
+
 ##Exercise 14.35
 
 > Write a class like PrintString that reads a line of input
 from an istream and returns a string representing what was read. If the
 read fails, return the empty string.
 
+[Exer14_35.cpp](Exer14_35.cpp) | [Exer14_35_ReadString.h](Exer14_35_ReadString.h) 
+
 ##Exercise 14.36
 
 > Use the class from the previous exercise to read the
 standard input, storing each line as an element in a vector.
+
+[Exer14_36.cpp](Exer14_36.cpp) 
 
 ##Exercise 14.37
 
@@ -238,21 +260,29 @@ standard input, storing each line as an element in a vector.
 that object and the library algorithms to write a program to replace all
 instances of a given value in a sequence.
 
+[Exer14_37.cpp](Exer14_37.cpp) 
+
 ##Exercise 14.38
 
 > Write a class that tests whether the length of a given
 string matches a given bound. Use that object to write a program to report
 how many words in an input file are of sizes 1 through 10 inclusive.
 
+[Exer14_38.cpp](Exer14_38.cpp) 
+
 ##Exercise 14.39
 
 > Revise the previous program to report the count of words
 that are sizes 1 through 9 and 10 or more.
 
+[Exer14_39.cpp](Exer14_39.cpp) 
+
 ##Exercise 14.40
 
 > Rewrite the biggies function from § 10.3.2 (p. 391) to
 use function-object classes in place of lambdas.
+
+[Exer14_40.cpp](Exer14_40.cpp) 
 
 ##Exercise 14.41
 
@@ -268,21 +298,29 @@ expression to
 (b) Find the first string that is not equal to pooh
 (c) Multiply all values by 2
 
+[Exer14_42.cpp](Exer14_42.cpp) 
+
 ##Exercise 14.43
 
 > Using library function objects, determine whether a given
 int value is divisible by any element in a container of ints.
+
+[Exer14_43.cpp](Exer14_43.cpp) 
 
 ##Exercise 14.44
 
 > Write your own version of a simple desk calculator that can
 handle binary operations.
 
+[Exer14_44.cpp](Exer14_44.cpp) 
+
 ##Exercise 14.45
 
 > Write conversion operators to convert a Sales_data to
 string and to double. What values do you think these operators should
 return?
+
+[Exer14_45.cpp](Exer14_45.cpp) | [Exer14_45_Sales_data.h](Exer14_45_Sales_data.h) 
 
 ##Exercise 14.46
 
@@ -306,10 +344,14 @@ struct Integral {
 § 7.5.1 (p. 291) should have a conversion to bool. If so, explain why, and
 explain whether the operator should be explicit. If not, explain why not.
 
+[Exer14_48_49.cpp](Exer14_48_49.cpp) | [Exer14_48_49_Book.h](Exer14_48_49_Book.h) 
+
 ##Exercise 14.49
 
 > Regardless of whether it is a good idea to do so, define a
 conversion to bool for the class from the previous exercise.
+
+[Exer14_48_49.cpp](Exer14_48_49.cpp) | [Exer14_48_49_Book.h](Exer14_48_49_Book.h) 
 
 ##Exercise 14.50
 
@@ -327,6 +369,8 @@ int ex1 = ldObj;
 float ex2 = ldObj;
 ```
 
+[Exer14_50_51.cpp](Exer14_50_51.cpp) 
+
 ##Exercise 14.51
 
 > Show the conversion sequences (if any) needed to call each
@@ -337,6 +381,8 @@ void calc(LongDouble);
 double dval;
 calc(dval); // which calc?
 ```
+
+[Exer14_50_51.cpp](Exer14_50_51.cpp) 
 
 ##Exercise 14.52
 
@@ -356,6 +402,8 @@ ld = si + ld;
 ld = ld + si;
 ```
 
+[Exer14_52.cpp](Exer14_52.cpp) 
+
 ##Exercise 14.53
 
 > Given the definition of SmallInt on page 588, determine
@@ -365,3 +413,6 @@ operator is used? If not, how might you change the code to make it legal?
 SmallInt s1;
 double d = s1 + 3.14;
 ```
+
+[Exer14_53.cpp](Exer14_53.cpp) 
+

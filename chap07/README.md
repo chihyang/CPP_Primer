@@ -4,21 +4,29 @@
 1.6 (p. 24) using the Sales_data class you defined for the exercises in §
 2.6.1 (p. 72).
 
+[Exer07_01.cpp](Exer07_01.cpp) 
+
 ##Exercise 7.2
 
 > Add the combine and isbn members to the Sales_data
 class you wrote for the exercises in § 2.6.2 (p. 76).
+
+[Exer07_02_03.cpp](Exer07_02_03.cpp) 
 
 ##Exercise 7.3
 
 > Revise your transaction-processing program from § 7.1.1 (p.
 256) to use these members.
 
+[Exer07_02_03.cpp](Exer07_02_03.cpp) 
+
 ##Exercise 7.4
 
 > Write a class named Person that represents the name and
 address of a person. Use a string to hold each of these elements.
 Subsequent exercises will incrementally add features to this class.
+
+[Exer07_04_Person.h](Exer07_04_Person.h) 
 
 ##Exercise 7.5
 
@@ -29,6 +37,8 @@ and address. Should these functions be const? Explain your choice.
 
 > Define your own versions of the add, read, and print
 functions.
+
+[Exer07_06.cpp](Exer07_06.cpp) 
 
 ##Exercise 7.7
 
@@ -45,6 +55,8 @@ reference and print define its parameter as a reference to const?
 > Add operations to read and print Person objects to the code
 you wrote for the exercises in § 7.1.2 (p. 260).
 
+[Exer07_09.cpp](Exer07_09.cpp) 
+
 ##Exercise 7.10
 
 > What does the condition in the following if statement do?
@@ -55,20 +67,28 @@ if (read(read(cin, data1), data2))
 > Add constructors to your Sales_data class and write a
 program to use each of the constructors.
 
+[Exer07_11.cpp](Exer07_11.cpp) 
+
 ##Exercise 7.12
 
 > Move the definition of the Sales_data constructor that
 takes an istream into the body of the Sales_data class.
+
+[Exer07_12.cpp](Exer07_12.cpp) 
 
 ##Exercise 7.13
 
 > Rewrite the program from page 255 to use the istream
 constructor.
 
+[Exer07_13.cpp](Exer07_13.cpp) 
+
 ##Exercise 7.14
 
 > Write a version of the default constructor that explicitly
 initializes the members to the values we have provided as in-class initializers.
+
+[Exer07_14.cpp](Exer07_14.cpp) 
 
 ##Exercise 7.15
 
@@ -107,6 +127,8 @@ The programs you’ve written to use Sales_data operations should still
 continue to work. Recompile those programs with your new class definition to
 verify that they still work.
 
+[Exer07_21.cpp](Exer07_21.cpp) 
+
 ##Exercise 7.22
 
 > Update your Person class to hide its implementation.
@@ -114,6 +136,8 @@ verify that they still work.
 ##Exercise 7.23
 
 > Write your own version of the Screen class.
+
+[Exer07_23_Screen.h](Exer07_23_Screen.h) 
 
 ##Exercise 7.24
 
@@ -123,6 +147,8 @@ initializes the contents to hold the given number of blanks; and a constructor
 that takes values for height, width, and a character to use as the contents of
 the screen.
 
+[Exer07_24_Screen.h](Exer07_24_Screen.h) 
+
 ##Exercise 7.25
 
 > Can Screen safely rely on the default versions of copy and
@@ -131,6 +157,8 @@ assignment? If so, why? If not, why not?
 ##Exercise 7.26
 
 > Define Sales_data::avg_price as an inline function.
+
+[Exer07_26_Sales_data.h](Exer07_26_Sales_data.h) 
 
 ##Exercise 7.27
 
@@ -144,6 +172,8 @@ myScreen.display(cout);
 cout << "\n";
 ```
 
+[Exer07_27.cpp](Exer07_27.cpp) | [Exer07_27_Screen.h](Exer07_27_Screen.h) 
+
 ##Exercise 7.28
 
 > What would happen in the previous exercise if the return
@@ -154,6 +184,8 @@ type of move, set, and display was Screen rather than Screen&?
 > Revise your Screen class so that move, set, and display
 functions return Screen and check your prediction from the previous
 exercise.
+
+[Exer07_29.cpp](Exer07_29.cpp) | [Exer07_29_Screen.h](Exer07_29_Screen.h) 
 
 ##Exercise 7.30
 
@@ -178,10 +210,14 @@ Second obj2 = obj1; // error: obj1 and obj2 have different types
 > Define a pair of classes X and Y, in which X has a pointer to
 Y, and Y has an object of type X.
 
+[Exer07_31.cpp](Exer07_31.cpp) 
+
 ##Exercise 7.32
 
 > Define your own versions of Screen and Window_mgr in
 which clear is a member of Window_mgr and a friend of Screen.
+
+[Exer07_32.cpp](Exer07_32.cpp) | [Exer07_32_Screen.h](Exer07_32_Screen.h) 
 
 ##Exercise 7.33
 
@@ -198,6 +234,8 @@ pos Screen::size() const
 
 > What would happen if we put the typedef of pos in the
 Screen class on page 285 as the last line in the class?
+
+[Exer07_34.cpp](Exer07_34.cpp) 
 
 ##Exercise 7.35
 
@@ -271,6 +309,8 @@ an appropriate set of constructors. Explain your decisions.
 (f) Tree
 ```
 
+[Exer07_40_Book.h](Exer07_40_Book.h) 
+
 ##Exercise 7.41
 
 > Rewrite your own version of the Sales_data class to use
@@ -279,6 +319,8 @@ constructors that prints a message whenever it is executed. Write
 declarations to construct a Sales_data object in every way possible. Study
 the output until you are certain you understand the order of execution among
 delegating constructors.
+
+[Exer07_41.cpp](Exer07_41.cpp) | [Exer07_41_Sales_data.h](Exer07_41_Sales_data.h) 
 
 ##Exercise 7.42
 
@@ -294,6 +336,8 @@ class definition for that abstraction.
 constructor that takes an int, but has no default constructor. Define a class
 C that has a member of type NoDefault. Define the default constructor for
 C.
+
+[Exer07_43_1.cpp](Exer07_43_1.cpp) | [Exer07_43_2.cpp](Exer07_43_2.cpp) 
 
 ##Exercise 7.44
 
@@ -346,6 +390,8 @@ and s is a string:
 (c) Sales_data &combine(const Sales_data&) const;
 ```
 
+[Exer07_49.cpp](Exer07_49.cpp) | [Exer07_49_Sales_data.h](Exer07_49_Sales_data.h) 
+
 ##Exercise 7.50
 
 > Determine whether any of your Person class constructors
@@ -368,6 +414,8 @@ Sales_data item = {"978-0590353403", 25, 15.99};
 
 > Define your own version of Debug.
 
+[Exer07_53_Debug.h](Exer07_53_Debug.h) 
+
 ##Exercise 7.54
 
 > Should the members of Debug that begin with set_ be
@@ -387,6 +435,8 @@ of static members? How do they differ from ordinary members?
 
 > Write your own version of the Account class.
 
+[Exer07_57.cpp](Exer07_57.cpp) 
+
 ##Exercise 7.58
 
 > Which, if any, of the following static data member
@@ -404,3 +454,6 @@ static vector<double> vec(vecSize);
 double Example::rate;
 vector<double> Example::vec;
 ```
+
+[Exer07_58_example.cpp](Exer07_58_example.cpp) | [Exer07_58_example.h](Exer07_58_example.h) 
+
