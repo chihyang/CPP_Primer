@@ -65,8 +65,7 @@ int _tmain(int argc, TCHAR* argv[])
 	inOut.clear();
 	inOut.close();
 	inOut.open(readme_file, Fstream::out);
-	std::fstream inOut2(readme_file, std::fstream::out);
-	if (!inOut2) {
+	if (!inOut) {
 		TCERR << TEXT("Fail to write the original file!") << endl;
 		return -1;
 	}
