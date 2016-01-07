@@ -26,6 +26,8 @@ My solutions to C++ Primer(5th edition) exercises, including problems that perpl
   - [Chapter 17. Specialized Library Facilities](chap17)
   - [Chapter 18. Tools for Large Programs](chap18)
   - [Chapter 19. Specialized Tools and Techniques](chap19)
+- Tools To Improve Your Efficiency
+  - [Tools](tools)
 
 ## Compiler version
 
