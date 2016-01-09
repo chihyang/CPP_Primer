@@ -35,7 +35,9 @@ int _tmain(int argc, TCHAR* argv[])
 		TCOUT << TEXT("Failed!") << endl;
 	}
 	String readme_file = argv[1] + String(TEXT("\\README.md"));
+	// open file for reading
 	Fstream inOut(readme_file, Fstream::in);
+	// locale for processing uft-8 texts, from stackoverflow
 	const std::locale empty_locale = std::locale::empty();
 	typedef std::codecvt_utf8<wchar_t> converter_type;
 	const converter_type* converter = new converter_type;
@@ -51,8 +53,8 @@ int _tmain(int argc, TCHAR* argv[])
 	String line;                   // store the contents of current line
 	while (getline(inOut, line)) {
 		if (line.size() > 2 && line.substr(0,2) == TEXT("##")) {
-			// if the exercise has source file, format the name of source file 
-			// and insert it to the the file
+			// if the exercise has source files, format the names of source files
+			// and insert them to the the README.md file
 			if (sources.find(cnt) != sources.end()) {
 				file.push_back(format(sources[cnt]) + TEXT("\n"));
 			}

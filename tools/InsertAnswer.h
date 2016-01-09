@@ -21,6 +21,6 @@ typedef std::map<std::size_t, std::vector<String>> ExerSet;
 void DisplayErrorBox(LPTSTR lpszFunction);
 bool iscpp(const String&);
 int get_source(const TCHAR *path, ExerSet&);
-std::vector<std::size_t> analysis_filename(const String&);
+std::vector<std::size_t> analyse_filename(const String&);
 String format(const std::vector<String> &);
 #endif

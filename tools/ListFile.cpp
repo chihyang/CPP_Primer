@@ -41,7 +41,7 @@ int get_source(const TCHAR *path, ExerSet &src)
 	do {
 		if (!(ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
 			if (iscpp(ffd.cFileName)) {
-				auto exercise_no = analysis_filename(ffd.cFileName);
+				auto exercise_no = analyse_filename(ffd.cFileName);
 				for (auto n : exercise_no) {
 					src[n].push_back(ffd.cFileName);
 				}
@@ -110,8 +110,8 @@ bool iscpp(const String &filename)
 		return false;
 	}
 }
-// analysis file name
-std::vector<std::size_t> analysis_filename(const String &filename)
+// analyse file name
+std::vector<std::size_t> analyse_filename(const String &filename)
 {
 	std::vector<std::size_t> exercise;
 	auto end = filename.find_last_of(TEXT("_."));
