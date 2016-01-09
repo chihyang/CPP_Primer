@@ -29,8 +29,11 @@ int _tmain(int argc, TCHAR* argv[])
 	}
 	TCOUT << TEXT("Analyse file names in the directory ") << argv[1] << "... ";
 	ExerSet sources;
-	get_source(argv[1], sources);
-	TCOUT << TEXT("Done!") << endl;
+	if(!get_source(argv[1], sources)) {
+		TCOUT << TEXT("Done!") << endl;
+	} else {
+		TCOUT << TEXT("Failed!") << endl;
+	}
 	String readme_file = argv[1] + String(TEXT("\\README.md"));
 	Fstream inOut(readme_file, Fstream::in);
 	const std::locale empty_locale = std::locale::empty();

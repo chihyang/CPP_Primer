@@ -52,6 +52,8 @@ int get_source(const TCHAR *path, ExerSet &src)
 	if (dwError != ERROR_NO_MORE_FILES)
 	{
 		DisplayErrorBox(TEXT("FindFirstFile"));
+	} else {
+		dwError = 0;
 	}
 	
 	FindClose(hFind);
@@ -141,7 +143,7 @@ String format(const std::vector<String> &files)
 	for (auto beg = files.begin(); beg != files.end(); ++beg) {
 		reval += wrap(*beg, WRAPPER::SQUARE) + wrap(*beg, WRAPPER::PARENTHESES) + TEXT(" | ");
 	}
-	return reval.substr(0, reval.size() - 2);
+	return reval.substr(0, reval.size() - 3);
 }
 inline
 String wrap(const String &filename, WRAPPER bracket)
