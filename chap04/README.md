@@ -2,6 +2,8 @@
 
 > What is the value returned by 5 + 10 * 20/2?
 
+105
+
 ##Exercise 4.2
 
 > Using Table 4.12 (p. 166), parenthesize the following expressions to
@@ -11,6 +13,10 @@ indicate the order in which the operands are grouped:
 (b) * vec.begin() + 1
 ```
 
+(a) \*(vec.begin())
+
+(b) (\*(vec.begin())) + 1
+
 ##Exercise 4.3
 
 > Order of evaluation for most of the binary operators is left
@@ -18,6 +24,11 @@ undefined to give the compiler opportunities for optimization.
 This strategy presents a trade-off between efficient code generation
 and potential pitfalls in the use of the language by the programmer.
 Do you consider that an acceptable trade-off? Why or why not?
+
+If all the compilers just forbid such operations, it'll be troublesome under some 
+circumstances when a programmer does need to refer and change the same object. As 
+long as a programmer knows exactly how his compiler processes the operation, he can take
+advantage of it. But such codes highly depend on environment. It's not recommended.
 
 ##Exercise 4.4
 
@@ -46,15 +57,31 @@ and printing its result.
 
 > Write an expression to determine whether an int value is even or odd.
 
+```cpp
+ival % 2 == 0
+```
+
 ##Exercise 4.7
 
 > What does overflow mean? Show three expressions that will overflow.
+
+Overflow: a value is computed that is outside the range of values that its type
+can represent. Such as:
+```cpp
+short si1 = 32767 + 1;
+unsigned short si2 = 0xFFFF + 1;
+unsigned char ch = 256;
+```
 
 [Exer04_07.cpp](Exer04_07.cpp) 
 
 ##Exercise 4.8
 
 > Explain when operands are evaluated in the logical `AND`, logical `OR`, and equality operators.
+
+- `AND`: right-hand operands are evaluated if and only if left-hand operands are true;
+- `OR`: right-hand operands are evaluated if and only if left-hand operands are false;
+- `EQALITY`: right-hand operands are always evaluated, but the order of evaluation is not guaranteed.
 
 ##Exercise 4.9
 
@@ -63,6 +90,11 @@ and printing its result.
 const char *cp = "Hello World";
 if (cp && *cp)
 ```
+
+The if first evaluates if the const pointer _cp_ is a null pointer. If _cp_ is a null pointer,
+the value of the expression is false, otherwise the value of the object that _cp_ points to is
+evaluated; if the value is true, the value of the expression is true, otherwise the result is
+false.
 
 ##Exercise 4.10
 
@@ -77,18 +109,29 @@ the standard input and stop when the value read is equal to 42.
 and ensures that a is greater than b, which is greater than c,
 which is greater than d.
 
+```cpp
+a > b && b > c && c > d
+```
+
 ##Exercise 4.12
 
-> Assuming `i`, `j`, and `k` are all ints, explain what `i != j < k` means.
+> Assuming _i_, _j_, and _k_ are all _ints_, explain what `i != j < k` means.
+
+`i != j < k` judges if the value of _i_ is equal to the value of `j < k`, i.e.:
+- when _j_ is less than _k_, if _i_ is equal to 0, the result is _true_, otherwise the result is _false_;
+- when _j_ is greater or equal to _k_, if _i_ is equal to 0, the result is _false_, otherwise the result is _true_.
 
 ##Exercise 4.13
 
-> What are the values of i and d after each assignment?
+> What are the values of _i_ and _d_ after each assignment?
 ```cpp
 int i;   double d;
 (a) d = i = 3.5;
 (b) i = d = 3.5;
 ```
+
+(a) i = 3, d = 3.0
+(b) i = 3, d = 3.5
 
 ##Exercise 4.14
 
@@ -98,13 +141,24 @@ if (42 = i)
 if (i = 42)
 ```
 
+- The first if test tries to assign _i_ to an _int_ literal, which is an error.
+
+- The second if test assigns 42 to _i_, thus the expression `i = 42` returns _i_, whose value is 
+42 and the result of if tests is always true.
+ 
 ##Exercise 4.15
 
 > The following assignment is illegal. Why? How would you correct it?
 ```cpp
-ouble dval; int ival; int *pi;
+double dval; int ival; int *pi;
 dval = ival = pi = 0;
 ```
+
+The assignment is equivalent to:
+```cpp
+dval = (ival = (pi = 0));
+```
+We cannot assign the value of a pointer to an _int_.
 
 ##Exercise 4.16
 
@@ -116,19 +170,41 @@ Rewrite the expressions as you think they should be.
 (b) if (i = 1024)
 ```
 
+(a) the expression assigns the result of `(getPtr() != 0)` to _p_, rather than assigns `getPtr()` 
+to _p_ and compares _p_ to 0. It should be:
+```cpp
+if ((p = getPtr()) != 0)
+```
+
+(b) the expression assigns 1024 to _i_ rather than compares _i_ to 1024. It should be:
+```cpp
+if (i == 1024)
+```
+
 ##Exercise 4.17
 
 > Explain the difference between prefix and postfix increment.
+
+- prefix increment: increment its operand and yields the changed object as its result;
+- postfix increment: increment its operand but yields a copy of the original, unchanged values as its 
+result.
 
 ##Exercise 4.18
 
 > What would happen if the while loop on page 148 that prints
 the elements from a vector used the prefix increment operator?
 
+```cpp
+cout << *++pbeg << endl;
+```
+If we used prefix increment as above, first _pbeg_ increments and then its value is
+returned. Thus _*++pbeg_ is equivalent to *(pbeg + 1). The problem is this expression
+will ignore the first element in the vector.
+
 ##Exercise 4.19
 
-> Given that ptr points to an int, that vec is a vector<int>,
-and that ival is an int, explain the behavior of each of these expressions.
+> Given that _ptr_ points to an _int_, that _vec_ is a _vector<int>_,
+and that _ival_ is an _int_, explain the behaviour of each of these expressions.
 Which, if any, are likely to be incorrect? Why? How might each be corrected?
 ```cpp
 (a) ptr != 0 && *ptr++ 
@@ -136,11 +212,13 @@ Which, if any, are likely to be incorrect? Why? How might each be corrected?
 (c) vec[ival++] <= vec[ival]
 ```
 
+(a) If _ptr_ is not a null pointer, and the value of the object 
+
 ##Exercise 4.20
 
-> Assuming that iter is a vector<string>::iterator,
+> Assuming that _iter_ is a _vector<string>::iterator_,
 indicate which, if any, of the following expressions are legal.
-Explain the behavior of the legal expressions and
+Explain the behaviour of the legal expressions and
 why those that aren’t legal are in error.
 ```cpp
 (a) *iter++;
@@ -154,7 +232,7 @@ why those that aren’t legal are in error.
 ##Exercise 4.21
 
 > Write a program to use a conditional operator to find the
-elements in a vector<int> that have odd value and double the value of
+elements in a _vector<int>_ that have odd value and double the value of
 each such element.
 
 [Exer04_21.cpp](Exer04_21.cpp) 
