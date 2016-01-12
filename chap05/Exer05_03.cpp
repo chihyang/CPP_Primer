@@ -8,7 +8,7 @@ int main()
 	          << sum << std::endl;
 	return 0;
 }
-// Substituting a comma expression for a block is okay. But if there are many 
+// Note: Substituting a comma expression for a block is okay. But if there are many 
 // statements, a chain of comma expressions will make the program drastically
 // unreadable. It'll perplex others and the programmer himself. If there's any 
 // bug in one gigantic and long-winded expression, the programmer cannot locate
