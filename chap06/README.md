@@ -1,20 +1,24 @@
 ##Exercise 6.1
 
-> What is the difference between a parameter and an
+> What is the difference between a parameter and an argument?
+
+Arguments are the initializers for a function's parameters. We define a function
+with parameter(s), while we call a function with argument(s). If the number of 
+parameters are zero, so is arguments'.
 
 ##Exercise 6.2
 
 > Indicate which of the following functions are in error and why.
 Suggest how you might correct the problems.
 ```cpp
-(a) int f() {
+(a) int f() { // return type should be string
           string s;
           // ...
           return s;
     }
-(b) f2(int i) { /* ... */ }
-(c) int calc(int v1, int v1) { /* ... */ }
-(d) double square (double x) return x * x;
+(b) f2(int i) { /* ... */ } // return type is essential
+(c) int calc(int v1, int v1) { /* ... */ } // parameters must have different identifiers
+(d) double square (double x) return x * x; // function body must be closed by curly braces
 ```
 
 ##Exercise 6.3
@@ -43,6 +47,29 @@ main.
 and a local static variable. Give an example of a function in which each
 might be useful.
 
+- differences
+    - parameter: local variables declared inside the function parameter list. Parameters are initialized
+by arguments provided in each function call. So parameter is a kind of local variable.
+
+    - local variable: variables defined in a function body, only accessible to that function and hiding
+declarations of the same name made in an outer scope. Parameter is a kind of special
+local variable. They are automatic objects.
+
+    - local static variable: local variables whose lifetime continues across calls to the function.
+
+- example
+    - parameter: for many function calls we need pass info from outside the function. Such as 
+	`val` in `int fact(int val)`
+
+    - local variable: we don't want those variables only useful to the execution of a function
+    to exist through the execution of the program. So we define those as local variables. Such 
+	as `ret` in `int fact(int val)`
+	
+	- local static variable: some variables are necessary if we want to know the status
+	of calls to a function. For example, we have a function to turn on/off lights.
+	We can define a static variable to represent the status of lights. Every time we call it,
+	we turn on/off lights, depending on we turned on/off lights last time.
+    
 ##Exercise 6.7
 
 > Write a function that returns 0 when it is first called and then
@@ -54,6 +81,8 @@ generates numbers in sequence each time it is called again.
 
 > Write a header file named Chapter6.h that contains
 declarations for the functions you wrote for the exercises in § 6.1 (p. 205).
+
+[Chapter6.h](Chapter6.h)
 
 ##Exercise 6.9
 
