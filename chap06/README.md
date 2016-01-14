@@ -68,7 +68,7 @@ local variable. They are automatic objects.
 	- local static variable: some variables are necessary if we want to know the status
 	of calls to a function. For example, we have a function to turn on/off lights.
 	We can define a static variable to represent the status of lights. Every time we call it,
-	we turn on/off lights, depending on we turned on/off lights last time.
+	we turn on/off lights, depending on we turned off/on lights last time.
     
 ##Exercise 6.7
 
@@ -113,6 +113,14 @@ reference.
 to use references instead of pointers to swap the value of two ints. Which
 version do you think would be easier to use and why?
 
+Here reference is better than pointer. If we use pointer, we have to copy value,
+we have to write address-of operator before every argument. Once we omit anything,
+our program won't work.
+
+Using reference, on the other hand, is more convenient. Except special declarations
+of the parameter list, we can use every parameter a plain variable. In addition, when
+we pass argument, we don't have to worry about omitting anything.
+
 [Exer06_12.cpp](Exer06_12.cpp) 
 
 ##Exercise 6.13
@@ -120,18 +128,55 @@ version do you think would be easier to use and why?
 > Assuming T is the name of a type, explain the difference
 between a function declared as void f(T) and void f(T&).
 
+We call the function _f(T)_ by passing value; we call _f(T&)_ by passing reference.
+When we change the parameter of _f(T)_, the argument isn't effected. When we change the 
+parameter of _f(T&)_, the argument is changed.
+
+
 ##Exercise 6.14
 
 > Give an example of when a parameter should be a reference
 type. Give an example of when a parameter should not be a reference.
 
+If we want to swap two arguments, we must use reference:
+```cpp
+void swap(int &a, int &b);
+```
+
+If we want to return the bigger one of two variables, we have to use non reference:
+```cpp
+int max(int a, int b)
+{
+    return ((a > b) ? a : b));
+}
+```
+
 ##Exercise 6.15
 
-> Explain the rationale for the type of each of find_char’s
-parameters In particular, why is s a reference to const but occurs is a
-plain reference? Why are these parameters references, but the char
-parameter c is not? What would happen if we made s a plain reference?
-What if we made occurs a reference to const?
+> Explain the rationale for the type of each of _find_char_’s
+parameters In particular, why is _s_ a reference to const but _occurs_ is a
+plain reference? Why are these parameters references, but the _char_
+parameter _c_ is not? What would happen if we made _s_ a plain reference?
+What if we made _occurs_ a reference to const?
+
+1. _s_ is a reference to const because we don't want to change contents of argument passed
+to _s_ incidentally. Reference parameters that are not changed in a function should be
+references to const. We use references because we don't want to copy objects, which
+is not efficient and sometimes not allowed.
+
+2. _occurs_ is a plain reference because we want and need to change its value. We use
+reference as to return the results. If we don't use reference, we don't know the results,
+because _find_char_ doesn't return it. If we use reference to const, we can't change the
+value of the argument, thus we cannot get intended result.
+
+3. We don't use reference but _char_ because neither do we need to change the argument
+passed to _c_ nor keep the value of the argument. We just need a copy of the argument.
+And for built-in type, copy is efficient enough(Please refer to Effective C++).
+
+4. If we made _s_ a plain reference, we might change the value of the argument by accident.
+
+5. If we made _occurs_ a reference to const, we would not be able to change the 
+argument's value.
 
 ##Exercise 6.16
 
@@ -141,12 +186,44 @@ might be. Identify and correct the limitation on this function:
 bool is_empty(string& s) { return s.empty(); }
 ```
 
+The parameter is a plain reference, thus we can not pass string literal. Correction:
+```cpp
+bool is_empty(const string& s) { return s.empty(); }
+```
+
 ##Exercise 6.17
 
 > Write a function to determine whether a string contains
 any capital letters. Write a function to change a string to all lowercase. Do
 the parameters you used in these functions have the same type? If so, why?
 If not, why not?
+
+- Function:
+```cpp
+bool contain_upper(const string &s)
+{
+    for (auto c: s) {
+	    if (isupper(c))
+		    return true;
+	}
+    return false;
+}
+```
+
+```cpp
+void to_lower_str(string &s)
+{
+    for (auto &c: s) {
+        c = tolower(c);
+	}
+}
+```
+
+- Difference:
+    - The former takes a reference to const string because we know we won't change the 
+	argument.
+	- The latter takes a plain reference to string because we need to change the
+	argument.
 
 ##Exercise 6.18
 
