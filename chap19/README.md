@@ -96,12 +96,33 @@ to more human-friendly form.
 defines a public default constructor and virtual destructor, which type name
 do the following statements print?
 
+```cpp
+class A { /* . . . */ };
+class B : public A { /* . . . */ };
+class C : public B { /* . . . */ };
+
+(a) A *pa = new C;
+    cout << typeid(pa).name() << endl;
+(b) C cobj;
+    A& ra = cobj;
+    cout << typeid(&ra).name() << endl;
+(c) B *px = new B;
+    A& ra = *px;
+    cout << typeid(ra).name() << endl;
+```
+
 [Exer19_10.cpp](Exer19_10.cpp) 
 
 ##Exercise 19.11
 
 > What is the difference between an ordinary data pointer
 and a pointer to a data member?
+
+- The type of a pointer to member embodies both the type of a class and the type of a 
+member of that class;
+- We initialize such a pointer to point to a specific member of a class without
+identifying an object to which that member belongs;
+- We use .* and ->* to dereference a pointer to data member.
 
 ##Exercise 19.12
 
@@ -127,12 +148,19 @@ auto pmf = &Screen::get_cursor;
 pmf = &Screen::get;
 ```
 
+The type of _pmf_ is `char(Screen::*)() const`, the type of _get_ is `char() const`,
+so we could use _pmf_ to point to the member function _get_ of _Screen_.
+
 [Exer19_14.cpp](Exer19_14.cpp) 
 
 ##Exercise 19.15
 
 > What is the difference between an ordinary function pointer
 and a pointer to a member function?
+
+- A pointer to a member function is declared using _classname_::*;
+- there is no automatic conversion between a member function and a pointer to that
+member.
 
 ##Exercise 19.16
 
@@ -180,13 +208,24 @@ rerun the programs you wrote to use TextQuery in § 12.3.2 (p. 490).
 
 > Add a member of type Sales_data to your Token class.
 
+[Exer19_21_25.cpp](Exer19_21_25.cpp) | [Exer19_21_25_Token.cpp](Exer19_21_25_Token.cpp) | [Exer19_21_25_Token.h](Exer19_21_25_Token.h) 
+
 ##Exercise 19.23
 
 > Add a move constructor and move assignment to Token.
 
+[Exer19_21_25.cpp](Exer19_21_25.cpp) | [Exer19_21_25_Token.cpp](Exer19_21_25_Token.cpp) | [Exer19_21_25_Token.h](Exer19_21_25_Token.h) 
+
 ##Exercise 19.24
 
 > Explain what happens if we assign a Token object to itself.
+
+If we assign a Token object to itself, the first condition 
+`tok == STR && t.tok != STR` is false. Then if the object holds a string, the second 
+condition is true. Assigning a string to it self is okay. Because a string has its 
+own assignment operator. If the object doesn't hold a string, else condition is true.
+_CopyUnion_ is called. In this case the object holds a built-in type object. Assigning
+to itself is okay.
 
 ##Exercise 19.25
 
@@ -204,5 +243,8 @@ extern "C" int compute(int *, int);
 extern "C" double compute(double *, double);
 ```
 
-[Exer19_26.c](Exer19_26.c) | [Exer19_26.cpp](Exer19_26.cpp) | [Exer19_26.h](Exer19_26.h) 
+The first declaration uses linkage directive to declare a function _compute_ that's
+written in C and can be called by C++ programs. So does the second. The problem is C 
+doesn't permit function overloading. So two declarations with the same name are illegal.
 
+[Exer19_26.c](Exer19_26.c) | [Exer19_26.cpp](Exer19_26.cpp) | [Exer19_26.h](Exer19_26.h) 

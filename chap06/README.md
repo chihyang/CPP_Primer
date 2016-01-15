@@ -236,6 +236,11 @@ that are references to a class named matrix.
 and takes two parameters: One is an int and the other is an iterator for a
 vector<int>.
 
+```cpp
+(a) bool compare(const matrix&, const matrix&);
+(b) vector<int>::iterator change_val(int, vector<int>::iterator);
+```
+
 ##Exercise 6.19
 
 > Given the following declarations, determine which calls are
@@ -250,6 +255,11 @@ vector<int> vec(10);
 (c) calc(66);
 (d) sum(vec.begin(), vec.end(), 3.8);
 ```
+
+- (a) illegal, offer two arguments but only requires one.
+- (b) legal.
+- (c) legal, 66 is converted to double.
+- (d) legal, 3.8 is truncated to 3.
 
 ##Exercise 6.20
 
@@ -383,7 +393,7 @@ why?
 
 ##Exercise 6.38
 
-> Revise the arrPtr function on to return a reference to the
+> Revise the _arrPtr_ function on to return a reference to the
 array.
 
 ##Exercise 6.39
@@ -530,9 +540,31 @@ int calc(char* const, char* const);
 
 ##Exercise 6.54
 
-> Write a declaration for a function that takes two int
-parameters and returns an int, and declare a vector whose elements have
+> Write a declaration for a function that takes two _int_
+parameters and returns an _int_, and declare a _vector_ whose elements have
 this function pointer type.
+
+```cpp
+int fun(int, int);
+```
+
+Way 1:
+```cpp
+vector<int(*)(int, int)> vec;
+```
+
+Way 2:
+```cpp
+using fp = int(*)(int, int);
+vector<fp> vec;
+```
+
+Way 3:
+```cpp
+using fp = int(int, int);
+vector<fp*> vec;
+```
+
 
 ##Exercise 6.55
 
