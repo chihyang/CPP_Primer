@@ -34,6 +34,18 @@ which, if any, of the following dynamic_casts fail?
     B *pb = dynamic_cast< B* >(pa);
 ```
 
+```
+    A
+    |\
+    | \
+    |  B
+    | / \
+    |/   \
+    D     C
+```
+(b) will fail. Because the dynamic type of _pb_ is _B_, which is the base class of
+_C_. We can't use a pointer of derived class to point to a base class object.
+
 [Exer19_03_04.cpp](Exer19_03_04.cpp) 
 
 ##Exercise 19.4
@@ -54,6 +66,10 @@ if (C *pc = dynamic_cast< C* >(pa))
 
 > When should you use a dynamic_cast instead of a virtual
 function?
+
+If we use a base class pointer to point to a derived class object, and derived 
+class defines its own functions, and we want to use these functions of the object, 
+we can use dynamic_cast to cast it to a derived class pointer or reference.
 
 ##Exercise 19.6
 
