@@ -43,10 +43,16 @@ a pair of iterators.
 
 > Explain which version of findBook you prefer and why.
 
+In this example _tuple_ is okay. We don't need to define a new class or use nested
+pair. Everything is clear.
+
 ##Exercise 17.8
 
-> What would happen if we passed Sales_data() as the
+> What would happen if we passed _Sales_data()_ as the
 third parameter to accumulate in the last code example in this section?
+
+If we pass _Sales_data()_, the _isbn_ of the result is an empty string. Thus the
+output result would not be correct.
 
 ##Exercise 17.9
 
@@ -57,6 +63,14 @@ contains:
 (b) bitset<32> bv(1010101);
 (c) string bstr; cin >> bstr; bitset<8>bv(bstr);
 ```
+
+- (a) _bitvec_ has 64 bits. The positions from 0 to 5 are set as 100000, the rest are
+0.
+- (b) _bv_ has 32 bits, the binary representation of 1010101 is `1111 0110 1001 1011 0101`.
+So the bits of _bv_ are `0000 0000 0000 1111 0110 1001 1011 0101`.
+- (c) _bv_ has 8 bits and is initialized by _bstr_.If _bstr_ is shorter than 8,
+the rest high-order part of _bv_ is set to 0. If _bstr_ contains any character 
+except '0' or '1', the constructor throws `invalid_argument` exception.
 
 [Exer17_09.cpp](Exer17_09.cpp) 
 
@@ -117,6 +131,8 @@ your program with words that do and do not violate the rule.
 program were initialized with "[^c]ei"? Test your program using that
 pattern to see whether your expectations were correct.
 
+If we use "[^c]ei" to initialize regex, only words made up of 3 characters would be checked.
+
 [Exer17_16.cpp](Exer17_16.cpp) 
 
 ##Exercise 17.17
@@ -137,6 +153,10 @@ are not misspellings, such as “albeit” and “neighbor.”
 
 > Why is it okay to call m[4].str() without first checking
 whether m[4] was matched?
+
+Because `||` uses short circuit evaluation. If _m[4].str()_ is evaluated, that means
+`m[4].str() == 0` is false, which means `m[4].matched` is true. Thus we can use _m[4].str()_
+directly.
 
 ##Exercise 17.20
 
@@ -219,12 +239,18 @@ maximum value for the numbers that the function should return.
 
 ##Exercise 17.31
 
-> What would happen if we defined b and e inside the do
+> What would happen if we defined _b_ and _e_ inside the _do_
 loop of the game-playing program from this section?
+
+If we defined _b_ and _e_ inside the _do_ loop, every iteration would generate the 
+same number.
 
 ##Exercise 17.32
 
-> What would happen if we defined resp inside the loop?
+> What would happen if we defined _resp_ inside the loop?
+
+If we defined _resp_ inside the loop, we couldn't use _resp_ in a condition of _while_,
+where it is out of scope.
 
 ##Exercise 17.33
 
