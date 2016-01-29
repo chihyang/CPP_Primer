@@ -23,6 +23,17 @@ and use it to setup `obj` folder under every chapter.
 All of the scripts above are tested under windows with `Git Bash`. They may not work on real linux
 platforms.
 
+##[Search texts under a folder](SearchText.sh)
+
+This script is used to search text in source files under a directory. Call this script by passing three parameters:
+```
+./SearchText.sh [path] [ext] [regex]
+```
+
+Where `path` is the path to be searched, `ext` is the file extension, and `regex` 
+is the regex expression to be searched for. This script just calls 'grep', so the regex is the same
+as what `grep` uses.
+
 ##Insert source file names into README.md
 
 This is a tool for practising C++. It includes 3 files:
