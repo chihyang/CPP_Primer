@@ -25,7 +25,7 @@ platforms.
 
 ##[Search texts under a folder](SearchText.sh)
 
-This script is used to search text in source files under a directory. Call this script by passing three parameters:
+This script is used to search for texts in source files under a directory. Call this script by passing three arguments:
 ```
 ./SearchText.sh [path] [ext] [regex]
 ```
