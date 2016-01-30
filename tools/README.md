@@ -25,13 +25,14 @@ platforms.
 
 ##[Search texts under a folder](SearchText.sh)
 
-This script is used to search for texts in source files under a directory. Call this script by passing three arguments:
+This script is used to search for texts in source files under a directory.
+Call this script by passing three arguments:
 ```
 ./SearchText.sh [path] [ext] [regex]
 ```
 
 Where `path` is the path to be searched, `ext` is the file extension, and `regex` 
-is the regex expression to be searched for. This script just calls 'grep', so the regex is the same
+is the regex expression to be searched for. This script just calls `grep`, so the regex is the same
 as what `grep` uses.
 
 ##Insert source file names into README.md
