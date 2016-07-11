@@ -1,58 +1,73 @@
-OBJDIR = obj
+all: avg_price.exe Exer01_01.exe Exer01_02.exe Exer01_03.exe \
+	 Exer01_04.exe Exer01_05.exe Exer01_08.exe \
+	 Exer01_09.exe Exer01_10.exe Exer01_11.exe Exer01_12.exe \
+	 Exer01_13_1.exe Exer01_13_2.exe Exer01_13_3.exe \
+	 Exer01_18.exe Exer01_19.exe Exer01_20.exe Exer01_21.exe \
+	 Exer01_22.exe Exer01_24.exe Exer01_25.exe
+	mv *.exe ./obj/
 
-CHAP1OBJS = $(OBJDIR)\Exer1_1.obj \
-            $(OBJDIR)\Exer1_2.obj \
-            $(OBJDIR)\Exer1_3.obj \
-            $(OBJDIR)\Exer1_4.obj \
-            $(OBJDIR)\Exer1_5.obj \
-			$(OBJDIR)\Exer1_8.obj \
-            $(OBJDIR)\Exer1_10.obj \
-            $(OBJDIR)\Exer1_11.obj \
-            $(OBJDIR)\Exer1_15.obj \
-            $(OBJDIR)\Exer1_16.obj \
-			$(OBJDIR)\Exer1_17.obj \
-            $(OBJDIR)\Exer1_17_1.obj \
-            $(OBJDIR)\Exer1_18.obj \
-            $(OBJDIR)\Exer1_19.obj \
-            $(OBJDIR)\Exer1_20.obj \
-            $(OBJDIR)\Exer1_21.obj \
-            $(OBJDIR)\Exer1_22.obj \
-            $(OBJDIR)\Exer1_23.obj \
-            $(OBJDIR)\Exer1_24.obj \
-			$(OBJDIR)\Exer1_25.obj \
-            $(OBJDIR)\avg_price.obj
+avg_price.exe: avg_price.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o avg_price.exe avg_price.cpp
 
-CHAP1EXES = $(OBJDIR)\Exer1_1.exe \
-            $(OBJDIR)\Exer1_2.exe \
-            $(OBJDIR)\Exer1_3.exe \
-            $(OBJDIR)\Exer1_4.exe \
-            $(OBJDIR)\Exer1_5.exe \
-			$(OBJDIR)\Exer1_8.exe \
-            $(OBJDIR)\Exer1_10.exe \
-            $(OBJDIR)\Exer1_11.exe \
-            $(OBJDIR)\Exer1_15.exe \
-            $(OBJDIR)\Exer1_16.exe \
-			$(OBJDIR)\Exer1_17.exe \
-            $(OBJDIR)\Exer1_17_1.exe \
-            $(OBJDIR)\Exer1_18.exe \
-            $(OBJDIR)\Exer1_19.exe \
-            $(OBJDIR)\Exer1_20.exe \
-            $(OBJDIR)\Exer1_21.exe \
-            $(OBJDIR)\Exer1_22.exe \
-            $(OBJDIR)\Exer1_23.exe \
-            $(OBJDIR)\Exer1_24.exe \
-            $(OBJDIR)\avg_price.exe
+Exer01_01.exe: Exer01_01.cpp
+	g++ -std=c++11 -Wall -o Exer01_01.exe Exer01_01.cpp
 
-# Generate executable files for every source file
-# -Fe: cl.exe, specify path and/or name of executable file
-$(CHAP1EXES): $(CHAP1OBJS)
-	@$(CC) -Fe$(OBJDIR)/$(@B).exe $(OBJDIR)/$(@B).obj
+Exer01_02.exe: Exer01_02.cpp
+	g++ -std=c++11 -Wall -o Exer01_02.exe Exer01_02.cpp
 
-# Generate object files for each source file
-# -Fo: cl.exe, specify path and/or name of object file
-$(CHAP1OBJS): $(@B).cpp
-	@$(CC) -EHsc -c -Fo$(OBJDIR)/$(@B).obj $(@B).cpp
+Exer01_03.exe: Exer01_03.cpp
+	g++ -std=c++11 -Wall -o Exer01_03.exe Exer01_03.cpp
+
+Exer01_04.exe: Exer01_04.cpp
+	g++ -std=c++11 -Wall -o Exer01_04.exe Exer01_01.cpp
+
+Exer01_05.exe: Exer01_05.cpp
+	g++ -std=c++11 -Wall -o Exer01_05.exe Exer01_05.cpp
+
+Exer01_08.exe: Exer01_08.cpp
+	g++ -std=c++11 -Wall -o Exer01_08.exe Exer01_08.cpp
+
+Exer01_09.exe: Exer01_09.cpp
+	g++ -std=c++11 -Wall -o Exer01_09.exe Exer01_09.cpp
+
+Exer01_10.exe: Exer01_10.cpp
+	g++ -std=c++11 -Wall -o Exer01_10.exe Exer01_10.cpp
+
+Exer01_11.exe: Exer01_11.cpp
+	g++ -std=c++11 -Wall -o Exer01_11.exe Exer01_11.cpp
+
+Exer01_12.exe: Exer01_12.cpp
+	g++ -std=c++11 -Wall -o Exer01_12.exe Exer01_12.cpp
+
+Exer01_13_1.exe: Exer01_13_1.cpp
+	g++ -std=c++11 -Wall -o Exer01_13_1.exe Exer01_13_1.cpp
+
+Exer01_13_2.exe: Exer01_13_2.cpp
+	g++ -std=c++11 -Wall -o Exer01_13_2.exe Exer01_13_2.cpp
+
+Exer01_13_3.exe: Exer01_13_3.cpp
+	g++ -std=c++11 -Wall -o Exer01_13_3.exe Exer01_13_3.cpp
+
+Exer01_18.exe: Exer01_18.cpp
+	g++ -std=c++11 -Wall -o Exer01_18.exe Exer01_18.cpp
+
+Exer01_19.exe: Exer01_19.cpp
+	g++ -std=c++11 -Wall -o Exer01_19.exe Exer01_19.cpp
+
+Exer01_20.exe: Exer01_20.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o Exer01_20.exe Exer01_20.cpp
+
+Exer01_21.exe: Exer01_21.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o Exer01_21.exe Exer01_21.cpp
+
+Exer01_22.exe: Exer01_22.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o Exer01_22.exe Exer01_22.cpp
+
+Exer01_24.exe: Exer01_24.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o Exer01_24.exe Exer01_24.cpp
+
+Exer01_25.exe: Exer01_25.cpp Sales_item.h
+	g++ -std=c++11 -Wall -o Exer01_25.exe Exer01_25.cpp
 
 clean:
 	rm -f obj/*
-	
