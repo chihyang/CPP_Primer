@@ -1,24 +1,24 @@
 objects = avg_price.exe \
-          Exer01_01.exe \
-          Exer01_02.exe \
-          Exer01_03.exe \
-          Exer01_04.exe \
-          Exer01_05.exe \
-          Exer01_08.exe \
-          Exer01_09.exe \
-          Exer01_10.exe \
-          Exer01_11.exe \
-          Exer01_12.exe \
-          Exer01_13_1.exe \
-          Exer01_13_2.exe \
-          Exer01_13_3.exe \
-          Exer01_18.exe \
-          Exer01_19.exe \
-          Exer01_20.exe \
-          Exer01_21.exe \
-          Exer01_22.exe \
-          Exer01_24.exe \
-          Exer01_25.exe
+			Exer01_01.exe \
+			Exer01_02.exe \
+			Exer01_03.exe \
+			Exer01_04.exe \
+			Exer01_05.exe \
+			Exer01_08.exe \
+			Exer01_09.exe \
+			Exer01_10.exe \
+			Exer01_11.exe \
+			Exer01_12.exe \
+			Exer01_13_1.exe \
+			Exer01_13_2.exe \
+			Exer01_13_3.exe \
+			Exer01_18.exe \
+			Exer01_19.exe \
+			Exer01_20.exe \
+			Exer01_21.exe \
+			Exer01_22.exe \
+			Exer01_24.exe \
+			Exer01_25.exe
 
 all: $(objects)
 	cp *.exe ./obj/

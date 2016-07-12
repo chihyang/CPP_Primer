@@ -60,7 +60,7 @@ int get_source(const TCHAR *path, ExerSet &src)
 	return dwError;
 }
 // display error message
-// this is a example from MSDN:
+// this is an example from MSDN:
 // https://msdn.microsoft.com/en-us/library/windows/desktop/aa365200%28v=vs.85%29.aspx
 void DisplayErrorBox(LPTSTR lpszFunction) 
 { 
