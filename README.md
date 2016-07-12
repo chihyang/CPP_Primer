@@ -2,6 +2,16 @@
 
 My solutions to C++ Primer(5th edition) exercises, including problems that perplex me. ```Makefile``` for visual studio compiler and ```gcc``` will be added later.
 
+- [Contents](#contents)
+- [Compiler Version](#compiler-version)
+- [File Format](#file-format)
+  - [Solutions to exercises](#solutions-to-exercises)
+  - [Illustrations or verifications of key points](#illustrations-or-verifications-of-key-points)
+- [Comments](#comments)
+  - [Warnings](#warning)
+  - [Notes](#notes)
+- [Makefiles](#makefiles)
+
 ## Contents
 - [Chapter 1. Getting Started](chap01)
 - Part I: The Basics
@@ -29,7 +39,7 @@ My solutions to C++ Primer(5th edition) exercises, including problems that perpl
 - Tools To Improve Your Efficiency
   - [Tools](tools)
 
-## Compiler version
+## Compiler Version
 
 * ```gcc```: (tdm64-1) 5.1.0
 * ```clang```: 3.7.0 (tags/RELEASE_370/final)
@@ -186,3 +196,9 @@ Many files contain notes about explanations on perplexing points. Here is the li
 - [Exer16_29_Blob.h](chap16/Exer16_29_Blob.h)
 - [Exer16_58_StrVec.h](chap16/Exer16_58_StrVec.h)
 - [Exer16_61_shared_ptr.h](chap16/Exer16_61_shared_ptr.h)
+
+## Makefiles
+
+Every chapter has a separate makefile. These makefiles are written in different
+ways to show the usage of `make`. See `Makefile` under each chapter folder for
+details.
