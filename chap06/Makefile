@@ -1,8 +1,17 @@
+# Pass compiler info to make, such as:
+#
+# make cc=cl
+# make cc=clang++
+# make cc=g++
+#
+# The optional compilers are g++, clang++ and cl, as listed above. If no
+# compiler is offered, use g++ as default.
+
 cc=g++
 cflag = -std=c++11 -Wall
 suffix = gcc
 
-ifeq ($(cc),gcc++)
+ifeq ($(cc),g++)
 	cflag = -std=c++11 -Wall
 	suffix = gcc
 else ifeq ($(cc),clang++)
