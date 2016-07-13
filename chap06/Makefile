@@ -1,3 +1,7 @@
+# This makefile has the same function as the one in chapter 5 but implements in
+# a different way. You must pass the variable `cc' a value to choose different
+# compilers, as showed below.
+#
 # Pass compiler info to make, such as:
 #
 # make cc=cl

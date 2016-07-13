@@ -1,3 +1,9 @@
+# This makefile generates executable files directly in a separate folder. It
+# uses order-only prerequisites to make the object folder in case it does not
+# exist. It uses wildcard character % to match every executable file and the
+# corresponding source file, thus avoiding writing the same file names multiple
+# times.
+
 objdir := obj
 objects := $(addprefix $(objdir)/,Exer03_01_1.exe \
 			Exer03_01_2.exe \

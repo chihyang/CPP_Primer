@@ -1,3 +1,8 @@
+# This makes file is similar to the one in chapter 4. The difference is that you
+# can choose different compilers by passing command line parameters. For
+# example, you can use `make gcc' to generate choose g++ compiler, `make cl' to
+# choose visual studio compiler and so on.
+
 objdir := obj
 objects_gcc := $(addprefix $(objdir)/,$(patsubst %.cpp,%-gcc.exe,$(wildcard *.cpp)))
 objects_cl := $(subst gcc,cl,$(objects_gcc))

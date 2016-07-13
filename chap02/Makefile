@@ -1,3 +1,5 @@
+# This makefile uses variable. Other drawbacks are the same as the one in chapter 1.
+
 objects = Exer02_04.exe \
 			Exer02_08.exe \
 			Exer02_12.exe \

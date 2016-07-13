@@ -1,26 +1,30 @@
-objects = avg_price.exe \
-			Exer01_01.exe \
-			Exer01_02.exe \
-			Exer01_03.exe \
-			Exer01_04.exe \
-			Exer01_05.exe \
-			Exer01_08.exe \
-			Exer01_09.exe \
-			Exer01_10.exe \
-			Exer01_11.exe \
-			Exer01_12.exe \
-			Exer01_13_1.exe \
-			Exer01_13_2.exe \
-			Exer01_13_3.exe \
-			Exer01_18.exe \
-			Exer01_19.exe \
-			Exer01_20.exe \
-			Exer01_21.exe \
-			Exer01_22.exe \
-			Exer01_24.exe \
-			Exer01_25.exe
+# This makefile uses neither variables nor implicit rules. You can only make all
+# or each target one after another. Besides, this makefile supports only g++ as
+# compiler. You cannot use visual studio or clang or any other compilers. Last
+# but not the least, every executable file is generated in source file folder
+# rather than in a separate folder, which makes the folder dirty.
 
-all: $(objects)
+all: avg_price.exe \
+		Exer01_01.exe \
+		Exer01_02.exe \
+		Exer01_03.exe \
+		Exer01_04.exe \
+		Exer01_05.exe \
+		Exer01_08.exe \
+		Exer01_09.exe \
+		Exer01_10.exe \
+		Exer01_11.exe \
+		Exer01_12.exe \
+		Exer01_13_1.exe \
+		Exer01_13_2.exe \
+		Exer01_13_3.exe \
+		Exer01_18.exe \
+		Exer01_19.exe \
+		Exer01_20.exe \
+		Exer01_21.exe \
+		Exer01_22.exe \
+		Exer01_24.exe \
+		Exer01_25.exe
 	cp *.exe ./obj/
 
 avg_price.exe: avg_price.cpp Sales_item.h
@@ -93,5 +97,5 @@ Exer01_25.exe: Exer01_25.cpp Sales_item.h
 	g++ -std=c++11 -Wall -o Exer01_25.exe Exer01_25.cpp
 
 clean:
-	rm $(objects)
-	rm -f obj/*
+	rm *.exe
+	rm obj/*
