@@ -3,6 +3,8 @@
 #include "Sales_data.h"
 using std::ifstream;
 using std::ofstream;
+using std::cerr;
+using std::endl;
 int main(int argc, char *argv[])
 {
 	if(argc != 3)
