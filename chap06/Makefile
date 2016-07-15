@@ -9,7 +9,7 @@
 # make cc=g++
 #
 # The optional compilers are g++, clang++ and cl, as listed above. If no
-# compiler is offered, use g++ as default.
+# compiler is offered, it uses g++ as default.
 
 cc=g++
 cflag = -std=c++11 -Wall

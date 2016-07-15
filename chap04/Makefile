@@ -1,6 +1,7 @@
 # This make file eliminates all of the source file names by using builtin
 # functions of make. It uses $@ to refer to the current target and $< the first
-# of corresponding prerequisites. Except this, it is the same as the one in
+# of corresponding prerequisites. The `-' before `g++' tells make to ignore
+# errors and keep going on. Except these, this one is the same as the one in
 # chapter 3.
 
 objdir := obj
