@@ -25,7 +25,7 @@ Foo Foo::sorted() const &
 {
 	Foo ret(*this);
 	cout << "Foo sorted() const & is called." << endl;
-	return ret.sorted(); // recursive call, indefinite loop
+	return ret.sorted(); // recursive call, infinite loop
 }
 int main()
 {
