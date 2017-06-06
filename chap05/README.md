@@ -1,4 +1,4 @@
-# Answers Of Non-programming Exercises
+# Answers To Non-programming Exercises
 
 ## Contents
 - [Exercise 5.1](#exercise-51)

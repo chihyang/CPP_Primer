@@ -1,4 +1,4 @@
-# Answers Of Non-programming Exercises
+# Answers To Non-programming Exercises
 
 ## Contents
 - [Exercise 8.1](#exercise-81)

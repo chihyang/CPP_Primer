@@ -1,4 +1,4 @@
-# Answers Of Non-programming Exercises
+# Answers To Non-programming Exercises
 
 ## Contents
 - [Exercise 16.1](#exercise-161)
