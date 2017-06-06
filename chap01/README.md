@@ -1,3 +1,30 @@
+## Contents
+- [Exercise 1.1](#exercise-11)
+- [Exercise 1.2](#exercise-12)
+- [Exercise 1.3](#exercise-13)
+- [Exercise 1.4](#exercise-14)
+- [Exercise 1.5](#exercise-15)
+- [Exercise 1.6](#exercise-16)
+- [Exercise 1.7](#exercise-17)
+- [Exercise 1.8](#exercise-18)
+- [Exercise 1.9](#exercise-19)
+- [Exercise 1.10](#exercise-110)
+- [Exercise 1.11](#exercise-111)
+- [Exercise 1.12](#exercise-112)
+- [Exercise 1.13](#exercise-113)
+- [Exercise 1.14](#exercise-114)
+- [Exercise 1.15](#exercise-115)
+- [Exercise 1.16](#exercise-116)
+- [Exercise 1.17](#exercise-117)
+- [Exercise 1.18](#exercise-118)
+- [Exercise 1.19](#exercise-119)
+- [Exercise 1.20](#exercise-120)
+- [Exercise 1.21](#exercise-121)
+- [Exercise 1.22](#exercise-122)
+- [Exercise 1.23](#exercise-123)
+- [Exercise 1.24](#exercise-124)
+- [Exercise 1.25](#exercise-125)
+
 ## Exercise 1.1
 
 > Review the documentation for your compiler and determine what file naming convention it uses. Compile and run the _main_ program from page 2.

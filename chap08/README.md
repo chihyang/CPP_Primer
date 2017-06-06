@@ -1,3 +1,20 @@
+## Contents
+- [Exercise 8.1](#exercise-81)
+- [Exercise 8.2](#exercise-82)
+- [Exercise 8.3](#exercise-83)
+- [Exercise 8.4](#exercise-84)
+- [Exercise 8.5](#exercise-85)
+- [Exercise 8.6](#exercise-86)
+- [Exercise 8.4](#exercise-84)
+- [Exercise 8.5](#exercise-85)
+- [Exercise 8.6](#exercise-86)
+- [Exercise 8.9](#exercise-89)
+- [Exercise 8.10](#exercise-810)
+- [Exercise 8.11](#exercise-811)
+- [Exercise 8.12](#exercise-812)
+- [Exercise 8.13](#exercise-813)
+- [Exercise 8.14](#exercise-814)
+
 ## Exercise 8.1
 
 > Write a function that takes and returns an istream&. The

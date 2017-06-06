@@ -1,3 +1,30 @@
+## Contents
+- [Exercise 5.1](#exercise-51)
+- [Exercise 5.2](#exercise-52)
+- [Exercise 5.3](#exercise-53)
+- [Exercise 5.4](#exercise-54)
+- [Exercise 5.5](#exercise-55)
+- [Exercise 5.6](#exercise-56)
+- [Exercise 5.7](#exercise-57)
+- [Exercise 5.8](#exercise-58)
+- [Exercise 5.9](#exercise-59)
+- [Exercise 5.10](#exercise-510)
+- [Exercise 5.11](#exercise-511)
+- [Exercise 5.12](#exercise-512)
+- [Exercise 5.13](#exercise-513)
+- [Exercise 5.14](#exercise-514)
+- [Exercise 5.15](#exercise-515)
+- [Exercise 5.16](#exercise-516)
+- [Exercise 5.17](#exercise-517)
+- [Exercise 5.18](#exercise-518)
+- [Exercise 5.19](#exercise-519)
+- [Exercise 5.20](#exercise-520)
+- [Exercise 5.21](#exercise-521)
+- [Exercise 5.22](#exercise-522)
+- [Exercise 5.23](#exercise-523)
+- [Exercise 5.24](#exercise-524)
+- [Exercise 5.25](#exercise-525)
+
 ## Exercise 5.1
 
 > What is a null statement? When might you use a null statement?

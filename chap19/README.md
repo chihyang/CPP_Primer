@@ -1,3 +1,31 @@
+## Contents
+- [Exercise 19.1](#exercise-191)
+- [Exercise 19.2](#exercise-192)
+- [Exercise 19.3](#exercise-193)
+- [Exercise 19.4](#exercise-194)
+- [Exercise 19.5](#exercise-195)
+- [Exercise 19.6](#exercise-196)
+- [Exercise 19.7](#exercise-197)
+- [Exercise 19.8](#exercise-198)
+- [Exercise 19.9](#exercise-199)
+- [Exercise 19.10](#exercise-1910)
+- [Exercise 19.11](#exercise-1911)
+- [Exercise 19.12](#exercise-1912)
+- [Exercise 19.13](#exercise-1913)
+- [Exercise 19.14](#exercise-1914)
+- [Exercise 19.15](#exercise-1915)
+- [Exercise 19.16](#exercise-1916)
+- [Exercise 19.17](#exercise-1917)
+- [Exercise 19.18](#exercise-1918)
+- [Exercise 19.19](#exercise-1919)
+- [Exercise 19.20](#exercise-1920)
+- [Exercise 19.21](#exercise-1921)
+- [Exercise 19.22](#exercise-1922)
+- [Exercise 19.23](#exercise-1923)
+- [Exercise 19.24](#exercise-1924)
+- [Exercise 19.25](#exercise-1925)
+- [Exercise 19.26](#exercise-1926)
+
 ## Exercise 19.1
 
 > Write your own operator new(size_t) function using
