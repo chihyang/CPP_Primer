@@ -366,7 +366,7 @@ unsigned long ul1 = 3, ul2 = 7;
 
 (c) true;
 
-(d) false.
+(d) true.
 
 ##Exercise 4.28
 
