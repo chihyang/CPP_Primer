@@ -1,3 +1,5 @@
+# Answers Of Non-programming Exercises
+
 ## Contents
 - [Exercise 6.1](#exercise-61)
 - [Exercise 6.2](#exercise-62)

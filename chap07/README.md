@@ -1,3 +1,5 @@
+# Answers Of Non-programming Exercises
+
 ## Contents
 - [Exercise 7.1](#exercise-71)
 - [Exercise 7.2](#exercise-72)
