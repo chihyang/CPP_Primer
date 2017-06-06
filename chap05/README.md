@@ -1,4 +1,4 @@
-##Exercise 5.1
+## Exercise 5.1
 
 > What is a null statement? When might you use a null statement?
 
@@ -6,14 +6,14 @@ A null statement is a single semicolon. A null statement is useful where the lan
 requires a statement but the program's logic does not, such as a while loop where 
 no concrete operation is needed.
 
-##Exercise 5.2
+## Exercise 5.2
 
 > What is a block? When might you might use a block?
 
 A block is a (possibly empty) sequence of statements and declarations surrounded by
 a pair of curly braces.
 
-##Exercise 5.3
+## Exercise 5.3
 
 > Use the comma operator (§ 4.10, p. 157) to rewrite the while loop from § 1.4.1 (p. 11)
 so that it no longer requires a block.
@@ -21,7 +21,7 @@ Explain whether this rewrite improves or diminishes the readability of this code
 
 [Exer05_03.cpp](Exer05_03.cpp) 
 
-##Exercise 5.4
+## Exercise 5.4
 
 > Explain each of the following examples, and correct any problems you detect.
 ```cppp
@@ -45,21 +45,21 @@ while(status == find(word)) { /* ... */ }
 if (!status) { /* ... */ }
 ```
 
-##Exercise 5.5
+## Exercise 5.5
 
 > Using an if–else statement, write your own version of the
 program to generate the letter grade from a numeric grade.
 
 [Exer05_05.cpp](Exer05_05.cpp) 
 
-##Exercise 5.6
+## Exercise 5.6
 
 > Rewrite your grading program to use the conditional operator
 (§ 4.7, p. 151) in place of the if–else statement.
 
 [Exer05_06.cpp](Exer05_06.cpp) 
 
-##Exercise 5.7
+## Exercise 5.7
 
 > Correct the errors in each of the following code fragments:
 ```cpp
@@ -91,7 +91,7 @@ program to generate the letter grade from a numeric grade.
 (d) if (ival == 0)
         ival = get_value();
 ```
-##Exercise 5.8
+## Exercise 5.8
 
 > What is a “dangling else”? How are else clauses resolved in C++?
 
@@ -101,14 +101,14 @@ else belongs. Such else is a dangling else.
 In C++, the ambiguity is resolved by specifying that each else is matched with the
 closest preceding unmatched if.
 
-##Exercise 5.9
+## Exercise 5.9
 
 > Write a program using a series of if statements to count the
 number of vowels in text read from cin.
 
 [Exer05_09.cpp](Exer05_09.cpp) 
 
-##Exercise 5.10
+## Exercise 5.10
 
 > There is one problem with our vowel-counting program as
 we’ve implemented it: It doesn’t count capital letters as vowels. Write a
@@ -118,14 +118,14 @@ aCnt, and so forth.
 
 [Exer05_10.cpp](Exer05_10.cpp) 
 
-##Exercise 5.11
+## Exercise 5.11
 
 > Modify our vowel-counting program so that it also counts the
 number of blank spaces, tabs, and newlines read.
 
 [Exer05_11.cpp](Exer05_11.cpp) 
 
-##Exercise 5.12
+## Exercise 5.12
 
 > Modify our vowel-counting program so that it counts the
 number of occurrences of the following two-character sequences: ff, fl,
@@ -133,7 +133,7 @@ and fi.
 
 [Exer05_12.cpp](Exer05_12.cpp) 
 
-##Exercise 5.13
+## Exercise 5.13
 
 > Each of the programs in the highlighted text on page 184 contains a common programming error. Identify and correct each error.
 ```cpp
@@ -235,7 +235,7 @@ the output should indicate that the word now occurred three times.
 
 [Exer05_14.cpp](Exer05_14.cpp) 
 
-##Exercise 5.15
+## Exercise 5.15
 
 > Explain each of the following loops. Correct any problems you detect.
 ```cpp
@@ -261,7 +261,7 @@ because both _ix_ and _sz_ is incremented at the end of one iteration.
 
 [Exer05_15.cpp](Exer05_15.cpp) 
 
-##Exercise 5.16
+## Exercise 5.16
 
 > The while loop is particularly good at executing while some condition holds; for example, when we need to read values until end-of-file. The for loop is generally thought of as a **step loop**: An index steps through a range of values in a collection. Write an idiomatic use of each loop and then rewrite each using the other loop construct. If you could use only one loop, which would you choose? Why?
 
@@ -298,7 +298,7 @@ for (int i; cin >> i;) {
     - **for loop** is quite fit for accessing elements in a sequence.
     - **while loop** is quite fit for uncertain number of iterations.
 
-##Exercise 5.17
+## Exercise 5.17
 
 > Given two vectors of ints, write a program to determine
 whether one vector is a prefix of the other. For vectors of unequal
@@ -308,7 +308,7 @@ example, given the vectors containing 0, 1, 1, and 2 and 0, 1, 1, 2, 3, 5,
 
 [Exer05_17.cpp](Exer05_17.cpp) 
 
-##Exercise 5.18
+## Exercise 5.18
 
 > Explain each of the following loops. Correct any problems you detect.
 ```cpp
@@ -345,7 +345,7 @@ example, given the vectors containing 0, 1, 1, and 2 and 0, 1, 1, 2, 3, 5,
 
 [Exer05_18.cpp](Exer05_18.cpp) 
 
-##Exercise 5.19
+## Exercise 5.19
 
 > Write a program that uses a do while loop to repetitively
 request two strings from the user and report which string is less than
@@ -353,7 +353,7 @@ the other.
 
 [Exer05_19.cpp](Exer05_19.cpp) 
 
-##Exercise 5.20
+## Exercise 5.20
 
 > Write a program to read a sequence of strings from the
 standard input until either the same word occurs twice in succession or all
@@ -364,14 +364,14 @@ message saying that no word was repeated.
 
 [Exer05_20.cpp](Exer05_20.cpp) 
 
-##Exercise 5.21
+## Exercise 5.21
 
 > Revise the program from the exercise in § 5.5.1 (p. 191) so
 that it looks only for duplicated words that start with an uppercase letter.
 
 [Exer05_21.cpp](Exer05_21.cpp) 
 
-##Exercise 5.22
+## Exercise 5.22
 
 > The last example in this section that jumped back to begin could be better written using a loop. Rewrite the code to eliminate the _goto_.
 
@@ -395,14 +395,14 @@ do {
 } while (sz <= 0)
 ```
 
-##Exercise 5.23
+## Exercise 5.23
 
 > Write a program that reads two integers from the standard
 input and prints the result of dividing the first number by the second.
 
 [Exer05_23.cpp](Exer05_23.cpp) 
 
-##Exercise 5.24
+## Exercise 5.24
 
 > Revise your program to throw an exception if the second
 number is zero. Test your program with a zero input to see what happens on
@@ -410,7 +410,7 @@ your system if you don’t catch an exception.
 
 [Exer05_24.cpp](Exer05_24.cpp) 
 
-##Exercise 5.25
+## Exercise 5.25
 
 > Revise your program from the previous exercise to use a
 try block to catch the exception. The catch clause should print a message

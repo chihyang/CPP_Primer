@@ -1,10 +1,10 @@
-##Exercise 4.1
+## Exercise 4.1
 
 > What is the value returned by 5 + 10 * 20/2?
 
 105
 
-##Exercise 4.2
+## Exercise 4.2
 
 > Using Table 4.12 (p. 166), parenthesize the following expressions to
 indicate the order in which the operands are grouped:
@@ -17,7 +17,7 @@ indicate the order in which the operands are grouped:
 
 (b) (\*(vec.begin())) + 1
 
-##Exercise 4.3
+## Exercise 4.3
 
 > Order of evaluation for most of the binary operators is left
 undefined to give the compiler opportunities for optimization.
@@ -30,7 +30,7 @@ circumstances when a programmer does need to refer and change the same object. A
 long as a programmer knows exactly how his compiler processes the operation, he can take
 advantage of it. But such codes highly depend on environment. It's not recommended.
 
-##Exercise 4.4
+## Exercise 4.4
 
 > Parenthesize the following expression to show how it is evaluated.
 Test your answer by compiling the expression (without parentheses)
@@ -41,7 +41,7 @@ and printing its result.
 
 [Exer04_04.cpp](Exer04_04.cpp) 
 
-##Exercise 4.5
+## Exercise 4.5
 
 > Determine the result of the following expressions.
 ```cpp
@@ -53,7 +53,7 @@ and printing its result.
 
 [Exer04_05.cpp](Exer04_05.cpp) 
 
-##Exercise 4.6
+## Exercise 4.6
 
 > Write an expression to determine whether an int value is even or odd.
 
@@ -61,7 +61,7 @@ and printing its result.
 ival % 2 == 0
 ```
 
-##Exercise 4.7
+## Exercise 4.7
 
 > What does overflow mean? Show three expressions that will overflow.
 
@@ -75,7 +75,7 @@ unsigned char ch = 256;
 
 [Exer04_07.cpp](Exer04_07.cpp) 
 
-##Exercise 4.8
+## Exercise 4.8
 
 > Explain when operands are evaluated in the logical `AND`, logical `OR`, and equality operators.
 
@@ -83,7 +83,7 @@ unsigned char ch = 256;
 - `OR`: right-hand operands are evaluated if and only if left-hand operands are false;
 - `EQALITY`: right-hand operands are always evaluated, but the order of evaluation is not guaranteed.
 
-##Exercise 4.9
+## Exercise 4.9
 
 > Explain the behavior of the condition in the following if:
 ```cpp
@@ -96,14 +96,14 @@ the value of the expression is false, otherwise the value of the object that _cp
 evaluated; if the value is true, the value of the expression is true, otherwise the result is
 false.
 
-##Exercise 4.10
+## Exercise 4.10
 
 > Write the condition for a while loop that would read ints from
 the standard input and stop when the value read is equal to 42.
 
 [Exer04_10.cpp](Exer04_10.cpp) 
 
-##Exercise 4.11
+## Exercise 4.11
 
 > Write an expression that tests four values, _a_, _b_, _c_, and _d_,
 and ensures that _a_ is greater than _b_, which is greater than _c_,
@@ -113,7 +113,7 @@ which is greater than _d_.
 a > b && b > c && c > d
 ```
 
-##Exercise 4.12
+## Exercise 4.12
 
 > Assuming _i_, _j_, and _k_ are all _ints_, explain what `i != j < k` means.
 
@@ -121,7 +121,7 @@ a > b && b > c && c > d
 - when _j_ is less than _k_, if _i_ is equal to 0, the result is _true_, otherwise the result is _false_;
 - when _j_ is greater than or equal to _k_, if _i_ is equal to 0, the result is _false_, otherwise the result is _true_.
 
-##Exercise 4.13
+## Exercise 4.13
 
 > What are the values of _i_ and _d_ after each assignment?
 ```cpp
@@ -134,7 +134,7 @@ int i;   double d;
 
 (b) _i_ = 3, _d_ = 3.5
 
-##Exercise 4.14
+## Exercise 4.14
 
 > Explain what happens in each of the if tests:
 ```cpp
@@ -147,7 +147,7 @@ if (i = 42)
 - The second if test assigns 42 to _i_, thus the expression `i = 42` returns _i_, 
 whose value is 42. The result of if tests is always true.
  
-##Exercise 4.15
+## Exercise 4.15
 
 > The following assignment is illegal. Why? How would you correct it?
 ```cpp
@@ -161,7 +161,7 @@ dval = (ival = (pi = 0));
 ```
 We cannot assign the value of a pointer to an _int_.
 
-##Exercise 4.16
+## Exercise 4.16
 
 > Although the following are legal,
 they probably do not behave as the programmer expects. Why?
@@ -182,7 +182,7 @@ if ((p = getPtr()) != 0)
 if (i == 1024)
 ```
 
-##Exercise 4.17
+## Exercise 4.17
 
 > Explain the difference between prefix and postfix increment.
 
@@ -190,7 +190,7 @@ if (i == 1024)
 - postfix increment: increment its operand but yields a copy of the original, unchanged values as its 
 result.
 
-##Exercise 4.18
+## Exercise 4.18
 
 > What would happen if the while loop on page 148 that prints
 the elements from a vector used the prefix increment operator?
@@ -202,7 +202,7 @@ If we used prefix increment as above, first _pbeg_ increments and then its value
 returned. Thus _*++pbeg_ is equivalent to *(pbeg + 1). The problem is this expression
 will ignore the first element in the vector.
 
-##Exercise 4.19
+## Exercise 4.19
 
 > Given that _ptr_ points to an _int_, that _vec_ is a _vector<int>_,
 and that _ival_ is an _int_, explain the behaviour of each of these expressions.
@@ -229,7 +229,7 @@ vec[ival]_ <= vec[ival];
 ```
 which is always true.
 
-##Exercise 4.20
+## Exercise 4.20
 
 > Assuming that _iter_ is a _vector<string>::iterator_,
 indicate which, if any, of the following expressions are legal.
@@ -268,7 +268,7 @@ But the result of iter.empty() is a _bool_ cannot be dereferenced.
 member function _empty_ to judge if the _string_ that the original _iter_ points
 is empty.
 
-##Exercise 4.21
+## Exercise 4.21
 
 > Write a program to use a conditional operator to find the
 elements in a _vector<int>_ that have odd value and double the value of
@@ -276,7 +276,7 @@ each such element.
 
 [Exer04_21.cpp](Exer04_21.cpp) 
 
-##Exercise 4.22
+## Exercise 4.22
 
 > Extend the program that assigned high pass, pass, and fail
 grades to also assign low pass for grades between 60 and 75 inclusive. Write
@@ -289,7 +289,7 @@ somewhat error-prone.
 
 [Exer04_22_1.cpp](Exer04_22_1.cpp) | [Exer04_22_2.cpp](Exer04_22_2.cpp) 
 
-##Exercise 4.23
+## Exercise 4.23
 
 > The following expression fails to compile due to operator precedence.
 Using Table 4.12 (p. 166), explain why it fails. How would you fix it?
@@ -311,7 +311,7 @@ It should be:
 string p1 = s + (s[s.size() - 1] == 's' ? "" : "s");
 ```
 
-##Exercise 4.24
+## Exercise 4.24
 
 > Our program that distinguished between high pass, pass,
 and fail depended on the fact that
@@ -329,7 +329,7 @@ the same type.
 
 [Exer04_24.cpp](Exer04_24.cpp)
 
-##Exercise 4.25
+## Exercise 4.25
 
 > What is the value of ~'q' << 6 on a machine with 32-bit _ints_ and 8 bit _chars_, that uses Latin-1 character set in which 'q' has the bit pattern 01110001?
 
@@ -343,13 +343,13 @@ The result is:
 11111111 11111111 11100011 10000000
 ```
 
-##Exercise 4.26
+## Exercise 4.26
 
 > In our grading example in this section, what would happen if we used _unsigned_ _int_ as the type for _quiz1_?
 
 On machine where _int_ is 16-bit wise, we may get unexpected result.
 
-##Exercise 4.27
+## Exercise 4.27
 
 > What is the result of each of these expressions?
 ```cpp
@@ -368,14 +368,14 @@ unsigned long ul1 = 3, ul2 = 7;
 
 (d) true.
 
-##Exercise 4.28
+## Exercise 4.28
 
 > Write a program to print the size of each of the built-in
 types.
 
 [Exer04_28.cpp](Exer04_28.cpp) 
 
-##Exercise 4.29
+## Exercise 4.29
 
 > Predict the output of the following code and explain your reasoning. Now run the program. Is the output what you expected? If not, figure out why.
 ```cpp
@@ -396,7 +396,7 @@ The result is machine dependent. See the source file below.
 
 [Exer04_29.cpp](Exer04_29.cpp) 
 
-##Exercise 4.30
+## Exercise 4.30
 
 > Using Table 4.12 (p. 166), parenthesize the following expressions to match the default evaluation:
 ```cpp
@@ -414,7 +414,7 @@ The result is machine dependent. See the source file below.
 
 (d) sizeof(f())
 
-##Exercise 4.31
+## Exercise 4.31
 
 > The program in this section used the prefix increment and decrement operators. Explain why we used prefix and not postfix. What changes would have to be made to use the postfix versions? Rewrite the program using postfix operators.
 
@@ -422,7 +422,7 @@ In this program there is no difference, we can use both prefix and postfix incre
 
 [Exer04_31.cpp](Exer04_31.cpp) 
 
-##Exercise 4.32
+## Exercise 4.32
 
 > Explain the following loop.
 ```cpp
@@ -445,7 +445,7 @@ The last comma expression:
 ```
 increment _ix_ and _ptr_ to access to next element in _ia_
 
-##Exercise 4.33
+## Exercise 4.33
 
 > Using Table 4.12 (p. 166) explain what the following expression does:
 ```cpp
@@ -473,7 +473,7 @@ The language tries to make the expression meaningful.
 Please refer to [the answer](https://github.com/Mooophy/Cpp-Primer/tree/master/ch04) from
 [Mooophy](https://github.com/Mooophy).
 
-##Exercise 4.34
+## Exercise 4.34
 
 > Given the variable definitions in this section, explain what conversions take place in the following expressions:
 ```cpp
@@ -489,7 +489,7 @@ Remember that you may need to consider the associativity of the operators.
 
 (c) _cval_ is promoted to _int_, then _ival_ * _cval_ is converted to _double_.
 
-##Exercise 4.35
+## Exercise 4.35
 
 > Given the following definitions,
 ```cpp
@@ -513,7 +513,7 @@ converted to _float_.
 (d) _ival_ is converted to _float_, then the result of `ival + fval` is converted to _double_, then 
 the result of `ival + fval + dval` is converted to _char_.
 
-##Exercise 4.36
+## Exercise 4.36
 
 > Assuming _i_ is an _int_ and _d_ is a _double_ write the expression `i *= d` so that it does integral, rather than floating-point, multiplication.
 
@@ -521,7 +521,7 @@ the result of `ival + fval + dval` is converted to _char_.
 i *= static_cast<int>(d);
 ```
 
-##Exercise 4.37
+## Exercise 4.37
 
 > Rewrite each of the following old-style casts to use a named cast:
 ```cpp
@@ -534,7 +534,7 @@ int i;    double d;    const string *ps;    char *pc; void *pv;
 
 [Exer04_37.cpp](Exer04_37.cpp) 
 
-##Exercise 4.38
+## Exercise 4.38
 
 > Explain the following expression:
 ```cpp

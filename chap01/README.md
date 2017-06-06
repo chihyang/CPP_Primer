@@ -1,32 +1,32 @@
-##Exercise 1.1
+## Exercise 1.1
 
 > Review the documentation for your compiler and determine what file naming convention it uses. Compile and run the _main_ program from page 2.
 
 [Exer01_01.cpp](Exer01_01.cpp)
 
-##Exercise 1.2
+## Exercise 1.2
 
 > Change the program to return -1. A return value of -1 is often treated as an indicator that the program failed. Recompile and rerun your program to see how your system treats a failure indicator from _main_.
 
 [Exer01_02.cpp](Exer01_02.cpp)
 
-##Exercise 1.3
+## Exercise 1.3
 > Write a program to print _Hello_, _World_ on the standard output.
 
 [Exer01_03.cpp](Exer01_03.cpp)
 
-##Exercise 1.4
+## Exercise 1.4
 > Our program used the addition operator, +, to add two numbers. Write a program that uses the multiplication operator, *, to print the product instead.
 
 [Exer01_04.cpp](Exer01_04.cpp)
 
-##Exercise 1.5
+## Exercise 1.5
 
 > We wrote the output in one large statement. Rewrite the program to use a separate statement to print each operand.
 
 [Exer01_05.cpp](Exer01_05.cpp)
 
-##Exercise 1.6
+## Exercise 1.6
 > Explain whether the following program fragment is legal.
 ```cpp
 std::cout << "The sum of " << v1;
@@ -44,13 +44,13 @@ std::cout << "The sum of " << v1
 		  << " is " << v1 + v2 << std::endl;
 ```
 
-##Exercise 1.7
+## Exercise 1.7
 
 > Compile a program that has incorrectly nested comments.
 
 [Exer01_07.cpp](Exer01_07.cpp)
 
-##Exercise 1.8
+## Exercise 1.8
 
 > Indicate which, if any, of the following output statements are legal:
 ```cpp
@@ -78,14 +78,14 @@ We can correct it as below:
 ```
 see [Exer01_08.cpp](Exer01_08.cpp)
 
-##Exercise 1.9
+## Exercise 1.9
 
 > Write a program that uses a _while_ to sum the numbers from
 50 to 100.
 
 [Exer01_09.cpp](Exer01_09.cpp)
 
-##Exercise 1.10
+## Exercise 1.10
 
 > In addition to the ++ operator that adds 1 to its operand,
 there is a decrement operator (--) that subtracts 1. Use the decrement
@@ -93,14 +93,14 @@ operator to write a _while_ that prints the numbers from ten down to zero.
 
 [Exer01_10.cpp](Exer01_10.cpp)
 
-##Exercise 1.11
+## Exercise 1.11
 
 > Write a program that prompts the user for two integers.
 Print each number in the range specified by those two integers.
 
 [Exer01_11.cpp](Exer01_11.cpp)
 
-##Exercise 1.12
+## Exercise 1.12
 
 > What does the following _for_ loop do? What is the final value
 of _sum_?
@@ -115,13 +115,13 @@ The _for_ loop evaluates the sum from -100 to 100. The final value of _sum_ is
 
 See [Exer01_12.cpp](Exer01_12.cpp)
 
-##Exercise 1.13
+## Exercise 1.13
 
 > Rewrite the exercises from § 1.4.1 (p. 13) using _for_ loops.
 
 [Exer01_13_1.cpp](Exer01_13_1.cpp) | [Exer01_13_2.cpp](Exer01_13_2.cpp) | [Exer01_13_3.cpp](Exer01_13_3.cpp)
 
-##Exercise 1.14
+## Exercise 1.14
 
 > Compare and contrast the loops that used a _for_ with those
 using a _while_. Are there advantages or disadvantages to using either form?
@@ -134,7 +134,7 @@ using a _while_. Are there advantages or disadvantages to using either form?
 
     _while_ is more fit for loops that will execute unknown times.
 
-##Exercise 1.15
+## Exercise 1.15
 
 > Write programs that contain the common errors discussed in
 the box on page 16. Familiarize yourself with the messages the compiler
@@ -142,14 +142,14 @@ generates.
 
 (nothing)
 
-##Exercise 1.16
+## Exercise 1.16
 
 > Write your own version of a program that prints the sum of
 a set of integers read from _cin_.
 
 [Exer01_16.cpp](Exer01_16.cpp)
 
-##Exercise 1.17
+## Exercise 1.17
 
 > What happens in the program presented in this section if the input values are all equal? What if there are no duplicated values?
 
@@ -159,44 +159,44 @@ If there are no duplicated values, there will be as many lines of outputs as the
 
 See next exercise.
 
-##Exercise 1.18
+## Exercise 1.18
 
 > Compile and run the program from this section giving it only equal values as input. Run it again giving it values in which no number is repeated.
 
 [Exer01_18.cpp](Exer01_18.cpp)
 
-##Exercise 1.19
+## Exercise 1.19
 
 > Revise the program you wrote for the exercises in § 1.4.1 (p. 13) that printed a range of numbers so that it handles input in which the first number is smaller than the second.
 
 [Exer01_19.cpp](Exer01_19.cpp)
 
-##Exercise 1.20
+## Exercise 1.20
 
 > http://www.informit.com/title/032174113 contains a copy of _Sales_item.h_ in the Chapter 1 code directory. Copy that file to your working directory. Use it to write a program that reads a set of book sales transactions, writing each transaction to the standard output.
 
 [Exer01_20.cpp](Exer01_20.cpp)
 
-##Exercise 1.21
+## Exercise 1.21
 
 > Write a program that reads two _Sales_item_ objects that have the same ISBN and produces their sum.
 
 [Exer01_21.cpp](Exer01_21.cpp)
 
-##Exercise 1.22
+## Exercise 1.22
 
 > Write a program that reads several transactions for the same ISBN. Write the sum of all the transactions that were read.
 
 [Exer01_22.cpp](Exer01_22.cpp)
 
-##Exercise 1.23
+## Exercise 1.23
 
 > Write a program that reads several transactions and counts
 how many transactions occur for each ISBN.
 
 [Exer01_24.cpp](Exer01_24.cpp)
 
-##Exercise 1.24
+## Exercise 1.24
 
 > Test the previous program by giving multiple transactions
 representing multiple ISBNs. The records for each ISBN should be grouped
@@ -204,7 +204,7 @@ together.
 
 [Exer01_24.cpp](Exer01_24.cpp)
 
-##Exercise 1.25
+## Exercise 1.25
 
 > Using the _Sales_item.h_ header from the Web site,
 compile and execute the bookstore program presented in this section.

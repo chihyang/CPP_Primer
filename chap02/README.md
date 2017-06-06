@@ -1,4 +1,4 @@
-##Exercise 2.1
+## Exercise 2.1
 
 > What are the differences between _int_, _long_, _long_ _long_,
 and _short_? Between an unsigned and a signed type? Between a _float_ and
@@ -28,7 +28,7 @@ a _double_?
 
     _double_: double-precision floating-point value, at least yields 10 significant digits.
 
-##Exercise 2.2
+## Exercise 2.2
 
 > To calculate a mortgage payment, what types would you use
 for the rate, principal, and payment? Explain why you selected each type.
@@ -45,7 +45,7 @@ floating point types.
 * _double_ provides higher precision than _float_.
 
 
-##Exercise 2.3
+## Exercise 2.3
 
 > What output will the following code produce?
 ```cpp
@@ -69,14 +69,14 @@ The output(compiled by g++):
 0
 ```
 
-##Exercise 2.4
+## Exercise 2.4
 
 > Write a program to check whether your predictions were
 correct. If not, study this section until you understand what the problem is.
 
 [Exer02_04.cpp](Exer02_04.cpp)
 
-##Exercise 2.5
+## Exercise 2.5
 
 > Determine the type of each of the following literals. Explain
 the differences among the literals in each of the four examples:
@@ -117,7 +117,7 @@ L"a" - const wchar_t[2]
 10e-2 - double
 ```
    
-##Exercise 2.6
+## Exercise 2.6
 
 > What, if any, are the differences between the following
 definitions:
@@ -129,7 +129,7 @@ int month = 09, day = 07;
 The first line uses decimal numbers as initializers, while the second line uses octal numbers as
 initializers. But 9 is not a octal number, so it's an error.
 
-##Exercise 2.7
+## Exercise 2.7
 
 > What values do these literals represent? What type does each
 have?
@@ -148,7 +148,7 @@ have?
 
 (d) 3.14, long double
 
-##Exercise 2.8
+## Exercise 2.8
 
 > Using escape sequences, write a program to print _2M_ followed
 by a newline. Modify the program to print _2_, then a tab, then an _M_, followed
@@ -156,7 +156,7 @@ by a newline.
 
 [Exer02_08.cpp](Exer02_08.cpp)
 
-##Exercise 2.9
+## Exercise 2.9
 
 > Explain the following definitions. For those that are illegal,
 explain what’s wrong and how to correct it.
@@ -169,7 +169,7 @@ explain what’s wrong and how to correct it.
 
 See [Exer02_09.cpp](Exer02_09.cpp).
 
-##Exercise 2.10
+## Exercise 2.10
 
 > What are the initial values, if any, of each of the following variables?
 ```cpp
@@ -190,7 +190,7 @@ local_int: undefined value
 
 local_str: empty string
 
-##Exercise 2.11
+## Exercise 2.11
 
 > Explain whether each of the following is a declaration or a
 definition:
@@ -206,7 +206,7 @@ definition:
 
 (c) declaration
 
-##Exercise 2.12
+## Exercise 2.12
 
 > Which, if any, of the following names are invalid?
 ```cpp
@@ -229,7 +229,7 @@ definition:
 
 [Exer02_12.cpp](Exer02_12.cpp)
 
-##Exercise 2.13
+## Exercise 2.13
 
 > What is the value of _j_ in the following program?
 ```cpp
@@ -243,7 +243,7 @@ int main()
 
 _j_ = 100, local variable _i_ hides global variable with the same name.
 
-##Exercise 2.14
+## Exercise 2.14
 
 > Is the following program legal? If so, what values are printed?
 ```cpp
@@ -258,7 +258,7 @@ legal, output is
 45 100
 ```
 
-##Exercise 2.15
+## Exercise 2.15
 
 > Which of the following definitions, if any, are invalid? Why?
 ```cpp
@@ -276,7 +276,7 @@ legal, output is
 
 (d) invalid, reference must be initialized.
 
-##Exercise 2.16
+## Exercise 2.16
 
 > Which, if any, of the following assignments are invalid? If they are valid, explain what they do.
 ```cpp
@@ -302,7 +302,7 @@ to another type, but could be assigned with another compatible type.
 
 [Exer02_16.cpp](Exer02_16.cpp)
 
-##Exercise 2.17
+## Exercise 2.17
 
 > What does the following code print?
 ```cpp
@@ -315,7 +315,7 @@ std::cout << i << " " << ri << std::endl;
 10 10
 ```
 
-##Exercise 2.18
+## Exercise 2.18
 
 > Write code to change the value of a pointer. Write code to
 change the value to which the pointer points.
@@ -327,7 +327,7 @@ p = &val1;
 *p = val2;
 ```
 
-##Exercise 2.19
+## Exercise 2.19
 
 > Explain the key differences between pointers and references.
 
@@ -336,7 +336,7 @@ Key differences:
 - references must be initialized and can only be bound to one object, but pointers can be
 bound to different objects and don't have to be initialized.
 
-##Exercise 2.20
+## Exercise 2.20
 
 > What does the following program do?
 ```cpp
@@ -347,7 +347,7 @@ int *p1 = &i; *p1 = *p1 * *p1;
 The program initializes pointer _p1_ with _i_ and changes the value of _i_ to its 
 square by dereferencing the pointer _p1_.
 
-##Exercise 2.21
+## Exercise 2.21
 
 > Explain each of the following definitions. Indicate whether any are illegal and, if so, why.
 ```cpp
@@ -363,7 +363,7 @@ int i = 0;
 
 (c) legal.
 
-##Exercise 2.22
+## Exercise 2.22
 
 > Assuming _p_ is a pointer to _int_, explain the following code:
 ```cpp
@@ -375,14 +375,14 @@ if (*p) // ...
 
 ```if (*p)``` judges if the value of the object that _p_ points to is 0.
 
-##Exercise 2.23
+## Exercise 2.23
 
 > Given a pointer _p_, can you determine whether _p_ points to a valid object? If so, how? If not, why not?
 
 No, we cannot determine if _p_ points to a valid object. Because we cannot distinguish 
 a valid address from an invalid one. 
 
-##Exercise 2.24
+## Exercise 2.24
 
 > Why is the initialization of _p_ legal but that of _lp_ illegal?
 ```cpp
@@ -394,7 +394,7 @@ long *lp = &i;
 Because we can use a _void_ pointer to point to object of any type, otherwise the type of the pointer
 and the object it points to must match.
 
-##Exercise 2.25
+## Exercise 2.25
 
 > Determine the types and values of each of the following
 variables.
@@ -424,7 +424,7 @@ _ip_: _int_ pointer, uninitialized
 
 _ip2_: _int_, uninitialized
 
-##Exercise 2.26
+## Exercise 2.26
 
 > Which of the following are legal? For those that are illegal,
 explain why.
@@ -443,7 +443,7 @@ explain why.
 
 (d) illegal, _sz_ is a const and thus its value cannot be changed.
 
-##Exercise 2.27
+## Exercise 2.27
 
 > Which of the following initializations are legal? Explain why.
 ```cpp
@@ -472,7 +472,7 @@ explain why.
 
 [Exer02_27.cpp](Exer02_27.cpp)
 
-##Exercise 2.28
+## Exercise 2.28
 
 > Explain the following definitions. Identify any that are illegal.
 ```cpp
@@ -494,7 +494,7 @@ explain why.
 
 (e) legal; define a pointer to const _int_.
 
-##Exercise 2.29
+## Exercise 2.29
 
 > Uing the variables in the previous exercise, which of the
 following assignments are legal? Explain why.
@@ -519,7 +519,7 @@ following assignments are legal? Explain why.
 
 (f) illegal; const variables cannot be assigned.
 
-##Exercise 2.30
+## Exercise 2.30
 
 > For each of the following declarations indicate whether the
 object being declared has top-level or low-level _const_.
@@ -543,7 +543,7 @@ _p3_: top-level and low-level const.
 
 _r2_: low-level const.
 
-##Exercise 2.31
+## Exercise 2.31
 
 > Given the declarations in the previous exercise determine
 whether the following assignments are legal. Explain how the top-level or
@@ -566,7 +566,7 @@ p2 = p3;
 
 (e) legal; top-level const are ignored, both _p2_ and _p3_ are low-level const.
 
-##Exercise 2.32
+## Exercise 2.32
 
 > Is the following code legal or not? If not, how might you
 make it legal?
@@ -576,7 +576,7 @@ int null = 0, *p = null;
 
 Illegal. It's illegal to assign a _int_ variable to a pointer, even if the variable's value is 0.(page 54)
 
-##Exercise 2.33
+## Exercise 2.33
 
 > Using the variable definitions from this section, determine
 what happens in each of these assignments:
@@ -594,7 +594,7 @@ e=42; // illegal; e is a pointer to const
 g=42; // illegal; g is a const int
 ```
 
-##Exercise 2.34
+## Exercise 2.34
 
 > Write a program containing the variables and assignments from the
 previous exercise.
@@ -605,7 +605,7 @@ what led you to the wrong conclusion.
 
 [Exer02_34.cpp](Exer02_34.cpp)
 
-##Exercise 2.35
+## Exercise 2.35
 
 > Determine the types deduced in each of the following definitions.
 Once you’ve figured out the types,
@@ -627,7 +627,7 @@ _k2_: const reference to _int_.
 
 [Exer02_35.cpp](Exer02_35.cpp)
 
-##Exercise 2.36
+## Exercise 2.36
 
 > In the following code, determine the type of each variable
 and the value each variable has when the code finishes:
@@ -651,7 +651,7 @@ c = 4;
 b = 4;
 ```
 
-##Exercise 2.37
+## Exercise 2.37
 
 > Assignment is an example of an expression that yields a reference type. The type is a reference to the type of the left-hand operand. That is, if _i_ is an _int_, then the type of the expression _i_ = _x_ is _int&_. Using that knowledge, determine the type and value of each variable in this code:
 ```cpp
@@ -664,7 +664,7 @@ _c_: _int_;
 
 _d_: reference to _int_.
 
-##Exercise 2.38
+## Exercise 2.38
 
 > Describe the differences in type deduction between _decltype_ and _auto_. Give an example of an expression where _auto_ and _decltype_ will deduce the same type and an example where they will deduce differing types.
 
@@ -691,7 +691,7 @@ auto b = (a);        // b is int
 decltype((a)) c = a; // c is reference to int
 ```
 
-##Exercise 2.39
+## Exercise 2.39
 
 > Compile the following program to see what happens when
 you forget the semicolon after a class definition. Remember the message for
@@ -706,13 +706,13 @@ int main()
 
 [Exer02_39.cpp](Exer02_39.cpp)
 
-##Exercise 2.40
+## Exercise 2.40
 
 > Write your own version of the _Sales_data_ class.
 
 [Sales_data.h](Sales_data.h)
 
-##Exercise 2.41
+## Exercise 2.41
 
 > Use your _Sales_data_ class to rewrite the exercises in §
 1.5.1(p. 22), § 1.5.2(p. 24), and § 1.6(p. 25). For now, you should define
@@ -720,7 +720,7 @@ your _Sales_data_ class in the same file as your _main_ function.
 
 [Exer02_41_1.cpp](Exer02_41_1.cpp) | [Exer02_41_2.cpp](Exer02_41_2.cpp) | [Exer02_41_3.cpp](Exer02_41_3.cpp)
 
-##Exercise 2.42
+## Exercise 2.42
 
 > Write your own version of the _Sales_data.h_ header and use it to rewrite the exercise from § 2.6.2(p. 76)
 

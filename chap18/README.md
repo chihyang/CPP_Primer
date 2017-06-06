@@ -1,4 +1,4 @@
-##Exercise 18.1
+## Exercise 18.1
 
 > What is the type of the exception object in the following
 throws?
@@ -10,7 +10,7 @@ throws?
 ```
 What would happen if the throw in (b) were written as throw p?
 
-##Exercise 18.2
+## Exercise 18.2
 
 > Explain what happens if an exception occurs at the indicated
 point:
@@ -24,14 +24,14 @@ void exercise(int *b, int *e)
 }
 ```
 
-##Exercise 18.3
+## Exercise 18.3
 
 > There are two ways to make the previous code work
 correctly if an exception is thrown. Describe them and implement them.
 
 [Exer18_03_1.cpp](Exer18_03_1.cpp) | [Exer18_03_2.cpp](Exer18_03_2.cpp) | [Exer18_03_3.cpp](Exer18_03_3.cpp) 
 
-##Exercise 18.4
+## Exercise 18.4
 
 > Looking ahead to the inheritance hierarchy in Figure 18.1 (p.
 783), explain what’s wrong with the following try block. Correct it.
@@ -45,7 +45,7 @@ try {
 } catch(overflow_error eobj) { /* ... */ }
 ```
 
-##Exercise 18.5
+## Exercise 18.5
 
 > Modify the following main function to catch any of the
 exception types shown in Figure 18.1 (p. 783):
@@ -59,7 +59,7 @@ calling abort (defined in the header cstdlib) to terminate main.
 
 [Exer18_05.cpp](Exer18_05.cpp) 
 
-##Exercise 18.6
+## Exercise 18.6
 
 > Given the following exception types and catch clauses,
 write a throw expression that creates an exception object that can be caught
@@ -72,20 +72,20 @@ by each catch clause:
     catch(EXCPTYPE) { }
 ```
 
-##Exercise 18.7
+## Exercise 18.7
 
 > Define your Blob and BlobPtr classes from Chapter 16 to
 use function try blocks for their constructors.
 
 [Exer18_07.cpp](Exer18_07.cpp) | [Exer18_07_Blob.h](Exer18_07_Blob.h) 
 
-##Exercise 18.8
+## Exercise 18.8
 
 > Review the classes you’ve written and add appropriate
 exception specifications to their constructors and destructors. If you think one
 of your destructors might throw, change the code so that it cannot throw.
 
-##Exercise 18.9
+## Exercise 18.9
 
 > Define the bookstore exception classes described in this
 section and rewrite your Sales_data compound assigment operator to
@@ -93,7 +93,7 @@ throw an exception.
 
 [Exer18_09_Sales_data.h](Exer18_09_Sales_data.h) 
 
-##Exercise 18.10
+## Exercise 18.10
 
 > Write a program that uses the Sales_data addition
 operator on objects that have differing ISBNs. Write two versions of the
@@ -103,11 +103,11 @@ when an uncaught exception occurs.
 
 [Exer18_10_1.cpp](Exer18_10_1.cpp) | [Exer18_10_2.cpp](Exer18_10_2.cpp) 
 
-##Exercise 18.11
+## Exercise 18.11
 
 > Why is it important that the what function doesn’t throw?
 
-##Exercise 18.12
+## Exercise 18.12
 
 > Organize the programs you have written to answer the
 questions in each chapter into their own namespaces. That is, namespace
@@ -115,11 +115,11 @@ chapter15 would contain code for the Query programs and chapter10
 would contain the TextQuery code. Using this structure, compile the Query
 code examples.
 
-##Exercise 18.13
+## Exercise 18.13
 
 > When might you use an unnamed namespace?
 
-##Exercise 18.14
+## Exercise 18.14
 
 > Suppose we have the following declaration of the
 operator* that is a member of the nested namespace
@@ -136,12 +136,12 @@ namespace mathLib {
 ```
 How would you declare this operator in global scope?
 
-##Exercise 18.15
+## Exercise 18.15
 
 > Explain the differences between using declarations and
 directives.
 
-##Exercise 18.16
+## Exercise 18.16
 
 > Explain the following code assuming using declarations for
 all the members of namespace Exercise are located at the location labeled
@@ -165,13 +165,13 @@ void manip() {
 }
 ```
 
-##Exercise 18.17
+## Exercise 18.17
 
 > Write code to test your answers to the previous question.
 
 [Exer18_17_1.cpp](Exer18_17_1.cpp) | [Exer18_17_2.cpp](Exer18_17_2.cpp) | [Exer18_17_3.cpp](Exer18_17_3.cpp) | [Exer18_17_4.cpp](Exer18_17_4.cpp) 
 
-##Exercise 18.18
+## Exercise 18.18
 
 > Given the following typical definition of swap § 13.3 (p.
 517), determine which version of swap is used if mem1 is a string. What if
@@ -185,11 +185,11 @@ void swap(T v1, T v2)
 }
 ```
 
-##Exercise 18.19
+## Exercise 18.19
 
 > What if the call to swap was std::swap(v1.mem1, v2.mem1)?
 
-##Exercise 18.20
+## Exercise 18.20
 
 > In the following code, determine which function, if any,
 matches the call to compute. List the candidate and viable functions. What
@@ -214,7 +214,7 @@ to compute? Answer the same questions as before.
 
 [Exer18_20_1.cpp](Exer18_20_1.cpp) | [Exer18_20_2.cpp](Exer18_20_2.cpp) 
 
-##Exercise 18.21
+## Exercise 18.21
 
 > Explain the following declarations. Identify any that are in
 error and explain why they are incorrect:
@@ -224,7 +224,7 @@ error and explain why they are incorrect:
 (c) class iostream: public istream, public ostream { ... };
 ```
 
-##Exercise 18.22
+## Exercise 18.22
 
 > Given the following class hierarchy, in which each class
 defines a default constructor:
@@ -244,7 +244,7 @@ MI mi;
 
 [Exer18_22.cpp](Exer18_22.cpp) 
 
-##Exercise 18.23
+## Exercise 18.23
 
 > Using the hierarchy in exercise 18.22 along with class D
 defined below, and assuming each class defines a default constructor, which,
@@ -262,13 +262,13 @@ D *pd = new D;
 
 [Exer18_23.cpp](Exer18_23.cpp) 
 
-##Exercise 18.24
+## Exercise 18.24
 
 > On page 807 we presented a series of calls made through
 a Bear pointer that pointed to a Panda object. Explain each call assuming
 we used a ZooAnimal pointer pointing to a Panda object instead.
 
-##Exercise 18.25
+## Exercise 18.25
 
 > Assume we have two base classes, Base1 and Base2,
 each of which defines a virtual member named print and a virtual
@@ -293,7 +293,7 @@ D2 *pd2 = new MI;
 (f) delete pd2;
 ```
 
-##Exercise 18.26
+## Exercise 18.26
 
 > Given the hierarchy in the box on page 810, why is the
 following call to print an error? Revise MI to allow this call to print to
@@ -305,7 +305,7 @@ mi.print(42);
 
 [Exer18_26.cpp](Exer18_26.cpp) 
 
-##Exercise 18.27
+## Exercise 18.27
 
 > Given the class hierarchy in the box on page 810 and
 assuming we add a function named foo to MI as follows:
@@ -356,7 +356,7 @@ struct MI : public Derived, public Base2 {
 
 [Exer18_27.cpp](Exer18_27.cpp) 
 
-##Exercise 18.28
+## Exercise 18.28
 
 > Given the following class hierarchy, which inherited
 members can be accessed without qualification from within the VMI class?
@@ -384,7 +384,7 @@ class VMI : public Derived1, public Derived2 { };
 
 [Exer18_28.cpp](Exer18_28.cpp) 
 
-##Exercise 18.29
+## Exercise 18.29
 
 > Given the following class hierarchy:
 ```cpp
@@ -408,7 +408,7 @@ Base *pb; Class *pc; MI *pmi; D2 *pd2;
 
 [Exer18_29_1.cpp](Exer18_29_1.cpp) | [Exer18_29_2.cpp](Exer18_29_2.cpp) 
 
-##Exercise 18.30
+## Exercise 18.30
 
 > Define a default constructor, a copy constructor, and a
 constructor that has an int parameter in Base. Define the same three

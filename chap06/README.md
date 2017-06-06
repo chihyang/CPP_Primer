@@ -1,4 +1,4 @@
-##Exercise 6.1
+## Exercise 6.1
 
 > What is the difference between a parameter and an argument?
 
@@ -6,7 +6,7 @@ Arguments are the initializers for a function's parameters. We define a function
 with parameter(s), while we call a function with argument(s). If the number of 
 parameters are zero, so is arguments'.
 
-##Exercise 6.2
+## Exercise 6.2
 
 > Indicate which of the following functions are in error and why.
 Suggest how you might correct the problems.
@@ -21,13 +21,13 @@ Suggest how you might correct the problems.
 (d) double square (double x) return x * x; // function body must be closed by curly braces
 ```
 
-##Exercise 6.3
+## Exercise 6.3
 
 > Write and test your own version of fact.
 
 [Exer06_03.cpp](Exer06_03.cpp) 
 
-##Exercise 6.4
+## Exercise 6.4
 
 > Write a function that interacts with the user, asking for a
 number and generating the factorial of that number. Call this function from
@@ -35,13 +35,13 @@ main.
 
 [Exer06_04.cpp](Exer06_04.cpp) 
 
-##Exercise 6.5
+## Exercise 6.5
 
 > Write a function to return the absolute value of its argument.
 
 [Exer06_05.cpp](Exer06_05.cpp) 
 
-##Exercise 6.6
+## Exercise 6.6
 
 > Explain the differences between a parameter, a local variable,
 and a local static variable. Give an example of a function in which each
@@ -70,21 +70,21 @@ local variable. They are automatic objects.
 	We can define a static variable to represent the status of lights. Every time we call it,
 	we turn on/off lights, depending on we turned off/on lights last time.
     
-##Exercise 6.7
+## Exercise 6.7
 
 > Write a function that returns 0 when it is first called and then
 generates numbers in sequence each time it is called again.
 
 [Exer06_07.cpp](Exer06_07.cpp) 
 
-##Exercise 6.8
+## Exercise 6.8
 
 > Write a header file named Chapter6.h that contains
 declarations for the functions you wrote for the exercises in § 6.1 (p. 205).
 
 [Chapter6.h](Chapter6.h)
 
-##Exercise 6.9
+## Exercise 6.9
 
 > Write your own versions of the fact.cc and factMain.cc
 files. These files should include your Chapter6.h from the exercises in the
@@ -93,21 +93,21 @@ separate compilation.
 
 [Exer06_09.cpp](Exer06_09.cpp) 
 
-##Exercise 6.10
+## Exercise 6.10
 
 > Using pointers, write a function to swap the values of two
 ints. Test the function by calling it and printing the swapped values.
 
 [Exer06_10.cpp](Exer06_10.cpp) 
 
-##Exercise 6.11
+## Exercise 6.11
 
 > Write and test your own version of reset that takes a
 reference.
 
 [Exer06_11.cpp](Exer06_11.cpp) 
 
-##Exercise 6.12
+## Exercise 6.12
 
 > Rewrite the program from exercise 6.10 in § 6.2.1 (p. 210)
 to use references instead of pointers to swap the value of two ints. Which
@@ -123,7 +123,7 @@ we pass argument, we don't have to worry about omitting anything.
 
 [Exer06_12.cpp](Exer06_12.cpp) 
 
-##Exercise 6.13
+## Exercise 6.13
 
 > Assuming T is the name of a type, explain the difference
 between a function declared as void f(T) and void f(T&).
@@ -133,7 +133,7 @@ When we change the parameter of _f(T)_, the argument isn't effected. When we cha
 parameter of _f(T&)_, the argument is changed.
 
 
-##Exercise 6.14
+## Exercise 6.14
 
 > Give an example of when a parameter should be a reference
 type. Give an example of when a parameter should not be a reference.
@@ -151,7 +151,7 @@ int max(int a, int b)
 }
 ```
 
-##Exercise 6.15
+## Exercise 6.15
 
 > Explain the rationale for the type of each of _find_char_’s
 parameters In particular, why is _s_ a reference to const but _occurs_ is a
@@ -178,7 +178,7 @@ And for built-in type, copy is efficient enough(Please refer to Effective C++).
 5. If we made _occurs_ a reference to const, we would not be able to change the 
 argument's value.
 
-##Exercise 6.16
+## Exercise 6.16
 
 > The following function, although legal, is less useful than it
 might be. Identify and correct the limitation on this function:
@@ -191,7 +191,7 @@ The parameter is a plain reference, thus we can not pass string literal. Correct
 bool is_empty(const string& s) { return s.empty(); }
 ```
 
-##Exercise 6.17
+## Exercise 6.17
 
 > Write a function to determine whether a string contains
 any capital letters. Write a function to change a string to all lowercase. Do
@@ -225,7 +225,7 @@ void to_lower_str(string &s)
 	- The latter takes a plain reference to string because we need to change the
 	argument.
 
-##Exercise 6.18
+## Exercise 6.18
 
 > Write declarations for each of the following functions. When
 you write these declarations, use the name of the function to indicate what
@@ -241,7 +241,7 @@ vector<int>.
 (b) vector<int>::iterator change_val(int, vector<int>::iterator);
 ```
 
-##Exercise 6.19
+## Exercise 6.19
 
 > Given the following declarations, determine which calls are
 legal and which are illegal. For those that are illegal, explain why.
@@ -261,25 +261,25 @@ vector<int> vec(10);
 - (c) legal, 66 is converted to double.
 - (d) legal, 3.8 is truncated to 3.
 
-##Exercise 6.20
+## Exercise 6.20
 
 > When should reference parameters be references to const?
 What happens if we make a parameter a plain reference when it could be a
 reference to const?
 
-##Exercise 6.21
+## Exercise 6.21
 
 > Write a function that takes an int and a pointer to an int
 and returns the larger of the int value or the value to which the pointer
 points. What type should you use for the pointer?
 
-##Exercise 6.22
+## Exercise 6.22
 
 > Write a function to swap two int pointers.
 
 [Exer06_22.cpp](Exer06_22.cpp) 
 
-##Exercise 6.23
+## Exercise 6.23
 
 > Write your own versions of each of the print functions
 presented in this section. Call each of these functions to print i and j
@@ -290,7 +290,7 @@ int i = 0, j[2] = {0, 1};
 
 [Exer06_23.cpp](Exer06_23.cpp) 
 
-##Exercise 6.24
+## Exercise 6.24
 
 > Explain the behavior of the following function. If there are
 problems in the code, explain what they are and how you might fix them.
@@ -302,51 +302,51 @@ void print(const int ia[10])
 }
 ```
 
-##Exercise 6.25
+## Exercise 6.25
 
 > Write a main function that takes two arguments.
 Concatenate the supplied arguments and print the resulting string.
 
 [Exer06_25.cpp](Exer06_25.cpp) 
 
-##Exercise 6.26
+## Exercise 6.26
 
 > Write a program that accepts the options presented in this
 section. Print the values of the arguments passed to main.
 
 [Exer06_26.cpp](Exer06_26.cpp) 
 
-##Exercise 6.27
+## Exercise 6.27
 
 > Write a function that takes an initializer_list<int>
 and produces the sum of the elements in the list.
 
 [Exer06_27.cpp](Exer06_27.cpp) 
 
-##Exercise 6.28
+## Exercise 6.28
 
 > In the second version of error_msg that has an ErrCode
 parameter, what is the type of elem in the for loop?
 
-##Exercise 6.29
+## Exercise 6.29
 
 > When you use an initializer_list in a range for
 would you ever use a reference as the loop control variable? If so, why? If
 not, why not?
 
-##Exercise 6.30
+## Exercise 6.30
 
 > Compile the version of str_subrange as presented on
 page 223 to see what your compiler does with the indicated errors.
 
 [Exer06_30.cpp](Exer06_30.cpp) 
 
-##Exercise 6.31
+## Exercise 6.31
 
 > When is it valid to return a reference? A reference to
 const?
 
-##Exercise 6.32
+## Exercise 6.32
 
 > Indicate whether the following function is legal. If so, explain
 what it does; if not, correct any errors and then explain it.
@@ -360,13 +360,13 @@ int main() {
 ```
 [Exer06_32.cpp](Exer06_32.cpp) 
 
-##Exercise 6.33
+## Exercise 6.33
 
 > Write a recursive function to print the contents of a vector.
 
 [Exer06_33.cpp](Exer06_33.cpp) 
 
-##Exercise 6.34
+## Exercise 6.34
 
 > What would happen if the stopping condition in factorial
 were
@@ -374,29 +374,29 @@ were
 if (val != 0)
 ```
 
-##Exercise 6.35
+## Exercise 6.35
 
 > the recursive function will always use `val` as the parameter. *a recursion loop* would happen.
 
-##Exercise 6.36
+## Exercise 6.36
 
 > Write the declaration for a function that returns a reference
 to an array of ten strings, without using either a trailing return,
 decltype, or a type alias.
 
-##Exercise 6.37
+## Exercise 6.37
 
 > Write three additional declarations for the function in the
 previous exercise. One should use a type alias, one should use a trailing
 return, and the third should use decltype. Which form do you prefer and
 why?
 
-##Exercise 6.38
+## Exercise 6.38
 
 > Revise the _arrPtr_ function on to return a reference to the
 array.
 
-##Exercise 6.39
+## Exercise 6.39
 
 > Explain the effect of the second declaration in each one of
 the following sets of declarations. Indicate which, if any, are illegal.
@@ -409,7 +409,7 @@ double get();
 double *reset(double *);
 ```
 
-##Exercise 6.40
+## Exercise 6.40
 
 > Which, if either, of the following declarations are errors?
 Why?
@@ -418,7 +418,7 @@ Why?
 (b) char *init(int ht = 24, int wd, char bckgrnd);
 ```
 
-##Exercise 6.41
+## Exercise 6.41
 
 > Which, if any, of the following calls are illegal? Why? Which,
 if any, are legal but unlikely to match the programmer’s intent? Why?
@@ -429,7 +429,7 @@ char *init(int ht, int wd = 80, char bckgrnd = ' ');
 (c) init(14, '*');
 ```
 
-##Exercise 6.42
+## Exercise 6.42
 
 > Give the second parameter of make_plural (§ 6.3.2, p.
 224) a default argument of 's'. Test your program by printing singular and
@@ -437,7 +437,7 @@ plural versions of the words success and failure.
 
 [Exer06_42.cpp](Exer06_42.cpp) 
 
-##Exercise 6.43
+## Exercise 6.43
 
 > Which one of the following declarations and definitions would
 you put in a header? In a source file? Explain why.
@@ -448,25 +448,25 @@ you put in a header? In a source file? Explain why.
 
 [Exer06_43.cpp](Exer06_43.cpp) 
 
-##Exercise 6.44
+## Exercise 6.44
 
 > Rewrite the isShorter function from § 6.2.2 (p. 211) to be
 inline.
 
-##Exercise 6.45
+## Exercise 6.45
 
 > Review the programs you’ve written for the earlier exercises
 and decide whether they should be defined as inline. If so, do so. If not,
 explain why they should not be inline.
 
-##Exercise 6.46
+## Exercise 6.46
 
 > Would it be possible to define isShorter as a constexpr?
 If so, do so. If not, explain why not.
 
 [Exer06_46.cpp](Exer06_46.cpp) 
 
-##Exercise 6.47
+## Exercise 6.47
 
 > Revise the program you wrote in the exercises in § 6.3.2 (p.
 228) that used recursion to print the contents of a vector to conditionally
@@ -476,7 +476,7 @@ turned on and again with it turned off.
 
 [Exer06_47.cpp](Exer06_47.cpp) 
 
-##Exercise 6.48
+## Exercise 6.48
 
 > Explain what this loop does and whether it is a good use of
 assert:
@@ -486,11 +486,11 @@ while (cin >> s && s != sought) { } // empty body
 assert(cin);
 ```
 
-##Exercise 6.49
+## Exercise 6.49
 
 > What is a candidate function? What is a viable function?
 
-##Exercise 6.50
+## Exercise 6.50
 
 > Given the declarations for f from page 242, list the viable
 functions, if any for each of the following calls. Indicate which function is the
@@ -503,7 +503,7 @@ is ambiguous.
 (d) f(2.56, 3.14)
 ```
 
-##Exercise 6.51
+## Exercise 6.51
 
 > Write all four versions of f. Each function should print a
 distinguishing message. Check your answers for the previous exercise. If your
@@ -512,7 +512,7 @@ answers were wrong.
 
 [Exer06_51.cpp](Exer06_51.cpp) 
 
-##Exercise 6.52
+## Exercise 6.52
 
 > Given the following declarations,
 ```cpp
@@ -525,7 +525,7 @@ what is the rank (§ 6.6.1, p. 245) of each conversion in the following calls?
 (b) manip(55.4, dobj);
 ```
 
-##Exercise 6.53
+## Exercise 6.53
 
 > Explain the effect of the second declaration in each one of
 the following sets of declarations. Indicate which, if any, are illegal.
@@ -538,7 +538,7 @@ int calc(const char*, const char*);
 int calc(char* const, char* const);
 ```
 
-##Exercise 6.54
+## Exercise 6.54
 
 > Write a declaration for a function that takes two _int_
 parameters and returns an _int_, and declare a _vector_ whose elements have
@@ -566,7 +566,7 @@ vector<fp*> vec;
 ```
 
 
-##Exercise 6.55
+## Exercise 6.55
 
 > Write four functions that add, subtract, multiply, and divide
 two int values. Store pointers to these values in your vector from the
@@ -574,7 +574,7 @@ previous exercise.
 
 [Exer06_55_56.cpp](Exer06_55_56.cpp) 
 
-##Exercise 6.56
+## Exercise 6.56
 
 > Call each element in the vector and print their result.
 
