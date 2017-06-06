@@ -29,7 +29,7 @@
 - [Exercise 3.26](#exercise-326)
 - [Exercise 3.27](#exercise-327)
 - [Exercise 3.28](#exercise-328)
-- [Exercise 3.29:](#exercise-329:)
+- [Exercise 3.29](#exercise-329)
 - [Exercise 3.30](#exercise-330)
 - [Exercise 3.31](#exercise-331)
 - [Exercise 3.32](#exercise-332)
