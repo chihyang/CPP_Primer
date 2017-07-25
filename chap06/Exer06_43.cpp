@@ -6,8 +6,8 @@
 using std::cout;
 using std::endl;
 // This is just for verification that ellipsis cannot be used this way.
-inline bool eq(const int&, const int&){...}; 
+inline bool eq(const int&, const int&){...};
 int main()
 {
-	return 0;
+    return 0;
 }

@@ -8,16 +8,16 @@ using std::endl;
 using std::string;
 int main()
 {
-	const string s = "Keep out!";
-	// Type of c is const reference(or more precisely, reference to const).
-	// If no operation in range for is to change value of s, it's okay, or it's an error.
-	for(auto &c : s)
-	{
-		cout << c; // okay
-		c = 'X'; // error, cannot compile successfully
-	}
-	cout << endl;
-	return 0;
+    const string s = "Keep out!";
+    // Type of c is const reference(or more precisely, reference to const).
+    // If no operation in range for is to change value of s, it's okay, or it's an error.
+    for(auto &c : s)
+    {
+        cout << c; // okay
+        c = 'X'; // error, cannot compile successfully
+    }
+    cout << endl;
+    return 0;
 }
 // ******compile info under cl******
 // Exer03_11.cpp

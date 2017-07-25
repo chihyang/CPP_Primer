@@ -14,7 +14,7 @@ class Query {
 public:
 	Query(const std::string &s) : q(new WordQuery(s)) {}; // builds a new WordQuery
 	// interface functions: call the corresponding Query_base operations
-	QueryResult eval(const TextQuery &t) const 
+	QueryResult eval(const TextQuery &t) const
 	    { return q->eval(t); }
 	std::string rep() const { return q->rep(); }
 private:

@@ -10,23 +10,23 @@ using std::string;
 template <typename T, typename... Args>
 ostream& print(ostream &os, const T &t, const Args&... rest)
 {
-	cout << "ostream& print(ostream&, const T&, const Args&...)" << endl;
-	os << t << ", ";           // print the first argument
-	return print(os, rest...); //recursive call; print the other arguments
+    cout << "ostream& print(ostream&, const T&, const Args&...)" << endl;
+    os << t << ", ";           // print the first argument
+    return print(os, rest...); //recursive call; print the other arguments
 }
 // function to end the recursion and print the last element
 // this function must be declared before the variadic version of print is defined
 template <typename T>
 ostream& print(ostream &os, const T &t)
 {
-	cout << "ostream& print(ostream&, const T&)" << endl;
-	return os << t; // no separator after the last element in the pack
+    cout << "ostream& print(ostream&, const T&)" << endl;
+    return os << t; // no separator after the last element in the pack
 }
 int main()
 {
-	int i = 0; double d = 3.14; string s = "how now brow cow";
-	print(cout, i, d, s) << endl;
-	return 0;
+    int i = 0; double d = 3.14; string s = "how now brow cow";
+    print(cout, i, d, s) << endl;
+    return 0;
 }
 // ******compile info of g++******
 // (the compile info of g++ is very tedious and hard to understand, but its meaning
@@ -69,18 +69,18 @@ int main()
 // how now brow cow
 
 // Note: as the compile info and result above show, if print(ostream&, const T&)
-// is not declared at first, the program cannot be compiled by every compiler. 
+// is not declared at first, the program cannot be compiled by every compiler.
 // The problem is the call print(os, rest...). This call should match variadic
-// version for the first iteration, but it seems that every compiler matches it 
-// to print(ostream&, const T&) at compile time; only when the program is run, 
+// version for the first iteration, but it seems that every compiler matches it
+// to print(ostream&, const T&) at compile time; only when the program is run,
 // this call matches to print(ostream&, const T&, const Args&...) for the call
-// print(cout, i, d, s). This program can be compiled by cl because cl doesn't 
-// require forward declaration, not because it matches print(os, rest...) to 
-// print(ostream&, const T&, const Args&...) at compile time. But to make the 
+// print(cout, i, d, s). This program can be compiled by cl because cl doesn't
+// require forward declaration, not because it matches print(os, rest...) to
+// print(ostream&, const T&, const Args&...) at compile time. But to make the
 // program work properly under any condition, we should declare names that are
-// used by following code at first, rather than write such machine-dependent 
+// used by following code at first, rather than write such machine-dependent
 // codes.
-// 
+//
 // Besides, it says on page 702 that the variadic function will recurse indefinitely
 // if print(ostream&, const T&) is not declared before the variadic version is
 // defined. This does not agree with the result above.

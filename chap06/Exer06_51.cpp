@@ -5,27 +5,27 @@ using std::cout;
 using std::endl;
 void f()
 {
-	cout << "This function takes no parameters." << endl;
+    cout << "This function takes no parameters." << endl;
 }
 void f(int)
 {
-	cout << "This function takes an int parameter." << endl;
+    cout << "This function takes an int parameter." << endl;
 }
 void f(int, int)
 {
-	cout << "This function takes two int parameters." << endl;
+    cout << "This function takes two int parameters." << endl;
 }
 void f(double, double = 3.14)
 {
-	cout << "This function takes two double parameters." << endl;
+    cout << "This function takes two double parameters." << endl;
 }
 int main()
 {
-	f(2.56, 42);
-	f(42);
-	f(42, 0);
-	f(2.56, 3.14);
-	return 0;
+    f(2.56, 42);
+    f(42);
+    f(42, 0);
+    f(2.56, 3.14);
+    return 0;
 }
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C

@@ -3,13 +3,13 @@
 #include<iostream>
 int main()
 {
-	int i = 3;
-	// (f), the primary problem is that r2 isn't initialized. Whether it's compiled
-	// successfully depends on compiler if initialization is completed. The const after
-	// & is redundant.
-	const int &const r2;
-	const int &const r3 = i;
-	return 0;
+    int i = 3;
+    // (f), the primary problem is that r2 isn't initialized. Whether it's compiled
+    // successfully depends on compiler if initialization is completed. The const after
+    // & is redundant.
+    const int &const r2;
+    const int &const r3 = i;
+    return 0;
 }
 // ******compile info under g++******
 // Exer2_27.cpp: In function 'int main()':
@@ -22,5 +22,5 @@ int main()
 // Microsoft (R) Incremental Linker Version 12.00.40629.0
 // Copyright (C) Microsoft Corporation.  All rights reserved.
 //
-// /out:./obj/Exer2_27.exe 
-// ./obj/Exer2_27.obj 
+// /out:./obj/Exer2_27.exe
+// ./obj/Exer2_27.obj

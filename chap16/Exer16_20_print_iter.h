@@ -4,7 +4,7 @@
 template <typename C>
 void print(const C &c)
 {
-	for(auto iter = c.begin(); iter != c.end(); ++iter)
-		std::cout << *iter << " ";
+    for(auto iter = c.begin(); iter != c.end(); ++iter)
+        std::cout << *iter << " ";
 }
 #endif

@@ -10,18 +10,18 @@ using std::ostream;
 template <typename T>
 ostream& print(ostream &os, const T &t)
 {
-	return os << t; // no separator after the last element in the pack
+    return os << t; // no separator after the last element in the pack
 }
 // this version of print will be called for all but the last element in the pack
 template <typename T, typename... Args>
 ostream& print(ostream &os, const T &t, const Args&... rest)
 {
-	os << t << ", ";           // print the first argument
-	return print(os, rest...); //recursive call; print the other arguments
+    os << t << ", ";           // print the first argument
+    return print(os, rest...); //recursive call; print the other arguments
 }
 int main()
 {
-	Blob<int> blob1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	print(cout, blob1) << endl; // error: Blob doesn't overload << operator
-	return 0;
+    Blob<int> blob1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    print(cout, blob1) << endl; // error: Blob doesn't overload << operator
+    return 0;
 }

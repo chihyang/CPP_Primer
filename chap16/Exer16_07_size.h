@@ -3,6 +3,6 @@
 template <typename T, unsigned N>
 inline constexpr unsigned size(const T(&arr)[N])
 {
-	return N;
+    return N;
 }
 #endif

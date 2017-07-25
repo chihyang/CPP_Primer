@@ -2,13 +2,13 @@
 // The problems lie in line 7.
 class Screen {
 public:
-	Screen& clear(char = bkground);
+    Screen& clear(char = bkground);
 private:
-	const char bkground;
+    const char bkground;
 };
 int main()
 {
-	return 0;
+    return 0;
 }
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
@@ -33,11 +33,11 @@ int main()
 // Class definitions are processed in two phases:
 // #1 First, the member declarations are compiled.
 // #2 Function bodies are compiled only after the entire class has been seen.
-// This implies that class definition is processed even there is no object of 
-// that class is defined. This is trivial but not immaterial. If a member 
-// function is nonstatic and take a member data as default argument, then it 
+// This implies that class definition is processed even there is no object of
+// that class is defined. This is trivial but not immaterial. If a member
+// function is nonstatic and take a member data as default argument, then it
 // will be transformed into something like this:
 // void fun(int = this -> data)
-// However, till then this is not initialized, so that it doesn't point to any 
-// legal object. How can we use a member of a non-existed data? This is an 
+// However, till then this is not initialized, so that it doesn't point to any
+// legal object. How can we use a member of a non-existed data? This is an
 // error.

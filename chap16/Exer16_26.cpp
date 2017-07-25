@@ -2,12 +2,12 @@
 using std::vector;
 class NoDefault {
 public:
-	NoDefault(int i) : val(i) {}
+    NoDefault(int i) : val(i) {}
 private:
-	int val;
+    int val;
 };
 template class vector<NoDefault>;
 int main()
 {
-	return 0;
+    return 0;
 }

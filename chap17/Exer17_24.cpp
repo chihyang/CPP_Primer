@@ -11,16 +11,16 @@ using std::regex;
 using std::smatch;
 int main(int argc, char* argv[])
 {
-	if (argc != 2)
-		return -1;
-	ifstream is(argv[1]);
-	string phone = "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ])?(\\d{4})";
-	regex r(phone); // a regex to find our pattern
-	smatch m;
-	string s;
-	string fmt = "$2.$5.$7"; // reformat numbers to ddd.ddd.dddd
-	// read each record from the input file
-	while (getline(is, s))
-		cout << regex_replace(s, r, fmt) << endl;
-	return 0;
+    if (argc != 2)
+        return -1;
+    ifstream is(argv[1]);
+    string phone = "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ])?(\\d{4})";
+    regex r(phone); // a regex to find our pattern
+    smatch m;
+    string s;
+    string fmt = "$2.$5.$7"; // reformat numbers to ddd.ddd.dddd
+    // read each record from the input file
+    while (getline(is, s))
+        cout << regex_replace(s, r, fmt) << endl;
+    return 0;
 }

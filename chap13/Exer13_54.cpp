@@ -6,14 +6,14 @@ using std::cout;
 using std::endl;
 int main()
 {
-	HasPtr hp("Young and Beautiful");
-	HasPtr hp1;
-	hp1 = hp;
-	HasPtr hp2("Take him away"); // now hp can't be used again, because it refers to null
-	hp2 = std::move(hp);
-	hp2.print(cout) << endl;
-	hp.print(cout) << endl;
-	return 0;
+    HasPtr hp("Young and Beautiful");
+    HasPtr hp1;
+    hp1 = hp;
+    HasPtr hp2("Take him away"); // now hp can't be used again, because it refers to null
+    hp2 = std::move(hp);
+    hp2.print(cout) << endl;
+    hp.print(cout) << endl;
+    return 0;
 }
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
@@ -62,11 +62,11 @@ int main()
 // 1 error generated.
 
 // Note #1: why is this an ambiguous call? Let's see the declaration of both functions:
-// 	HasPtr& operator=(HasPtr); //#1
-//	HasPtr& operator=(HasPtr&&) noexcept; //#2
+//  HasPtr& operator=(HasPtr); //#1
+//  HasPtr& operator=(HasPtr&&) noexcept; //#2
 // #1 takes a HasPtr object as parameter, while #2 takes a rvalue reference to
 // HasPtr as parameter. BUT REFERENCE CANNOT BE USED TO DIFFERENTIATE FUNCTIONS.
 // There's no type conversion when we call "=" with a HasPtr variable. Thus both
 // functions are exact match. As a result, this is an ambiguous call.
 
-// Note #2: overloaded functions should guarantee all of the calls DIFFERENTIATED. 
+// Note #2: overloaded functions should guarantee all of the calls DIFFERENTIATED.

@@ -7,13 +7,13 @@ using std::endl;
 using std::string;
 int main()
 {
-	string s;
-	cin >> s;
-	if(!s.empty())
-	{
-		for(auto &c : s)
-			c = 'X';
-		cout << s << endl;
-	}
-	return 0;
+    string s;
+    cin >> s;
+    if(!s.empty())
+    {
+        for(auto &c : s)
+            c = 'X';
+        cout << s << endl;
+    }
+    return 0;
 }

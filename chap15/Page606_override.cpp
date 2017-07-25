@@ -1,15 +1,15 @@
 // Warning: this is for verification. It cannot compile.
 // The problems lie in line 10, 11, 12.
 struct B {
-	virtual void f1(int) const;
-	virtual void f2();
-	void f3();
+    virtual void f1(int) const;
+    virtual void f2();
+    void f3();
 };
 struct D1 : B {
-	void f1(int) const override; // ok: f1 matches f1 in the base
-	void f2(int) override; // error: B has no f2(int) function
-	void f3() override; // error: f3 not virtual
-	void f4() override; // error: B doesn't have a function named f4
+    void f1(int) const override; // ok: f1 matches f1 in the base
+    void f2(int) override; // error: B has no f2(int) function
+    void f3() override; // error: f3 not virtual
+    void f4() override; // error: B doesn't have a function named f4
 };
 // ******compile info of g++******
 // Page606_override.cpp:10:7: error: 'void D1::f2(int)' marked 'override', but does n
@@ -28,7 +28,7 @@ struct D1 : B {
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。
-// 
+//
 // Page606_override.cpp
 // Page606_override.cpp(10) : error C3668: “D1::f2”: 包含重写说明符“override”的方
 // 法没有重写任何基类方法

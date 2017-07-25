@@ -7,12 +7,12 @@ using std::cout;
 using std::endl;
 constexpr int new_sz()
 {
-	return 42;
+    return 42;
 }
 int main()
 {
-	cout << new_sz() << endl;
-	return 0;
+    cout << new_sz() << endl;
+    return 0;
 }
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
@@ -43,10 +43,10 @@ int main()
 //  constexpr int new_sz()
 //                ^
 
-// Note: if line 9 to line 11 are commented, and a semicolon is appended to 
+// Note: if line 9 to line 11 are commented, and a semicolon is appended to
 // line 8:
 // constexpr int new_sz();
-// The program can be compiled successfully by g++, because it's just a 
-// redeclaration of the constexpr function new_sz(). But cl doesn't compile it 
+// The program can be compiled successfully by g++, because it's just a
+// redeclaration of the constexpr function new_sz(). But cl doesn't compile it
 // and produce confusing error message as long as constexpr exists. Seems Visual
 // Studio 2013 doesn't support constant expression function perfectly.

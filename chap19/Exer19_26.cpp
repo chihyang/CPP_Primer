@@ -7,9 +7,9 @@ extern "C" int compute(int *, int);
 extern "C" double compute(double *, double); // error
 int main()
 {
-	int i = 2, *p;
-	cout << compute(p, i) << endl;
-	return 0;
+    int i = 2, *p;
+    cout << compute(p, i) << endl;
+    return 0;
 }
 // ******compile info of g++******
 // Exer19_26.cpp:7:43: error: conflicting declaration of C function 'double compute

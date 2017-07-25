@@ -1,21 +1,21 @@
 // Warning: this is for verification. It cannot compile.
 // The problem lies in line 16.
 struct Base {
-	int memfcn() { return mem;}
+    int memfcn() { return mem;}
 protected:
-	int mem = 0;
+    int mem = 0;
 };
 struct Derived : Base {
-	int memfcn(int i) { return i; } // hides memfcn in the base
+    int memfcn(int i) { return i; } // hides memfcn in the base
 };
 int main()
 {
-	Derived d; Base b;
-	b.memfcn();         // calls Base::memfcn
-	d.memfcn(10);       // calls Derived::memfcn
-	d.memfcn();         // error: memfcn with no argument
-	d.Base::memfcn();   // ok: calls Base::memfcn
-	return 0;
+    Derived d; Base b;
+    b.memfcn();         // calls Base::memfcn
+    d.memfcn(10);       // calls Derived::memfcn
+    d.memfcn();         // error: memfcn with no argument
+    d.Base::memfcn();   // ok: calls Base::memfcn
+    return 0;
 }
 // ******compile info of g++******
 // Page619_name_lookup.cpp: In function 'int main()':
@@ -43,6 +43,6 @@ int main()
 //         int memfcn() { return mem;}
 //             ^
 // 1 error generated.
-// 
+//
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。

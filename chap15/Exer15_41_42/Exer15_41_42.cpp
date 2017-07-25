@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 		istr >> sought1 >> sought2 >> sought3;
 		try{
 			Query q = get_query(his.crbegin(), his.crend(), sought1) &
-					  get_query(his.crbegin(), his.crend(), sought2) | 
+					  get_query(his.crbegin(), his.crend(), sought2) |
 					  get_query(his.crbegin(), his.crend(), sought3);
 			his.push_back(q);
 			QueryResult qr = q.eval(tq);

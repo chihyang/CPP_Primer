@@ -6,19 +6,19 @@ using std::cin;
 using std::istream;
 using std::string;
 class ReadString {
-public:	
-	ReadString(istream &i = cin) : is(i) {}
-	string operator()() const;
+public:
+    ReadString(istream &i = cin) : is(i) {}
+    string operator()() const;
 private:
-	istream &is;
+    istream &is;
 };
 string ReadString::operator()() const
 {
-	string s;
-	if(getline(is, s))
-		return s;
-	else {
-		s = "";
-	}
+    string s;
+    if(getline(is, s))
+        return s;
+    else {
+        s = "";
+    }
 }
 #endif

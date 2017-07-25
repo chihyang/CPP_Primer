@@ -3,19 +3,19 @@
 #include "Page612_613_access.h"
 int main()
 {
-	Pub_Derv d1;
-	Priv_Derv d2;
-	Prot_Derv d3;
-	Derived_from_Public dd1;
-	Derived_from_Private dd2;
-	Derived_from_Protected dd3;
-	Base *p = &d1;  // d1 has type Pub_Derv
-	p = &d2;        // error: d2 has type Priv_Derv
-	p = &d3;        // error: d3 has type Prot_Derv
-	p = &dd1;       // dd1 has type Derived_from_Public
-	p = &dd2;       // error: dd2 has type Derived_from_Private
-	p = &dd3;       // error: dd3 has type Derived_from_Protected
-	return 0;
+    Pub_Derv d1;
+    Priv_Derv d2;
+    Prot_Derv d3;
+    Derived_from_Public dd1;
+    Derived_from_Private dd2;
+    Derived_from_Protected dd3;
+    Base *p = &d1;  // d1 has type Pub_Derv
+    p = &d2;        // error: d2 has type Priv_Derv
+    p = &d3;        // error: d3 has type Prot_Derv
+    p = &dd1;       // dd1 has type Derived_from_Public
+    p = &dd2;       // error: dd2 has type Derived_from_Private
+    p = &dd3;       // error: dd3 has type Derived_from_Protected
+    return 0;
 }
 // ******compile info of g++******
 // Exer15_18.cpp: In function 'int main()':
@@ -37,7 +37,7 @@ int main()
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。
-// 
+//
 // Exer15_18.cpp
 // Exer15_18.cpp(13) : error C2243: “类型转换”: 从“Priv_Derv *”到“Base *”的转
 // 换存在，但无法访问
@@ -83,7 +83,7 @@ int main()
 //         p = &dd2;       // error: dd2 has type Derived_from_Private
 //           ^ ~~~~
 // Exer15_18.cpp:17:6: error: cannot cast 'Derived_from_Protected' to its protected
-// 
+//
 //       base class 'Base'
 //         p = &dd3;       // error: dd3 has type Derived_from_Protected
 //             ^

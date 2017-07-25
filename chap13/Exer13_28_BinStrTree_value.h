@@ -4,28 +4,28 @@
 #include "Exer13_28_TreeNode_value.h"
 class BinStrTree {
 public:
-	BinStrTree() : root(new TreeNode()) {}
-	BinStrTree(const BinStrTree &bp);
-	BinStrTree& operator=(const BinStrTree &bp);
-	~BinStrTree();
+    BinStrTree() : root(new TreeNode()) {}
+    BinStrTree(const BinStrTree &bp);
+    BinStrTree& operator=(const BinStrTree &bp);
+    ~BinStrTree();
 private:
-	TreeNode *root;
+    TreeNode *root;
 };
 BinStrTree::BinStrTree(const BinStrTree &bp) : root(new TreeNode())
 {
-	if(bp.root)
-		*root = *bp.root;
+    if(bp.root)
+        *root = *bp.root;
 }
 BinStrTree& BinStrTree::operator=(const BinStrTree &bp)
 {
-	auto newp = new TreeNode(*root);
-	delete root;
-	root = newp;
-	return *this;
+    auto newp = new TreeNode(*root);
+    delete root;
+    root = newp;
+    return *this;
 }
 BinStrTree::~BinStrTree()
 {
-	delete root;
+    delete root;
 }
 #endif
 // Note: because the copy-control members of TreeNode have carefully handled

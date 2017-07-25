@@ -8,6 +8,6 @@ int main()
     int i;
     while(cin >> i) {
         ivec.push_back(i);
-	}
+    }
     return 0;
 }

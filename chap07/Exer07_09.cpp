@@ -7,8 +7,8 @@ using std::cin;
 using std::endl;
 int main()
 {
-	Person psn;
-	read(cin, psn);
-	print(cout, psn) << endl;
-	return 0;
+    Person psn;
+    read(cin, psn);
+    print(cout, psn) << endl;
+    return 0;
 }

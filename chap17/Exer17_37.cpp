@@ -10,18 +10,18 @@ using std::endl;
 using std::ifstream;
 int main(int argc, char* argv[])
 {
-	if(argc != 2)
-		return -1;
-	ifstream is(argv[1]);
-	char sink[80] = {'\0'};
-	size_t size = 80;
-	char delim = '\n';
-	while(is.getline(sink, size, delim)) {
-		cout.write(sink, size);
-		memset(sink, '\0', size);
-	}
-	return 0;
+    if(argc != 2)
+        return -1;
+    ifstream is(argv[1]);
+    char sink[80] = {'\0'};
+    size_t size = 80;
+    char delim = '\n';
+    while(is.getline(sink, size, delim)) {
+        cout.write(sink, size);
+        memset(sink, '\0', size);
+    }
+    return 0;
 }
 // Note: once is.getline reads (size - 1) characters, it seems that the state of
-// the stream is not good. Empty line is not read. But we reset sink every time 
+// the stream is not good. Empty line is not read. But we reset sink every time
 // after finish using it, so the empty line could be output normally.

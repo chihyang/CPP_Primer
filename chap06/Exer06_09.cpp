@@ -4,5 +4,5 @@ using std::cin;
 using std::endl;
 int main()
 {
-	return 0;
+    return 0;
 }

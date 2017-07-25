@@ -13,9 +13,9 @@
 #include <map>
 #pragma comment(lib, "User32.lib")
 #ifndef UNICODE
-	typedef std::string String;
-#else 
-	typedef std::wstring String;
+    typedef std::string String;
+#else
+    typedef std::wstring String;
 #endif
 typedef std::map<std::size_t, std::vector<String>> ExerSet;
 void DisplayErrorBox(LPTSTR lpszFunction);

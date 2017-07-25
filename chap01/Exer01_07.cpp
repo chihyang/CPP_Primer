@@ -5,7 +5,7 @@
  */
 int main()
 {
-	return 0;
+    return 0;
 }
 // ******compile info of g++******
 // Exer01_07.cpp:2:24: error: 'cannot' does not name a type
@@ -28,7 +28,7 @@ int main()
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。
-// 
+//
 // Exer01_07.cpp
 // Exer01_07.cpp(2) : error C2146: 语法错误: 缺少“;”(在标识符“nest”的前面)
 // Exer01_07.cpp(2) : error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默

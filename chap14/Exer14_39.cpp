@@ -10,28 +10,28 @@ using std::string;
 using std::vector;
 class InRange {
 public:
-	InRange(string::size_type d, string::size_type u) : down(d), up(u) {}
-	bool operator()(const string& s) const 
-	    { return s.size() >= down && s.size() <= up; }
+    InRange(string::size_type d, string::size_type u) : down(d), up(u) {}
+    bool operator()(const string& s) const
+        { return s.size() >= down && s.size() <= up; }
 private:
-	string::size_type down;
-	string::size_type up;
+    string::size_type down;
+    string::size_type up;
 };
 int main(int argc, char* argv[])
 {
-	if(argc != 2)
-		return -1;
-	ifstream file(argv[1]);
-	string word;
-	vector<string> text;
-	while(file >> word)
-		text.push_back(word);
-	for(string::size_type upper = 2; upper != 20; ++upper)
-	{	
-		auto cnt = count_if(text.cbegin(), text.cend(), InRange(1, upper));
-		cout << "There are " << cnt 
-		     << " words whose length between 1 and " << upper 
-			 <<" inclusive" << endl;
-	}
-	return 0;
+    if(argc != 2)
+        return -1;
+    ifstream file(argv[1]);
+    string word;
+    vector<string> text;
+    while(file >> word)
+        text.push_back(word);
+    for(string::size_type upper = 2; upper != 20; ++upper)
+    {
+        auto cnt = count_if(text.cbegin(), text.cend(), InRange(1, upper));
+        cout << "There are " << cnt
+             << " words whose length between 1 and " << upper
+             <<" inclusive" << endl;
+    }
+    return 0;
 }

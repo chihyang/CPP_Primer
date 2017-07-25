@@ -12,30 +12,30 @@ using std::istream_iterator;
 using std::ostream_iterator;
 int main()
 {
-	istream_iterator<Sales_item> is_iter(cin), eof;
-	ostream_iterator<Sales_item> os_iter(cout, "\n");
-	vector<Sales_item> vec_item(is_iter, eof);
-	vector<Sales_item> vec_sum;
-	sort(vec_item.begin(), vec_item.end(), compareIsbn);
-	auto beg = vec_item.begin();
-	while(beg != vec_item.end())
-	{
-		auto same_item = beg, trans_item = beg;
-		while(trans_item != vec_item.end())
-		{
-			same_item = trans_item;
-			trans_item = find(++trans_item, vec_item.end(), *beg);
-		}
-		vec_sum.push_back(accumulate(beg, ++same_item, Sales_item(beg->isbn())));
-		beg = same_item;
-	}
-	cout << "Sorted items: " << endl;
-	for(const auto &si : vec_item)
-		os_iter = si;
-	cout << "Sum of each book: " << endl;
-	for(const auto &si : vec_sum)
-		os_iter = si;
-	return 0;
+    istream_iterator<Sales_item> is_iter(cin), eof;
+    ostream_iterator<Sales_item> os_iter(cout, "\n");
+    vector<Sales_item> vec_item(is_iter, eof);
+    vector<Sales_item> vec_sum;
+    sort(vec_item.begin(), vec_item.end(), compareIsbn);
+    auto beg = vec_item.begin();
+    while(beg != vec_item.end())
+    {
+        auto same_item = beg, trans_item = beg;
+        while(trans_item != vec_item.end())
+        {
+            same_item = trans_item;
+            trans_item = find(++trans_item, vec_item.end(), *beg);
+        }
+        vec_sum.push_back(accumulate(beg, ++same_item, Sales_item(beg->isbn())));
+        beg = same_item;
+    }
+    cout << "Sorted items: " << endl;
+    for(const auto &si : vec_item)
+        os_iter = si;
+    cout << "Sum of each book: " << endl;
+    for(const auto &si : vec_sum)
+        os_iter = si;
+    return 0;
 }
 // ******First Modification******
 // compareIsbn(), see header Sales_item.h, but == is substituted with <.

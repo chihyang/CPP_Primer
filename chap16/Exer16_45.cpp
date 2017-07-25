@@ -7,8 +7,8 @@ void g(T&& val)
 { vector<T> v; }
 int main()
 {
-	int i = 42;
-	g(42); // ok: T is int; val is int&; define a vector of int
-	g(i);  // error: T is int&; val is int&&; cannot define a vector of reference
-	return 0;
+    int i = 42;
+    g(42); // ok: T is int; val is int&; define a vector of int
+    g(i);  // error: T is int&; val is int&&; cannot define a vector of reference
+    return 0;
 }

@@ -30,7 +30,7 @@ int main()
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。
-// 
+//
 // Exer16_03.cpp
 // f:\programming\cpp\cpp_primer\chap16\Exer16_02.h(6) : error C2676: 二进制“<”:
 // “const Sales_data”不定义该运算符或到预定义运算符可接收的类型的转换

@@ -12,19 +12,19 @@ using std::ifstream;
 using std::string;
 int main(int argc, char* argv[])
 {
-	if(argc != 2)
-		return -1;
-	ifstream is(argv[1]);
-	TextQuery tq(is);
-	string sought1, sought2, sought3;
-	cout << "Input 3 words:" << endl;
-	while(cin >> sought1 >> sought2 >> sought3)
-	{
-		Query q = Query(sought1) & Query(sought2) | Query(sought3);
-		QueryResult qr = q.eval(tq);
-		cout << q.rep() << endl;
-		cout << "Executing Query for: " << q << endl;
-		print(cout, qr);
-	}
-	return 0;
+    if(argc != 2)
+        return -1;
+    ifstream is(argv[1]);
+    TextQuery tq(is);
+    string sought1, sought2, sought3;
+    cout << "Input 3 words:" << endl;
+    while(cin >> sought1 >> sought2 >> sought3)
+    {
+        Query q = Query(sought1) & Query(sought2) | Query(sought3);
+        QueryResult qr = q.eval(tq);
+        cout << q.rep() << endl;
+        cout << "Executing Query for: " << q << endl;
+        print(cout, qr);
+    }
+    return 0;
 }

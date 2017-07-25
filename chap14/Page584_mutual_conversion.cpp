@@ -4,27 +4,27 @@
 // usually a bad idea to have mutual conversions between two class types
 struct B;
 struct A {
-	A() = default;
-	A(const B&) { std::cout << "A(const B&) is called" << std::endl; } // converts a B to an A
+    A() = default;
+    A(const B&) { std::cout << "A(const B&) is called" << std::endl; } // converts a B to an A
 };
 struct B {
-	operator A() const { 
-	    std::cout << "operator A() const is called" << std::endl; 
-	    return A(); } // also converts a B to an A
+    operator A() const {
+        std::cout << "operator A() const is called" << std::endl;
+        return A(); } // also converts a B to an A
 };
 int main()
 {
-	A f(const A&);
-	B b;
-	A a = f(b); // error ambiguous: f(B::operator A())
-	            //              or: f(A::A(const B&))
-	A a1 = f(b.operator A()); // ok: use B's conversion operator, but bad design
-	A a2 = f(A(b));           // ok: use A's constructor, but bad design
-	return 0;
+    A f(const A&);
+    B b;
+    A a = f(b); // error ambiguous: f(B::operator A())
+                //              or: f(A::A(const B&))
+    A a1 = f(b.operator A()); // ok: use B's conversion operator, but bad design
+    A a2 = f(A(b));           // ok: use A's constructor, but bad design
+    return 0;
 }
 A f(const A &a)
 {
-	return a;
+    return a;
 }
 // ******compile info of g++******
 // (NOTHING happened; the compilation is successful)
@@ -57,6 +57,6 @@ A f(const A &a)
 //         原因如下:  无法从“B”转换为“const A”
 //         没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
 
-// Note: as the result above shows: although it's an ambiguous call, not all of 
-// compilers indicated it; some even compiled it! Anyway, don't use the code 
+// Note: as the result above shows: although it's an ambiguous call, not all of
+// compilers indicated it; some even compiled it! Anyway, don't use the code
 // above, or it would have machine-dependent behaviour.

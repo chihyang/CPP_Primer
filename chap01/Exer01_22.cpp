@@ -8,7 +8,7 @@ int main()
 	{
 		bookSum = bookSum + book;
 	}
-	
+
 	std::cout << bookSum << std::endl;
 	return 0;
 }

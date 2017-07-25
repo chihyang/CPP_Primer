@@ -4,27 +4,27 @@
 using std::cout;
 using std::endl;
 template <class T> struct remove_reference {
-	typedef T type;
+    typedef T type;
 };
 template <class V> struct remove_reference<V&> {
-	typedef V type;
+    typedef V type;
 };
 template <class V> struct remove_reference<V&&> {
-	typedef V type;
+    typedef V type;
 };
 int main()
 {
-	int i;
-	decltype(42) i1;           // int, uninitialized
-	decltype(i) i2;            // int, uninitialized
-	decltype((i)) i3 = i;          // int& , should be initialized, see page 71
-	decltype(std::move(i)) i4 = 8; // int&&, should be initialized
-	remove_reference<decltype(42)>::type a = 1;  // int
-	remove_reference<decltype(i)>::type* b = 0;  // int*, won't be misunderstood
-	remove_reference<decltype((i))>::type c = 3; // int,
-	typename remove_reference<decltype(std::move(i))>::type d = 4; // ok: add typename
-	cout << a << " " << b << " " << c << " " <<  d << " " << endl;
-	return 0;
+    int i;
+    decltype(42) i1;           // int, uninitialized
+    decltype(i) i2;            // int, uninitialized
+    decltype((i)) i3 = i;          // int& , should be initialized, see page 71
+    decltype(std::move(i)) i4 = 8; // int&&, should be initialized
+    remove_reference<decltype(42)>::type a = 1;  // int
+    remove_reference<decltype(i)>::type* b = 0;  // int*, won't be misunderstood
+    remove_reference<decltype((i))>::type c = 3; // int,
+    typename remove_reference<decltype(std::move(i))>::type d = 4; // ok: add typename
+    cout << a << " " << b << " " << c << " " <<  d << " " << endl;
+    return 0;
 }
 // Note #1: on page 711, the comments of this statement:
 // remove_reference<decltype(i)>::type b;

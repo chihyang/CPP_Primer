@@ -6,13 +6,13 @@ using std::string;
 using std::unique_ptr;
 int main()
 {
-	unique_ptr<double> p1;
-	unique_ptr<int> p2(new int(42));
-	unique_ptr<string> p3(new string("Stegosaurus"));
-	unique_ptr<string> p4(p3); // error: no copy for unique_ptr
-	unique_ptr<string> p5;
-	p5 = p3; // error: no assign for unique_ptr
-	return 0;
+    unique_ptr<double> p1;
+    unique_ptr<int> p2(new int(42));
+    unique_ptr<string> p3(new string("Stegosaurus"));
+    unique_ptr<string> p4(p3); // error: no copy for unique_ptr
+    unique_ptr<string> p5;
+    p5 = p3; // error: no assign for unique_ptr
+    return 0;
 }
 // ******compile info of cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C

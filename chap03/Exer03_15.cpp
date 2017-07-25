@@ -10,6 +10,6 @@ int main()
     string str;
     while(cin >> str) {
         svec.push_back(str);
-	}
+    }
     return 0;
 }

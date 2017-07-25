@@ -13,14 +13,14 @@ using std::string;
 using std::vector;
 int main()
 {
-	list<string> authors = {"Milton", "Shakespeare", "Austen"};
-	vector<const char*> articles = {"a", "an", "the"};
-	// with one container to initialize another it is okay
-	list<string> list2(authors);
-	// container type and element type must match
-	deque<string> authList(authors); // error: container type doesn't match
-	vector<string> words(articles); // error: element type doesn't match
-	// element type conversion is okay
-	forward_list<string> words(articles.begin(), articles.end());
-	return 0;
+    list<string> authors = {"Milton", "Shakespeare", "Austen"};
+    vector<const char*> articles = {"a", "an", "the"};
+    // with one container to initialize another it is okay
+    list<string> list2(authors);
+    // container type and element type must match
+    deque<string> authList(authors); // error: container type doesn't match
+    vector<string> words(articles); // error: element type doesn't match
+    // element type conversion is okay
+    forward_list<string> words(articles.begin(), articles.end());
+    return 0;
 }

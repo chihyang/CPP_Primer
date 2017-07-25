@@ -7,15 +7,15 @@ using std::endl;
 using std::string;
 void reset(int &i)
 {
-	i = 0;
+    i = 0;
 }
 int main()
 {
-	string::size_type ctr = 0;
-	int i = 9;
-	reset(ctr); // When initialing a reference, there's no common type conversion
-	reset(i);
-	return 0;
+    string::size_type ctr = 0;
+    int i = 9;
+    reset(ctr); // When initialing a reference, there's no common type conversion
+    reset(i);
+    return 0;
 }
 // ******compile info under cl******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
@@ -40,5 +40,5 @@ int main()
 // ctr = 2147483648;
 // int j = ctr; // it's okay
 // But we cannot bind a reference to int to a variable of size_type, There is no
-// type conversion(except some exceptions about const) when we initialize a 
+// type conversion(except some exceptions about const) when we initialize a
 // reference.

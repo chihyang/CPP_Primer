@@ -10,19 +10,19 @@ using std::string;
 template <typename T, typename... Args>
 void foo(const T &t, const Args& ... args)
 {
-	cout << sizeof...(Args) << endl;
-	cout << sizeof...(args) << endl;
+    cout << sizeof...(Args) << endl;
+    cout << sizeof...(args) << endl;
 }
 int main()
 {
-	int i = 0; double d = 3.14; string s = "how now brow cow";
-	// call void foo(const int&, const string&, const int&, const double&)
-	foo(i, s, 42, d); // three parameters in the pack
-	// call void foo(const string&, const int&, const char[3]&)
-	foo(s, 42, "hi"); // two parameters in the pack
-	// call void foo(const double&, const string&)
-	foo(d, s);        // one parameter in the pack
-	// call void foo(const char[3]&)
-	foo("hi");        // empty pack
-	return 0;
+    int i = 0; double d = 3.14; string s = "how now brow cow";
+    // call void foo(const int&, const string&, const int&, const double&)
+    foo(i, s, 42, d); // three parameters in the pack
+    // call void foo(const string&, const int&, const char[3]&)
+    foo(s, 42, "hi"); // two parameters in the pack
+    // call void foo(const double&, const string&)
+    foo(d, s);        // one parameter in the pack
+    // call void foo(const char[3]&)
+    foo("hi");        // empty pack
+    return 0;
 }

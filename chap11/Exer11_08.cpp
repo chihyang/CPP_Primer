@@ -14,24 +14,24 @@ using std::map;
 using std::vector;
 int main(int argc, char *argv[])
 {
-	if(argc != 2)
-		return -1;
-	ifstream is(argv[1]);
-	// count the number of times each word occurs in the input
-	map<string, size_t> word_count; // empty map from string to size_t
-	// substitute vector for set
-	vector<string> exclude = { "The", "But", "And", "Or", "An", "A",
-	                        "the", "but", "and", "or", "an", "a" };
-	string word;
-	while(is >> word)
-	{
-		// count only words that are not in exclude
-		if(find(exclude.cbegin(), exclude.cend(), word) == exclude.cend())
-			++word_count[word]; // fetch and increment the counter for word
-	}
-	for(const auto &w : word_count) // for each element in the map
-		// print the result
-		cout << w.first << " occurs " << w.second
-	         << ((w.second > 1) ? " times" : " time") << endl;
-	return 0;
+    if(argc != 2)
+        return -1;
+    ifstream is(argv[1]);
+    // count the number of times each word occurs in the input
+    map<string, size_t> word_count; // empty map from string to size_t
+    // substitute vector for set
+    vector<string> exclude = { "The", "But", "And", "Or", "An", "A",
+                            "the", "but", "and", "or", "an", "a" };
+    string word;
+    while(is >> word)
+    {
+        // count only words that are not in exclude
+        if(find(exclude.cbegin(), exclude.cend(), word) == exclude.cend())
+            ++word_count[word]; // fetch and increment the counter for word
+    }
+    for(const auto &w : word_count) // for each element in the map
+        // print the result
+        cout << w.first << " occurs " << w.second
+             << ((w.second > 1) ? " times" : " time") << endl;
+    return 0;
 }

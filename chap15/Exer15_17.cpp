@@ -5,8 +5,8 @@
 using std::cout;
 int main()
 {
-	Disc_quote item("978-7-121-20038-0", 128.0, 6, 0.05); // error: defines an object of abstract class
-	return 0;
+    Disc_quote item("978-7-121-20038-0", 128.0, 6, 0.05); // error: defines an object of abstract class
+    return 0;
 }
 // ******compile info of g++******
 // Exer15_17.cpp: In function 'int main()':
@@ -28,7 +28,7 @@ int main()
 // ******compile info of cl*******
 // 用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.40629 版版权所有(C) Microsoft C
 // orporation。  保留所有权利。
-// 
+//
 // Exer15_17.cpp
 // Exer15_17.cpp(8) : error C2259: “Disc_quote”: 不能实例化抽象类
 //         由于下列成员:

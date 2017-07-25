@@ -6,13 +6,13 @@ using std::endl;
 template <typename, typename M> void compare(const M&);
 // template name can be different across definitions and declarations
 // but the number and kind(i.e., type and nontype) of type name should keep the same
-template <typename T, typename U> void compare(const U &u) 
+template <typename T, typename U> void compare(const U &u)
 {
-	T t;
-	cout << t << " " << u << endl;
+    T t;
+    cout << t << " " << u << endl;
 }
 int main()
 {
-	compare<int, double>(2.0);
-	return 0;
+    compare<int, double>(2.0);
+    return 0;
 }

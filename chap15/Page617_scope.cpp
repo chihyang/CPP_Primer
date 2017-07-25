@@ -3,12 +3,12 @@
 #include "Page617_Bulk_quote.h"
 int main()
 {
-	Bulk_quote bulk;
-	Bulk_quote *bulkP = &bulk;	// static and dynamic types are the same
-	Quote *itemP = &bulk;       // static and dynamic types differ
-	bulkP->discount_policy();   // ok: bulkP has type Bulk_quote*
-	itemP->discount_policy();   // error: itemP has type Quote*
-	return 0;
+    Bulk_quote bulk;
+    Bulk_quote *bulkP = &bulk;  // static and dynamic types are the same
+    Quote *itemP = &bulk;       // static and dynamic types differ
+    bulkP->discount_policy();   // ok: bulkP has type Bulk_quote*
+    itemP->discount_policy();   // error: itemP has type Quote*
+    return 0;
 }
 // ******compile info of g++******
 // Page617_scope.cpp: In function 'int main()':
@@ -25,7 +25,7 @@ int main()
 // Page617_scope.cpp(10) : error C2039: “discount_policy”: 不是“Quote”的成员
 //         f:\programming\cpp\cpp_primer\chap15\Exer15_15_Quote.h(6) : 参见“Quote
 // ”的声明
-// 	 
+//
 // Page617_scope.cpp:10:9: error: no member named 'discount_policy' in 'Quote'
 //         itemP->discount_policy();   // error: itemP has type Quote*
 //         ~~~~~  ^
