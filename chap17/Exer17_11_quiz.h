@@ -32,6 +32,8 @@ template <std::size_t N>
 std::ostream& operator<<(std::ostream& os, const Quiz<N> &quiz)
 {
     os << quiz.q;
+    
+    return os;
 }
 // friend to calculate grades
 template <std::size_t N>
