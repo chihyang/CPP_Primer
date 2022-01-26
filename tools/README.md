@@ -3,9 +3,9 @@
 Scripts under this directory are tools that help save your energy. Some of them have completed
 their tasks and shouldn't be used again.
 
-## [Create chapter folders](CreateAllChapters.sh)
+## [Create chapter folders](CreateOrderedFolders.sh)
 
-This script is used to create folders for every chapter. It __shouldn't__ be used 
+This script is used to create folders for every chapter. It __shouldn't__ be used
 again if you clone the project.
 
 ## [Format file names](FormatFileName.sh)
@@ -31,7 +31,7 @@ Call this script by passing three arguments:
 ./SearchText.sh [path] [ext] [regex]
 ```
 
-Where `path` is the path to be searched, `ext` is the file extension, and `regex` 
+Where `path` is the path to be searched, `ext` is the file extension, and `regex`
 is the regex expression to be searched for. This script just calls `grep`, so the regex is the same
 as what `grep` uses.
 
@@ -39,8 +39,8 @@ as what `grep` uses.
 
 This is a tool for practising C++. It includes 3 files:
 
-- [InsertAnswer.h](InsertAnswer.h) 
-- [ListFile.cpp](ListFile.cpp) 
+- [InsertAnswer.h](InsertAnswer.h)
+- [ListFile.cpp](ListFile.cpp)
 - [InsertAnswer.cpp](InsertAnswer.cpp)
 
 This tool is written with STL and windows API functions, it might not compile on Linux or other
@@ -48,8 +48,8 @@ platforms. The feature of the tool is to insert source file names in terms of Ma
 appropriate locations of a README.md file.
 
 When we offer the path of a chapter , e.g. `../chap01`, as an argument, the tool will find all
-of the C++ source files under the path and analyse the names of the source files, 
-then it will associate the source files with corresponding exercises and insert 
+of the C++ source files under the path and analyse the names of the source files,
+then it will associate the source files with corresponding exercises and insert
 the names of the source files into README.md under the path.
 
 For example, the README.md of chapter 1 has the following contents:
