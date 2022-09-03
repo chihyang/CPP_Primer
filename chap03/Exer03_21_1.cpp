@@ -13,7 +13,7 @@ int main()
     string s;
     while(cin >> s)
         v.push_back(s);
-    auto item = v.being();
+    auto item = v.begin();
     for(; item != v.end(); ++item)
         cout << *item << " ";
     cout << endl;
