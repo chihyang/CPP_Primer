@@ -8,29 +8,26 @@ using std::string;
 using std::vector;
 int main()
 {
+    
+    const vector<string> scores = {"F" ,"E", "D", "C" , "B" , "A", "A++"};
     int grade;
-    const vector<string> scores = {"F", "D", "C", "B", "A", "A++"};
+    
     string lettergrade;
+
     while(cin >> grade)
     {
-        if(grade <= 100 && grade >= 0)
-        {
-            lettergrade = (grade < 60) ? scores[0] : scores[(grade - 50) / 10];
-            if(grade >= 60)
-            {
-                if(grade % 10 > 7)
-                    lettergrade += '+';
-                else if(grade % 10 < 3)
-                    lettergrade += '-';
-                else
-                    ;
-            }
-            cout << lettergrade << endl;
-        }
-        else
-        {
-            cout << "Invalid number." << endl;
-        }
+
+
+        lettergrade = (grade <= 100 && grade >= 0)?  
+                        ((grade > 50)? scores[(grade - 40)/ 10] + 
+                        ((grade% 10 < 3 && grade != 100) ? lettergrade += '-' : 
+                        ((grade%10 > 7)? lettergrade += '+' : lettergrade += " ") )
+                        : scores[0]) :
+                        "Enter valid input";
+
+
+        cout << lettergrade << endl;
+        lettergrade = "";
     }
     return 0;
 }
